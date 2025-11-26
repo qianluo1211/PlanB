@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B4971128-1CF2-F57C-5468-6CC845E93763}</ProjectGuid>
+    <ProjectGuid>{91324F3D-926D-A5D8-6208-B8E0987777A2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>MoreMountains.CorgiEngine</AssemblyName>
@@ -866,6 +866,10 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@b4d700247d4b\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@b4d700247d4b\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
       <Private>False</Private>
@@ -1389,15 +1393,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{F74E5678-8633-5E94-9666-F230EF761756}</Project>
+      <Project>{B295A408-2080-CB13-9818-CFFA08264676}</Project>
       <Name>MoreMountains.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.InventoryEngine.csproj">
-      <Project>{9F9CA004-6C56-BD47-4704-647FB75BF4AE}</Project>
+      <Project>{FD847125-8FC2-5FE0-CC0C-467F5988F447}</Project>
       <Name>MoreMountains.InventoryEngine</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Interface.csproj">
-      <Project>{6673A6CB-3AC5-667A-3C21-48F10CBD7DC0}</Project>
+      <Project>{AC02D201-9540-11A0-8053-C4D714AE27F5}</Project>
       <Name>MoreMountains.Interface</Name>
     </ProjectReference>
   </ItemGroup>

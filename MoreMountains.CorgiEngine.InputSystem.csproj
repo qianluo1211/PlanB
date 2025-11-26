@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7CD279BD-B6FC-980D-ACCA-424EA86B2FDB}</ProjectGuid>
+    <ProjectGuid>{E266D893-859B-54FE-E739-1B27A7F6964E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>MoreMountains.CorgiEngine.InputSystem</AssemblyName>
@@ -573,6 +573,10 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@b4d700247d4b\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d78732e851eb\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
@@ -1084,11 +1088,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{F74E5678-8633-5E94-9666-F230EF761756}</Project>
+      <Project>{B295A408-2080-CB13-9818-CFFA08264676}</Project>
       <Name>MoreMountains.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.CorgiEngine.csproj">
-      <Project>{B4971128-1CF2-F57C-5468-6CC845E93763}</Project>
+      <Project>{91324F3D-926D-A5D8-6208-B8E0987777A2}</Project>
       <Name>MoreMountains.CorgiEngine</Name>
     </ProjectReference>
   </ItemGroup>
