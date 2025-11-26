@@ -1,0 +1,635 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-13412" at "2025-11-26T15:24:56.7485779Z"
+Built from '6000.2/staging' branch; Version is '6000.2.13f1 (abdb44fca7f7) revision 11262788'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'zh' Physical Memory: 32496 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2025-11-26T15:24:56Z
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\6000.2.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+D:/Unity/Project/Plan B
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+60975
+-job-worker-count
+11
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: D:/Unity/Project/Plan B
+D:/Unity/Project/Plan B
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [2444]  Target information:
+
+Player connection [2444]  * "[IP] 172.22.208.1 [Port] 0 [Flags] 2 [Guid] 1281968664 [EditorId] 1281968664 [Version] 1048832 [Id] WindowsEditor(7,qianluo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [2444]  * "[IP] 192.168.1.109 [Port] 0 [Flags] 2 [Guid] 1281968664 [EditorId] 1281968664 [Version] 1048832 [Id] WindowsEditor(7,qianluo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [2444] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [2444] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 11
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+ETC Legacy compression has been deprecated and will be removed in a future release. You can review compressors in "Project Settings > Editor > Texture Compressors".
+Refreshing native plugins compatible for Editor in 4.33 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.2.13f1 (abdb44fca7f7)
+[Subsystems] Discovering subsystems at path D:/Unity/6000.2.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity/Project/Plan B/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4070 Laptop GPU (ID=0x2820)
+    Vendor:   NVIDIA
+    VRAM:     7948 MB
+    Driver:   32.0.15.8129
+Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
+Initialize mono
+Mono path[0] = 'D:/Unity/6000.2.13f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/6000.2.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Unity/6000.2.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56084
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity/6000.2.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001478 seconds.
+- Loaded All Assemblies, in  0.468 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.426 seconds
+Domain Reload Profiling: 894ms
+	BeginReloadAssembly (197ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (166ms)
+		LoadAssemblies (196ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (163ms)
+			TypeCache.Refresh (160ms)
+				TypeCache.ScanAssembly (147ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (426ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (368ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (59ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (80ms)
+			ProcessInitializeOnLoadAttributes (166ms)
+			ProcessInitializeOnLoadMethodAttributes (59ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Begin MonoManager ReloadAssembly
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Error: HandshakeResponse reported an error:
+	ResponseCode: 505
+	ResponseStatus: Unsupported protocol version '1.17.4'.
+[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-13412"
+[Licensing::IpcConnector] LicenseClient-13412 channel disconnected successfully.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-13412-6000.2.13" at "2025-11-26T15:24:59.1452894Z"
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              66d1ea93e35141aa9fc52b2a19047e32
+  Correlation Id:          704a1b572c75b58e2372c1f78eb42687
+  External correlation Id: 498393947890618537
+  Machine Id:              U0VTuk//jB9keMsLmYzySwH5bCg=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-13412-6000.2.13" (connect: 0.00s, validation: 0.00s, handshake: 1.76s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-13412-6000.2.13-notifications" at "2025-11-26T15:25:00.9116188Z"
+[Licensing::Module] Licensing Background thread has ended after 4.16s
+[Licensing::Module] Licensing is initialized (took 1.77s).
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: ewogICJzdWJzR3JvdXAiIDogInVuaXR5IGVkaXRvciIsCiAgIm5hbWVzcGFjZSIgOiAidW5pdHlfZWRpdG9yIiwKICAidHlwZSIgOiAiRURJVE9SIiwKICAidGFnIiA6ICJVbml0eVBlcnNvbmFsXXXX
+  Product: Unity Personal Version
+  Type: Assigned
+  Expiration: Unlimited
+- Loaded All Assemblies, in  2.658 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.34 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.972 seconds
+Domain Reload Profiling: 3628ms
+	BeginReloadAssembly (2019ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (30ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (554ms)
+		LoadAssemblies (441ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (280ms)
+			TypeCache.Refresh (195ms)
+				TypeCache.ScanAssembly (181ms)
+			BuildScriptInfoCaches (60ms)
+			ResolveRequiredComponents (19ms)
+	FinalizeReload (972ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (846ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (155ms)
+			ProcessInitializeOnLoadAttributes (621ms)
+			ProcessInitializeOnLoadMethodAttributes (60ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+ETC Legacy compression has been deprecated and will be removed in a future release. You can review compressors in "Project Settings > Editor > Texture Compressors".
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Shader 'MoreMountains/MMRipple': fallback shader 'Particle/AlphaBlended' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 3.25 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 47 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8406 unused Assets / (9.3 MB). Loaded Objects now: 9003.
+Memory consumption went from 236.9 MB to 227.6 MB.
+Total: 19.097600 ms (FindLiveObjects: 0.958000 ms CreateObjectMapping: 1.249100 ms MarkObjects: 11.384900 ms  DeleteObjects: 5.503600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 487143.403006 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks
+  artifactKey: Guid(f1d747ad1e264ae448f79c0660101e2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks using Guid(f1d747ad1e264ae448f79c0660101e2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '934a5aa5cbd7174768b6d2ca5ddc887e') in 0.0047432 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.115720 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_0.asset
+  artifactKey: Guid(e970e3a9bb9ffcecd1d39f706e07e86a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_0.asset using Guid(e970e3a9bb9ffcecd1d39f706e07e86a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9b4af23541ca43145d718e539cbd90f1') in 0.0859757 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_10.asset
+  artifactKey: Guid(2a5f7a73e36497f23b1a786a7cfe6ffb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_10.asset using Guid(2a5f7a73e36497f23b1a786a7cfe6ffb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '67beb7ae866d99c734861dcfcc51357c') in 0.0675687 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_8.asset
+  artifactKey: Guid(00b9b9da560d5e61dda156b859980dfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_8.asset using Guid(00b9b9da560d5e61dda156b859980dfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a6a4c5edc6ceb416cc8f7a98b3eb9055') in 0.0364222 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_20.asset
+  artifactKey: Guid(fdccf13b1bdd353cf884741e7b97bfa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_20.asset using Guid(fdccf13b1bdd353cf884741e7b97bfa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a513dd47000e7c15cb23ad3b6a8ec027') in 0.0264537 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_26.asset
+  artifactKey: Guid(95b04b538f58a3552c563033c3a1d091) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_26.asset using Guid(95b04b538f58a3552c563033c3a1d091) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'eb17f68f316526e6cb6d0c38020a4e82') in 0.0387979 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_25.asset
+  artifactKey: Guid(57658468b2d43fc20a0efeda470980b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_25.asset using Guid(57658468b2d43fc20a0efeda470980b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'de25882ddd9512749fca26a32fa69a41') in 0.026845 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_16.asset
+  artifactKey: Guid(1bbc74165b490b570819e711a5133582) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_16.asset using Guid(1bbc74165b490b570819e711a5133582) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1631d02b752717a225ee9c005a1c168f') in 0.0215944 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_17.asset
+  artifactKey: Guid(81fc8d603cb50becc37f88f56a4cb5d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroRocks/RetroRocks_17.asset using Guid(81fc8d603cb50becc37f88f56a4cb5d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '591aebc1525a94af80269d88b1bdb0c3') in 0.0178251 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.357433 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave
+  artifactKey: Guid(5bba0d38dd5c6544abbf6786517f1a66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave using Guid(5bba0d38dd5c6544abbf6786517f1a66) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6da04e55296959dcd884f2739f8b3a30') in 0.0005649 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.045098 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_0.asset
+  artifactKey: Guid(df02301338094f8374cb74dda58736fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_0.asset using Guid(df02301338094f8374cb74dda58736fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e1944c16abe4888102bb620a3facc3b1') in 0.0192865 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_34.asset
+  artifactKey: Guid(fd0cad901a6ac19b39230bbc06bbc70f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_34.asset using Guid(fd0cad901a6ac19b39230bbc06bbc70f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3bd9f0f10c52d7c4ad4b3b97be67ada1') in 0.0238 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_10.asset
+  artifactKey: Guid(43e47628a602b41993591a4492374b9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_10.asset using Guid(43e47628a602b41993591a4492374b9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '224cbe88a85d850eba9bf12dce267c80') in 0.0167028 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_24.asset
+  artifactKey: Guid(79d2a989eac5a40d3967cff003482a3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_24.asset using Guid(79d2a989eac5a40d3967cff003482a3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '56152931693b8d34d18b238e40e4890c') in 0.0179603 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_11.asset
+  artifactKey: Guid(30dfb241689e321625f8280186d149aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_11.asset using Guid(30dfb241689e321625f8280186d149aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '240f2a2be380cfa1d8b2db4eddab32eb') in 0.0192917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_38.asset
+  artifactKey: Guid(d5d88b03f82757c7c1d62d3e688b702e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_38.asset using Guid(d5d88b03f82757c7c1d62d3e688b702e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6125bb05c6693c32803d5383d7e70eb1') in 0.0171224 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_9.asset
+  artifactKey: Guid(21f7910254e690c82fac6779c16c6716) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_9.asset using Guid(21f7910254e690c82fac6779c16c6716) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1d781a77daee0ac3ada33b8802d4143c') in 0.0191958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_44.asset
+  artifactKey: Guid(1844928c34a432f696f3ec58337a8b2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Tilemaps/RetroCave/RetroCave_44.asset using Guid(1844928c34a432f696f3ec58337a8b2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0e45226ea748e4c505ff459a2e212631') in 0.0194096 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.531560 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Sprites/RetroPlatforms/RetroBluePlatform.png
+  artifactKey: Guid(f83c201346bd04c9195d099e281283e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Sprites/RetroPlatforms/RetroBluePlatform.png using Guid(f83c201346bd04c9195d099e281283e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '24c0c92432255b7e3f9b375e026b6430') in 0.0939704 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.605849 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Sprites/RetroPlatforms/RetroRedPlatform.png
+  artifactKey: Guid(7781706b908d244c4abf1bf2fe74ce03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Sprites/RetroPlatforms/RetroRedPlatform.png using Guid(7781706b908d244c4abf1bf2fe74ce03) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bad8f6682ab81841b42ed1b53ecaf3e5') in 0.0908681 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.154985 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Materials
+  artifactKey: Guid(c5664bf8b8441479bb2835b20037c9e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Materials using Guid(c5664bf8b8441479bb2835b20037c9e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba44b87ad48dfc4d028be71632ebe05c') in 0.0006008 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.078408 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Materials/RetroBulletMaterial.mat
+  artifactKey: Guid(b9f9febdb9c91ba47b502c29cb2aa5df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Materials/RetroBulletMaterial.mat using Guid(b9f9febdb9c91ba47b502c29cb2aa5df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e5033e9a893501c271a1086b3cf249d8') in 0.0784004 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Materials/RetroWalkMaterial.mat
+  artifactKey: Guid(f5b7ac523bdec1748a0957cb4219b271) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Materials/RetroWalkMaterial.mat using Guid(f5b7ac523bdec1748a0957cb4219b271) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bbe4e76e4199a8dd760bda29604fc350') in 0.0406509 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Materials/RetroForestBackground3.mat
+  artifactKey: Guid(ff731b64942c64e6e9b80c7fac88c335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Materials/RetroForestBackground3.mat using Guid(ff731b64942c64e6e9b80c7fac88c335) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '13456a3e876a25cfda516b4396124d7c') in 0.0453255 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Materials/RetroSmoke4Material.mat
+  artifactKey: Guid(c69f50f4fe2542d40b683da902e124f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Materials/RetroSmoke4Material.mat using Guid(c69f50f4fe2542d40b683da902e124f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7432b4811206bc0843002cebec7d7e81') in 0.0254446 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Materials/RetroExplosion2Material.mat
+  artifactKey: Guid(f65d17c003c690c4ca192aba83fa0cbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Materials/RetroExplosion2Material.mat using Guid(f65d17c003c690c4ca192aba83fa0cbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7a6dddf62d30dbfbefd0a43391164ba5') in 0.0316586 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Materials/RetroMountainsBackground2.mat
+  artifactKey: Guid(9be7b4c5aeaa24de780887ceedb44c97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Materials/RetroMountainsBackground2.mat using Guid(9be7b4c5aeaa24de780887ceedb44c97) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0a7d21b69c603f04dd66d36c8b4f25b6') in 0.0784572 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Materials/RetroSmoke6Material.mat
+  artifactKey: Guid(034a366a6e7559e4b9e3f3d94c200249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Materials/RetroSmoke6Material.mat using Guid(034a366a6e7559e4b9e3f3d94c200249) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd02933539194686e8e725f55c56ab248') in 0.0222022 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.295737 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Lighting
+  artifactKey: Guid(d2b552d6fadb6d14387128b116e1c387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Lighting using Guid(d2b552d6fadb6d14387128b116e1c387) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b957ed444207df90bf328f21cb44cc0b') in 0.0006114 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.099945 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Animations
+  artifactKey: Guid(ce57418fb2d8849c99ed7a05fa44df88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Animations using Guid(ce57418fb2d8849c99ed7a05fa44df88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4c444c49c6bfbf1f21e73feefa2a58f7') in 0.0006432 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.487527 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Animations/RetroAppearingBlockDisappear.anim
+  artifactKey: Guid(5bbf74681f3179e48817d1f248c5d89b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Animations/RetroAppearingBlockDisappear.anim using Guid(5bbf74681f3179e48817d1f248c5d89b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9b27962704a2abf4c07b14526912b8a5') in 0.0013328 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.916720 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Animations/RetroAppearingBlockAppear.anim
+  artifactKey: Guid(3c386ae04f00f0a4892d75ac10eefa62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Animations/RetroAppearingBlockAppear.anim using Guid(3c386ae04f00f0a4892d75ac10eefa62) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f07e668fc621df13d729fcb0d318427a') in 0.0010983 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.474746 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Animations/RetroBossRightGunIdle.anim
+  artifactKey: Guid(8244f4ca1b2bb014a8f877cf780c5658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Animations/RetroBossRightGunIdle.anim using Guid(8244f4ca1b2bb014a8f877cf780c5658) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d25ddf58dbd0d5827671460971f35da') in 0.0011928 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.423712 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Animations/RetroBossRightGunShoot.anim
+  artifactKey: Guid(ee599b5f513449f44873d8f84d482007) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Animations/RetroBossRightGunShoot.anim using Guid(ee599b5f513449f44873d8f84d482007) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'eabd52b6b0d89c8fd52c09b6b3ff89d6') in 0.0011561 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.588427 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Animations/RetroAppearingBlockVisible.anim
+  artifactKey: Guid(4184b3532c0309545a57b72596b016dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Animations/RetroAppearingBlockVisible.anim using Guid(4184b3532c0309545a57b72596b016dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '276b3c353852f14187cc7bbc172166e6') in 0.0011473 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.547668 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs
+  artifactKey: Guid(14966782a19a144499254fc49070f20d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs using Guid(14966782a19a144499254fc49070f20d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2e27df2946b19e243d23ace1af35e139') in 0.0006303 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.637606 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Doors
+  artifactKey: Guid(7c71cefa1d908d040a2e0b6f6e2bac59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Doors using Guid(7c71cefa1d908d040a2e0b6f6e2bac59) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '145c281d43dc84364f2e584c12f7f02d') in 0.0005732 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.053960 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Doors/RetroDoor.prefab
+  artifactKey: Guid(82bb24c4576a8c847ac38bfa6550f716) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Doors/RetroDoor.prefab using Guid(82bb24c4576a8c847ac38bfa6550f716) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd0aa541213a80889056097873887a480') in 0.0648449 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 29
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.961685 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Camera
+  artifactKey: Guid(d92bc2dc58bffde43aebf96e6c282521) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Camera using Guid(d92bc2dc58bffde43aebf96e6c282521) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2a4e0a95cd729a5f85570af45e278cea') in 0.0005906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.038994 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Camera/RetroCameraRig.prefab
+  artifactKey: Guid(5073b7dcd5ffceb4faf9425a426e7170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Camera/RetroCameraRig.prefab using Guid(5073b7dcd5ffceb4faf9425a426e7170) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd0863569678bd38e1c9121734cf72bbb') in 0.0337841 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 124
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.710050 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Backgrounds
+  artifactKey: Guid(7300d6c4321c6b342b9d172c818d5d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Backgrounds using Guid(7300d6c4321c6b342b9d172c818d5d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '92ca153529c5c5c3ebbc146c362120d4') in 0.0005962 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.047173 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Backgrounds/RetroCloudsBackground.prefab
+  artifactKey: Guid(49057eb9cc7fdac459730725cd0c2f84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Backgrounds/RetroCloudsBackground.prefab using Guid(49057eb9cc7fdac459730725cd0c2f84) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd4971ae67ed7a19f7518ebecd2ee0547') in 0.1365006 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 36
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.565228 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies
+  artifactKey: Guid(d854cb3397eed45bf82f5cbfdcb829a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies using Guid(d854cb3397eed45bf82f5cbfdcb829a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '69e2fa14a458acce0caec7de4fd7da4f') in 0.0006472 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.196211 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies/FollowPathRetroBlob.prefab
+  artifactKey: Guid(271785ad4a3328642b6c2354e1e9f696) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies/FollowPathRetroBlob.prefab using Guid(271785ad4a3328642b6c2354e1e9f696) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '819ac097703217dbbee4b34bb64dbcd0') in 0.0884317 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 77
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies/RetroRabbitBoss.prefab
+  artifactKey: Guid(bc28339b89f2a6d40ad9f521e4cd9b05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies/RetroRabbitBoss.prefab using Guid(bc28339b89f2a6d40ad9f521e4cd9b05) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4cc9909d3601646e8c00f85d978ddad9') in 0.0823147 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 297
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies/RetroBlobWalkAndJump.prefab
+  artifactKey: Guid(08b8cb52b3b06044dac491f1226d3ead) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies/RetroBlobWalkAndJump.prefab using Guid(08b8cb52b3b06044dac491f1226d3ead) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7c1c88b772a44337e7bc45a07bdd8f20') in 0.0350701 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 81
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.463909 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/GUI
+  artifactKey: Guid(162462e50c1a25849b5498da49811bb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/GUI using Guid(162462e50c1a25849b5498da49811bb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '22d914ef951e6a32a29de58333416301') in 0.000608 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.055687 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/GUI/RetroUICamera.prefab
+  artifactKey: Guid(96bc7b13f7426664e83ab2c20b22e6c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/GUI/RetroUICamera.prefab using Guid(96bc7b13f7426664e83ab2c20b22e6c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '58adba5ff005723945b7d03fa50f7f87') in 0.0453395 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 634
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.471357 seconds.
+  path: Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies/RetroBlobFlying.prefab
+  artifactKey: Guid(780440eb3cf920b41a06f9e8ffbff9b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CorgiEngine/Demos/Retro/Prefabs/Enemies/RetroBlobFlying.prefab using Guid(780440eb3cf920b41a06f9e8ffbff9b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2b757dc1b0888271ae2f24b00ec8cda9') in 0.0311645 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 79
+

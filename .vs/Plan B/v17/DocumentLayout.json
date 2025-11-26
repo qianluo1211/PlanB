@@ -1,0 +1,129 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Unity\\Project\\Plan B\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4971128-1CF2-F57C-5468-6CC845E93763}|MoreMountains.CorgiEngine.csproj|d:\\unity\\project\\plan b\\assets\\corgiengine\\common\\scripts\\agents\\characterabilities\\characterdive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4971128-1CF2-F57C-5468-6CC845E93763}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\characterabilities\\characterdive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity\\Project\\Plan B\\Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridEditorUtility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridEditorUtility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4971128-1CF2-F57C-5468-6CC845E93763}|MoreMountains.CorgiEngine.csproj|d:\\unity\\project\\plan b\\assets\\corgiengine\\common\\scripts\\agents\\health\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4971128-1CF2-F57C-5468-6CC845E93763}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\health\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4971128-1CF2-F57C-5468-6CC845E93763}|MoreMountains.CorgiEngine.csproj|d:\\unity\\project\\plan b\\assets\\corgiengine\\common\\scripts\\agents\\core\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4971128-1CF2-F57C-5468-6CC845E93763}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\core\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4971128-1CF2-F57C-5468-6CC845E93763}|MoreMountains.CorgiEngine.csproj|d:\\unity\\project\\plan b\\assets\\corgiengine\\common\\scripts\\agents\\characterabilities\\characterhorizontalmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4971128-1CF2-F57C-5468-6CC845E93763}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\characterabilities\\characterhorizontalmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CorgiEngine\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CharacterDive.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\CharacterAbilities\\CharacterDive.cs",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\CharacterAbilities\\CharacterDive.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\CharacterAbilities\\CharacterDive.cs",
+              "RelativeToolTip": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\CharacterAbilities\\CharacterDive.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwCQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T16:56:41.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GridEditorUtility.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridEditorUtility.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridEditorUtility.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridEditorUtility.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridEditorUtility.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwCMAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T16:55:31.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Health.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Health\\Health.cs",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Health\\Health.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Health\\Health.cs",
+              "RelativeToolTip": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Health\\Health.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T16:55:16.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Character.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Core\\Character.cs",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Core\\Character.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Core\\Character.cs",
+              "RelativeToolTip": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Core\\Character.cs",
+              "ViewState": "AgIAAI4DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T16:52:38.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CharacterHorizontalMovement.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\CharacterAbilities\\CharacterHorizontalMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\CharacterAbilities\\CharacterHorizontalMovement.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\CharacterAbilities\\CharacterHorizontalMovement.cs",
+              "RelativeToolTip": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\CharacterAbilities\\CharacterHorizontalMovement.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAowI8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T14:57:08.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "readme.txt",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\readme.txt",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\readme.txt",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\Assets\\CorgiEngine\\readme.txt",
+              "RelativeToolTip": "Assets\\CorgiEngine\\readme.txt",
+              "ViewState": "AgIAADAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-26T14:54:19.353Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
