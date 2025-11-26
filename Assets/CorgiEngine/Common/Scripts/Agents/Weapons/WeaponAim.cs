@@ -528,7 +528,7 @@ namespace MoreMountains.CorgiEngine
 			}
 			if (ReplaceMousePointer)
 			{
-				Cursor.visible = false;
+				//Cursor.visible = false;
 			}
 			else
 			{

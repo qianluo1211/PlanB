@@ -18,14 +18,14 @@ namespace MoreMountains.Tools
 		/// </summary>
 		protected virtual void Update()
 		{
-			if (CursorVisibility == CursorVisibilities.Visible)
-			{
-				Cursor.visible = true;
-			}
-			else
-			{
-				Cursor.visible = false;
-			}
+			//if (CursorVisibility == CursorVisibilities.Visible)
+			//{
+			//	Cursor.visible = true;
+			//}
+			//else
+			//{
+			//	Cursor.visible = false;
+			//}
 		}
 	}
 }

@@ -250,7 +250,7 @@ namespace MoreMountains.Tools
 			else if (Active)
 			{
 				Cursor.lockState = CursorLockMode.Locked;
-				Cursor.visible = false;
+				//Cursor.visible = false;
 			}
 			if (LeftStickContainer != null)
 			{
