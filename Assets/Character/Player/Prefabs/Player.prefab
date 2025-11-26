@@ -4890,7 +4890,7 @@ GameObject:
   - component: {fileID: 5683150900215798491}
   - component: {fileID: 3138931876945488989}
   m_Layer: 9
-  m_Name: RetroCorgi
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
