@@ -1,0 +1,821 @@
+fileFormatVersion: 2
+guid: 27e30865280d4b64aa55da858f8ebe7a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7899535736017793688
+    second: P_BlinkVFX_0
+  - first:
+      213: 7641006738433992626
+    second: P_BlinkVFX_1
+  - first:
+      213: -8298048089350549727
+    second: P_BlinkVFX_2
+  - first:
+      213: 5251820451590064101
+    second: P_BlinkVFX_3
+  - first:
+      213: -6613589881857424553
+    second: P_BlinkVFX_4
+  - first:
+      213: -5084692594365254316
+    second: P_BlinkVFX_5
+  - first:
+      213: -3654874321025400560
+    second: P_BlinkVFX_6
+  - first:
+      213: 4546880107713475352
+    second: P_BlinkVFX_7
+  - first:
+      213: 2655046971130223546
+    second: P_BlinkVFX_8
+  - first:
+      213: 5225426526721273799
+    second: P_BlinkVFX_9
+  - first:
+      213: -5106531159072339487
+    second: P_BlinkVFX_10
+  - first:
+      213: 5328382727385204265
+    second: P_BlinkVFX_11
+  - first:
+      213: 5849089449435004282
+    second: P_BlinkVFX_12
+  - first:
+      213: 5032152205565554971
+    second: P_BlinkVFX_13
+  - first:
+      213: -5626430678158536705
+    second: P_BlinkVFX_14
+  - first:
+      213: 8827921795862538241
+    second: P_BlinkVFX_15
+  - first:
+      213: -1998131123727267062
+    second: P_BlinkVFX_16
+  - first:
+      213: -5398297680252384775
+    second: P_BlinkVFX_17
+  - first:
+      213: 4768058351527212573
+    second: P_BlinkVFX_18
+  - first:
+      213: 898324035989566520
+    second: P_BlinkVFX_19
+  - first:
+      213: 3606402501260006067
+    second: P_BlinkVFX_20
+  - first:
+      213: 562728770358731378
+    second: P_BlinkVFX_21
+  - first:
+      213: 2721160666954252497
+    second: P_BlinkVFX_22
+  - first:
+      213: -4285988974291721622
+    second: P_BlinkVFX_23
+  - first:
+      213: -9113291671247231351
+    second: P_BlinkVFX_24
+  - first:
+      213: 8356801181082067516
+    second: P_BlinkVFX_25
+  - first:
+      213: -3603778388047026826
+    second: P_BlinkVFX_26
+  - first:
+      213: 4850808734807591022
+    second: P_BlinkVFX_27
+  - first:
+      213: -835267352232378847
+    second: P_BlinkVFX_28
+  - first:
+      213: 4871024142028709452
+    second: P_BlinkVFX_29
+  - first:
+      213: 6170378788054411077
+    second: P_BlinkVFX_30
+  - first:
+      213: -6333718681400317563
+    second: P_BlinkVFX_31
+  - first:
+      213: -6820965860727288379
+    second: P_BlinkVFX_32
+  - first:
+      213: 8762561835226501503
+    second: P_BlinkVFX_33
+  - first:
+      213: 4587848840465761003
+    second: P_BlinkVFX_34
+  - first:
+      213: -3622098853275152069
+    second: P_BlinkVFX_35
+  - first:
+      213: 7379919913069509016
+    second: P_BlinkVFX_36
+  - first:
+      213: -3470209172387848989
+    second: P_BlinkVFX_37
+  - first:
+      213: -2198222967602126950
+    second: P_BlinkVFX_38
+  - first:
+      213: 2911502231036064824
+    second: P_BlinkVFX_39
+  - first:
+      213: -7478015393923791653
+    second: P_BlinkVFX_40
+  - first:
+      213: 640970321842931228
+    second: P_BlinkVFX_41
+  - first:
+      213: 7453402855304790923
+    second: P_BlinkVFX_42
+  - first:
+      213: 6584482106121224645
+    second: P_BlinkVFX_43
+  - first:
+      213: -37789802882431001
+    second: P_BlinkVFX_44
+  - first:
+      213: 3349662968877078921
+    second: P_BlinkVFX_45
+  - first:
+      213: 5986063794771268656
+    second: P_BlinkVFX_46
+  - first:
+      213: -5789536600878818709
+    second: P_BlinkVFX_47
+  - first:
+      213: 8555588017200185430
+    second: P_BlinkVFX_48
+  - first:
+      213: 1141957231424270021
+    second: P_BlinkVFX_49
+  - first:
+      213: -4500038814087929824
+    second: P_BlinkVFX_50
+  - first:
+      213: 8377431435988790345
+    second: P_BlinkVFX_51
+  - first:
+      213: 9154252212724570030
+    second: P_BlinkVFX_52
+  - first:
+      213: 6498872399782909509
+    second: P_BlinkVFX_53
+  - first:
+      213: -3067728838229703325
+    second: P_BlinkVFX_54
+  - first:
+      213: 8669114696835352708
+    second: P_BlinkVFX_55
+  - first:
+      213: -8320628777468035451
+    second: P_BlinkVFX_56
+  - first:
+      213: -4905880105664482716
+    second: P_BlinkVFX_57
+  - first:
+      213: 7054388445193284146
+    second: P_BlinkVFX_58
+  - first:
+      213: -4222904361761139276
+    second: P_BlinkVFX_59
+  - first:
+      213: 8141877611120308867
+    second: P_BlinkVFX_60
+  - first:
+      213: -5453321126032085058
+    second: P_BlinkVFX_61
+  - first:
+      213: 3900024685241677747
+    second: P_BlinkVFX_62
+  - first:
+      213: -5169195625367406249
+    second: P_BlinkVFX_63
+  - first:
+      213: -5541395497726878472
+    second: P_BlinkVFX_64
+  - first:
+      213: -4718170142587009052
+    second: P_BlinkVFX_65
+  - first:
+      213: -6180076087617665441
+    second: P_BlinkVFX_66
+  - first:
+      213: -5996190338622556155
+    second: P_BlinkVFX_67
+  - first:
+      213: -8314062881837951873
+    second: P_BlinkVFX_68
+  - first:
+      213: 6026751018472590333
+    second: P_BlinkVFX_69
+  - first:
+      213: 4106062188913553845
+    second: P_BlinkVFX_70
+  - first:
+      213: -1354967307764472800
+    second: P_BlinkVFX_71
+  - first:
+      213: 8705799259300360557
+    second: P_BlinkVFX_72
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: P_BlinkVFX_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89238dbf5e9c0ad60800000000000000
+      internalID: 7899535736017793688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 800
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b769b2152f4a0a60800000000000000
+      internalID: 7641006738433992626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 800
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fc6294a3967dc80800000000000000
+      internalID: -8298048089350549727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 800
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7482910e632e840800000000000000
+      internalID: 5251820451590064101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 800
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75345c1fa0fc734a0800000000000000
+      internalID: -6613589881857424553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455bcc8760b8f69b0800000000000000
+      internalID: -5084692594365254316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 600
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011859c5b27474dc0800000000000000
+      internalID: -3654874321025400560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_7
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 600
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8133d881e53c91f30800000000000000
+      internalID: 4546880107713475352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_8
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 600
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb9138372f98d420800000000000000
+      internalID: 2655046971130223546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_9
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 600
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cfef159db1748840800000000000000
+      internalID: 5225426526721273799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9870567f4f129b0800000000000000
+      internalID: -5106531159072339487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_11
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 400
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9264f1d0cd732f940800000000000000
+      internalID: 5328382727385204265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_12
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 400
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7dfe0d4dd32c2150800000000000000
+      internalID: 5849089449435004282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_13
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 400
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b11fe6cf4cbc5d540800000000000000
+      internalID: 5032152205565554971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_14
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 400
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff000bbb17eae1b0800000000000000
+      internalID: -5626430678158536705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 108a05bd914138a70800000000000000
+      internalID: 8827921795862538241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_16
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 200
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b859b54563544e0800000000000000
+      internalID: -1998131123727267062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_17
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 200
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f9cdb87cd46515b0800000000000000
+      internalID: -5398297680252384775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_18
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 200
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d163d17fecb8b2240800000000000000
+      internalID: 4768058351527212573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_19
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 200
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8347a5283fc777c00800000000000000
+      internalID: 898324035989566520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkVFX_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b2dea4a7f38c0230800000000000000
+      internalID: 3606402501260006067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2f5a9e7cdfad75e4595eb3befdc4729f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":5.0},"gridSpriteSize":{"x":500.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      P_BlinkVFX_0: 7899535736017793688
+      P_BlinkVFX_1: 7641006738433992626
+      P_BlinkVFX_10: -5106531159072339487
+      P_BlinkVFX_11: 5328382727385204265
+      P_BlinkVFX_12: 5849089449435004282
+      P_BlinkVFX_13: 5032152205565554971
+      P_BlinkVFX_14: -5626430678158536705
+      P_BlinkVFX_15: 8827921795862538241
+      P_BlinkVFX_16: -1998131123727267062
+      P_BlinkVFX_17: -5398297680252384775
+      P_BlinkVFX_18: 4768058351527212573
+      P_BlinkVFX_19: 898324035989566520
+      P_BlinkVFX_2: -8298048089350549727
+      P_BlinkVFX_20: 3606402501260006067
+      P_BlinkVFX_3: 5251820451590064101
+      P_BlinkVFX_4: -6613589881857424553
+      P_BlinkVFX_5: -5084692594365254316
+      P_BlinkVFX_6: -3654874321025400560
+      P_BlinkVFX_7: 4546880107713475352
+      P_BlinkVFX_8: 2655046971130223546
+      P_BlinkVFX_9: 5225426526721273799
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
