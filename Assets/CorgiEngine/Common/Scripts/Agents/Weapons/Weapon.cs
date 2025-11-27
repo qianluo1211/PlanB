@@ -600,18 +600,42 @@ namespace MoreMountains.CorgiEngine
 			if (SetForceWhileInUse || PreventHorizontalAirMovementWhileInUse || PreventHorizontalGroundMovementWhileInUse)
 			{
 				// Lock aim direction at the start of attack if using aim direction for force
-				if (UseAimDirectionForForce && _aimableWeapon != null && !_aimDirectionLocked)
+				if (UseAimDirectionForForce && !_aimDirectionLocked)
 				{
-					float aimAngleRad = _aimableWeapon.CurrentAngle * Mathf.Deg2Rad;
-					_lockedAimDirection = new Vector2(Mathf.Cos(aimAngleRad), Mathf.Sin(aimAngleRad));
-					
-					// If character is facing left, flip the direction
-					if (Owner != null && !Owner.IsFacingRight)
+					// Get mouse position directly in world space for accurate direction
+					Camera mainCam = Camera.main;
+					if (mainCam != null)
 					{
-						_lockedAimDirection.x = -_lockedAimDirection.x;
+						Vector3 mouseScreenPos;
+						#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
+						mouseScreenPos = UnityEngine.InputSystem.Mouse.current.position.ReadValue();
+						#else
+						mouseScreenPos = Input.mousePosition;
+						#endif
+						mouseScreenPos.z = Mathf.Abs(mainCam.transform.position.z);
+						
+						Vector3 mouseWorldPos = mainCam.ScreenToWorldPoint(mouseScreenPos);
+						mouseWorldPos.z = transform.position.z;
+						
+						// Calculate true world direction from weapon to mouse
+						_lockedAimDirection = (mouseWorldPos - transform.position).normalized;
+						
+						// Flip character to face mouse direction
+						if (Owner != null)
+						{
+							bool shouldFaceRight = _lockedAimDirection.x >= 0;
+							if (shouldFaceRight && !Owner.IsFacingRight)
+							{
+								Owner.Flip();
+							}
+							else if (!shouldFaceRight && Owner.IsFacingRight)
+							{
+								Owner.Flip();
+							}
+						}
+						
+						_aimDirectionLocked = true;
 					}
-					
-					_aimDirectionLocked = true;
 				}
 				
 				_applyForceWhileInUse = true;
