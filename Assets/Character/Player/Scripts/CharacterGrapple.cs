@@ -7,7 +7,7 @@ namespace MoreMountains.CorgiEngine
     /// <summary>
     /// 钩爪摆荡能力 - 纯手动物理实现
     /// 按住右键发射钩爪并摆荡，松开飞出
-    /// Animator parameters: Swinging (bool), GrappleFiring (bool)
+    /// Animator parameters: Swinging (bool), GrappleFiring (bool), GrappleExiting (bool)
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/Abilities/Character Grapple")]
     public class CharacterGrapple : CharacterAbility
@@ -55,6 +55,9 @@ namespace MoreMountains.CorgiEngine
         
         [Tooltip("最小向上速度")]
         public float MinUpwardBoost = 3f;
+        
+        [Tooltip("退出动画持续时间（秒），之后恢复正常状态")]
+        public float ExitAnimationDuration = 0.5f;
 
         [Header("=== 视觉效果 ===")]
         
@@ -93,10 +96,12 @@ namespace MoreMountains.CorgiEngine
         // === 状态 ===
         public bool IsSwinging => _isSwinging;
         public bool IsFiring => _isFiring;
+        public bool IsExiting => _isExiting;
         
         // 内部状态
         protected bool _isSwinging;
         protected bool _isFiring;
+        protected bool _isExiting;  // 脱钩惯性飞行状态
         protected Vector2 _grapplePoint;
         protected float _ropeLength;
         protected float _currentAngle;
@@ -113,6 +118,9 @@ namespace MoreMountains.CorgiEngine
         // 残影效果
         protected float _afterimageEndTime = 0f;
         
+        // 退出动画计时
+        protected float _exitStartTime = 0f;
+        
         // 缓存
         protected CharacterRun _runAbility;
         protected Vector2 _lastPosition;
@@ -120,8 +128,10 @@ namespace MoreMountains.CorgiEngine
         // 动画参数
         protected const string _swingingParam = "Swinging";
         protected const string _firingParam = "GrappleFiring";
+        protected const string _exitingParam = "GrappleExiting";
         protected int _swingingHash;
         protected int _firingHash;
+        protected int _exitingHash;
 
         #region 初始化
 
@@ -215,10 +225,25 @@ namespace MoreMountains.CorgiEngine
                 ProcessSwing();
             }
             
+            // 处理退出动画状态
+            ProcessExitState();
+            
             // 处理残影效果
             ProcessAfterimage();
             
             UpdateRopeVisual();
+        }
+
+protected virtual void ProcessExitState()
+        {
+            if (!_isExiting) return;
+            
+            // 检查退出动画是否应该结束
+            // 当落地或者超过退出动画时间时结束
+            if (_controller.State.IsGrounded || (Time.time - _exitStartTime) >= ExitAnimationDuration)
+            {
+                _isExiting = false;
+            }
         }
 
         protected virtual void ProcessAfterimage()
@@ -326,6 +351,7 @@ namespace MoreMountains.CorgiEngine
         protected virtual void StartFiring()
         {
             _isFiring = true;
+            _isExiting = false;  // 确保退出状态被清除
             _hookPosition = (Vector2)transform.position + HookOffset;
             
             if (HookPrefab != null)
@@ -383,6 +409,7 @@ namespace MoreMountains.CorgiEngine
         protected virtual void StartSwinging()
         {
             _isSwinging = true;
+            _isExiting = false;  // 确保退出状态被清除
             
             Vector2 toPlayer = (Vector2)transform.position - _grapplePoint;
             _ropeLength = toPlayer.magnitude;
@@ -518,7 +545,7 @@ namespace MoreMountains.CorgiEngine
 
         #region 释放
 
-        protected virtual void Release()
+protected virtual void Release()
         {
             if (_isFiring)
             {
@@ -532,6 +559,10 @@ namespace MoreMountains.CorgiEngine
             
             _isSwinging = false;
             _angularVelocity = 0f;
+            
+            // 启动退出动画状态
+            _isExiting = true;
+            _exitStartTime = Time.time;
             
             _controller.GravityActive(true);
             _controller.SetForce(exitVelocity);
@@ -632,6 +663,8 @@ namespace MoreMountains.CorgiEngine
                 _movement.ChangeState(CharacterStates.MovementStates.Falling);
             }
             
+            _isExiting = false;
+            
             // 停止残影
             if (AfterimageEffect != null)
             {
@@ -665,15 +698,22 @@ namespace MoreMountains.CorgiEngine
 
         protected override void InitializeAnimatorParameters()
         {
-            RegisterAnimatorParameter(_swingingParam, AnimatorControllerParameterType.Bool, out _swingingHash);
+            // 注册动画参数
+            // GrappleFiring: 钩爪正在发射（飞行中，还没命中）
+            // Swinging: 角色正在摆荡中
+            // GrappleExiting: 脱钩后惯性飞行状态
             RegisterAnimatorParameter(_firingParam, AnimatorControllerParameterType.Bool, out _firingHash);
+            RegisterAnimatorParameter(_swingingParam, AnimatorControllerParameterType.Bool, out _swingingHash);
+            RegisterAnimatorParameter(_exitingParam, AnimatorControllerParameterType.Bool, out _exitingHash);
         }
 
         public override void UpdateAnimator()
         {
+            MMAnimatorExtensions.UpdateAnimatorBool(_animator, _firingHash, _isFiring, 
+                _character._animatorParameters, _character.PerformAnimatorSanityChecks);
             MMAnimatorExtensions.UpdateAnimatorBool(_animator, _swingingHash, _isSwinging, 
                 _character._animatorParameters, _character.PerformAnimatorSanityChecks);
-            MMAnimatorExtensions.UpdateAnimatorBool(_animator, _firingHash, _isFiring, 
+            MMAnimatorExtensions.UpdateAnimatorBool(_animator, _exitingHash, _isExiting, 
                 _character._animatorParameters, _character.PerformAnimatorSanityChecks);
         }
 
