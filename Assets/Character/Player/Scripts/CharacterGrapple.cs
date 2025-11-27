@@ -73,6 +73,17 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("钩爪发射偏移")]
         public Vector2 HookOffset = new Vector2(0.3f, 0.3f);
 
+        [Header("=== 残影效果 ===")]
+        
+        [Tooltip("加速时启用残影效果")]
+        public bool EnableAfterimageOnBoost = true;
+        
+        [Tooltip("残影持续时间（秒）")]
+        public float AfterimageEffectDuration = 0.3f;
+        
+        [Tooltip("残影组件引用（留空自动查找/创建）")]
+        public AfterimageEffect AfterimageEffect;
+
         [Header("=== 反馈 ===")]
         public MMFeedbacks FireFeedback;
         public MMFeedbacks HitFeedback;
@@ -99,6 +110,9 @@ namespace MoreMountains.CorgiEngine
         // 加速CD
         protected float _lastBoostTime = -999f;
         
+        // 残影效果
+        protected float _afterimageEndTime = 0f;
+        
         // 缓存
         protected CharacterRun _runAbility;
         protected Vector2 _lastPosition;
@@ -116,6 +130,7 @@ namespace MoreMountains.CorgiEngine
             base.Initialization();
             _runAbility = _character?.FindAbility<CharacterRun>();
             SetupRope();
+            SetupAfterimage();
         }
 
         protected virtual void SetupRope()
@@ -135,6 +150,29 @@ namespace MoreMountains.CorgiEngine
             RopeRenderer.endColor = RopeColor;
             RopeRenderer.sortingOrder = 100;
             RopeRenderer.enabled = false;
+        }
+
+        protected virtual void SetupAfterimage()
+        {
+            if (!EnableAfterimageOnBoost) return;
+            
+            // 查找或创建残影组件
+            if (AfterimageEffect == null)
+            {
+                AfterimageEffect = GetComponent<AfterimageEffect>();
+                
+                if (AfterimageEffect == null)
+                {
+                    AfterimageEffect = gameObject.AddComponent<AfterimageEffect>();
+                }
+            }
+            
+            // 配置残影参数
+            AfterimageEffect.EffectEnabled = true;
+            AfterimageEffect.SpawnInterval = 0.04f;
+            AfterimageEffect.FadeDuration = 0.25f;
+            AfterimageEffect.InitialAlpha = 0.6f;
+            AfterimageEffect.TintColor = new Color(0.4f, 0.7f, 1f, 1f);
         }
 
         #endregion
@@ -177,7 +215,21 @@ namespace MoreMountains.CorgiEngine
                 ProcessSwing();
             }
             
+            // 处理残影效果
+            ProcessAfterimage();
+            
             UpdateRopeVisual();
+        }
+
+        protected virtual void ProcessAfterimage()
+        {
+            if (AfterimageEffect == null) return;
+            
+            // 检查残影效果是否应该结束
+            if (Time.time >= _afterimageEndTime)
+            {
+                AfterimageEffect.StopEffect();
+            }
         }
 
         #endregion
@@ -373,6 +425,9 @@ namespace MoreMountains.CorgiEngine
                 
                 _lastBoostTime = Time.time;
                 BoostFeedback?.PlayFeedbacks(transform.position);
+                
+                // 触发残影效果
+                TriggerAfterimage();
             }
             
             // === 3. 更新角速度 ===
@@ -448,6 +503,17 @@ namespace MoreMountains.CorgiEngine
             _lastPosition = newPos;
         }
 
+        /// <summary>
+        /// 触发残影效果
+        /// </summary>
+        protected virtual void TriggerAfterimage()
+        {
+            if (!EnableAfterimageOnBoost || AfterimageEffect == null) return;
+            
+            AfterimageEffect.StartEffect();
+            _afterimageEndTime = Time.time + AfterimageEffectDuration;
+        }
+
         #endregion
 
         #region 释放
@@ -471,6 +537,12 @@ namespace MoreMountains.CorgiEngine
             _controller.SetForce(exitVelocity);
             
             _movement.ChangeState(CharacterStates.MovementStates.Falling);
+            
+            // 停止残影
+            if (AfterimageEffect != null)
+            {
+                AfterimageEffect.StopEffect();
+            }
             
             CleanupVisuals();
             
@@ -558,6 +630,12 @@ namespace MoreMountains.CorgiEngine
                 _isSwinging = false;
                 _controller.GravityActive(true);
                 _movement.ChangeState(CharacterStates.MovementStates.Falling);
+            }
+            
+            // 停止残影
+            if (AfterimageEffect != null)
+            {
+                AfterimageEffect.StopEffect();
             }
             
             CleanupVisuals();
