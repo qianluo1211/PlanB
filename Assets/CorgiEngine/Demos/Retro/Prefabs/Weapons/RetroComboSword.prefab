@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 114066937058401760}
   - component: {fileID: 114246937138071502}
   - component: {fileID: 114032460549813266}
+  - component: {fileID: 415388458121016469}
   - component: {fileID: 114169761508843964}
   m_Layer: 0
   m_Name: RetroComboSword
@@ -82,7 +83,9 @@ MonoBehaviour:
   PreventHorizontalGroundMovementWhileInUse: 0
   PreventHorizontalAirMovementWhileInUse: 0
   SetForceWhileInUse: 1
-  ForceWhileInUse: {x: 4, y: 0}
+  ForceWhileInUse: {x: 0, y: 0}
+  UseAimDirectionForForce: 1
+  AimDirectionForceMagnitude: 10
   DisableGravityWhileInUse: 0
   PreventFlipWhileInUse: 0
   Animators: []
@@ -217,7 +220,9 @@ MonoBehaviour:
   PreventHorizontalGroundMovementWhileInUse: 0
   PreventHorizontalAirMovementWhileInUse: 0
   SetForceWhileInUse: 1
-  ForceWhileInUse: {x: 4, y: 0}
+  ForceWhileInUse: {x: 0, y: 0}
+  UseAimDirectionForForce: 1
+  AimDirectionForceMagnitude: 10
   DisableGravityWhileInUse: 0
   PreventFlipWhileInUse: 0
   Animators: []
@@ -352,7 +357,9 @@ MonoBehaviour:
   PreventHorizontalGroundMovementWhileInUse: 0
   PreventHorizontalAirMovementWhileInUse: 0
   SetForceWhileInUse: 1
-  ForceWhileInUse: {x: 4, y: 0}
+  ForceWhileInUse: {x: 0, y: 0}
+  UseAimDirectionForForce: 1
+  AimDirectionForceMagnitude: 10
   DisableGravityWhileInUse: 0
   PreventFlipWhileInUse: 0
   Animators: []
@@ -443,6 +450,35 @@ MonoBehaviour:
   Knockback: 0
   KnockbackForce: {x: 10, y: 2}
   InvincibilityDuration: 0.5
+--- !u!114 &415388458121016469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987079591012776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0514d297deadac74fb15a7b7326ff0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.CorgiEngine::MoreMountains.CorgiEngine.WeaponAim
+  AimControl: 3
+  RotationMode: 0
+  WeaponRotationSpeed: 1
+  InstantFlip: 1
+  PreventAimWhileWeaponIsInUse: 0
+  MinimumAngle: -180
+  MaximumAngle: 180
+  IgnoreSlopeRotation: 0
+  IgnoreDownWhenGrounded: 0
+  Reticle: {fileID: 0}
+  DisplayReticle: 1
+  ReticleDistance: 0
+  ReticleZPosition: 0
+  ReticleAtMousePosition: 0
+  RotateReticle: 0
+  ReplaceMousePointer: 1
+  DisableReticleOnDeath: 1
 --- !u!114 &114169761508843964
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -177,6 +177,15 @@ namespace MoreMountains.CorgiEngine
 		[MMCondition("SetForceWhileInUse", true)]
 		[Tooltip("the force to apply when the weapon is in use, if SetForceWhileInUse is true")]
 		public Vector2 ForceWhileInUse =  Vector2.zero;
+		/// if this is true, the force direction will follow the weapon's aim direction (from WeaponAim component) instead of just character facing direction
+		[Tooltip("if this is true, the force direction will follow the weapon's aim direction (from WeaponAim component) instead of just character facing direction")]
+		[MMCondition("SetForceWhileInUse", true)]
+		public bool UseAimDirectionForForce = false;
+		/// the force magnitude when using aim direction (the direction will be normalized and multiplied by this value)
+		[Tooltip("the force magnitude when using aim direction (the direction will be normalized and multiplied by this value)")]
+		[MMCondition("UseAimDirectionForForce", true)]
+		public float AimDirectionForceMagnitude = 10f;
+
 		/// whether or not to disable gravity while the weapon is in use
 		[Tooltip("whether or not to disable gravity while the weapon is in use")]
 		public bool DisableGravityWhileInUse = false;
@@ -351,6 +360,9 @@ namespace MoreMountains.CorgiEngine
 		protected bool _initialized = false;
 		protected bool _applyForceWhileInUse = false;
 		protected Vector2 _forceWhileInUse;
+		protected Vector2 _lockedAimDirection;
+		protected bool _aimDirectionLocked = false;
+
 		protected bool _movementMultiplierNeedsResetting = false;
 
 		// animation parameter
@@ -587,6 +599,21 @@ namespace MoreMountains.CorgiEngine
 			}
 			if (SetForceWhileInUse || PreventHorizontalAirMovementWhileInUse || PreventHorizontalGroundMovementWhileInUse)
 			{
+				// Lock aim direction at the start of attack if using aim direction for force
+				if (UseAimDirectionForForce && _aimableWeapon != null && !_aimDirectionLocked)
+				{
+					float aimAngleRad = _aimableWeapon.CurrentAngle * Mathf.Deg2Rad;
+					_lockedAimDirection = new Vector2(Mathf.Cos(aimAngleRad), Mathf.Sin(aimAngleRad));
+					
+					// If character is facing left, flip the direction
+					if (Owner != null && !Owner.IsFacingRight)
+					{
+						_lockedAimDirection.x = -_lockedAimDirection.x;
+					}
+					
+					_aimDirectionLocked = true;
+				}
+				
 				_applyForceWhileInUse = true;
 				StartCoroutine(ApplyForceWhileInUseCo());
 			}
@@ -655,6 +682,8 @@ namespace MoreMountains.CorgiEngine
 			if (SetForceWhileInUse || PreventHorizontalAirMovementWhileInUse || PreventHorizontalGroundMovementWhileInUse)
 			{
 				_applyForceWhileInUse = false;
+				// Unlock aim direction so next attack can capture a new direction
+				_aimDirectionLocked = false;
 			}
 		}
 
@@ -681,13 +710,23 @@ namespace MoreMountains.CorgiEngine
 
 				if (SetForceWhileInUse)
 				{
-					_forceWhileInUse = ForceWhileInUse;
-			        
-					if (Owner != null)
+					// Check if we should use aim direction for force
+					if (UseAimDirectionForForce && _aimDirectionLocked)
 					{
-						_forceWhileInUse.x = Owner.IsFacingRight ? _forceWhileInUse.x : -_forceWhileInUse.x;
+						// Use the locked aim direction (captured at attack start)
+						_forceWhileInUse = _lockedAimDirection.normalized * AimDirectionForceMagnitude;
 					}
-		        
+					else
+					{
+						// Original behavior: just flip X based on facing direction
+						_forceWhileInUse = ForceWhileInUse;
+						
+						if (Owner != null)
+						{
+							_forceWhileInUse.x = Owner.IsFacingRight ? _forceWhileInUse.x : -_forceWhileInUse.x;
+						}
+					}
+					
 					_controller.SetForce(_forceWhileInUse);
 				}
 				
