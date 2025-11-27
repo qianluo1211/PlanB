@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "D:\\Unity\\Project\\Plan B\\PlanB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|d:\\unity\\project\\plan b\\planb\\assets\\corgiengine\\common\\scripts\\agents\\weapons\\comboweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|d:\\unity\\project\\plan b\\planb\\assets\\corgiengine\\common\\scripts\\agents\\weapons\\weaponaim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\weapons\\weaponaim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|D:\\Unity\\Project\\Plan B\\PlanB\\assets\\corgiengine\\common\\scripts\\agents\\weapons\\meleeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\weapons\\meleeweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|D:\\Unity\\Project\\Plan B\\PlanB\\assets\\corgiengine\\common\\scripts\\agents\\weapons\\comboweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\weapons\\comboweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -27,6 +35,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "WeaponAim.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
+              "RelativeToolTip": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T00:19:18.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MeleeWeapon.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
+              "RelativeToolTip": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
+              "ViewState": "AgIAAFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T00:02:07.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ComboWeapon.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
@@ -34,8 +67,7 @@
               "RelativeToolTip": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAADwvxEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T19:40:05.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-26T19:40:05.332Z"
             }
           ]
         }

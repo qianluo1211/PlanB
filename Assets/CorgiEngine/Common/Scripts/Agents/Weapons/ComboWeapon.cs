@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using MoreMountains.Tools;
 using System.Collections.Generic;
@@ -19,6 +19,23 @@ namespace MoreMountains.CorgiEngine
 		/// the delay after which the combo drops
 		[Tooltip("the delay after which the combo drops")]
 		public float DropComboDelay = 0.5f;
+
+		[Header("Kill Based Combo")]
+		
+		/// if true, the combo can only continue to the next weapon if the player killed an enemy
+		[Tooltip("if true, the combo can only continue to the next weapon if the player killed an enemy")]
+		public bool RequireKillToContinueCombo = false;
+		
+		/// the cooldown duration (in seconds) to apply if no kill was made during the attack
+		[Tooltip("the cooldown duration (in seconds) to apply if no kill was made during the attack")]
+		[MMCondition("RequireKillToContinueCombo", true)]
+		public float NoKillCooldownDuration = 3f;
+		
+		/// if true, hitting a damageable (but not killing) also allows combo to continue
+		[Tooltip("if true, hitting a damageable (but not killing) also allows combo to continue")]
+		[MMCondition("RequireKillToContinueCombo", true)]
+		public bool AllowComboOnHitDamageable = false;
+
 
 		[Header("Animation")]
 
@@ -63,6 +80,11 @@ namespace MoreMountains.CorgiEngine
 
 		protected int _currentWeaponIndex = 0;
 		protected bool _countdownActive = false;
+		protected bool _killRegisteredThisAttack = false;
+		protected bool _hitDamageableRegisteredThisAttack = false;
+		protected bool _inCooldownPenalty = false;
+		protected float _cooldownPenaltyStartTime = 0f;
+
 
 		/// <summary>
 		/// On start we initialize our Combo Weapon
@@ -82,10 +104,88 @@ namespace MoreMountains.CorgiEngine
 		}
 
 		/// <summary>
+		/// Called when a kill is registered from one of the weapons
+		/// </summary>
+		public virtual void OnKillRegistered()
+		{
+			_killRegisteredThisAttack = true;
+		}
+
+		/// <summary>
+		/// Called when a hit on a damageable is registered from one of the weapons
+		/// </summary>
+		public virtual void OnHitDamageableRegistered()
+		{
+			_hitDamageableRegisteredThisAttack = true;
+		}
+
+		/// <summary>
+		/// Applies a cooldown penalty when no kill was made, blocking all attacks for NoKillCooldownDuration
+		/// </summary>
+		protected virtual void ApplyCooldownPenalty()
+		{
+			_inCooldownPenalty = true;
+			_cooldownPenaltyStartTime = Time.time;
+			_countdownActive = false;
+			
+			// Disable all weapons during cooldown
+			foreach (Weapon weapon in Weapons)
+			{
+				weapon.enabled = false;
+			}
+			
+			// Reset to first weapon
+			_currentWeaponIndex = 0;
+		}
+
+		/// <summary>
+		/// Checks if cooldown penalty has expired and re-enables the first weapon
+		/// </summary>
+		protected virtual void HandleCooldownPenalty()
+		{
+			if (_inCooldownPenalty)
+			{
+				if (Time.time - _cooldownPenaltyStartTime >= NoKillCooldownDuration)
+				{
+					_inCooldownPenalty = false;
+					// Re-enable the first weapon after cooldown
+					Weapons[0].enabled = true;
+					if (OwnerCharacterHandleWeapon != null)
+					{
+						OwnerCharacterHandleWeapon.CurrentWeapon = Weapons[0];
+						OwnerCharacterHandleWeapon.ChangeWeapon(Weapons[0], Weapons[0].WeaponID, true);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Returns whether the weapon is currently in cooldown penalty
+		/// </summary>
+		public virtual bool InCooldownPenalty()
+		{
+			return _inCooldownPenalty;
+		}
+
+		/// <summary>
+		/// Returns the remaining cooldown penalty time
+		/// </summary>
+		public virtual float GetRemainingCooldownPenalty()
+		{
+			if (!_inCooldownPenalty) return 0f;
+			return Mathf.Max(0f, NoKillCooldownDuration - (Time.time - _cooldownPenaltyStartTime));
+		}
+
+
+		/// <summary>
 		/// On Update we reset our combo if needed
+		/// </summary>
+/// <summary>
+		/// On Update we reset our combo if needed and handle cooldown penalty
 		/// </summary>
 		protected virtual void Update()
 		{
+			HandleCooldownPenalty();
 			ResetCombo();
 		}
 
@@ -116,13 +216,25 @@ namespace MoreMountains.CorgiEngine
 		/// When one of the weapons get used we turn our countdown off
 		/// </summary>
 		/// <param name="weaponThatStarted"></param>
+/// <summary>
+		/// When one of the weapons get used we turn our countdown off and reset kill tracking
+		/// </summary>
+		/// <param name="weaponThatStarted"></param>
 		public virtual void WeaponStarted(Weapon weaponThatStarted)
 		{
 			_countdownActive = false;
+			// Reset kill tracking for this attack
+			_killRegisteredThisAttack = false;
+			_hitDamageableRegisteredThisAttack = false;
 		}
 
 		/// <summary>
 		/// When one of the weapons has ended its attack, we start our countdown and switch to the next weapon
+		/// </summary>
+		/// <param name="weaponThatStopped"></param>
+/// <summary>
+		/// When one of the weapons has ended its attack, we start our countdown and switch to the next weapon
+		/// If RequireKillToContinueCombo is enabled, we check if a kill was made before allowing combo to continue
 		/// </summary>
 		/// <param name="weaponThatStopped"></param>
 		public virtual void WeaponStopped(Weapon weaponThatStopped)
@@ -134,6 +246,19 @@ namespace MoreMountains.CorgiEngine
 			{
 				if (Weapons.Length > 1)
 				{
+					// Check if we should block combo due to no kill
+					if (RequireKillToContinueCombo)
+					{
+						bool canContinue = _killRegisteredThisAttack || (AllowComboOnHitDamageable && _hitDamageableRegisteredThisAttack);
+						
+						if (!canContinue)
+						{
+							// Block combo and apply cooldown penalty
+							ApplyCooldownPenalty();
+							return;
+						}
+					}
+					
 					if (_currentWeaponIndex < Weapons.Length-1)
 					{
 						newIndex = _currentWeaponIndex + 1;

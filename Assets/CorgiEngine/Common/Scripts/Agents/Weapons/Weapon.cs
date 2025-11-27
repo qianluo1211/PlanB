@@ -1508,6 +1508,12 @@ namespace MoreMountains.CorgiEngine
 		{
 			TriggerWeaponOnHitDamageableFeedback();
 			ApplyRecoil(ApplyRecoilOnHitDamageable, RecoilOnHitDamageableProperties);
+			
+			// Notify ComboWeapon about the hit
+			if (_comboWeapon != null)
+			{
+				_comboWeapon.OnHitDamageableRegistered();
+			}
 		}
 		public virtual void WeaponHitNonDamageable()
 		{
@@ -1524,7 +1530,13 @@ namespace MoreMountains.CorgiEngine
 		public virtual void WeaponKill()
 		{
 			TriggerWeaponOnKillFeedback();
-			ApplyRecoil(ApplyRecoilOnKill, RecoilOnKillProperties);   
+			ApplyRecoil(ApplyRecoilOnKill, RecoilOnKillProperties);
+			
+			// Notify ComboWeapon about the kill
+			if (_comboWeapon != null)
+			{
+				_comboWeapon.OnKillRegistered();
+			}
 		}
 
 		protected virtual void OnDisable()

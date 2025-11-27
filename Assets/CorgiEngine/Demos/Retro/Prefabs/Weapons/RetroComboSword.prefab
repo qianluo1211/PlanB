@@ -222,7 +222,7 @@ MonoBehaviour:
   SetForceWhileInUse: 1
   ForceWhileInUse: {x: 0, y: 0}
   UseAimDirectionForForce: 1
-  AimDirectionForceMagnitude: 10
+  AimDirectionForceMagnitude: 15
   DisableGravityWhileInUse: 0
   PreventFlipWhileInUse: 0
   Animators: []
@@ -493,6 +493,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DroppableCombo: 1
   DropComboDelay: 0.5
+  RequireKillToContinueCombo: 1
+  NoKillCooldownDuration: 3
+  AllowComboOnHitDamageable: 0
   ComboInProgressAnimationParameter: ComboInProgress
   Weapons: []
   OwnerCharacterHandleWeapon: {fileID: 0}
