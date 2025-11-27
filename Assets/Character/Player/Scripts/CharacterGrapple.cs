@@ -749,7 +749,7 @@ protected virtual void Release()
             StopStartFeedbacks();
             PlayAbilityStopFeedbacks();
             
-            Debug.Log($"[Grapple] Released! Exit velocity: {_exitVelocity}, speed: {_exitVelocity.magnitude}");
+            //Debug.Log($"[Grapple] Released! Exit velocity: {_exitVelocity}, speed: {_exitVelocity.magnitude}");
         }
 
         protected virtual Vector2 CalculateExitVelocity()

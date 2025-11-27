@@ -4922,6 +4922,7 @@ GameObject:
   - component: {fileID: 5683150900215798491}
   - component: {fileID: 3138931876945488989}
   - component: {fileID: 2254312604447199404}
+  - component: {fileID: 1206889361104690723}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -5975,6 +5976,32 @@ MonoBehaviour:
   MissFeedback: {fileID: 0}
   ReleaseFeedback: {fileID: 0}
   BoostFeedback: {fileID: 0}
+--- !u!114 &1206889361104690723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383539409296422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdb0d1ef04820546a6915fc1a71a315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.HealthDrainAndKillRecover
+  EnableHealthDrain: 1
+  HealthDrainPerSecond: 2
+  DrainInterval: 1
+  MinHealthPercentageToStopDrain: 0
+  EnableKillRecovery: 1
+  HealthRecoverOnKill: 50
+  HealthRecoverOnBossKill: 50
+  BossLayerName: Boss
+  DrainFeedbacks: {fileID: 0}
+  RecoverFeedbacks: {fileID: 0}
+  EnableDebugLog: 0
+  TimeSinceLastDrain: 0
+  TotalKills: 0
+  TotalHealthRecovered: 0
 --- !u!1 &1693914667617252
 GameObject:
   m_ObjectHideFlags: 0
