@@ -5950,8 +5950,8 @@ MonoBehaviour:
   HookTravelSpeed: 40
   GrappleSearchAngle: 60
   SwingGravity: 25
-  SwingAcceleration: 8
-  BoostMultiplier: 5
+  BoostImpulse: 25
+  BoostCooldown: 0.4
   MaxAngularVelocity: 12
   SwingDamping: 0.3
   ExitVelocityMultiplier: 1.1
@@ -5965,6 +5965,7 @@ MonoBehaviour:
   FireFeedback: {fileID: 0}
   HitFeedback: {fileID: 0}
   ReleaseFeedback: {fileID: 0}
+  BoostFeedback: {fileID: 0}
 --- !u!1 &1693914667617252
 GameObject:
   m_ObjectHideFlags: 0

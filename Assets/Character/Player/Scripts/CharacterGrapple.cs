@@ -12,7 +12,7 @@ namespace MoreMountains.CorgiEngine
     [AddComponentMenu("Corgi Engine/Character/Abilities/Character Grapple")]
     public class CharacterGrapple : CharacterAbility
     {
-        public override string HelpBoxText() { return "钩爪摆荡能力。按住右键发射钩爪，命中后开始摆荡，方向键+Shift加速，松开飞出。"; }
+        public override string HelpBoxText() { return "钩爪摆荡能力。按住右键发射钩爪，命中后开始摆荡，Shift+方向键加速（有CD），松开飞出。"; }
 
         [Header("=== 钩爪设置 ===")]
         
@@ -33,11 +33,11 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("摆荡重力强度")]
         public float SwingGravity = 25f;
         
-        [Tooltip("方向键加速力")]
-        public float SwingAcceleration = 8f;
+        [Tooltip("加速冲击力")]
+        public float BoostImpulse = 5f;
         
-        [Tooltip("Shift加速倍率")]
-        public float BoostMultiplier = 2.5f;
+        [Tooltip("加速冷却时间（秒）")]
+        public float BoostCooldown = 0.4f;
         
         [Tooltip("最大角速度（弧度/秒）")]
         public float MaxAngularVelocity = 12f;
@@ -77,6 +77,7 @@ namespace MoreMountains.CorgiEngine
         public MMFeedbacks FireFeedback;
         public MMFeedbacks HitFeedback;
         public MMFeedbacks ReleaseFeedback;
+        public MMFeedbacks BoostFeedback;
 
         // === 状态 ===
         public bool IsSwinging => _isSwinging;
@@ -87,13 +88,16 @@ namespace MoreMountains.CorgiEngine
         protected bool _isFiring;
         protected Vector2 _grapplePoint;
         protected float _ropeLength;
-        protected float _currentAngle;      // 弧度，0 = 正下方
-        protected float _angularVelocity;   // 弧度/秒
+        protected float _currentAngle;
+        protected float _angularVelocity;
         
         // 钩爪飞行
         protected Vector2 _hookPosition;
         protected Vector2 _hookTarget;
         protected GameObject _hookInstance;
+        
+        // 加速CD
+        protected float _lastBoostTime = -999f;
         
         // 缓存
         protected CharacterRun _runAbility;
@@ -141,13 +145,11 @@ namespace MoreMountains.CorgiEngine
         {
             if (_inputManager == null) return;
             
-            // 右键按下 - 发射钩爪
             if (_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
             {
                 TryFireGrapple();
             }
             
-            // 右键松开 - 释放
             if (_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonUp)
             {
                 if (_isSwinging || _isFiring)
@@ -186,13 +188,11 @@ namespace MoreMountains.CorgiEngine
         {
             if (!AbilityAuthorized || _isSwinging || _isFiring) return;
             
-            // 不能在某些状态下使用
             if (_movement.CurrentState == CharacterStates.MovementStates.Gripping ||
                 _movement.CurrentState == CharacterStates.MovementStates.LedgeHanging ||
                 _movement.CurrentState == CharacterStates.MovementStates.Dashing)
                 return;
             
-            // 寻找钩点
             Vector2 aimDir = GetAimDirection();
             Vector2? target = FindGrappleTarget(aimDir);
             
@@ -203,9 +203,8 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-protected virtual Vector2 GetAimDirection()
+        protected virtual Vector2 GetAimDirection()
         {
-            // 获取鼠标世界坐标
             Vector3 mouseScreenPos = Input.mousePosition;
             Camera cam = Camera.main;
             
@@ -222,7 +221,6 @@ protected virtual Vector2 GetAimDirection()
                 }
             }
             
-            // 备用：使用面朝方向
             float facing = _character.IsFacingRight ? 1f : -1f;
             return new Vector2(facing * 0.6f, 0.8f).normalized;
         }
@@ -231,7 +229,6 @@ protected virtual Vector2 GetAimDirection()
         {
             Vector2 origin = (Vector2)transform.position + HookOffset;
             
-            // 在锥形范围内发射多条射线
             int rayCount = 7;
             float halfAngle = GrappleSearchAngle * 0.5f;
             
@@ -246,13 +243,11 @@ protected virtual Vector2 GetAimDirection()
                 
                 RaycastHit2D hit = Physics2D.Raycast(origin, rayDir, MaxGrappleDistance, GrappleLayerMask);
                 
-                // Debug显示
                 Color debugColor = hit.collider != null ? Color.green : Color.red;
                 Debug.DrawRay(origin, rayDir * MaxGrappleDistance, debugColor, 0.3f);
                 
                 if (hit.collider != null)
                 {
-                    // 评分：优先选择正对方向且距离适中的点
                     float angleScore = Mathf.Abs(angle) / halfAngle;
                     float distScore = hit.distance / MaxGrappleDistance;
                     float score = angleScore * 0.4f + distScore * 0.6f;
@@ -281,7 +276,6 @@ protected virtual Vector2 GetAimDirection()
             _isFiring = true;
             _hookPosition = (Vector2)transform.position + HookOffset;
             
-            // 生成钩爪视觉
             if (HookPrefab != null)
             {
                 _hookInstance = Instantiate(HookPrefab, _hookPosition, Quaternion.identity);
@@ -296,14 +290,12 @@ protected virtual Vector2 GetAimDirection()
 
         protected virtual void ProcessHookFlight()
         {
-            // 移动钩爪
             Vector2 dir = (_hookTarget - _hookPosition).normalized;
             float dist = Vector2.Distance(_hookPosition, _hookTarget);
             float moveDist = HookTravelSpeed * Time.deltaTime;
             
             if (moveDist >= dist)
             {
-                // 到达目标
                 _hookPosition = _hookTarget;
                 OnHookHit();
             }
@@ -323,7 +315,6 @@ protected virtual Vector2 GetAimDirection()
             _isFiring = false;
             _grapplePoint = _hookTarget;
             
-            // 销毁或隐藏钩爪
             if (_hookInstance != null)
             {
                 _hookInstance.transform.position = _grapplePoint;
@@ -341,60 +332,61 @@ protected virtual Vector2 GetAimDirection()
         {
             _isSwinging = true;
             
-            // 计算初始状态
             Vector2 toPlayer = (Vector2)transform.position - _grapplePoint;
             _ropeLength = toPlayer.magnitude;
-            
-            // 角度：0 = 正下方，正值 = 右侧，负值 = 左侧
             _currentAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
             
-            // 将当前速度转换为角速度
             Vector2 currentVel = _controller.Speed;
             Vector2 tangent = new Vector2(-toPlayer.y, toPlayer.x).normalized;
             float tangentSpeed = Vector2.Dot(currentVel, tangent);
             _angularVelocity = tangentSpeed / _ropeLength;
             
-            // 改变状态
             _movement.ChangeState(CharacterStates.MovementStates.Swinging);
-            
-            // 禁用重力（我们手动处理）
             _controller.GravityActive(false);
             
             _lastPosition = transform.position;
+            _lastBoostTime = -999f;
         }
 
-protected virtual void ProcessSwing()
+        protected virtual void ProcessSwing()
         {
-            // === 1. 计算重力引起的角加速度 ===
+            // === 1. 重力 ===
             float gravityAccel = -(SwingGravity / _ropeLength) * Mathf.Sin(_currentAngle);
             
-            // === 2. 玩家输入加速 ===
-            float inputAccel = 0f;
-            if (Mathf.Abs(_horizontalInput) > 0.1f)
+            // === 2. 加速输入（Shift+方向键，按一下给冲击，有CD） ===
+            bool shiftDown = _inputManager.RunButton.State.CurrentState == MMInput.ButtonStates.ButtonDown;
+            bool canBoost = (Time.time - _lastBoostTime) >= BoostCooldown;
+            
+            if (shiftDown && canBoost && Mathf.Abs(_horizontalInput) > 0.1f)
             {
-                inputAccel = SwingAcceleration * Mathf.Sign(_horizontalInput);
+                float boostDirection = Mathf.Sign(_horizontalInput);
+                float impulse = BoostImpulse / _ropeLength;
                 
-                if (_runAbility != null && 
-                    _inputManager.RunButton.State.CurrentState == MMInput.ButtonStates.ButtonPressed)
+                // 直接设置角速度到目标方向
+                _angularVelocity = boostDirection * Mathf.Max(Mathf.Abs(_angularVelocity), impulse);
+                
+                // 如果方向相反，覆盖
+                if (Mathf.Sign(_angularVelocity) != boostDirection)
                 {
-                    inputAccel *= BoostMultiplier;
+                    _angularVelocity = boostDirection * impulse;
                 }
                 
-                inputAccel = inputAccel / _ropeLength;
+                _lastBoostTime = Time.time;
+                BoostFeedback?.PlayFeedbacks(transform.position);
             }
             
             // === 3. 更新角速度 ===
-            _angularVelocity += (gravityAccel + inputAccel) * Time.deltaTime;
+            _angularVelocity += gravityAccel * Time.deltaTime;
             _angularVelocity *= (1f - SwingDamping * Time.deltaTime);
             _angularVelocity = Mathf.Clamp(_angularVelocity, -MaxAngularVelocity, MaxAngularVelocity);
             
-            // === 4. 计算新角度和位置 ===
+            // === 4. 计算新位置 ===
             float newAngle = _currentAngle + _angularVelocity * Time.deltaTime;
             Vector2 newPos;
             newPos.x = _grapplePoint.x + Mathf.Sin(newAngle) * _ropeLength;
             newPos.y = _grapplePoint.y - Mathf.Cos(newAngle) * _ropeLength;
             
-            // === 5. 碰撞检测（使用BoxCast检测角色体积） ===
+            // === 5. 碰撞检测 ===
             Vector2 currentPos = transform.position;
             Vector2 moveDir = (newPos - currentPos);
             float moveDist = moveDir.magnitude;
@@ -403,42 +395,28 @@ protected virtual void ProcessSwing()
             {
                 moveDir = moveDir.normalized;
                 
-                // 获取角色碰撞体尺寸
                 BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
                 Vector2 boxSize = boxCollider != null ? boxCollider.size * 0.9f : new Vector2(0.5f, 0.8f);
                 
-                // BoxCast检测
                 RaycastHit2D hit = Physics2D.BoxCast(
-                    currentPos,
-                    boxSize,
-                    0f,
-                    moveDir,
-                    moveDist + 0.05f,
-                    _controller.PlatformMask
+                    currentPos, boxSize, 0f, moveDir,
+                    moveDist + 0.05f, _controller.PlatformMask
                 );
                 
                 if (hit.collider != null && hit.distance < moveDist)
                 {
-                    // 撞到东西了
-                    
-                    // 计算安全位置（在碰撞点之前）
                     float safeDistance = Mathf.Max(0, hit.distance - 0.1f);
                     Vector2 safePos = currentPos + moveDir * safeDistance;
                     
-                    // 尝试沿墙滑动
                     Vector2 slideDir = Vector2.Perpendicular(hit.normal);
                     float slideAmount = Vector2.Dot(moveDir * (moveDist - safeDistance), slideDir);
                     
-                    // 检查滑动方向是否安全
                     if (Mathf.Abs(slideAmount) > 0.01f)
                     {
                         RaycastHit2D slideHit = Physics2D.BoxCast(
-                            safePos,
-                            boxSize,
-                            0f,
+                            safePos, boxSize, 0f,
                             slideDir * Mathf.Sign(slideAmount),
-                            Mathf.Abs(slideAmount),
-                            _controller.PlatformMask
+                            Mathf.Abs(slideAmount), _controller.PlatformMask
                         );
                         
                         if (slideHit.collider == null)
@@ -449,14 +427,11 @@ protected virtual void ProcessSwing()
                     
                     newPos = safePos;
                     
-                    // 根据新位置重新计算角度
                     Vector2 toPlayer = newPos - _grapplePoint;
                     newAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
                     
-                    // 减少角速度（碰撞损失）
                     _angularVelocity *= 0.3f;
                     
-                    // 如果正面撞墙，反弹
                     float dotProduct = Vector2.Dot(moveDir, hit.normal);
                     if (dotProduct < -0.5f)
                     {
@@ -487,21 +462,16 @@ protected virtual void ProcessSwing()
             
             if (!_isSwinging) return;
             
-            // 计算飞出速度
             Vector2 exitVelocity = CalculateExitVelocity();
             
-            // 清理状态
             _isSwinging = false;
             _angularVelocity = 0f;
             
-            // 恢复控制器
             _controller.GravityActive(true);
             _controller.SetForce(exitVelocity);
             
-            // 改变状态
             _movement.ChangeState(CharacterStates.MovementStates.Falling);
             
-            // 清理视觉
             CleanupVisuals();
             
             ReleaseFeedback?.PlayFeedbacks(transform.position);
@@ -511,23 +481,18 @@ protected virtual void ProcessSwing()
 
         protected virtual Vector2 CalculateExitVelocity()
         {
-            // 线速度 = 角速度 × 半径
             float linearSpeed = _angularVelocity * _ropeLength;
             
-            // 切线方向（垂直于绳子）
             Vector2 ropeDir = ((Vector2)transform.position - _grapplePoint).normalized;
             Vector2 tangent = new Vector2(-ropeDir.y, ropeDir.x);
             
-            // 速度方向与角速度方向一致
             Vector2 velocity = tangent * linearSpeed * ExitVelocityMultiplier;
             
-            // 保证最小向上速度（如果在上升阶段）
             if (velocity.y > -1f)
             {
                 velocity.y = Mathf.Max(velocity.y, MinUpwardBoost);
             }
             
-            // 限制最大速度
             if (velocity.magnitude > MaxExitSpeed)
             {
                 velocity = velocity.normalized * MaxExitSpeed;
