@@ -64,6 +64,14 @@ namespace MoreMountains.CorgiEngine
         
         [Tooltip("退出动画持续时间（秒），之后恢复正常状态")]
         public float ExitAnimationDuration = 0.5f;
+        
+        [Tooltip("飞出时的空中微调力度（0=无控制，1=完全控制）")]
+        [Range(0f, 1f)]
+        public float ExitAirControlStrength = 0.3f;
+        
+        [Tooltip("空中微调加速度")]
+        public float ExitAirControlAcceleration = 15f;
+
 
         [Header("=== 视觉效果 ===")]
         
@@ -132,6 +140,8 @@ namespace MoreMountains.CorgiEngine
         
         // 退出动画计时
         protected float _exitStartTime = 0f;
+        protected Vector2 _exitVelocity;  // 存储飞出速度
+        protected bool _applyingExitMomentum;  // 是否正在应用飞出惯性
         
         // 缓存
         protected CharacterRun _runAbility;
@@ -245,13 +255,52 @@ namespace MoreMountains.CorgiEngine
             UpdateRopeVisual();
         }
 
-        protected virtual void ProcessExitState()
+protected virtual void ProcessExitState()
         {
             if (!_isExiting) return;
             
+            // 在惯性飞行阶段
+            if (_applyingExitMomentum)
+            {
+                float timeSinceExit = Time.time - _exitStartTime;
+                float momentumDuration = ExitAnimationDuration * 0.8f;
+                
+                if (timeSinceExit < momentumDuration)
+                {
+                    // 计算惯性衰减系数（随时间逐渐减少惯性影响）
+                    float momentumFactor = 1f - (timeSinceExit / momentumDuration);
+                    
+                    // 获取当前速度
+                    float currentHorizontal = _controller.Speed.x;
+                    float currentVertical = _controller.Speed.y;
+                    
+                    // 计算玩家输入的微调
+                    float inputInfluence = _horizontalInput * ExitAirControlAcceleration * Time.deltaTime;
+                    
+                    // 混合惯性速度和玩家输入
+                    // 惯性速度随时间衰减，玩家控制随时间增强
+                    float baseVelocity = _exitVelocity.x * momentumFactor;
+                    float playerControl = inputInfluence * (ExitAirControlStrength + (1f - momentumFactor) * (1f - ExitAirControlStrength));
+                    
+                    float newHorizontal = baseVelocity + currentHorizontal * (1f - momentumFactor) + playerControl;
+                    
+                    // 限制最大水平速度
+                    newHorizontal = Mathf.Clamp(newHorizontal, -MaxExitSpeed, MaxExitSpeed);
+                    
+                    _controller.SetForce(new Vector2(newHorizontal, currentVertical));
+                }
+                else
+                {
+                    // 惯性期结束，允许正常控制
+                    _applyingExitMomentum = false;
+                }
+            }
+            
+            // 落地或超时后结束退出状态
             if (_controller.State.IsGrounded || (Time.time - _exitStartTime) >= ExitAnimationDuration)
             {
                 _isExiting = false;
+                _applyingExitMomentum = false;
             }
         }
 
@@ -662,7 +711,7 @@ protected virtual void ProcessSwing()
 
         #region 释放
 
-        protected virtual void Release()
+protected virtual void Release()
         {
             if (_isFiring || _isRetracting)
             {
@@ -672,16 +721,20 @@ protected virtual void ProcessSwing()
             
             if (!_isSwinging) return;
             
-            Vector2 exitVelocity = CalculateExitVelocity();
+            // 计算并存储飞出速度
+            _exitVelocity = CalculateExitVelocity();
             
             _isSwinging = false;
             _angularVelocity = 0f;
             
             _isExiting = true;
+            _applyingExitMomentum = true;  // 开始应用惯性
             _exitStartTime = Time.time;
             
             _controller.GravityActive(true);
-            _controller.SetForce(exitVelocity);
+            
+            // 立即设置飞出速度
+            _controller.SetForce(_exitVelocity);
             
             _movement.ChangeState(CharacterStates.MovementStates.Falling);
             
@@ -695,6 +748,8 @@ protected virtual void ProcessSwing()
             ReleaseFeedback?.PlayFeedbacks(transform.position);
             StopStartFeedbacks();
             PlayAbilityStopFeedbacks();
+            
+            Debug.Log($"[Grapple] Released! Exit velocity: {_exitVelocity}, speed: {_exitVelocity.magnitude}");
         }
 
         protected virtual Vector2 CalculateExitVelocity()
@@ -768,7 +823,7 @@ protected virtual void ProcessSwing()
 
         #region 安全措施
 
-        public virtual void ForceStop()
+public virtual void ForceStop()
         {
             if (_isFiring || _isRetracting) CancelFiring();
             
@@ -780,6 +835,8 @@ protected virtual void ProcessSwing()
             }
             
             _isExiting = false;
+            _applyingExitMomentum = false;
+            _exitVelocity = Vector2.zero;
             
             if (AfterimageEffect != null)
             {

@@ -5948,22 +5948,31 @@ MonoBehaviour:
     m_Bits: 256
   MaxGrappleDistance: 12
   HookTravelSpeed: 40
+  HookRetractSpeed: 50
   GrappleSearchAngle: 60
   SwingGravity: 25
   BoostImpulse: 25
   BoostCooldown: 0.4
   MaxAngularVelocity: 12
   SwingDamping: 0.3
-  ExitVelocityMultiplier: 1.1
+  GroundCheckDistance: 0.3
+  ExitVelocityMultiplier: 0.8
   MaxExitSpeed: 28
   MinUpwardBoost: 3
+  ExitAnimationDuration: 1
+  ExitAirControlStrength: 0.3
+  ExitAirControlAcceleration: 15
   RopeRenderer: {fileID: 0}
   RopeWidth: 0.08
   RopeColor: {r: 0.8, g: 0.6, b: 0.4, a: 1}
   HookPrefab: {fileID: 0}
   HookOffset: {x: 0.3, y: 0.3}
+  EnableAfterimageOnBoost: 1
+  AfterimageEffectDuration: 0.3
+  AfterimageEffect: {fileID: 0}
   FireFeedback: {fileID: 0}
   HitFeedback: {fileID: 0}
+  MissFeedback: {fileID: 0}
   ReleaseFeedback: {fileID: 0}
   BoostFeedback: {fileID: 0}
 --- !u!1 &1693914667617252
