@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
@@ -177,13 +177,10 @@ namespace MoreMountains.CorgiEngine
 		/// <summary>
 		/// Revives this object, turning its parts back on again
 		/// </summary>
-		public virtual void Revive()
+public virtual void Revive()
 		{
-			if (_health != null)
-			{
-				_health.Revive();
-			}
-
+			// First activate the GameObject before calling Health.Revive()
+			// to avoid "Coroutine couldn't be started because the game object is inactive" error
 			if (AutoRespawnDuration <= 0f)
 			{
 				gameObject.SetActive(true);
@@ -197,6 +194,13 @@ namespace MoreMountains.CorgiEngine
 				if (_collider2D != null) { _collider2D.enabled = true;	}
 				if (_renderer != null)	{ _renderer.enabled = true; }
 			}
+
+			// Now it's safe to call Health.Revive() which may start coroutines
+			if (_health != null)
+			{
+				_health.Revive();
+			}
+
 			RespawnFeedback?.PlayFeedbacks();
 
 			if (DisableModelOnKill && (_character != null))

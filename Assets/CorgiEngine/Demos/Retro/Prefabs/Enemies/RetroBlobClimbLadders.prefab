@@ -136,6 +136,7 @@ MonoBehaviour:
   - rid: 0
   KeepPlayModeChanges: 0
   PerformanceMode: 0
+  RestoreInitialValuesOnDisable: 0
   StopFeedbacksOnDisable: 0
   PlayCount: 0
   references:
@@ -375,6 +376,7 @@ MonoBehaviour:
   - rid: 2
   KeepPlayModeChanges: 0
   PerformanceMode: 0
+  RestoreInitialValuesOnDisable: 0
   StopFeedbacksOnDisable: 0
   PlayCount: 0
   references:
@@ -386,7 +388,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 689077676
         Label: Sound
-        OriginalLabel: 
+        OriginalLabel: Sound
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -454,8 +456,10 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 438063153099606030}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: fc6a8ed8f767ee7449dc2f51593060a7, type: 3}
-        RandomSfx: []
+        Sfx: {fileID: 8300000, guid: ba53f3bb21288c741bb5c20bc87fdf0c, type: 3}
+        RandomSfx:
+        - {fileID: 8300000, guid: ba53f3bb21288c741bb5c20bc87fdf0c, type: 3}
+        - {fileID: 8300000, guid: ed59b411a3f348b44ad5a945b6ae0374, type: 3}
         TestPlayButton:
           ButtonText: Debug Play Sound
         TestStopButton:
@@ -511,7 +515,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1695070404
         Label: Particles Instantiation
-        OriginalLabel: 
+        OriginalLabel: Particles Instantiation
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -605,7 +609,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: -1747300826
         Label: Corgi Engine Floating Text
-        OriginalLabel: 
+        OriginalLabel: Corgi Engine Floating Text
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -787,6 +791,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -808,6 +814,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1628607475
   m_SortingLayer: 2
   m_SortingOrder: 0
@@ -1513,3 +1520,4 @@ MonoBehaviour:
   InitializationMode: 0
   Label: 
   Mode: 2
+  CooldownBetweenClimbsDuration: 1

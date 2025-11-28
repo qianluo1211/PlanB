@@ -726,8 +726,11 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 1732678355458396849}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: c4fe2906b4101d946a6f4e3bcb52bff5, type: 3}
-        RandomSfx: []
+        Sfx: {fileID: 8300000, guid: 18c7ad4857d1ea14a84876c423e2f538, type: 3}
+        RandomSfx:
+        - {fileID: 8300000, guid: 18c7ad4857d1ea14a84876c423e2f538, type: 3}
+        - {fileID: 8300000, guid: 7d97135c15f339748ad733735c19e377, type: 3}
+        - {fileID: 8300000, guid: e8ba3800a5a81f5479a4323c82eb2298, type: 3}
         TestPlayButton:
           ButtonText: Debug Play Sound
         TestStopButton:
@@ -1604,8 +1607,11 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 7034347962012186301}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 73b62a73edfa18342812e7c891904e97, type: 3}
-        RandomSfx: []
+        Sfx: {fileID: 8300000, guid: 18c7ad4857d1ea14a84876c423e2f538, type: 3}
+        RandomSfx:
+        - {fileID: 8300000, guid: 18c7ad4857d1ea14a84876c423e2f538, type: 3}
+        - {fileID: 8300000, guid: 7d97135c15f339748ad733735c19e377, type: 3}
+        - {fileID: 8300000, guid: e8ba3800a5a81f5479a4323c82eb2298, type: 3}
         TestPlayButton:
           ButtonText: Debug Play Sound
         TestStopButton:
@@ -2482,8 +2488,11 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 2373310158076016577}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: c362bfad4e2260d49bb067e318f77369, type: 3}
-        RandomSfx: []
+        Sfx: {fileID: 8300000, guid: e8ba3800a5a81f5479a4323c82eb2298, type: 3}
+        RandomSfx:
+        - {fileID: 8300000, guid: 18c7ad4857d1ea14a84876c423e2f538, type: 3}
+        - {fileID: 8300000, guid: 7d97135c15f339748ad733735c19e377, type: 3}
+        - {fileID: 8300000, guid: e8ba3800a5a81f5479a4323c82eb2298, type: 3}
         TestPlayButton:
           ButtonText: Debug Play Sound
         TestStopButton:
