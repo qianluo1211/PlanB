@@ -60,6 +60,23 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("地面检测距离")]
         public float GroundCheckDistance = 0.3f;
 
+        [Header("=== 快速收缩（按住空格） ===")]
+        
+        [Tooltip("启用按住空格快速收缩钩爪")]
+        public bool EnableQuickRetract = true;
+        
+        [Tooltip("快速收缩速度（每秒）")]
+        public float QuickRetractSpeed = 20f;
+        
+        [Tooltip("快速收缩最小绳长")]
+        public float QuickRetractMinLength = 1.0f;
+        
+        [Tooltip("松手后速度继承倍率")]
+        public float QuickRetractReleaseMultiplier = 1.3f;
+        
+        [Tooltip("快速收缩时额外向上的力")]
+        public float QuickRetractUpwardBoost = 5f;
+
         [Header("=== 自动缩绳 ===")]
         
         [Tooltip("启用自动缩绳（接近地面时自动缩短绳长，让玩家贴地滑行）")]
@@ -154,6 +171,9 @@ namespace MoreMountains.CorgiEngine
         protected Vector2 _grapplePoint;
         protected float _ropeLength;
         protected float _originalRopeLength;  // 自动缩绳用：保存初始绳长
+        protected bool _isQuickRetracting;   // 是否正在快速收缩
+        protected float _retractStartLength; // 开始收缩时的绳长
+        protected float _retractAccumulatedSpeed; // 收缩累积的速度加成
         protected float _currentAngle;
         protected float _angularVelocity;
         
@@ -257,6 +277,30 @@ protected override void HandleInput()
                 {
                     Release();
                 }
+            }
+            
+            // 快速收缩：按住空格键
+            if (EnableQuickRetract && _isSwinging)
+            {
+                if (_inputManager.JumpButton.State.CurrentState == MMInput.ButtonStates.ButtonPressed)
+                {
+                    if (!_isQuickRetracting)
+                    {
+                        // 开始收缩，记录初始绳长
+                        _isQuickRetracting = true;
+                        _retractStartLength = _ropeLength;
+                        _retractAccumulatedSpeed = 0f;
+                    }
+                }
+                else
+                {
+                    // 松开空格，停止收缩
+                    _isQuickRetracting = false;
+                }
+            }
+            else
+            {
+                _isQuickRetracting = false;
             }
         }
 
@@ -676,6 +720,8 @@ protected virtual void StartSwinging()
             _isSwinging = true;
             _isPulling = false;
             _isExiting = false;
+            _isQuickRetracting = false;
+            _retractAccumulatedSpeed = 0f;
             
             // 重新启用碰撞检测（摆荡需要）
             _controller.CollisionsOn();
@@ -691,6 +737,7 @@ protected virtual void StartSwinging()
             
             // 保存初始绳长（自动缩绳功能用）
             _originalRopeLength = _ropeLength;
+            _retractStartLength = _ropeLength;
             
             _currentAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
             
@@ -755,6 +802,39 @@ protected virtual void ProcessSwing()
                 _lastBoostTime = Time.time;
                 BoostFeedback?.PlayFeedbacks(transform.position);
                 TriggerAfterimage();
+            }
+            
+            // === 2.5 快速收缩（按住空格） ===
+            if (_isQuickRetracting)
+            {
+                float retractAmount = QuickRetractSpeed * Time.deltaTime;
+                float newLength = Mathf.Max(_ropeLength - retractAmount, QuickRetractMinLength);
+                
+                // 计算实际收缩量
+                float actualRetract = _ropeLength - newLength;
+                
+                if (actualRetract > 0)
+                {
+                    // 累积收缩速度（用于飞出时继承）
+                    _retractAccumulatedSpeed = QuickRetractSpeed;
+                    
+                    // 更新绳长
+                    _ropeLength = newLength;
+                    _originalRopeLength = newLength; // 同步更新，防止自动缩绳恢复
+                    
+                    // 触发残影效果
+                    TriggerAfterimage();
+                }
+                else
+                {
+                    // 已经到达最小绳长，保持收缩速度记录
+                    _retractAccumulatedSpeed = QuickRetractSpeed;
+                }
+            }
+            else
+            {
+                // 不在收缩时，速度递减
+                _retractAccumulatedSpeed = Mathf.MoveTowards(_retractAccumulatedSpeed, 0f, QuickRetractSpeed * 2f * Time.deltaTime);
             }
             
             // === 3. 更新角速度 ===
@@ -825,12 +905,12 @@ protected virtual void ProcessSwing()
                 }
             }
             
-            // === 6. 自动缩绳逻辑 ===
-            if (EnableAutoShortenRope)
+            // === 6. 自动缩绳逻辑（不在快速收缩时才启用） ===
+            if (EnableAutoShortenRope && !_isQuickRetracting)
             {
                 ProcessAutoShortenRope(ref newPos, ref newAngle, halfHeight);
             }
-            else
+            else if (!_isQuickRetracting)
             {
                 // 原来的简单地面修正
                 RaycastHit2D groundCheck = Physics2D.Raycast(
@@ -1042,20 +1122,48 @@ protected virtual void Release()
             PlayAbilityStopFeedbacks();
         }
 
-        protected virtual Vector2 CalculateExitVelocity()
+protected virtual Vector2 CalculateExitVelocity()
         {
+            // === 1. 计算摆荡切线速度 ===
             float linearSpeed = _angularVelocity * _ropeLength;
             
             Vector2 ropeDir = ((Vector2)transform.position - _grapplePoint).normalized;
             Vector2 tangent = new Vector2(-ropeDir.y, ropeDir.x);
             
-            Vector2 velocity = tangent * linearSpeed * ExitVelocityMultiplier;
+            Vector2 swingVelocity = tangent * linearSpeed;
             
+            // === 2. 计算收缩产生的径向速度 ===
+            // 收缩时玩家在向钩爪点移动，松手时这个速度转化为反方向（向外弹射）
+            Vector2 retractVelocity = Vector2.zero;
+            if (_retractAccumulatedSpeed > 0.1f)
+            {
+                // 收缩速度转化为向外+向上的速度
+                // 方向：主要向上，略微向外（根据绳子方向）
+                Vector2 outwardDir = -ropeDir; // 远离钩爪点的方向
+                
+                // 如果绳子偏向水平，给一个向上的分量
+                if (outwardDir.y < 0.3f)
+                {
+                    outwardDir.y = Mathf.Max(outwardDir.y, 0.5f);
+                    outwardDir = outwardDir.normalized;
+                }
+                
+                retractVelocity = outwardDir * _retractAccumulatedSpeed * QuickRetractReleaseMultiplier;
+                
+                // 额外的向上加成
+                retractVelocity.y += QuickRetractUpwardBoost;
+            }
+            
+            // === 3. 合并速度 ===
+            Vector2 velocity = swingVelocity * ExitVelocityMultiplier + retractVelocity;
+            
+            // === 4. 确保最小向上速度 ===
             if (velocity.y > -1f)
             {
                 velocity.y = Mathf.Max(velocity.y, MinUpwardBoost);
             }
             
+            // === 5. 限制最大速度 ===
             if (velocity.magnitude > MaxExitSpeed)
             {
                 velocity = velocity.normalized * MaxExitSpeed;
@@ -1121,6 +1229,8 @@ public virtual void ForceStop()
             {
                 _isSwinging = false;
                 _isPulling = false;
+                _isQuickRetracting = false;
+                _retractAccumulatedSpeed = 0f;
                 
                 // 确保碰撞被重新启用
                 _controller.CollisionsOn();
