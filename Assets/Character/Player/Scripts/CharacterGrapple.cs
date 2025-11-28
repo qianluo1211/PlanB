@@ -54,6 +54,9 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("摆荡阻尼")]
         public float SwingDamping = 0.3f;
         
+        [Tooltip("钩爪距离加速系数（根据与钩爪点的角度偏移增加初始摆荡速度）")]
+        public float DistanceBoostFactor = 8f;
+        
         [Tooltip("地面检测距离")]
         public float GroundCheckDistance = 0.3f;
 
@@ -343,7 +346,6 @@ protected virtual void TryFireGrapple()
             
             // ★ 关键修改：在发射钩爪的那一刻就保存速度（此时速度还没被清零）
             _velocityOnHook = _controller.Speed;
-            Debug.Log($"[Grapple] 发射时保存速度: {_velocityOnHook}");
             
             Vector2 aimDir = GetAimDirection();
             Vector2? target = FindGrappleTarget(aimDir);
@@ -668,36 +670,47 @@ protected virtual void StartSwinging()
             
             _currentAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
             
-            // ★ 改进的惯性继承算法 ★
+            // === 惯性继承算法 ===
             Vector2 inheritedVelocity = _velocityOnHook;
             
             // 计算标准切线方向（绳子方向的垂直方向）
             Vector2 ropeDir = toPlayer.normalized;
-            // 切线方向：逆时针旋转90度，正方向为顺时针摆动（向右）
             Vector2 tangent = new Vector2(-ropeDir.y, ropeDir.x);
             
             // 计算切线速度
             float tangentSpeed = Vector2.Dot(inheritedVelocity, tangent);
             
-            // ★ 关键改进：如果切线速度太小，但水平速度很大，则用水平速度来决定摆荡方向
+            // 如果切线分量不足总速度的30%，但水平速度还不错，则用水平方向决定摆荡
             float horizontalSpeed = inheritedVelocity.x;
             float totalSpeed = inheritedVelocity.magnitude;
             
-            // 如果切线分量不足总速度的30%，但水平速度还不错，则用水平方向决定摆荡
             if (Mathf.Abs(tangentSpeed) < totalSpeed * 0.3f && Mathf.Abs(horizontalSpeed) > 3f)
             {
-                // 用水平速度的方向和大小来设置角速度
-                // 向右移动 = 正角速度（顺时针），向左移动 = 负角速度（逆时针）
-                float boostFactor = 0.7f; // 动量保留系数
+                float boostFactor = 0.7f;
                 tangentSpeed = horizontalSpeed * boostFactor;
-                
-                Debug.Log($"[Grapple] 使用水平动量补偿: 水平速度={horizontalSpeed:F2}, 补偿后切线速度={tangentSpeed:F2}");
             }
             
             _angularVelocity = tangentSpeed / _ropeLength;
             
-            // Debug输出
-            Debug.Log($"[Grapple] 继承速度: {inheritedVelocity}, 切线速度: {tangentSpeed:F2}, 初始角速度: {_angularVelocity:F2}, 绳长: {_ropeLength:F2}");
+            // === ★ 新功能：距离/角度加速 ★ ===
+            // 根据玩家与钩爪点的角度偏移来增加初始摆荡速度
+            // 模拟钩子的"势能"：偏移角度越大，初始加速越大
+            if (DistanceBoostFactor > 0f)
+            {
+                // currentAngle 是偏离垂直方向的角度（弧度）
+                // 正下方时 angle = 0，左下方时 angle < 0，右下方时 angle > 0
+                float angleOffset = _currentAngle;
+                
+                // 用 sin(angle) 来计算加速，这样：
+                // - 正下方 (angle=0): sin(0) = 0，不加速
+                // - 左下方 (angle<0): sin 为负，得到向右的加速（负角速度）
+                // - 右下方 (angle>0): sin 为正，得到向左的加速（正角速度）
+                // 这正好符合重力摆的自然运动方向
+                float distanceBoost = -Mathf.Sin(angleOffset) * DistanceBoostFactor;
+                
+                // 将距离加速加到角速度上
+                _angularVelocity += distanceBoost;
+            }
             
             _movement.ChangeState(CharacterStates.MovementStates.Swinging);
             _controller.GravityActive(false);

@@ -5958,6 +5958,7 @@ MonoBehaviour:
   BoostCooldown: 0.4
   MaxAngularVelocity: 12
   SwingDamping: 0.3
+  DistanceBoostFactor: 1.5
   GroundCheckDistance: 0.3
   ExitVelocityMultiplier: 1.5
   MaxExitSpeed: 28
