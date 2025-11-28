@@ -19,8 +19,14 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("可以钩住的层")]
         public LayerMask GrappleLayerMask = 1 << 8;
         
-        [Tooltip("最大钩爪距离")]
+        [Tooltip("钩爪射程（能勾到多远）")]
         public float MaxGrappleDistance = 12f;
+        
+        [Tooltip("摆荡最大绳长（勾中后拉到多近才开始摆）")]
+        public float MaxSwingRopeLength = 6f;
+        
+        [Tooltip("拉向目标的速度")]
+        public float PullSpeed = 15f;
         
         [Tooltip("钩爪飞行速度")]
         public float HookTravelSpeed = 40f;
@@ -113,11 +119,13 @@ namespace MoreMountains.CorgiEngine
         public bool IsFiring => _isFiring;
         public bool IsExiting => _isExiting;
         public bool IsRetracting => _isRetracting;
+        public bool IsPulling => _isPulling;
         
         // 内部状态
         protected bool _isSwinging;
         protected bool _isFiring;
-        protected bool _isRetracting;  // 新增：钩爪正在收回
+        protected bool _isRetracting;  // 钩爪正在收回
+        protected bool _isPulling;     // 玩家正在被拉向钩爪点
         protected bool _isExiting;
         protected bool _hasValidTarget;  // 新增：是否有有效目标
         protected Vector2 _grapplePoint;
@@ -209,7 +217,7 @@ namespace MoreMountains.CorgiEngine
 
         #region 输入处理
 
-        protected override void HandleInput()
+protected override void HandleInput()
         {
             if (_inputManager == null) return;
             
@@ -220,7 +228,7 @@ namespace MoreMountains.CorgiEngine
             
             if (_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonUp)
             {
-                if (_isSwinging || _isFiring || _isRetracting)
+                if (_isSwinging || _isFiring || _isRetracting || _isPulling)
                 {
                     Release();
                 }
@@ -231,7 +239,7 @@ namespace MoreMountains.CorgiEngine
 
         #region 主循环
 
-        public override void ProcessAbility()
+public override void ProcessAbility()
         {
             base.ProcessAbility();
             
@@ -243,6 +251,11 @@ namespace MoreMountains.CorgiEngine
             if (_isRetracting)
             {
                 ProcessHookRetract();
+            }
+            
+            if (_isPulling)
+            {
+                ProcessPulling();
             }
             
             if (_isSwinging)
@@ -532,7 +545,7 @@ protected virtual void ProcessExitState()
             }
         }
 
-        protected virtual void OnHookHit()
+protected virtual void OnHookHit()
         {
             _isFiring = false;
             _grapplePoint = _hookTarget;
@@ -543,20 +556,97 @@ protected virtual void ProcessExitState()
             }
             
             HitFeedback?.PlayFeedbacks(_grapplePoint);
-            StartSwinging();
+            
+            // 计算当前距离
+            float currentDistance = Vector2.Distance(transform.position, _grapplePoint);
+            
+            // 如果距离超过摆荡最大绳长，先拉向目标
+            if (currentDistance > MaxSwingRopeLength)
+            {
+                StartPulling();
+            }
+            else
+            {
+                StartSwinging();
+            }
         }
+
+protected virtual void StartPulling()
+        {
+            _isPulling = true;
+            _isSwinging = false;
+            _isExiting = false;
+            
+            // 设置为摆荡状态（动画用）
+            _movement.ChangeState(CharacterStates.MovementStates.Swinging);
+            
+            // 完全禁用CorgiController的物理系统干扰
+            _controller.GravityActive(false);
+            _controller.SetForce(Vector2.zero);
+            
+            // 关键：禁用碰撞检测，防止地面检测把角色压住
+            _controller.CollisionsOff();
+            
+            // 如果在移动平台上，脱离它
+            _controller.DetachFromMovingPlatform();
+        }
+
+protected virtual void ProcessPulling()
+        {
+            // 每帧维持状态
+            _controller.GravityActive(false);
+            _controller.SetForce(Vector2.zero);
+            
+            Vector2 currentPos = transform.position;
+            Vector2 toGrapple = _grapplePoint - currentPos;
+            float currentDistance = toGrapple.magnitude;
+            
+            // 计算本帧移动距离
+            float moveDistance = PullSpeed * Time.deltaTime;
+            
+            // 目标距离
+            float targetDistance = MaxSwingRopeLength;
+            float distanceToTravel = currentDistance - targetDistance;
+            
+            if (distanceToTravel <= moveDistance || distanceToTravel <= 0.1f)
+            {
+                // 到达摆荡距离，开始摆荡
+                _isPulling = false;
+                StartSwinging();
+                return;
+            }
+            
+            // 直接向钩爪点移动
+            Vector2 pullDir = toGrapple.normalized;
+            Vector2 newPos = currentPos + pullDir * moveDistance;
+            
+            // 用transform.position直接设置位置，完全绕过CorgiController
+            transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
+        }
+
 
         #endregion
 
         #region 摆荡
 
-        protected virtual void StartSwinging()
+protected virtual void StartSwinging()
         {
             _isSwinging = true;
+            _isPulling = false;
             _isExiting = false;
+            
+            // 重新启用碰撞检测（摆荡需要）
+            _controller.CollisionsOn();
             
             Vector2 toPlayer = (Vector2)transform.position - _grapplePoint;
             _ropeLength = toPlayer.magnitude;
+            
+            // 确保绳长不超过最大摆荡绳长
+            if (_ropeLength > MaxSwingRopeLength)
+            {
+                _ropeLength = MaxSwingRopeLength;
+            }
+            
             _currentAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
             
             Vector2 currentVel = _controller.Speed;
@@ -719,6 +809,44 @@ protected virtual void Release()
                 return;
             }
             
+            // 如果在拉向状态，计算向钩爪点的速度作为飞出速度
+            if (_isPulling)
+            {
+                // 重新启用碰撞
+                _controller.CollisionsOn();
+                
+                Vector2 toGrapple = (_grapplePoint - (Vector2)transform.position).normalized;
+                _exitVelocity = toGrapple * PullSpeed * ExitVelocityMultiplier;
+                
+                // 确保有一些向上的速度
+                if (_exitVelocity.y < MinUpwardBoost)
+                {
+                    _exitVelocity.y = MinUpwardBoost;
+                }
+                
+                _isPulling = false;
+                
+                _isExiting = true;
+                _applyingExitMomentum = true;
+                _exitStartTime = Time.time;
+                
+                _controller.GravityActive(true);
+                _controller.SetForce(_exitVelocity);
+                
+                _movement.ChangeState(CharacterStates.MovementStates.Falling);
+                
+                if (AfterimageEffect != null)
+                {
+                    AfterimageEffect.StopEffect();
+                }
+                
+                CleanupVisuals();
+                ReleaseFeedback?.PlayFeedbacks(transform.position);
+                StopStartFeedbacks();
+                PlayAbilityStopFeedbacks();
+                return;
+            }
+            
             if (!_isSwinging) return;
             
             // 计算并存储飞出速度
@@ -728,12 +856,10 @@ protected virtual void Release()
             _angularVelocity = 0f;
             
             _isExiting = true;
-            _applyingExitMomentum = true;  // 开始应用惯性
+            _applyingExitMomentum = true;
             _exitStartTime = Time.time;
             
             _controller.GravityActive(true);
-            
-            // 立即设置飞出速度
             _controller.SetForce(_exitVelocity);
             
             _movement.ChangeState(CharacterStates.MovementStates.Falling);
@@ -748,8 +874,6 @@ protected virtual void Release()
             ReleaseFeedback?.PlayFeedbacks(transform.position);
             StopStartFeedbacks();
             PlayAbilityStopFeedbacks();
-            
-            //Debug.Log($"[Grapple] Released! Exit velocity: {_exitVelocity}, speed: {_exitVelocity.magnitude}");
         }
 
         protected virtual Vector2 CalculateExitVelocity()
@@ -786,11 +910,11 @@ protected virtual void Release()
 
         #region 视觉
 
-        protected virtual void UpdateRopeVisual()
+protected virtual void UpdateRopeVisual()
         {
             if (RopeRenderer == null) return;
             
-            if (_isFiring || _isRetracting || _isSwinging)
+            if (_isFiring || _isRetracting || _isPulling || _isSwinging)
             {
                 RopeRenderer.enabled = true;
                 Vector2 start = (Vector2)transform.position + HookOffset;
@@ -827,9 +951,13 @@ public virtual void ForceStop()
         {
             if (_isFiring || _isRetracting) CancelFiring();
             
-            if (_isSwinging)
+            if (_isSwinging || _isPulling)
             {
                 _isSwinging = false;
+                _isPulling = false;
+                
+                // 确保碰撞被重新启用
+                _controller.CollisionsOn();
                 _controller.GravityActive(true);
                 _movement.ChangeState(CharacterStates.MovementStates.Falling);
             }
@@ -875,14 +1003,17 @@ public virtual void ForceStop()
             RegisterAnimatorParameter(_exitingParam, AnimatorControllerParameterType.Bool, out _exitingHash);
         }
 
-        public override void UpdateAnimator()
+public override void UpdateAnimator()
         {
             // 发射和收回都算Firing状态
             bool firingState = _isFiring || _isRetracting;
             
+            // 拉向状态也算摆荡状态（动画上）
+            bool swingingState = _isSwinging || _isPulling;
+            
             MMAnimatorExtensions.UpdateAnimatorBool(_animator, _firingHash, firingState, 
                 _character._animatorParameters, _character.PerformAnimatorSanityChecks);
-            MMAnimatorExtensions.UpdateAnimatorBool(_animator, _swingingHash, _isSwinging, 
+            MMAnimatorExtensions.UpdateAnimatorBool(_animator, _swingingHash, swingingState, 
                 _character._animatorParameters, _character.PerformAnimatorSanityChecks);
             MMAnimatorExtensions.UpdateAnimatorBool(_animator, _exitingHash, _isExiting, 
                 _character._animatorParameters, _character.PerformAnimatorSanityChecks);
