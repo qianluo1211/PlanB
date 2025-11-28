@@ -484,7 +484,7 @@ namespace MoreMountains.CorgiEngine
             // 获取闪现方向
             _dashDirection = GetAimDirection();
 
-            Debug.Log("[CharacterDashAim] 执行闪现，方向: " + _dashDirection);
+            //Debug.Log("[CharacterDashAim] 执行闪现，方向: " + _dashDirection);
 
             // 开始闪现
             InitiateDash();

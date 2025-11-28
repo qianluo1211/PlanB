@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -22,8 +22,14 @@ namespace MoreMountains.CorgiEngine
 		protected List<String> _propertiesToHide;
 		protected bool _hasHiddenProperties = false;
 
-		private void OnEnable()
+private void OnEnable()
 		{
+			// Guard against null target (object deleted, scene changed, etc.)
+			if (target == null)
+			{
+				return;
+			}
+
 			_propertiesToHide = new List<string>();
 
 			_abilityStartFeedbacks = this.serializedObject.FindProperty("AbilityStartFeedbacks");
@@ -46,8 +52,14 @@ namespace MoreMountains.CorgiEngine
 		/// <summary>
 		/// When inspecting a Character, adds to the regular inspector some labels, useful for debugging
 		/// </summary>
-		public override void OnInspectorGUI()
+public override void OnInspectorGUI()
 		{
+			// Guard against null target
+			if (target == null)
+			{
+				return;
+			}
+
 			CharacterAbility t = (target as CharacterAbility);
 
 			serializedObject.Update();
