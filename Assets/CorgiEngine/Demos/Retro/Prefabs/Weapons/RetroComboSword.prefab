@@ -494,7 +494,7 @@ MonoBehaviour:
   DroppableCombo: 1
   DropComboDelay: 0.5
   RequireKillToContinueCombo: 1
-  NoKillCooldownDuration: 3
+  NoKillCooldownDuration: 1
   AllowComboOnHitDamageable: 0
   ComboInProgressAnimationParameter: ComboInProgress
   Weapons: []
