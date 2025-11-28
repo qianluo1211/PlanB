@@ -198,6 +198,7 @@ namespace MoreMountains.CorgiEngine
         
         // 缓存
         protected CharacterRun _runAbility;
+        protected CharacterJump _jumpAbility;
         protected Vector2 _lastPosition;
         
         // 动画参数
@@ -210,10 +211,11 @@ namespace MoreMountains.CorgiEngine
 
         #region 初始化
 
-        protected override void Initialization()
+protected override void Initialization()
         {
             base.Initialization();
             _runAbility = _character?.FindAbility<CharacterRun>();
+            _jumpAbility = _character?.FindAbility<CharacterJump>();
             SetupRope();
             SetupAfterimage();
         }
@@ -642,6 +644,15 @@ protected virtual void OnHookHit()
             }
             
             HitFeedback?.PlayFeedbacks(_grapplePoint);
+            
+            // 钩爪勾中物体时刷新跳跃次数
+            // 设置为 NumberOfJumps - 1，因为 CharacterJump 的空中跳跃条件要求 NumberOfJumpsLeft < NumberOfJumps
+            // 至少给玩家1次跳跃机会
+            if (_jumpAbility != null)
+            {
+                int jumpsToGive = Mathf.Max(1, _jumpAbility.NumberOfJumps - 1);
+                _jumpAbility.SetNumberOfJumpsLeft(jumpsToGive);
+            }
             
             // 计算当前距离
             float currentDistance = Vector2.Distance(transform.position, _grapplePoint);
@@ -1081,6 +1092,9 @@ protected virtual void Release()
                 
                 _movement.ChangeState(CharacterStates.MovementStates.Falling);
                 
+                // 脱钩时刷新跳跃次数
+                RefreshJumpsOnRelease();
+                
                 if (AfterimageEffect != null)
                 {
                     AfterimageEffect.StopEffect();
@@ -1099,6 +1113,7 @@ protected virtual void Release()
             _exitVelocity = CalculateExitVelocity();
             
             _isSwinging = false;
+            _isQuickRetracting = false;
             _angularVelocity = 0f;
             
             _isExiting = true;
@@ -1109,6 +1124,9 @@ protected virtual void Release()
             _controller.SetForce(_exitVelocity);
             
             _movement.ChangeState(CharacterStates.MovementStates.Falling);
+            
+            // 脱钩时刷新跳跃次数
+            RefreshJumpsOnRelease();
             
             if (AfterimageEffect != null)
             {
@@ -1132,33 +1150,28 @@ protected virtual Vector2 CalculateExitVelocity()
             
             Vector2 swingVelocity = tangent * linearSpeed;
             
-            // === 2. 计算收缩产生的径向速度 ===
-            // 收缩时玩家在向钩爪点移动，松手时这个速度转化为反方向（向外弹射）
+            // === 2. 计算收缩产生的惯性速度 ===
+            // 收缩时玩家在向钩爪点移动，松手时继承这个方向的速度
             Vector2 retractVelocity = Vector2.zero;
             if (_retractAccumulatedSpeed > 0.1f)
             {
-                // 收缩速度转化为向外+向上的速度
-                // 方向：主要向上，略微向外（根据绳子方向）
-                Vector2 outwardDir = -ropeDir; // 远离钩爪点的方向
+                // 收缩方向 = 从玩家指向钩爪点
+                Vector2 toGrapple = (_grapplePoint - (Vector2)transform.position).normalized;
+                retractVelocity = toGrapple * _retractAccumulatedSpeed * QuickRetractReleaseMultiplier;
                 
-                // 如果绳子偏向水平，给一个向上的分量
-                if (outwardDir.y < 0.3f)
+                // 只有当钩爪在上方时，才添加额外的向上加成
+                if (_grapplePoint.y > transform.position.y)
                 {
-                    outwardDir.y = Mathf.Max(outwardDir.y, 0.5f);
-                    outwardDir = outwardDir.normalized;
+                    retractVelocity.y += QuickRetractUpwardBoost;
                 }
-                
-                retractVelocity = outwardDir * _retractAccumulatedSpeed * QuickRetractReleaseMultiplier;
-                
-                // 额外的向上加成
-                retractVelocity.y += QuickRetractUpwardBoost;
             }
             
             // === 3. 合并速度 ===
             Vector2 velocity = swingVelocity * ExitVelocityMultiplier + retractVelocity;
             
-            // === 4. 确保最小向上速度 ===
-            if (velocity.y > -1f)
+            // === 4. 确保最小向上速度（只有当钩爪在上方且没有快速下落时） ===
+            bool grappleIsAbove = _grapplePoint.y > transform.position.y;
+            if (grappleIsAbove && velocity.y > -1f && _retractAccumulatedSpeed < 0.1f)
             {
                 velocity.y = Mathf.Max(velocity.y, MinUpwardBoost);
             }
@@ -1171,6 +1184,20 @@ protected virtual Vector2 CalculateExitVelocity()
             
             return velocity;
         }
+
+/// <summary>
+        /// 脱钩时刷新跳跃次数，确保玩家在空中可以跳跃
+        /// </summary>
+        protected virtual void RefreshJumpsOnRelease()
+        {
+            if (_jumpAbility == null) return;
+            
+            // 设置为 NumberOfJumps - 1，因为 CharacterJump 的空中跳跃条件要求 NumberOfJumpsLeft < NumberOfJumps
+            // 至少给玩家1次跳跃机会
+            int jumpsToGive = Mathf.Max(1, _jumpAbility.NumberOfJumps - 1);
+            _jumpAbility.SetNumberOfJumpsLeft(jumpsToGive);
+        }
+
 
         protected virtual void CancelFiring()
         {
