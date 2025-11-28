@@ -60,6 +60,26 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("地面检测距离")]
         public float GroundCheckDistance = 0.3f;
 
+        [Header("=== 自动缩绳 ===")]
+        
+        [Tooltip("启用自动缩绳（接近地面时自动缩短绳长，让玩家贴地滑行）")]
+        public bool EnableAutoShortenRope = true;
+        
+        [Tooltip("最小离地高度（保持玩家在地面上方多高）")]
+        public float MinGroundClearance = 0.15f;
+        
+        [Tooltip("绳长缩短速度（每秒）")]
+        public float RopeShortenSpeed = 25f;
+        
+        [Tooltip("绳长恢复速度（每秒）")]
+        public float RopeRestoreSpeed = 8f;
+        
+        [Tooltip("最小绳长限制")]
+        public float MinRopeLength = 1.5f;
+        
+        [Tooltip("地面检测预判距离（提前多远开始缩绳）")]
+        public float GroundDetectAhead = 1.5f;
+
         [Header("=== 飞出设置 ===")]
         
         [Tooltip("飞出速度倍率")]
@@ -133,6 +153,7 @@ namespace MoreMountains.CorgiEngine
         protected bool _hasValidTarget;  // 新增：是否有有效目标
         protected Vector2 _grapplePoint;
         protected float _ropeLength;
+        protected float _originalRopeLength;  // 自动缩绳用：保存初始绳长
         protected float _currentAngle;
         protected float _angularVelocity;
         
@@ -668,6 +689,9 @@ protected virtual void StartSwinging()
                 _ropeLength = MaxSwingRopeLength;
             }
             
+            // 保存初始绳长（自动缩绳功能用）
+            _originalRopeLength = _ropeLength;
+            
             _currentAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
             
             // === 惯性继承算法 ===
@@ -692,23 +716,11 @@ protected virtual void StartSwinging()
             
             _angularVelocity = tangentSpeed / _ropeLength;
             
-            // === ★ 新功能：距离/角度加速 ★ ===
-            // 根据玩家与钩爪点的角度偏移来增加初始摆荡速度
-            // 模拟钩子的"势能"：偏移角度越大，初始加速越大
+            // === 距离/角度加速 ===
             if (DistanceBoostFactor > 0f)
             {
-                // currentAngle 是偏离垂直方向的角度（弧度）
-                // 正下方时 angle = 0，左下方时 angle < 0，右下方时 angle > 0
                 float angleOffset = _currentAngle;
-                
-                // 用 sin(angle) 来计算加速，这样：
-                // - 正下方 (angle=0): sin(0) = 0，不加速
-                // - 左下方 (angle<0): sin 为负，得到向右的加速（负角速度）
-                // - 右下方 (angle>0): sin 为正，得到向左的加速（正角速度）
-                // 这正好符合重力摆的自然运动方向
                 float distanceBoost = -Mathf.Sin(angleOffset) * DistanceBoostFactor;
-                
-                // 将距离加速加到角速度上
                 _angularVelocity += distanceBoost;
             }
             
@@ -801,7 +813,6 @@ protected virtual void ProcessSwing()
                     Vector2 toPlayer = newPos - _grapplePoint;
                     newAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
                     
-                    // 根据碰撞方向调整角速度
                     float dotProduct = Vector2.Dot(moveDir, hit.normal);
                     if (dotProduct < -0.5f)
                     {
@@ -814,27 +825,30 @@ protected virtual void ProcessSwing()
                 }
             }
             
-            // === 6. 额外的地面穿透修正 ===
-            // 向下发射射线检测地面
-            RaycastHit2D groundCheck = Physics2D.Raycast(
-                newPos, Vector2.down, halfHeight + 0.1f, _controller.PlatformMask
-            );
-            
-            if (groundCheck.collider != null)
+            // === 6. 自动缩绳逻辑 ===
+            if (EnableAutoShortenRope)
             {
-                float minY = groundCheck.point.y + halfHeight + 0.02f;
-                if (newPos.y < minY)
+                ProcessAutoShortenRope(ref newPos, ref newAngle, halfHeight);
+            }
+            else
+            {
+                // 原来的简单地面修正
+                RaycastHit2D groundCheck = Physics2D.Raycast(
+                    newPos, Vector2.down, halfHeight + 0.1f, _controller.PlatformMask
+                );
+                
+                if (groundCheck.collider != null)
                 {
-                    newPos.y = minY;
-                    
-                    // 重新计算角度
-                    Vector2 toPlayer = newPos - _grapplePoint;
-                    newAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
-                    
-                    // 如果向下运动，减少角速度
-                    if (_angularVelocity * Mathf.Cos(_currentAngle) > 0)
+                    float minY = groundCheck.point.y + halfHeight + 0.02f;
+                    if (newPos.y < minY)
                     {
-                        _angularVelocity *= 0.8f;
+                        newPos.y = minY;
+                        Vector2 toPlayer = newPos - _grapplePoint;
+                        newAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
+                        if (_angularVelocity * Mathf.Cos(_currentAngle) > 0)
+                        {
+                            _angularVelocity *= 0.8f;
+                        }
                     }
                 }
             }
@@ -847,7 +861,101 @@ protected virtual void ProcessSwing()
             _lastPosition = newPos;
         }
 
-        protected virtual void TriggerAfterimage()
+        protected virtual void ProcessAutoShortenRope(ref Vector2 newPos, ref float newAngle, float halfHeight)
+        {
+            // 检测当前位置和前方的地面
+            float detectDistance = halfHeight + GroundDetectAhead;
+            
+            // 向下检测地面
+            RaycastHit2D groundHit = Physics2D.Raycast(
+                newPos, Vector2.down, detectDistance, _controller.PlatformMask
+            );
+            
+            // 同时检测移动方向前方的地面（预判）
+            Vector2 moveDirection = new Vector2(Mathf.Sign(_angularVelocity), 0);
+            RaycastHit2D aheadGroundHit = Physics2D.Raycast(
+                newPos + moveDirection * 0.5f, Vector2.down, detectDistance, _controller.PlatformMask
+            );
+            
+            // 取较高的地面（更保守）
+            float groundY = float.MinValue;
+            bool hasGround = false;
+            
+            if (groundHit.collider != null)
+            {
+                groundY = groundHit.point.y;
+                hasGround = true;
+            }
+            if (aheadGroundHit.collider != null && aheadGroundHit.point.y > groundY)
+            {
+                groundY = aheadGroundHit.point.y;
+                hasGround = true;
+            }
+            
+            if (hasGround)
+            {
+                // 计算玩家应该在的最低Y位置
+                float minPlayerY = groundY + halfHeight + MinGroundClearance;
+                
+                // 如果新位置会触地或接近地面
+                if (newPos.y < minPlayerY + 0.3f)
+                {
+                    // 计算需要的绳长：使玩家刚好在minPlayerY高度
+                    // 从钩爪点到玩家位置的距离
+                    float dx = newPos.x - _grapplePoint.x;
+                    float dy = _grapplePoint.y - minPlayerY;  // 注意：钩爪点Y - 玩家Y
+                    
+                    // 只有当钩爪点在玩家上方时才缩绳
+                    if (dy > 0)
+                    {
+                        float requiredLength = Mathf.Sqrt(dx * dx + dy * dy);
+                        
+                        // 确保不低于最小绳长
+                        requiredLength = Mathf.Max(requiredLength, MinRopeLength);
+                        
+                        // 快速缩短绳长
+                        if (requiredLength < _ropeLength)
+                        {
+                            _ropeLength = Mathf.MoveTowards(_ropeLength, requiredLength, RopeShortenSpeed * Time.deltaTime);
+                            
+                            // 缩绳后重新计算位置（保持同样的角度）
+                            newPos.x = _grapplePoint.x + Mathf.Sin(newAngle) * _ropeLength;
+                            newPos.y = _grapplePoint.y - Mathf.Cos(newAngle) * _ropeLength;
+                        }
+                    }
+                    
+                    // 最终位置修正：确保不穿地
+                    if (newPos.y < minPlayerY)
+                    {
+                        newPos.y = minPlayerY;
+                        // 重新计算角度
+                        Vector2 toPlayer = newPos - _grapplePoint;
+                        newAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
+                        // 同时更新绳长以匹配实际位置
+                        _ropeLength = toPlayer.magnitude;
+                    }
+                }
+                else
+                {
+                    // 安全区域，缓慢恢复绳长
+                    if (_ropeLength < _originalRopeLength)
+                    {
+                        _ropeLength = Mathf.MoveTowards(_ropeLength, _originalRopeLength, RopeRestoreSpeed * Time.deltaTime);
+                    }
+                }
+            }
+            else
+            {
+                // 没有地面，恢复原始绳长
+                if (_ropeLength < _originalRopeLength)
+                {
+                    _ropeLength = Mathf.MoveTowards(_ropeLength, _originalRopeLength, RopeRestoreSpeed * Time.deltaTime);
+                }
+            }
+        }
+
+        
+protected virtual void TriggerAfterimage()
         {
             if (!EnableAfterimageOnBoost || AfterimageEffect == null) return;
             
