@@ -5947,9 +5947,11 @@ MonoBehaviour:
   GrappleLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  MaxGrappleDistance: 12
-  HookTravelSpeed: 40
-  HookRetractSpeed: 50
+  MaxGrappleDistance: 15
+  MaxSwingRopeLength: 15
+  PullSpeed: 15
+  HookTravelSpeed: 70
+  HookRetractSpeed: 80
   GrappleSearchAngle: 60
   SwingGravity: 25
   BoostImpulse: 25
@@ -5957,9 +5959,9 @@ MonoBehaviour:
   MaxAngularVelocity: 12
   SwingDamping: 0.3
   GroundCheckDistance: 0.3
-  ExitVelocityMultiplier: 0.8
+  ExitVelocityMultiplier: 1.5
   MaxExitSpeed: 28
-  MinUpwardBoost: 3
+  MinUpwardBoost: 10
   ExitAnimationDuration: 1
   ExitAirControlStrength: 0.3
   ExitAirControlAcceleration: 15

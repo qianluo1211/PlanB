@@ -149,6 +149,7 @@ namespace MoreMountains.CorgiEngine
         // 退出动画计时
         protected float _exitStartTime = 0f;
         protected Vector2 _exitVelocity;  // 存储飞出速度
+        protected Vector2 _velocityOnHook;  // 钩爪命中时保存的速度（用于继承惯性）
         protected bool _applyingExitMomentum;  // 是否正在应用飞出惯性
         
         // 缓存
@@ -331,7 +332,7 @@ protected virtual void ProcessExitState()
 
         #region 发射钩爪
 
-        protected virtual void TryFireGrapple()
+protected virtual void TryFireGrapple()
         {
             if (!AbilityAuthorized || _isSwinging || _isFiring || _isRetracting) return;
             
@@ -339,6 +340,10 @@ protected virtual void ProcessExitState()
                 _movement.CurrentState == CharacterStates.MovementStates.LedgeHanging ||
                 _movement.CurrentState == CharacterStates.MovementStates.Dashing)
                 return;
+            
+            // ★ 关键修改：在发射钩爪的那一刻就保存速度（此时速度还没被清零）
+            _velocityOnHook = _controller.Speed;
+            Debug.Log($"[Grapple] 发射时保存速度: {_velocityOnHook}");
             
             Vector2 aimDir = GetAimDirection();
             Vector2? target = FindGrappleTarget(aimDir);
@@ -446,7 +451,7 @@ protected virtual void ProcessExitState()
             }
         }
 
-        protected virtual void StartFiring()
+protected virtual void StartFiring()
         {
             _isFiring = true;
             _isRetracting = false;
@@ -454,6 +459,13 @@ protected virtual void ProcessExitState()
             _hookPosition = (Vector2)transform.position + HookOffset;
             
             FlipTowardsTarget(_hookTarget);
+            
+            // ★ 关键修改：在钩爪飞行期间保持角色的惯性速度
+            // 设置为摆荡状态，防止其他能力（如水平移动）干扰速度
+            _movement.ChangeState(CharacterStates.MovementStates.Swinging);
+            
+            // 重新应用保存的速度，确保惯性不丢失
+            _controller.SetForce(_velocityOnHook);
             
             if (HookPrefab != null)
             {
@@ -467,8 +479,12 @@ protected virtual void ProcessExitState()
             PlayAbilityStartFeedbacks();
         }
 
-        protected virtual void ProcessHookFlight()
+protected virtual void ProcessHookFlight()
         {
+            // ★ 关键修改：在钩爪飞行期间持续维持角色的惯性速度
+            // 重新应用保存的速度，防止其他系统干扰
+            _controller.SetForce(_velocityOnHook);
+            
             Vector2 currentOrigin = (Vector2)transform.position + HookOffset;
             Vector2 dir = (_hookTarget - _hookPosition).normalized;
             float distToTarget = Vector2.Distance(_hookPosition, _hookTarget);
@@ -547,6 +563,9 @@ protected virtual void ProcessExitState()
 
 protected virtual void OnHookHit()
         {
+            // 注意：速度已经在 TryFireGrapple() 中保存到 _velocityOnHook
+            // 这里不再重复保存，因为此时速度可能已经被清零
+            
             _isFiring = false;
             _grapplePoint = _hookTarget;
             
@@ -649,10 +668,36 @@ protected virtual void StartSwinging()
             
             _currentAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
             
-            Vector2 currentVel = _controller.Speed;
-            Vector2 tangent = new Vector2(-toPlayer.y, toPlayer.x).normalized;
-            float tangentSpeed = Vector2.Dot(currentVel, tangent);
+            // ★ 改进的惯性继承算法 ★
+            Vector2 inheritedVelocity = _velocityOnHook;
+            
+            // 计算标准切线方向（绳子方向的垂直方向）
+            Vector2 ropeDir = toPlayer.normalized;
+            // 切线方向：逆时针旋转90度，正方向为顺时针摆动（向右）
+            Vector2 tangent = new Vector2(-ropeDir.y, ropeDir.x);
+            
+            // 计算切线速度
+            float tangentSpeed = Vector2.Dot(inheritedVelocity, tangent);
+            
+            // ★ 关键改进：如果切线速度太小，但水平速度很大，则用水平速度来决定摆荡方向
+            float horizontalSpeed = inheritedVelocity.x;
+            float totalSpeed = inheritedVelocity.magnitude;
+            
+            // 如果切线分量不足总速度的30%，但水平速度还不错，则用水平方向决定摆荡
+            if (Mathf.Abs(tangentSpeed) < totalSpeed * 0.3f && Mathf.Abs(horizontalSpeed) > 3f)
+            {
+                // 用水平速度的方向和大小来设置角速度
+                // 向右移动 = 正角速度（顺时针），向左移动 = 负角速度（逆时针）
+                float boostFactor = 0.7f; // 动量保留系数
+                tangentSpeed = horizontalSpeed * boostFactor;
+                
+                Debug.Log($"[Grapple] 使用水平动量补偿: 水平速度={horizontalSpeed:F2}, 补偿后切线速度={tangentSpeed:F2}");
+            }
+            
             _angularVelocity = tangentSpeed / _ropeLength;
+            
+            // Debug输出
+            Debug.Log($"[Grapple] 继承速度: {inheritedVelocity}, 切线速度: {tangentSpeed:F2}, 初始角速度: {_angularVelocity:F2}, 绳长: {_ropeLength:F2}");
             
             _movement.ChangeState(CharacterStates.MovementStates.Swinging);
             _controller.GravityActive(false);
