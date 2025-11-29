@@ -119,6 +119,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &33146322
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4604326033837354745, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_Name
+      value: RetroSwordsmanChildBrain (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -73.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e36a80da45c2942ae54638f24645c4, type: 3}
 --- !u!4 &54171513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4917982280305266, guid: 9052bdb4af6054a78a34d222df6af5f0,
@@ -13011,6 +13079,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1476496844}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &275573258
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4604326033837354745, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_Name
+      value: RetroSwordsmanChildBrain (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -78.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e36a80da45c2942ae54638f24645c4, type: 3}
 --- !u!1001 &280551841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14489,12 +14625,12 @@ PrefabInstance:
     - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -68.1805
+      value: -69.51
       objectReference: {fileID: 0}
     - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.545168
+      value: 11.37
       objectReference: {fileID: 0}
     - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
         type: 3}
@@ -14923,6 +15059,74 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &384641522
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4604326033837354745, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_Name
+      value: RetroSwordsmanChildBrain (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e36a80da45c2942ae54638f24645c4, type: 3}
 --- !u!1001 &417268751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15249,6 +15453,74 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &943829092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4604326033837354745, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_Name
+      value: RetroSwordsmanChildBrain (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -63.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e36a80da45c2942ae54638f24645c4, type: 3}
 --- !u!1001 &952092874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15768,6 +16040,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fbdff59b6b4ce42a2ce477d7db655d, type: 3}
+--- !u!1001 &1317997955
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4604326033837354745, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_Name
+      value: RetroSwordsmanChildBrain (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -66.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606713706601392889, guid: 35e36a80da45c2942ae54638f24645c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e36a80da45c2942ae54638f24645c4, type: 3}
 --- !u!1 &1404027456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1608034844476318, guid: bc28339b89f2a6d40ad9f521e4cd9b05,
@@ -19065,3 +19405,8 @@ SceneRoots:
   - {fileID: 1284965271}
   - {fileID: 662808940}
   - {fileID: 337389801}
+  - {fileID: 943829092}
+  - {fileID: 1317997955}
+  - {fileID: 384641522}
+  - {fileID: 33146322}
+  - {fileID: 275573258}
