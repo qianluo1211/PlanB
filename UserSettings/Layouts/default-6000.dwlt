@@ -177,8 +177,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -568
     m_HBaseRangeMax: 568
-    m_VBaseRangeMin: -288.77777
-    m_VBaseRangeMax: 288.77777
+    m_VBaseRangeMin: -296.77777
+    m_VBaseRangeMax: 296.77777
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -197,9 +197,9 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 1704
-      height: 866.3333
+      height: 890.3333
     m_Scale: {x: 1.5450001, y: 1.5449998}
-    m_Translation: {x: 840.9301, y: 434.97162}
+    m_Translation: {x: 840.9301, y: 446.97165}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -207,12 +207,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -544.2913
-      y: -281.53506
+      y: -289.30206
       width: 1102.9126
-      height: 560.7336
+      height: 576.2676
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1704, y: 887.3333}
+  m_LastWindowPixelSize: {x: 1704, y: 911.3333}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
