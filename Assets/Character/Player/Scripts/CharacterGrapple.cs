@@ -88,9 +88,6 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("绳长缩短速度（每秒）")]
         public float RopeShortenSpeed = 25f;
         
-        [Tooltip("绳长恢复速度（每秒）")]
-        public float RopeRestoreSpeed = 8f;
-        
         [Tooltip("最小绳长限制")]
         public float MinRopeLength = 1.5f;
         
@@ -201,6 +198,11 @@ namespace MoreMountains.CorgiEngine
         protected CharacterJump _jumpAbility;
         protected Vector2 _lastPosition;
         
+        // 缓存（性能优化）
+        protected BoxCollider2D _boxCollider;
+        protected Camera _mainCamera;
+
+        
         // 动画参数
         protected const string _swingingParam = "Swinging";
         protected const string _firingParam = "GrappleFiring";
@@ -216,6 +218,8 @@ protected override void Initialization()
             base.Initialization();
             _runAbility = _character?.FindAbility<CharacterRun>();
             _jumpAbility = _character?.FindAbility<CharacterJump>();
+            _boxCollider = GetComponent<BoxCollider2D>();
+            _mainCamera = Camera.main;
             SetupRope();
             SetupAfterimage();
         }
@@ -435,15 +439,14 @@ protected virtual void TryFireGrapple()
             StartFiring();
         }
 
-        protected virtual Vector2 GetAimDirection()
+protected virtual Vector2 GetAimDirection()
         {
             Vector3 mouseScreenPos = Input.mousePosition;
-            Camera cam = Camera.main;
             
-            if (cam != null)
+            if (_mainCamera != null)
             {
-                mouseScreenPos.z = Mathf.Abs(cam.transform.position.z - transform.position.z);
-                Vector3 mouseWorldPos = cam.ScreenToWorldPoint(mouseScreenPos);
+                mouseScreenPos.z = Mathf.Abs(_mainCamera.transform.position.z - transform.position.z);
+                Vector3 mouseWorldPos = _mainCamera.ScreenToWorldPoint(mouseScreenPos);
                 
                 Vector2 dirToMouse = (Vector2)mouseWorldPos - (Vector2)transform.position;
                 
@@ -821,30 +824,22 @@ protected virtual void ProcessSwing()
                 float retractAmount = QuickRetractSpeed * Time.deltaTime;
                 float newLength = Mathf.Max(_ropeLength - retractAmount, QuickRetractMinLength);
                 
-                // 计算实际收缩量
                 float actualRetract = _ropeLength - newLength;
                 
                 if (actualRetract > 0)
                 {
-                    // 累积收缩速度（用于飞出时继承）
                     _retractAccumulatedSpeed = QuickRetractSpeed;
-                    
-                    // 更新绳长
                     _ropeLength = newLength;
-                    _originalRopeLength = newLength; // 同步更新，防止自动缩绳恢复
-                    
-                    // 触发残影效果
+                    _originalRopeLength = newLength;
                     TriggerAfterimage();
                 }
                 else
                 {
-                    // 已经到达最小绳长，保持收缩速度记录
                     _retractAccumulatedSpeed = QuickRetractSpeed;
                 }
             }
             else
             {
-                // 不在收缩时，速度递减
                 _retractAccumulatedSpeed = Mathf.MoveTowards(_retractAccumulatedSpeed, 0f, QuickRetractSpeed * 2f * Time.deltaTime);
             }
             
@@ -864,8 +859,7 @@ protected virtual void ProcessSwing()
             Vector2 moveDir = (newPos - currentPos);
             float moveDist = moveDir.magnitude;
             
-            BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
-            Vector2 boxSize = boxCollider != null ? boxCollider.size * 0.9f : new Vector2(0.5f, 0.8f);
+            Vector2 boxSize = _boxCollider != null ? _boxCollider.size * 0.9f : new Vector2(0.5f, 0.8f);
             float halfHeight = boxSize.y * 0.5f;
             
             if (moveDist > 0.001f)
@@ -923,7 +917,6 @@ protected virtual void ProcessSwing()
             }
             else if (!_isQuickRetracting)
             {
-                // 原来的简单地面修正
                 RaycastHit2D groundCheck = Physics2D.Raycast(
                     newPos, Vector2.down, halfHeight + 0.1f, _controller.PlatformMask
                 );

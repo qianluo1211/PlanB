@@ -1,0 +1,526 @@
+fileFormatVersion: 2
+guid: a014871b15d7ddc499356851c65f62d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5070913815158629131
+    second: 20251129-001013_0
+  - first:
+      213: 6061140997078925241
+    second: 20251129-001013_1
+  - first:
+      213: -7138672699487359489
+    second: 20251129-001013_2
+  - first:
+      213: -6715301523553996567
+    second: 20251129-001013_3
+  - first:
+      213: 6456188968455094889
+    second: 20251129-001013_4
+  - first:
+      213: -2173125067068173118
+    second: 20251129-001013_5
+  - first:
+      213: 9027939117838838050
+    second: 20251129-001013_6
+  - first:
+      213: 1969817041899944084
+    second: 20251129-001013_7
+  - first:
+      213: 1230473738150513370
+    second: 20251129-001013_8
+  - first:
+      213: -935477138298089376
+    second: 20251129-001013_9
+  - first:
+      213: -3801106331007205508
+    second: 20251129-001013_10
+  - first:
+      213: 4551112953057658349
+    second: 20251129-001013_11
+  - first:
+      213: 1283540690427347924
+    second: 20251129-001013_12
+  - first:
+      213: 1799091603484996776
+    second: 20251129-001013_13
+  - first:
+      213: -5133994623947747621
+    second: 20251129-001013_14
+  - first:
+      213: 7217827529224489213
+    second: 20251129-001013_15
+  - first:
+      213: 2030774682554449822
+    second: 20251129-001013_16
+  - first:
+      213: 3099306320329668146
+    second: 20251129-001013_17
+  - first:
+      213: -3604799211052289900
+    second: 20251129-001013_18
+  - first:
+      213: 2010901902901129557
+    second: 20251129-001013_19
+  - first:
+      213: -6895699388152347011
+    second: 20251129-001013_20
+  - first:
+      213: 3844066517171529168
+    second: 20251129-001013_21
+  - first:
+      213: -1238529819469755846
+    second: 20251129-001013_22
+  - first:
+      213: 6363813673563966884
+    second: 20251129-001013_23
+  - first:
+      213: 197058335415801793
+    second: 20251129-001013_24
+  - first:
+      213: 2979698784152911813
+    second: 20251129-001013_25
+  - first:
+      213: -4265686960942094495
+    second: 20251129-001013_26
+  - first:
+      213: 7610967405045886402
+    second: 20251129-001013_27
+  - first:
+      213: -7379228106604134604
+    second: 20251129-001013_28
+  - first:
+      213: 262269974311265247
+    second: 20251129-001013_29
+  - first:
+      213: -4441799998363569352
+    second: 20251129-001013_30
+  - first:
+      213: 1154701734481886904
+    second: 20251129-001013_31
+  - first:
+      213: -7580265027909519789
+    second: 20251129-001013_32
+  - first:
+      213: 4352511574523851044
+    second: 20251129-001013_33
+  - first:
+      213: 1546969211013263350
+    second: 20251129-001013_34
+  - first:
+      213: -4799772529969010623
+    second: 20251129-001013_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: P_BlinkAttack2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262cd42c6015cc54da2d9a0b26d9890a
+      internalID: -697407729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_1
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2143a09b7535f64798c582001866c46
+      internalID: -499890189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0e3dcd2d5d6f64b9e089d7e38942be
+      internalID: 2138617836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18beb7c5e79460b41a45316e1ff8b22d
+      internalID: -599533937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe773a6853a9d8e4497ae694fd877d7a
+      internalID: -925484195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f79565bd2dbc645b8fa9c217ef1155
+      internalID: 1604661575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db84fd508d8ae0429e7d3b31c77388e
+      internalID: -463995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_7
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272d6b5b41cebd34fb61f3165ec00d66
+      internalID: 1521815232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b434d852a022066438122017b2177a75
+      internalID: -2110998607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57e103680a0bbd4692fd57e973ae89e
+      internalID: 477792268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_10
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c046ce10eee6204ebd91bd8fb5b418f
+      internalID: -1072767352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31d5227d0ec64542a72f60c9a3edddd
+      internalID: 412975434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_BlinkAttack2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22b493dd688a8e41b756dd163bd4534
+      internalID: -1301239030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 56431bc3080dc4c418559061c19d092e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":300.0,"y":300.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      P_BlinkAttack2_0: -697407729
+      P_BlinkAttack2_1: -499890189
+      P_BlinkAttack2_10: -1072767352
+      P_BlinkAttack2_11: 412975434
+      P_BlinkAttack2_12: -1301239030
+      P_BlinkAttack2_2: 2138617836
+      P_BlinkAttack2_3: -599533937
+      P_BlinkAttack2_4: -925484195
+      P_BlinkAttack2_5: 1604661575
+      P_BlinkAttack2_6: -463995
+      P_BlinkAttack2_7: 1521815232
+      P_BlinkAttack2_8: -2110998607
+      P_BlinkAttack2_9: 477792268
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

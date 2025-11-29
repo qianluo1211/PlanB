@@ -444,17 +444,17 @@ namespace MoreMountains.CorgiEngine
             if (_aimLineRenderer != null)
             {
                 _aimLineRenderer.enabled = true;
-                Debug.Log("[CharacterDashAim] 显示瞄准线");
+                //Debug.Log("[CharacterDashAim] 显示瞄准线");
             }
             if (_rangeCircleRenderer != null)
             {
                 _rangeCircleRenderer.enabled = true;
-                Debug.Log("[CharacterDashAim] 显示范围圈");
+                //Debug.Log("[CharacterDashAim] 显示范围圈");
             }
             if (_endPointRenderer != null)
             {
                 _endPointRenderer.enabled = true;
-                Debug.Log("[CharacterDashAim] 显示终点指示器");
+                //Debug.Log("[CharacterDashAim] 显示终点指示器");
             }
         }
 

@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "D:\\Unity\\Project\\Plan B\\PlanB\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CCB73008-CC0E-D8DD-F8C2-460340196D09}|MoreMountains.CorgiEngine.Editor.csproj|d:\\unity\\project\\plan b\\planb\\assets\\corgiengine\\common\\editor\\agents\\characterabilities\\characterabilityinspector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCB73008-CC0E-D8DD-F8C2-460340196D09}|MoreMountains.CorgiEngine.Editor.csproj|solutionrelative:assets\\corgiengine\\common\\editor\\agents\\characterabilities\\characterabilityinspector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{25FF7025-25F5-F5BA-6628-300765E833E6}|MoreMountains.Tools.Editor.csproj|d:\\unity\\project\\plan b\\planb\\assets\\corgiengine\\thirdparty\\moremountains\\mmfeedbacks\\editor\\core\\uitoolkit\\mmf_playereditoruitk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{25FF7025-25F5-F5BA-6628-300765E833E6}|MoreMountains.Tools.Editor.csproj|solutionrelative:assets\\corgiengine\\thirdparty\\moremountains\\mmfeedbacks\\editor\\core\\uitoolkit\\mmf_playereditoruitk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B295A408-2080-CB13-9818-CFFA08264676}|MoreMountains.Tools.csproj|d:\\unity\\project\\plan b\\planb\\assets\\corgiengine\\thirdparty\\moremountains\\mmfeedbacks\\mmfeedbacks\\core\\mmf_player\\mmf_player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B295A408-2080-CB13-9818-CFFA08264676}|MoreMountains.Tools.csproj|D:\\Unity\\Project\\Plan B\\PlanB\\assets\\corgiengine\\thirdparty\\moremountains\\mmfeedbacks\\mmfeedbacks\\core\\mmf_player\\mmf_player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B295A408-2080-CB13-9818-CFFA08264676}|MoreMountains.Tools.csproj|solutionrelative:assets\\corgiengine\\thirdparty\\moremountains\\mmfeedbacks\\mmfeedbacks\\core\\mmf_player\\mmf_player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -51,19 +55,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CharacterAbilityInspector.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Editor\\Agents\\CharacterAbilities\\CharacterAbilityInspector.cs",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Editor\\Agents\\CharacterAbilities\\CharacterAbilityInspector.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Editor\\Agents\\CharacterAbilities\\CharacterAbilityInspector.cs",
+              "RelativeToolTip": "Assets\\CorgiEngine\\Common\\Editor\\Agents\\CharacterAbilities\\CharacterAbilityInspector.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAIA3wBwAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T21:27:57.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MMF_PlayerEditorUITK.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\Editor\\Core\\UIToolkit\\MMF_PlayerEditorUITK.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\Editor\\Core\\UIToolkit\\MMF_PlayerEditorUITK.cs",
               "ToolTip": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\Editor\\Core\\UIToolkit\\MMF_PlayerEditorUITK.cs",
               "RelativeToolTip": "Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\Editor\\Core\\UIToolkit\\MMF_PlayerEditorUITK.cs",
-              "ViewState": "AgIAAGIBAAAAAAAAAAAhwG4BAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAGsBAAAAAAAAAMBTwG4BAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-28T13:04:13.234Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MMF_Player.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\MMFeedbacks\\Core\\MMF_Player\\MMF_Player.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\MMFeedbacks\\Core\\MMF_Player\\MMF_Player.cs",
@@ -71,12 +88,11 @@
               "RelativeToolTip": "Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\MMFeedbacks\\Core\\MMF_Player\\MMF_Player.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T11:40:56.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T11:40:56.71Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CharacterGrapple.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\CharacterGrapple.cs",
               "RelativeDocumentMoniker": "Assets\\Character\\Player\\Scripts\\CharacterGrapple.cs",
@@ -88,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GrappleHookVisual.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\GrappleHookVisual.cs",
               "RelativeDocumentMoniker": "Assets\\Character\\Player\\Scripts\\GrappleHookVisual.cs",
@@ -100,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "WeaponAim.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
@@ -112,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MeleeWeapon.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
@@ -124,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ComboWeapon.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
