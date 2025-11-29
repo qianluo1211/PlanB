@@ -54,6 +54,12 @@ namespace MoreMountains.CorgiEngine
         public bool FlipCharacterIfNeeded = true;
         [Tooltip("最小输入阈值")]
         public float MinimumInputThreshold = 0.1f;
+        [Tooltip("取消瞄准/Dash的按键")]
+        public KeyCode CancelKey = KeyCode.Mouse1;
+        [Tooltip("取消后延迟恢复钩爪的时间（防止误触发）")]
+        public float CancelGrappleDelay = 0.15f;
+
+
 
         [Header("=== 能力禁用设置 ===")]
         [Tooltip("瞄准和Dash期间禁用武器")]
@@ -96,6 +102,8 @@ namespace MoreMountains.CorgiEngine
         public MMFeedbacks EnemyHitFeedback;
         public MMFeedbacks EnemyKillFeedback;
         public MMFeedbacks SecondDashFeedback;
+        public MMFeedbacks CancelFeedback;
+
 
         [Header("=== 音效 ===")]
         [Tooltip("Dash攻击音效")]
@@ -329,8 +337,19 @@ namespace MoreMountains.CorgiEngine
                 UpdateAimVisuals();
         }
 
-        protected virtual void HandleAimingInput()
+protected virtual void HandleAimingInput()
         {
+            // 检测取消输入
+            if (Input.GetKeyDown(CancelKey))
+            {
+                if (_isAiming || _currentPhase != DashPhaseEnum.None)
+                {
+                    ForceStopWithGrappleDelay();
+                    CancelFeedback?.PlayFeedbacks(transform.position);
+                    return;
+                }
+            }
+            
             if (Input.GetKeyDown(AimKey))
                 StartAiming();
             if (Input.GetKeyUp(AimKey) && _isAiming)
@@ -749,6 +768,85 @@ namespace MoreMountains.CorgiEngine
                 }
             }
         }
+
+/// <summary>
+        /// 强制停止，但延迟恢复钩爪能力（防止取消时误触发钩爪）
+        /// </summary>
+/// <summary>
+        /// 强制停止，但延迟恢复钩爪能力（防止取消时误触发钩爪）
+        /// </summary>
+        public virtual void ForceStopWithGrappleDelay()
+        {
+            // 先保存钩爪状态
+            bool grappleWasDisabled = DisableGrappleWhileActive && _grapple != null;
+            
+            // 处理瞄准状态
+            if (_isAiming)
+            {
+                _isAiming = false;
+                Time.timeScale = _savedTimeScale;
+                HideAimVisuals();
+            }
+            
+            // 处理Dash状态
+            if (_currentPhase != DashPhaseEnum.None)
+            {
+                if (_dashCoroutine != null)
+                {
+                    StopCoroutine(_dashCoroutine);
+                    _dashCoroutine = null;
+                }
+                
+                _currentPhase = DashPhaseEnum.None;
+                
+                _controller.DefaultParameters.MaximumSlopeAngle = _slopeAngleSave;
+                _controller.Parameters.MaximumSlopeAngle = _slopeAngleSave;
+                _controller.GravityActive(true);
+                _controller.SetForce(Vector2.zero);
+                
+                if (InvincibleWhileDashing && _health != null)
+                    _health.DamageEnabled();
+                
+                SetDamageZoneActive(false);
+                ResetAnimatorState();
+                
+                if (_movement.CurrentState == CharacterStates.MovementStates.Dashing)
+                {
+                    _movement.ChangeState(_controller.State.IsGrounded 
+                        ? CharacterStates.MovementStates.Idle 
+                        : CharacterStates.MovementStates.Falling);
+                }
+            }
+            
+            // 恢复除钩爪外的其他能力
+            if (DisableWeaponWhileActive && _handleWeapon != null)
+                _handleWeapon.AbilityPermitted = true;
+            if (DisableJumpWhileActive && _jump != null)
+                _jump.AbilityPermitted = true;
+            if (DisableMovementWhileAiming && _horizontalMovement != null)
+                _horizontalMovement.AbilityPermitted = true;
+            
+            // 延迟恢复钩爪
+            if (grappleWasDisabled)
+            {
+                StartCoroutine(DelayedGrappleEnable());
+            }
+        }
+
+/// <summary>
+        /// 延迟恢复钩爪能力
+        /// </summary>
+        protected virtual IEnumerator DelayedGrappleEnable()
+        {
+            yield return new WaitForSeconds(CancelGrappleDelay);
+            
+            if (_grapple != null)
+            {
+                _grapple.AbilityPermitted = true;
+            }
+        }
+
+
 
         public override void ResetAbility()
         {
