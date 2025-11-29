@@ -5,13 +5,18 @@ using MoreMountains.CorgiEngine;
 
 /// <summary>
 /// AI动作：先瞄准一段时间，显示激光预警线，然后射击
-/// 可以替代或配合AIActionShoot使用
+/// 支持两种瞄准完成触发方式：
+/// 1. 固定时间 (AimDuration)
+/// 2. 动画事件 (在瞄准动画最后一帧调用 OnAimingComplete)
 /// </summary>
 [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Aim And Shoot")]
 public class AIActionAimAndShoot : AIAction
 {
     [Header("Aiming Settings")]
-    [Tooltip("瞄准持续时间（秒）")]
+    [Tooltip("是否使用动画事件触发射击（否则使用固定时间）")]
+    public bool UseAnimationEvent = true;
+    
+    [Tooltip("瞄准持续时间（仅在 UseAnimationEvent = false 时生效）")]
     public float AimDuration = 1.5f;
     
     [Tooltip("瞄准时是否面向目标")]
@@ -43,6 +48,16 @@ public class AIActionAimAndShoot : AIAction
     [Tooltip("开始闪烁的时机（0-1，1表示最后时刻）")]
     public float FlashStartProgress = 0.8f;
 
+    [Header("Animation Parameters")]
+    [Tooltip("是否使用动画")]
+    public bool UseAnimations = true;
+    
+    [Tooltip("瞄准动画参数名（Bool）")]
+    public string AimingParameter = "Aiming";
+    
+    [Tooltip("射击动画参数名（Bool）")]
+    public string ShootingParameter = "Shooting";
+
     [Header("Target Offset")]
     [Tooltip("瞄准目标的偏移量")]
     public Vector3 TargetOffset = Vector3.zero;
@@ -53,16 +68,21 @@ public class AIActionAimAndShoot : AIAction
 
     // 内部状态
     protected Character _character;
+    protected Animator _animator;
     protected WeaponAim _weaponAim;
     protected WeaponAimingLaser _aimingLaser;
     protected ProjectileWeapon _projectileWeapon;
     
     protected float _aimStartTime;
     protected bool _isAiming = false;
+    protected bool _isShooting = false;
     protected bool _hasFired = false;
-    protected int _shotsFired = 0;
     protected Vector3 _weaponAimDirection;
     protected Coroutine _shootCoroutine;
+
+    // 动画参数哈希
+    protected int _aimingParameterHash;
+    protected int _shootingParameterHash;
 
     /// <summary>
     /// 初始化
@@ -72,9 +92,18 @@ public class AIActionAimAndShoot : AIAction
         if (!ShouldInitialize) return;
         
         _character = GetComponentInParent<Character>();
+        _animator = GetComponentInParent<Animator>();
+        
         if (TargetHandleWeapon == null)
         {
             TargetHandleWeapon = _character?.FindAbility<CharacterHandleWeapon>();
+        }
+
+        // 缓存动画参数哈希
+        if (UseAnimations)
+        {
+            _aimingParameterHash = Animator.StringToHash(AimingParameter);
+            _shootingParameterHash = Animator.StringToHash(ShootingParameter);
         }
     }
 
@@ -86,8 +115,8 @@ public class AIActionAimAndShoot : AIAction
         base.OnEnterState();
         
         _isAiming = true;
+        _isShooting = false;
         _hasFired = false;
-        _shotsFired = 0;
         _aimStartTime = Time.time;
 
         // 获取武器组件
@@ -107,6 +136,9 @@ public class AIActionAimAndShoot : AIAction
                 _aimingLaser.SetTarget(_brain.Target);
             }
         }
+
+        // 播放瞄准动画
+        SetAnimationParameter(_aimingParameterHash, true);
     }
 
     /// <summary>
@@ -116,31 +148,87 @@ public class AIActionAimAndShoot : AIAction
     {
         if (_brain.Target == null) return;
 
-        // 面向目标
+        // 始终面向目标
         if (FaceTarget)
         {
             FaceTheTarget();
         }
 
-        // 瞄准目标
+        // 始终瞄准目标（射击时也要追踪）
         AimAtTarget();
 
-        // 计算瞄准进度
-        float aimProgress = (Time.time - _aimStartTime) / AimDuration;
-
+        // 瞄准阶段的逻辑
         if (_isAiming)
         {
             // 更新激光效果
-            UpdateLaserEffect(aimProgress);
-
-            // 瞄准完成，开始射击
-            if (aimProgress >= 1f && !_hasFired)
+            if (UseLaser && _aimingLaser != null)
             {
-                _isAiming = false;
-                _hasFired = true;
-                StartShooting();
+                float aimProgress;
+                if (UseAnimationEvent)
+                {
+                    // 使用动画事件时，用动画的 normalizedTime 作为进度
+                    aimProgress = GetAimingAnimationProgress();
+                }
+                else
+                {
+                    // 使用固定时间
+                    aimProgress = (Time.time - _aimStartTime) / AimDuration;
+                }
+                
+                UpdateLaserEffect(aimProgress);
+            }
+
+            // 如果不使用动画事件，则用计时器触发射击
+            if (!UseAnimationEvent)
+            {
+                float aimProgress = (Time.time - _aimStartTime) / AimDuration;
+                if (aimProgress >= 1f && !_hasFired)
+                {
+                    TriggerShooting();
+                }
             }
         }
+    }
+
+    /// <summary>
+    /// 获取瞄准动画的播放进度 (0-1)
+    /// </summary>
+    protected virtual float GetAimingAnimationProgress()
+    {
+        if (_animator == null) return 0f;
+        
+        // 获取 Combat Layer (index 1) 的当前状态信息
+        AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(1);
+        
+        // 确保是在 Aiming 状态
+        if (stateInfo.IsName(AimingParameter) || stateInfo.IsName("Aiming"))
+        {
+            return Mathf.Clamp01(stateInfo.normalizedTime);
+        }
+        
+        return 0f;
+    }
+
+    /// <summary>
+    /// 动画事件调用：瞄准动画播放完成
+    /// 在瞄准动画的最后一帧添加动画事件，调用此方法
+    /// </summary>
+    public virtual void OnAimingComplete()
+    {
+        if (_isAiming && !_hasFired)
+        {
+            TriggerShooting();
+        }
+    }
+
+    /// <summary>
+    /// 触发射击
+    /// </summary>
+    protected virtual void TriggerShooting()
+    {
+        _isAiming = false;
+        _hasFired = true;
+        StartShooting();
     }
 
     /// <summary>
@@ -167,7 +255,7 @@ public class AIActionAimAndShoot : AIAction
     {
         if (_brain.Target == null || TargetHandleWeapon?.CurrentWeapon == null) return;
 
-        if (_weaponAim != null && (TrackTargetWhileAiming || !_isAiming))
+        if (_weaponAim != null)
         {
             Vector3 targetPosition = _brain.Target.position + TargetOffset;
             
@@ -216,6 +304,12 @@ public class AIActionAimAndShoot : AIAction
     /// </summary>
     protected virtual void StartShooting()
     {
+        _isShooting = true;
+
+        // 切换动画：关闭瞄准，开启射击
+        SetAnimationParameter(_aimingParameterHash, false);
+        SetAnimationParameter(_shootingParameterHash, true);
+
         if (_shootCoroutine != null)
         {
             StopCoroutine(_shootCoroutine);
@@ -228,13 +322,12 @@ public class AIActionAimAndShoot : AIAction
     /// </summary>
     protected virtual IEnumerator ShootCoroutine()
     {
+        // 发射所有子弹
         for (int i = 0; i < ShotsToFire; i++)
         {
-            // 射击
             TargetHandleWeapon?.ShootStart();
-            _shotsFired++;
 
-            // 等待间隔
+            // 多发射击之间的间隔
             if (i < ShotsToFire - 1)
             {
                 yield return new WaitForSeconds(TimeBetweenShots);
@@ -246,6 +339,17 @@ public class AIActionAimAndShoot : AIAction
         {
             _aimingLaser.DeactivateLaser();
         }
+
+        // Shooting 保持 true，直到 OnExitState 被调用
+    }
+
+    /// <summary>
+    /// 设置动画参数
+    /// </summary>
+    protected virtual void SetAnimationParameter(int parameterHash, bool value)
+    {
+        if (!UseAnimations || _animator == null) return;
+        _animator.SetBool(parameterHash, value);
     }
 
     /// <summary>
@@ -255,7 +359,7 @@ public class AIActionAimAndShoot : AIAction
     {
         base.OnExitState();
 
-        // 停止射击
+        // 停止射击协程
         if (_shootCoroutine != null)
         {
             StopCoroutine(_shootCoroutine);
@@ -271,6 +375,11 @@ public class AIActionAimAndShoot : AIAction
             _aimingLaser.ClearTarget();
         }
 
+        // 关闭所有动画参数
+        SetAnimationParameter(_aimingParameterHash, false);
+        SetAnimationParameter(_shootingParameterHash, false);
+
         _isAiming = false;
+        _isShooting = false;
     }
 }

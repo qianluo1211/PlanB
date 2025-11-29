@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000012629228584
 Transform:
   m_ObjectHideFlags: 0
@@ -4800,7 +4800,7 @@ Transform:
   m_GameObject: {fileID: 1000010407495960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.84784, y: -23.090694, z: 0}
+  m_LocalPosition: {x: -87.84784, y: -22.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4968,7 +4968,7 @@ MonoBehaviour:
   RotateWeaponOnSpread: 0
   RandomSpread: 1
   ObjectPooler: {fileID: 0}
-  SpawnPosition: {x: -87.14784, y: -23.090694, z: 0}
+  SpawnPosition: {x: -87.14784, y: -22.52, z: 0}
 --- !u!114 &114191819752502978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5340,7 +5340,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.12016913, g: 0.53294563, b: 0.7798742, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
