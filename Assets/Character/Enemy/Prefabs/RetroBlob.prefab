@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114812267071887670}
   - component: {fileID: 114721613417220764}
   - component: {fileID: 114728691002572212}
+  - component: {fileID: 8277406356773386181}
   m_Layer: 13
   m_Name: RetroBlob
   m_TagString: Untagged
@@ -575,6 +576,28 @@ MonoBehaviour:
     m_Bits: 0
   ObstacleDetectionRayOffset: {x: 0, y: 0, z: 0}
   ResetPositionOnDeath: 1
+--- !u!114 &8277406356773386181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970212983328296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1508296b0904b1ba069c225eb6482a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.CorgiEngine::MoreMountains.CorgiEngine.AutoRespawn
+  RespawnOnPlayerRespawn: 1
+  RepositionToInitOnPlayerRespawn: 1
+  DisableOnKill: 1
+  DisableModelOnKill: 1
+  AutoRespawnDuration: 0
+  AutoRespawnAmount: 3
+  AutoRespawnRemainingAmount: 3
+  IgnoreCheckpointsAlwaysRespawn: 1
+  AssociatedCheckpoints: []
+  RespawnFeedback: {fileID: 0}
 --- !u!1 &808380773510876700
 GameObject:
   m_ObjectHideFlags: 0
