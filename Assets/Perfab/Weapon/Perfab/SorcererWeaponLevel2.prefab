@@ -4800,7 +4800,7 @@ Transform:
   m_GameObject: {fileID: 1000010407495960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.84784, y: -22.52, z: 0}
+  m_LocalPosition: {x: -87.84784, y: -22.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4968,7 +4968,7 @@ MonoBehaviour:
   RotateWeaponOnSpread: 0
   RandomSpread: 1
   ObjectPooler: {fileID: 0}
-  SpawnPosition: {x: -87.14784, y: -22.52, z: 0}
+  SpawnPosition: {x: -87.14784, y: -22.85, z: 0}
 --- !u!114 &114191819752502978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,7 +5144,7 @@ Transform:
   m_GameObject: {fileID: 1000013730713990}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.639, y: 0.021, z: 0}
+  m_LocalPosition: {x: -1.392, y: -0.138, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6079,7 +6079,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 4.44
         minScalar: 100
         maxCurve:
           serializedVersion: 2
@@ -6137,7 +6137,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 2.09
         minScalar: 100
         maxCurve:
           serializedVersion: 2
@@ -6195,7 +6195,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 3.02
         minScalar: 100
         maxCurve:
           serializedVersion: 2
@@ -6296,7 +6296,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 0
       maxCurve:
@@ -6349,7 +6349,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 0
       maxCurve:
@@ -6405,8 +6405,8 @@ ParticleSystem:
     enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 1
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6458,8 +6458,8 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 1
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -8628,7 +8628,7 @@ ParticleSystem:
     enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -8681,7 +8681,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -11003,8 +11003,11 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 7133780308014939554}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 2d6f1b59f05ba40e3a702c2695cb86fd, type: 3}
-        RandomSfx: []
+        Sfx: {fileID: 8300000, guid: 43d4b68812e9acf4890e5a9b02ead6a5, type: 3}
+        RandomSfx:
+        - {fileID: 8300000, guid: 43d4b68812e9acf4890e5a9b02ead6a5, type: 3}
+        - {fileID: 8300000, guid: 007d88ba6f19943408ff17d45a3cc2a2, type: 3}
+        - {fileID: 8300000, guid: 5608e7d81cbe2064a892a070efac8d72, type: 3}
         TestPlayButton:
           ButtonText: Debug Play Sound
         TestStopButton:

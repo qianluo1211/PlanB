@@ -6051,6 +6051,10 @@ MonoBehaviour:
   AimKey: 102
   FlipCharacterIfNeeded: 1
   MinimumInputThreshold: 0.1
+  DisableWeaponWhileActive: 1
+  DisableJumpWhileActive: 1
+  DisableMovementWhileAiming: 1
+  DisableGrappleWhileActive: 1
   DashCooldown: 1
   InvincibleWhileDashing: 0
   ResetForcesOnExit: 1
@@ -6076,7 +6080,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e8ba3800a5a81f5479a4323c82eb2298, type: 3}
   SoundVolume: 1
   PitchRange: {x: 0.95, y: 1.05}
-  DebugMode: 1
 --- !u!1 &1693914667617252
 GameObject:
   m_ObjectHideFlags: 0
@@ -97510,10 +97513,10 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 5012707982616224640}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 12542c7e1fb9eb44f8d79d153d1494ee, type: 3}
+        Sfx: {fileID: 8300000, guid: d33adbe8b96343447accdd692ecbe064, type: 3}
         RandomSfx:
-        - {fileID: 8300000, guid: 12542c7e1fb9eb44f8d79d153d1494ee, type: 3}
-        - {fileID: 8300000, guid: 5394ddcf4f05fd143b0fe59b3e0fe500, type: 3}
+        - {fileID: 8300000, guid: d33adbe8b96343447accdd692ecbe064, type: 3}
+        - {fileID: 8300000, guid: e9c115746b4004247a3325676f0909d9, type: 3}
         TestPlayButton:
           ButtonText: Debug Play Sound
         TestStopButton:
@@ -97522,8 +97525,8 @@ MonoBehaviour:
         PoolSize: 10
         UseLegacyEventsMode: 0
         StopSoundOnFeedbackStop: 1
-        MinVolume: 2
-        MaxVolume: 2
+        MinVolume: 1.46
+        MaxVolume: 1.41
         MinPitch: 1
         MaxPitch: 1
         SfxAudioMixerGroup: {fileID: 0}
