@@ -40,12 +40,21 @@ namespace MoreMountains.CorgiEngine
         
         [Tooltip("首次激活时的反馈（音效、粒子等）")]
         public MMFeedbacks ActivationFeedbacks;
+        
+        [Tooltip("恢复生命值时的反馈（有冷却时间）")]
+        public MMFeedbacks HealFeedbacks;
+        
+        [Tooltip("回血特效的冷却时间（秒）")]
+        public float HealFeedbackCooldown = 5f;
 
         [Header("状态")]
         
         [MMReadOnly]
         [Tooltip("是否已激活")]
         public bool IsActivated = false;
+
+        // 上次播放回血特效的时间
+        private float _lastHealFeedbackTime = -999f;
 
         /// <summary>
         /// 初始化
@@ -90,7 +99,7 @@ namespace MoreMountains.CorgiEngine
                     BellAnimator.SetTrigger(ActivateTrigger);
                 }
                 
-                // 播放激活反馈
+                // 播放激活反馈（只在首次激活时播放）
                 ActivationFeedbacks?.PlayFeedbacks(transform.position);
             }
             
@@ -112,7 +121,15 @@ namespace MoreMountains.CorgiEngine
             Health playerHealth = character.CharacterHealth;
             if (playerHealth != null)
             {
+                // 回血功能始终生效
                 playerHealth.ResetHealthToMaxHealth();
+                
+                // 回血特效有冷却时间
+                if (Time.time >= _lastHealFeedbackTime + HealFeedbackCooldown)
+                {
+                    HealFeedbacks?.PlayFeedbacks(transform.position);
+                    _lastHealFeedbackTime = Time.time;
+                }
             }
         }
 

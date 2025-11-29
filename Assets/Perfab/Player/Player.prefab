@@ -4896,7 +4896,6 @@ GameObject:
   - component: {fileID: 114961038306698606}
   - component: {fileID: 114552395418788484}
   - component: {fileID: 114937525856734860}
-  - component: {fileID: 114683987661486744}
   - component: {fileID: 114339136294938960}
   - component: {fileID: 114540723652440904}
   - component: {fileID: 114067210621431476}
@@ -4905,21 +4904,17 @@ GameObject:
   - component: {fileID: 114720526364534534}
   - component: {fileID: 114048862864412380}
   - component: {fileID: 114235575369676186}
-  - component: {fileID: 114411575044845156}
   - component: {fileID: 114601844263833296}
   - component: {fileID: 114703903213212616}
   - component: {fileID: 114238553675504360}
   - component: {fileID: 114927335825560744}
   - component: {fileID: 114225984267732342}
-  - component: {fileID: 114976649179906174}
   - component: {fileID: 114737756740280128}
-  - component: {fileID: 114522469039680690}
   - component: {fileID: 114911115990406022}
   - component: {fileID: 1885844844233380838}
   - component: {fileID: 4309780398886090872}
   - component: {fileID: 6568008703436733419}
   - component: {fileID: 8142255087451268405}
-  - component: {fileID: 5683150900215798491}
   - component: {fileID: 3138931876945488989}
   - component: {fileID: 2254312604447199404}
   - component: {fileID: 1206889361104690723}
@@ -5259,34 +5254,6 @@ MonoBehaviour:
   TouchTheGroundFeedback: {fileID: 3954242864737784057}
   MinimumAirTimeBeforeFeedback: 0.2
   StopWalkingWhenCollidingWithAWall: 0
---- !u!114 &114683987661486744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383539409296422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8071d2257235e403da6c6a0a966d6683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  CrawlAuthorized: 1
-  CrawlSpeed: 4
-  InputDriven: 1
-  ResizeColliderWhenCrouched: 0
-  CrouchedBoxColliderSize: {x: 0.8, y: 1}
-  CanCrouchWhileMoving: 1
-  CanMoveWhileCrouching: 1
-  InATunnel: 0
-  MoveCameraTarget: 1
-  CameraTargetOffset: {x: 0, y: -3, z: 0}
 --- !u!114 &114339136294938960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5505,30 +5472,6 @@ MonoBehaviour:
   NumberOfWalljumpsLeft: 0
   AllowCoyoteTime: 0
   CoyoteTimeDuration: 0.2
---- !u!114 &114411575044845156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383539409296422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96ed8ea1ca8048f6a2b90871e211025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  LadderClimbingSpeed: 2
-  ForceRightFacing: 0
-  ForceAnchorToGroundOnExit: 0
-  MinimumTimeAfterLadderJump: 0.5
-  NoInputClimb: 0
-  NoInputClimbAirOnly: 0
 --- !u!114 &114601844263833296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5670,31 +5613,6 @@ MonoBehaviour:
   TransitionForcesMode: 1
   ResetCharacterStateOnGravityChange: 1
   DrawDebugGravityArrow: 1
---- !u!114 &114976649179906174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383539409296422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6acc45a765d864ba3d69b6c84471f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  InWater: 0
-  SwimHeight: 1
-  SwimAnimationDuration: 0.8
-  OnSwimFeedback: {fileID: 0}
-  WaterEntryEffect: {fileID: 143758, guid: 14f27396ac5b4d84cb17d403de44b8a1, type: 3}
-  WaterExitEffect: {fileID: 143758, guid: 14f27396ac5b4d84cb17d403de44b8a1, type: 3}
-  WaterExitForce: {x: 0, y: 12}
 --- !u!114 &114737756740280128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5719,26 +5637,6 @@ MonoBehaviour:
   PushWhenGroundedOnly: 1
   DetectionRaycastLength: 0.2
   MinimumPushSpeed: 0
---- !u!114 &114522469039680690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383539409296422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15be9d1db94cd13409db60706f5bc5cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 3496406596516489769}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  VerticalForce: -0.1
-  GlideOnlyIfNoJumpsLeft: 1
 --- !u!114 &114911115990406022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5872,41 +5770,6 @@ MonoBehaviour:
   DamageTakenFlickerDuration: 0.2
   DamageTakenInvincibilityDuration: 0.6
   CrushDamageTypes: []
---- !u!114 &5683150900215798491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383539409296422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d317597e2b47bcb4e80316f1b372d79b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  BlockingWeaponStates: 
-  RollDuration: 0.5
-  RollSpeed: 3
-  BlockHorizontalInput: 0
-  PreventDamageCollisionsDuringRoll: 1
-  Aim:
-    AimControl: 0
-    RotationMode: 0
-    MinimumAngle: -180
-    MaximumAngle: 180
-    CurrentAngle: 0
-  MinimumInputThreshold: 0.1
-  FlipCharacterIfNeeded: 1
-  RollCooldown: 1
-  LimitedRolls: 0
-  SuccessiveRollsAmount: 1
-  SuccessiveRollsLeft: 1
-  SuccessiveRollsResetDuration: 2
 --- !u!114 &3138931876945488989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6051,6 +5914,8 @@ MonoBehaviour:
   AimKey: 102
   FlipCharacterIfNeeded: 1
   MinimumInputThreshold: 0.1
+  CancelKey: 324
+  CancelGrappleDelay: 0.15
   DisableWeaponWhileActive: 1
   DisableJumpWhileActive: 1
   DisableMovementWhileAiming: 1
@@ -6074,6 +5939,7 @@ MonoBehaviour:
   EnemyHitFeedback: {fileID: 7341233749166850717}
   EnemyKillFeedback: {fileID: 0}
   SecondDashFeedback: {fileID: 0}
+  CancelFeedback: {fileID: 0}
   DashAttackSounds:
   - {fileID: 8300000, guid: 18c7ad4857d1ea14a84876c423e2f538, type: 3}
   - {fileID: 8300000, guid: 7d97135c15f339748ad733735c19e377, type: 3}
@@ -26474,6 +26340,7 @@ GameObject:
   - component: {fileID: 1033719121769825378}
   - component: {fileID: 5257172717294899294}
   - component: {fileID: 2435611198793948760}
+  - component: {fileID: 8266981047885039699}
   m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
@@ -26598,6 +26465,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac873a27f4d0e94db021080110d2908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.DashAnimationEvents
+--- !u!114 &8266981047885039699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542157804954364982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284a8270ccab6bf448ba8157936ad896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSound
+  FootstepClips:
+  - {fileID: 8300000, guid: f5d52dc3a1ec2574c988d9b47e9577f9, type: 3}
+  - {fileID: 8300000, guid: cf869cf729af26040add13500cdab09d, type: 3}
+  - {fileID: 8300000, guid: 358ddc5e408dd1c4097dfc922ad3e335, type: 3}
+  - {fileID: 8300000, guid: c134883ec13a1d044a87d0a6ac111a24, type: 3}
+  SingleFootstepClip: {fileID: 0}
+  MinVolume: 0.8
+  MaxVolume: 1
+  MinPitch: 0.9
+  MaxPitch: 1.1
+  CooldownTime: 0.1
+  OnlyWhenGrounded: 1
+  UseMMSoundManager: 1
+  SoundTrack: 0
 --- !u!1 &1573848343225987717
 GameObject:
   m_ObjectHideFlags: 0
@@ -69909,7 +69802,7 @@ MonoBehaviour:
     - rid: 1
       type: {class: MMF_CorgiEngineSound, ns: MoreMountains.CorgiEngine, asm: MoreMountains.CorgiEngine}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -1165801602
         Label: Corgi Engine Sound
         OriginalLabel: Corgi Engine Sound
@@ -90676,7 +90569,7 @@ MonoBehaviour:
     - rid: 1
       type: {class: MMF_CorgiEngineSound, ns: MoreMountains.CorgiEngine, asm: MoreMountains.CorgiEngine}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 507652713
         Label: Corgi Engine Sound
         OriginalLabel: Corgi Engine Sound

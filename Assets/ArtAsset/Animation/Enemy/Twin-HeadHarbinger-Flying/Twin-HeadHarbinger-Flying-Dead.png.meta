@@ -1,0 +1,895 @@
+fileFormatVersion: 2
+guid: 4fda3953945fa364cbc8767edc29b748
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 782991364912118099
+    second: Twin-HeadHarbinger-Flying-Dead_0
+  - first:
+      213: -204609622864993161
+    second: Twin-HeadHarbinger-Flying-Dead_1
+  - first:
+      213: 7105997554419541895
+    second: Twin-HeadHarbinger-Flying-Dead_2
+  - first:
+      213: 5170627828688343108
+    second: Twin-HeadHarbinger-Flying-Dead_3
+  - first:
+      213: 2244731948678829934
+    second: Twin-HeadHarbinger-Flying-Dead_4
+  - first:
+      213: 5845189557061722300
+    second: Twin-HeadHarbinger-Flying-Dead_5
+  - first:
+      213: -358484142052902096
+    second: Twin-HeadHarbinger-Flying-Dead_6
+  - first:
+      213: 2387856972838060595
+    second: Twin-HeadHarbinger-Flying-Dead_7
+  - first:
+      213: -4332482847981134257
+    second: Twin-HeadHarbinger-Flying-Dead_8
+  - first:
+      213: -7712393918886751859
+    second: Twin-HeadHarbinger-Flying-Dead_9
+  - first:
+      213: -3867985966130198964
+    second: Twin-HeadHarbinger-Flying-Dead_10
+  - first:
+      213: 4885487923542994108
+    second: Twin-HeadHarbinger-Flying-Dead_11
+  - first:
+      213: -3781192693114893033
+    second: Twin-HeadHarbinger-Flying-Dead_12
+  - first:
+      213: -1206296209501212289
+    second: Twin-HeadHarbinger-Flying-Dead_13
+  - first:
+      213: 713733281849623469
+    second: Twin-HeadHarbinger-Flying-Dead_14
+  - first:
+      213: 2609804991977378352
+    second: Twin-HeadHarbinger-Flying-Dead_15
+  - first:
+      213: -4794940050590878207
+    second: Twin-HeadHarbinger-Flying-Dead_16
+  - first:
+      213: -4876123663279760525
+    second: Twin-HeadHarbinger-Flying-Dead_17
+  - first:
+      213: -5065485422333033240
+    second: Twin-HeadHarbinger-Flying-Dead_18
+  - first:
+      213: 5351981397483264844
+    second: Twin-HeadHarbinger-Flying-Dead_19
+  - first:
+      213: -6052290038082404112
+    second: Twin-HeadHarbinger-Flying-Dead_20
+  - first:
+      213: 6441587459739955729
+    second: Twin-HeadHarbinger-Flying-Dead_21
+  - first:
+      213: 694025492021264800
+    second: Twin-HeadHarbinger-Flying-Dead_22
+  - first:
+      213: -1364891799891737083
+    second: Twin-HeadHarbinger-Flying-Dead_23
+  - first:
+      213: 4633194773357503981
+    second: Twin-HeadHarbinger-Flying-Dead_24
+  - first:
+      213: 2264955161262879745
+    second: Twin-HeadHarbinger-Flying-Dead_25
+  - first:
+      213: -1535314579430413596
+    second: Twin-HeadHarbinger-Flying-Dead_26
+  - first:
+      213: -6622262950240778646
+    second: Twin-HeadHarbinger-Flying-Dead_27
+  - first:
+      213: 4876695713072525380
+    second: Twin-HeadHarbinger-Flying-Dead_28
+  - first:
+      213: -171126550729070183
+    second: Twin-HeadHarbinger-Flying-Dead_29
+  - first:
+      213: 7722412202103869061
+    second: Twin-HeadHarbinger-Flying-Dead_30
+  - first:
+      213: -3787757865157799825
+    second: Twin-HeadHarbinger-Flying-Dead_31
+  - first:
+      213: -981056395877611949
+    second: Twin-HeadHarbinger-Flying-Dead_32
+  - first:
+      213: 841896538063220121
+    second: Twin-HeadHarbinger-Flying-Dead_33
+  - first:
+      213: 9141673537023092802
+    second: Twin-HeadHarbinger-Flying-Dead_34
+  - first:
+      213: -8680520944499614522
+    second: Twin-HeadHarbinger-Flying-Dead_35
+  - first:
+      213: -7583178736040396378
+    second: Twin-HeadHarbinger-Flying-Dead_36
+  - first:
+      213: 8939037980732258125
+    second: Twin-HeadHarbinger-Flying-Dead_37
+  - first:
+      213: -675324865144909873
+    second: Twin-HeadHarbinger-Flying-Dead_38
+  - first:
+      213: -2788754403775086350
+    second: Twin-HeadHarbinger-Flying-Dead_39
+  - first:
+      213: -270438657988385153
+    second: Twin-HeadHarbinger-Flying-Dead_40
+  - first:
+      213: -2487961133227164611
+    second: Twin-HeadHarbinger-Flying-Dead_41
+  - first:
+      213: -5993569894946256767
+    second: Twin-HeadHarbinger-Flying-Dead_42
+  - first:
+      213: 789763018394894427
+    second: Twin-HeadHarbinger-Flying-Dead_43
+  - first:
+      213: -1755881535085983975
+    second: Twin-HeadHarbinger-Flying-Dead_44
+  - first:
+      213: 8965011708278269240
+    second: Twin-HeadHarbinger-Flying-Dead_45
+  - first:
+      213: -9009232305777253643
+    second: Twin-HeadHarbinger-Flying-Dead_46
+  - first:
+      213: 7007751432743292905
+    second: Twin-HeadHarbinger-Flying-Dead_47
+  - first:
+      213: 2398781711363262255
+    second: Twin-HeadHarbinger-Flying-Dead_48
+  - first:
+      213: -7068775461129530303
+    second: Twin-HeadHarbinger-Flying-Dead_49
+  - first:
+      213: -8025197541981409104
+    second: Twin-HeadHarbinger-Flying-Dead_50
+  - first:
+      213: 4175615017409139594
+    second: Twin-HeadHarbinger-Flying-Dead_51
+  - first:
+      213: -7556744707600823546
+    second: Twin-HeadHarbinger-Flying-Dead_52
+  - first:
+      213: 9219014886770348424
+    second: Twin-HeadHarbinger-Flying-Dead_53
+  - first:
+      213: 3566576534456630694
+    second: Twin-HeadHarbinger-Flying-Dead_54
+  - first:
+      213: 4277343262520476116
+    second: Twin-HeadHarbinger-Flying-Dead_55
+  - first:
+      213: -543369469930827799
+    second: Twin-HeadHarbinger-Flying-Dead_56
+  - first:
+      213: 8541620896414032083
+    second: Twin-HeadHarbinger-Flying-Dead_57
+  - first:
+      213: 621528570738869712
+    second: Twin-HeadHarbinger-Flying-Dead_58
+  - first:
+      213: 726972984227204785
+    second: Twin-HeadHarbinger-Flying-Dead_59
+  - first:
+      213: -5878218710304094402
+    second: Twin-HeadHarbinger-Flying-Dead_60
+  - first:
+      213: -1366764785058786101
+    second: Twin-HeadHarbinger-Flying-Dead_61
+  - first:
+      213: 5003495242616186105
+    second: Twin-HeadHarbinger-Flying-Dead_62
+  - first:
+      213: 1470883082295432497
+    second: Twin-HeadHarbinger-Flying-Dead_63
+  - first:
+      213: -2037067541288750460
+    second: Twin-HeadHarbinger-Flying-Dead_64
+  - first:
+      213: -8742371600274699147
+    second: Twin-HeadHarbinger-Flying-Dead_65
+  - first:
+      213: -3019234020641821404
+    second: Twin-HeadHarbinger-Flying-Dead_66
+  - first:
+      213: -5053610830312607855
+    second: Twin-HeadHarbinger-Flying-Dead_67
+  - first:
+      213: 3602042012998964016
+    second: Twin-HeadHarbinger-Flying-Dead_68
+  - first:
+      213: -2856857543990952612
+    second: Twin-HeadHarbinger-Flying-Dead_69
+  - first:
+      213: -650334855606092081
+    second: Twin-HeadHarbinger-Flying-Dead_70
+  - first:
+      213: 3011957857335353445
+    second: Twin-HeadHarbinger-Flying-Dead_71
+  - first:
+      213: 809691535254344650
+    second: Twin-HeadHarbinger-Flying-Dead_72
+  - first:
+      213: 2822052323877646680
+    second: Twin-HeadHarbinger-Flying-Dead_73
+  - first:
+      213: 4301167851431717918
+    second: Twin-HeadHarbinger-Flying-Dead_74
+  - first:
+      213: 174598294461026587
+    second: Twin-HeadHarbinger-Flying-Dead_75
+  - first:
+      213: 1059206273640278781
+    second: Twin-HeadHarbinger-Flying-Dead_76
+  - first:
+      213: -8690501454520633755
+    second: Twin-HeadHarbinger-Flying-Dead_77
+  - first:
+      213: -2568508227933982383
+    second: Twin-HeadHarbinger-Flying-Dead_78
+  - first:
+      213: 6382975144443009713
+    second: Twin-HeadHarbinger-Flying-Dead_79
+  - first:
+      213: 287258757756530976
+    second: Twin-HeadHarbinger-Flying-Dead_80
+  - first:
+      213: -9146006467233252893
+    second: Twin-HeadHarbinger-Flying-Dead_81
+  - first:
+      213: -3757506436622795311
+    second: Twin-HeadHarbinger-Flying-Dead_82
+  - first:
+      213: -2760118622479507298
+    second: Twin-HeadHarbinger-Flying-Dead_83
+  - first:
+      213: -663016224511925823
+    second: Twin-HeadHarbinger-Flying-Dead_84
+  - first:
+      213: 6073384402007581381
+    second: Twin-HeadHarbinger-Flying-Dead_85
+  - first:
+      213: -4218368660582183003
+    second: Twin-HeadHarbinger-Flying-Dead_86
+  - first:
+      213: -2261292055218327849
+    second: Twin-HeadHarbinger-Flying-Dead_87
+  - first:
+      213: -4959429834491406124
+    second: Twin-HeadHarbinger-Flying-Dead_88
+  - first:
+      213: 4673501943033816471
+    second: Twin-HeadHarbinger-Flying-Dead_89
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 359f8c77f7ebdda00800000000000000
+      internalID: 782991364912118099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774618fc1a4192df0800000000000000
+      internalID: -204609622864993161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 787a8f560239d9260800000000000000
+      internalID: 7105997554419541895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440d7b27d92c1c740800000000000000
+      internalID: 5170627828688343108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67d8f070d3e62f10800000000000000
+      internalID: 2244731948678829934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb0ac79dee84e1150800000000000000
+      internalID: 5845189557061722300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03b73577298660bf0800000000000000
+      internalID: -358484142052902096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_7
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332c370f34f532120800000000000000
+      internalID: 2387856972838060595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_8
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e9c92edcdefd3c0800000000000000
+      internalID: -4332482847981134257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_9
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d815fd0c79218f490800000000000000
+      internalID: -7712393918886751859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c460d9cd147225ac0800000000000000
+      internalID: -3867985966130198964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbcad3dc16dbcc340800000000000000
+      internalID: 4885487923542994108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d859b7741868bc0800000000000000
+      internalID: -3781192693114893033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_13
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f71b7ca1dff524fe0800000000000000
+      internalID: -1206296209501212289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da3450963a0b7e900800000000000000
+      internalID: 713733281849623469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0325ad710d3e73420800000000000000
+      internalID: 2609804991977378352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_16
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 106bc3dbd63f47db0800000000000000
+      internalID: -4794940050590878207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_17
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37b5551fc57845cb0800000000000000
+      internalID: -4876123663279760525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_18
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e48be2b8d7c3b9b0800000000000000
+      internalID: -5065485422333033240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_19
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4b1d7999be064a40800000000000000
+      internalID: 5351981397483264844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0867ad642f10ca0800000000000000
+      internalID: -6052290038082404112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Twin-HeadHarbinger-Flying-Dead_21
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11239676aad156950800000000000000
+      internalID: 6441587459739955729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b57602dff5b01f7478621279e09f0fdb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":5.0},"gridSpriteSize":{"x":300.0,"y":300.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Twin-HeadHarbinger-Flying-Dead_0: 782991364912118099
+      Twin-HeadHarbinger-Flying-Dead_1: -204609622864993161
+      Twin-HeadHarbinger-Flying-Dead_10: -3867985966130198964
+      Twin-HeadHarbinger-Flying-Dead_11: 4885487923542994108
+      Twin-HeadHarbinger-Flying-Dead_12: -3781192693114893033
+      Twin-HeadHarbinger-Flying-Dead_13: -1206296209501212289
+      Twin-HeadHarbinger-Flying-Dead_14: 713733281849623469
+      Twin-HeadHarbinger-Flying-Dead_15: 2609804991977378352
+      Twin-HeadHarbinger-Flying-Dead_16: -4794940050590878207
+      Twin-HeadHarbinger-Flying-Dead_17: -4876123663279760525
+      Twin-HeadHarbinger-Flying-Dead_18: -5065485422333033240
+      Twin-HeadHarbinger-Flying-Dead_19: 5351981397483264844
+      Twin-HeadHarbinger-Flying-Dead_2: 7105997554419541895
+      Twin-HeadHarbinger-Flying-Dead_20: -6052290038082404112
+      Twin-HeadHarbinger-Flying-Dead_21: 6441587459739955729
+      Twin-HeadHarbinger-Flying-Dead_3: 5170627828688343108
+      Twin-HeadHarbinger-Flying-Dead_4: 2244731948678829934
+      Twin-HeadHarbinger-Flying-Dead_5: 5845189557061722300
+      Twin-HeadHarbinger-Flying-Dead_6: -358484142052902096
+      Twin-HeadHarbinger-Flying-Dead_7: 2387856972838060595
+      Twin-HeadHarbinger-Flying-Dead_8: -4332482847981134257
+      Twin-HeadHarbinger-Flying-Dead_9: -7712393918886751859
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
