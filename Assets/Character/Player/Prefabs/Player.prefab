@@ -5967,7 +5967,7 @@ MonoBehaviour:
   QuickRetractReleaseMultiplier: 1.3
   QuickRetractUpwardBoost: 5
   EnableAutoShortenRope: 1
-  MinGroundClearance: 0.15
+  MinGroundClearance: 0.3
   RopeShortenSpeed: 25
   RopeRestoreSpeed: 8
   MinRopeLength: 1.5

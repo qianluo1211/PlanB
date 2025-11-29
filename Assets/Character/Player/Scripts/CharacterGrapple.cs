@@ -952,23 +952,19 @@ protected virtual void ProcessSwing()
             _lastPosition = newPos;
         }
 
-        protected virtual void ProcessAutoShortenRope(ref Vector2 newPos, ref float newAngle, float halfHeight)
+protected virtual void ProcessAutoShortenRope(ref Vector2 newPos, ref float newAngle, float halfHeight)
         {
-            // 检测当前位置和前方的地面
             float detectDistance = halfHeight + GroundDetectAhead;
             
-            // 向下检测地面
             RaycastHit2D groundHit = Physics2D.Raycast(
                 newPos, Vector2.down, detectDistance, _controller.PlatformMask
             );
             
-            // 同时检测移动方向前方的地面（预判）
             Vector2 moveDirection = new Vector2(Mathf.Sign(_angularVelocity), 0);
             RaycastHit2D aheadGroundHit = Physics2D.Raycast(
                 newPos + moveDirection * 0.5f, Vector2.down, detectDistance, _controller.PlatformMask
             );
             
-            // 取较高的地面（更保守）
             float groundY = float.MinValue;
             bool hasGround = false;
             
@@ -985,64 +981,43 @@ protected virtual void ProcessSwing()
             
             if (hasGround)
             {
-                // 计算玩家应该在的最低Y位置
                 float minPlayerY = groundY + halfHeight + MinGroundClearance;
                 
-                // 如果新位置会触地或接近地面
                 if (newPos.y < minPlayerY + 0.3f)
                 {
-                    // 计算需要的绳长：使玩家刚好在minPlayerY高度
-                    // 从钩爪点到玩家位置的距离
                     float dx = newPos.x - _grapplePoint.x;
-                    float dy = _grapplePoint.y - minPlayerY;  // 注意：钩爪点Y - 玩家Y
+                    float dy = _grapplePoint.y - minPlayerY;
                     
-                    // 只有当钩爪点在玩家上方时才缩绳
                     if (dy > 0)
                     {
                         float requiredLength = Mathf.Sqrt(dx * dx + dy * dy);
-                        
-                        // 确保不低于最小绳长
                         requiredLength = Mathf.Max(requiredLength, MinRopeLength);
                         
-                        // 快速缩短绳长
                         if (requiredLength < _ropeLength)
                         {
                             _ropeLength = Mathf.MoveTowards(_ropeLength, requiredLength, RopeShortenSpeed * Time.deltaTime);
                             
-                            // 缩绳后重新计算位置（保持同样的角度）
                             newPos.x = _grapplePoint.x + Mathf.Sin(newAngle) * _ropeLength;
                             newPos.y = _grapplePoint.y - Mathf.Cos(newAngle) * _ropeLength;
                         }
                     }
                     
-                    // 最终位置修正：确保不穿地
                     if (newPos.y < minPlayerY)
                     {
                         newPos.y = minPlayerY;
-                        // 重新计算角度
                         Vector2 toPlayer = newPos - _grapplePoint;
                         newAngle = Mathf.Atan2(toPlayer.x, -toPlayer.y);
-                        // 同时更新绳长以匹配实际位置
-                        _ropeLength = toPlayer.magnitude;
+                        
+                        float newLength = toPlayer.magnitude;
+                        if (newLength < _ropeLength)
+                        {
+                            _ropeLength = newLength;
+                        }
                     }
                 }
-                else
-                {
-                    // 安全区域，缓慢恢复绳长
-                    if (_ropeLength < _originalRopeLength)
-                    {
-                        _ropeLength = Mathf.MoveTowards(_ropeLength, _originalRopeLength, RopeRestoreSpeed * Time.deltaTime);
-                    }
-                }
+                // 删除了：安全区域恢复绳长
             }
-            else
-            {
-                // 没有地面，恢复原始绳长
-                if (_ropeLength < _originalRopeLength)
-                {
-                    _ropeLength = Mathf.MoveTowards(_ropeLength, _originalRopeLength, RopeRestoreSpeed * Time.deltaTime);
-                }
-            }
+            // 删除了：没有地面时恢复绳长
         }
 
         
