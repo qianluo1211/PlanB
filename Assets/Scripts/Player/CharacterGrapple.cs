@@ -1225,29 +1225,64 @@ protected virtual void UpdateRopeVisual()
 /// <summary>
         /// 生成手部特效
         /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
         protected virtual void SpawnHandEffect()
         {
-            if (GrappleHandPrefab == null)
-            {
-                Debug.Log("[GrappleHand] GrappleHandPrefab is NULL");
-                return;
-            }
+            if (GrappleHandPrefab == null) return;
             
-            // 计算世界角度
-            float worldAngle = Mathf.Atan2(_hookDirection.y, _hookDirection.x) * Mathf.Rad2Deg;
+            // 计算旋转角度
+            // 正上方(aimAngle=90) -> rotation=0
+            // 右上角(aimAngle=45) -> rotation=-45
+            // 正右(aimAngle=0) -> rotation=-90
+            float aimAngle = Mathf.Atan2(_hookDirection.y, _hookDirection.x) * Mathf.Rad2Deg;
+            float rotationAngle = aimAngle - 90f;
             
             // 生成手部特效，设为玩家子物体
             _handInstance = Instantiate(GrappleHandPrefab, transform);
             _handInstance.transform.localPosition = (Vector3)HandOffset;
-            _handInstance.transform.localRotation = Quaternion.Euler(0, 0, worldAngle);
+            _handInstance.transform.localRotation = Quaternion.Euler(0, 0, rotationAngle);
+            _handInstance.transform.localScale = Vector3.one;
             
-            Debug.Log($"[GrappleHand] Spawned! Parent={_handInstance.transform.parent.name}, LocalPos={_handInstance.transform.localPosition}, WorldPos={_handInstance.transform.position}");
+            // 禁用自动销毁组件，由钩爪系统控制销毁时机
+            var destroyComponent = _handInstance.GetComponent<DestroyAfterAnimation>();
+            if (destroyComponent != null)
+            {
+                destroyComponent.enabled = false;
+            }
             
-            // 设置缩放（左半边时翻转Y轴）
-            Vector3 scale = _handInstance.transform.localScale;
-            bool isAimingLeft = Mathf.Abs(worldAngle) > 90f;
-            scale.y = isAimingLeft ? -Mathf.Abs(scale.y) : Mathf.Abs(scale.y);
-            _handInstance.transform.localScale = scale;
+            Debug.Log($"[GrappleHand] Spawned! AimAngle={aimAngle:F1}, RotationAngle={rotationAngle:F1}");
         }
         
         /// <summary>
@@ -1259,28 +1294,46 @@ protected virtual void UpdateRopeVisual()
 /// <summary>
         /// 更新手部特效旋转
         /// </summary>
+/// <summary>
+        /// 更新手部特效旋转
+        /// </summary>
+/// <summary>
+        /// 更新手部特效旋转
+        /// </summary>
+/// <summary>
+        /// 更新手部特效旋转
+        /// </summary>
+/// <summary>
+        /// 更新手部特效旋转
+        /// </summary>
+/// <summary>
+        /// 更新手部特效旋转
+        /// </summary>
+/// <summary>
+        /// 更新手部特效旋转（跟着钩爪转）
+        /// </summary>
         protected virtual void UpdateHandEffect()
         {
             if (_handInstance == null) return;
             
-            // 检查父物体是否还是玩家
-            if (_handInstance.transform.parent != transform)
+            // 计算从玩家到钩爪的方向
+            Vector2 toHook;
+            if (_isFiring || _isRetracting)
             {
-                Debug.LogWarning($"[GrappleHand] Parent changed! Now={_handInstance.transform.parent?.name ?? "null"}, Expected={transform.name}");
+                // 钩爪飞行/收回中，指向钩爪当前位置
+                toHook = _hookPosition - (Vector2)transform.position;
+            }
+            else
+            {
+                // 摆荡/拉向中，指向钩爪点
+                toHook = _grapplePoint - (Vector2)transform.position;
             }
             
-            // 位置已经自动跟随（子物体），只需要更新旋转
-            Vector2 aimDir = GetAimDirection();
-            float worldAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
+            float aimAngle = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
+            float rotationAngle = aimAngle - 90f;
             
-            // 更新旋转（世界空间）
-            _handInstance.transform.rotation = Quaternion.Euler(0, 0, worldAngle);
-            
-            // 更新Y轴翻转
-            Vector3 scale = _handInstance.transform.localScale;
-            bool isAimingLeft = Mathf.Abs(worldAngle) > 90f;
-            scale.y = isAimingLeft ? -Mathf.Abs(scale.y) : Mathf.Abs(scale.y);
-            _handInstance.transform.localScale = scale;
+            // 更新旋转
+            _handInstance.transform.localRotation = Quaternion.Euler(0, 0, rotationAngle);
         }
 
         

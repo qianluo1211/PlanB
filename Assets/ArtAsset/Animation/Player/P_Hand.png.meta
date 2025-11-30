@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: e0ddb4a3afd8ebb4f9ad9b913eb4ad41
+guid: 2d6c3ba5014a4f447a081316875ed779
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -653441681076073418
-    second: 20251130-115445_0
+      213: 6811848505116783657
+    second: P_Hand 1_0
   - first:
-      213: 2200070337470690129
-    second: 20251130-115445_1
+      213: 3610553350717678078
+    second: P_Hand 1_1
   - first:
-      213: 6663126098299191016
-    second: 20251130-115445_2
+      213: 4425432406170151340
+    second: P_Hand 1_2
   - first:
-      213: 8588817065161936364
-    second: 20251130-115445_3
+      213: -5390764506975132579
+    second: P_Hand 1_3
   - first:
-      213: -6231411649859010385
-    second: 20251130-115445_4
+      213: 2225130400749238032
+    second: P_Hand 1_4
+  - first:
+      213: 5751341193031885666
+    second: P_Hand 1_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,19 +119,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 200
+        y: 0
         width: 200
         height: 200
-      alignment: 9
-      pivot: {x: 0.44, y: 0.6}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f074fbb662d04504f9ac358c52182b93
-      internalID: 1518084099
+      spriteID: bc3a6a61201008a40aabb4cf1d92363e
+      internalID: -781392412
       vertices: []
       indices: 
       edges: []
@@ -138,19 +141,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
-        y: 200
+        y: 0
         width: 200
         height: 200
       alignment: 9
-      pivot: {x: 0.44, y: 0.6}
+      pivot: {x: 0.46, y: 0.59}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbeef3947793a5e42a66807d65870ef4
-      internalID: -1274940686
+      spriteID: e0b6b18dbaffcb2479868b456f4a2947
+      internalID: -54659744
       vertices: []
       indices: 
       edges: []
@@ -159,20 +162,20 @@ TextureImporter:
       name: P_Hand_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 400
         y: 0
         width: 200
         height: 200
       alignment: 9
-      pivot: {x: 0.44, y: 0.6}
+      pivot: {x: 0.46, y: 0.59}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78d16aff2e27ea44e87e9219e63e9245
-      internalID: -1658429055
+      spriteID: 69e304b45b6c9bf4c9ba8eb55b6dfabc
+      internalID: 1867926178
       vertices: []
       indices: 
       edges: []
@@ -181,20 +184,20 @@ TextureImporter:
       name: P_Hand_3
       rect:
         serializedVersion: 2
-        x: 200
+        x: 600
         y: 0
         width: 200
         height: 200
       alignment: 9
-      pivot: {x: 0.44, y: 0.6}
+      pivot: {x: 0.46, y: 0.59}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bae4cf70f209c34b957abe390401a53
-      internalID: 1830966953
+      spriteID: f5a8e7c66e93f5149a1dee88c3bc7a2c
+      internalID: -504091388
       vertices: []
       indices: 
       edges: []
@@ -203,7 +206,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 572c612279b9a2145aba181d42e1f949
+    spriteID: 486be3cc7ec93a244ac8ae354cd15696
     internalID: 0
     vertices: []
     indices: 
@@ -213,12 +216,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":200.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      P_Hand_0: 1518084099
-      P_Hand_1: -1274940686
-      P_Hand_2: -1658429055
-      P_Hand_3: 1830966953
+      P_Hand_0: -781392412
+      P_Hand_1: -54659744
+      P_Hand_2: 1867926178
+      P_Hand_3: -504091388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
