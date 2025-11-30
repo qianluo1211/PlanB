@@ -10212,7 +10212,7 @@ MonoBehaviour:
     - rid: 0
       type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 1510699879
         Label: Sound
         OriginalLabel: Sound
@@ -11060,7 +11060,7 @@ MonoBehaviour:
     - rid: 3
       type: {class: MMF_CameraShake, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -994685843
         Label: Camera Shake
         OriginalLabel: Camera Shake
@@ -11142,7 +11142,7 @@ MonoBehaviour:
     - rid: 4
       type: {class: MMF_Flash, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -1040904186
         Label: Flash
         OriginalLabel: Flash
@@ -11221,7 +11221,7 @@ MonoBehaviour:
     - rid: 5
       type: {class: MMF_Bloom, ns: MoreMountains.FeedbacksForThirdParty, asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 303919689
         Label: Bloom
         OriginalLabel: Bloom
@@ -11370,7 +11370,7 @@ MonoBehaviour:
       type: {class: MMF_ChromaticAberration, ns: MoreMountains.FeedbacksForThirdParty,
         asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 1897886229
         Label: Chromatic Aberration
         OriginalLabel: Chromatic Aberration
@@ -11485,7 +11485,7 @@ MonoBehaviour:
       type: {class: MMF_LensDistortion, ns: MoreMountains.FeedbacksForThirdParty,
         asm: MoreMountains.Tools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 343651733
         Label: Lens Distortion
         OriginalLabel: Lens Distortion

@@ -206,6 +206,7 @@ namespace MoreMountains.CorgiEngine
         protected CharacterRun _runAbility;
         protected CharacterHorizontalMovement _horizontalMovement;
         protected CharacterJump _jumpAbility;
+        protected CharacterHandleWeapon _handleWeaponAbility; // 缓存武器能力，用于在钩爪时禁用攻击
         protected Vector2 _lastPosition;
         
         // 缓存（性能优化）
@@ -231,6 +232,7 @@ protected override void Initialization()
             _runAbility = _character?.FindAbility<CharacterRun>();
             _jumpAbility = _character?.FindAbility<CharacterJump>();
             _horizontalMovement = _character?.FindAbility<CharacterHorizontalMovement>();
+            _handleWeaponAbility = _character?.FindAbility<CharacterHandleWeapon>();
             _boxCollider = GetComponent<BoxCollider2D>();
             _mainCamera = Camera.main;
             SetupRope();
@@ -566,6 +568,12 @@ protected virtual void StartFiring()
             if (_horizontalMovement != null)
             {
                 _horizontalMovement.FlipCharacterToFaceDirection = false;
+            }
+            
+            // 禁用武器攻击（钩爪时不能攻击）
+            if (_handleWeaponAbility != null)
+            {
+                _handleWeaponAbility.AbilityPermitted = false;
             }
             
             // ★ 关键修改：在钩爪飞行期间保持角色的惯性速度
@@ -1107,6 +1115,12 @@ protected virtual void Release()
                     _horizontalMovement.FlipCharacterToFaceDirection = true;
                 }
                 
+                // 恢复武器攻击
+                if (_handleWeaponAbility != null)
+                {
+                    _handleWeaponAbility.AbilityPermitted = true;
+                }
+                
                 if (AfterimageEffect != null)
                 {
                     AfterimageEffect.StopEffect();
@@ -1144,6 +1158,12 @@ protected virtual void Release()
             if (_horizontalMovement != null)
             {
                 _horizontalMovement.FlipCharacterToFaceDirection = true;
+            }
+            
+            // 恢复武器攻击
+            if (_handleWeaponAbility != null)
+            {
+                _handleWeaponAbility.AbilityPermitted = true;
             }
             
             if (AfterimageEffect != null)
@@ -1217,10 +1237,17 @@ protected virtual Vector2 CalculateExitVelocity()
         }
 
 
-        protected virtual void CancelFiring()
+protected virtual void CancelFiring()
         {
             _isFiring = false;
             _isRetracting = false;
+            
+            // 恢复武器攻击
+            if (_handleWeaponAbility != null)
+            {
+                _handleWeaponAbility.AbilityPermitted = true;
+            }
+            
             CleanupVisuals();
             StopStartFeedbacks();
         }
@@ -1425,6 +1452,12 @@ public virtual void ForceStop()
             if (_horizontalMovement != null)
             {
                 _horizontalMovement.FlipCharacterToFaceDirection = true;
+            }
+            
+            // 恢复武器攻击
+            if (_handleWeaponAbility != null)
+            {
+                _handleWeaponAbility.AbilityPermitted = true;
             }
             
             if (AfterimageEffect != null)
