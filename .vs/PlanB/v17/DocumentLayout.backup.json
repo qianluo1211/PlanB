@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Unity\\Project\\Plan B\\PlanB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|d:\\unity\\project\\plan b\\planb\\assets\\character\\player\\scripts\\characterdashaim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|solutionrelative:assets\\character\\player\\scripts\\characterdashaim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|d:\\unity\\project\\plan b\\planb\\assets\\corgiengine\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|solutionrelative:assets\\corgiengine\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\CharacterDashAim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Character\\Player\\Scripts\\CharacterDashAim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity\\Project\\Plan B\\PlanB\\Library\\PackageCache\\com.coplaydev.unity-mcp@010a0b5bfc15\\Editor\\Helpers\\McpLog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,14 +27,6 @@
       "RelativeMoniker": "D:0:0:{B295A408-2080-CB13-9818-CFFA08264676}|MoreMountains.Tools.csproj|solutionrelative:assets\\corgiengine\\thirdparty\\moremountains\\mmfeedbacks\\mmfeedbacks\\core\\mmf_player\\mmf_player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|D:\\Unity\\Project\\Plan B\\PlanB\\assets\\character\\player\\scripts\\charactergrapple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|solutionrelative:assets\\character\\player\\scripts\\charactergrapple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|D:\\Unity\\Project\\Plan B\\PlanB\\assets\\character\\player\\scripts\\grapplehookvisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|solutionrelative:assets\\character\\player\\scripts\\grapplehookvisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|D:\\Unity\\Project\\Plan B\\PlanB\\assets\\corgiengine\\common\\scripts\\agents\\weapons\\weaponaim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\weapons\\weaponaim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -41,6 +37,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|D:\\Unity\\Project\\Plan B\\PlanB\\assets\\corgiengine\\common\\scripts\\agents\\weapons\\comboweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91324F3D-926D-A5D8-6208-B8E0987777A2}|MoreMountains.CorgiEngine.csproj|solutionrelative:assets\\corgiengine\\common\\scripts\\agents\\weapons\\comboweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\CharacterGrapple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Character\\Player\\Scripts\\CharacterGrapple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\GrappleHookVisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Character\\Player\\Scripts\\GrappleHookVisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,7 +66,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "readme.txt",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\readme.txt",
+              "RelativeDocumentMoniker": "Assets\\CorgiEngine\\readme.txt",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\readme.txt",
+              "RelativeToolTip": "Assets\\CorgiEngine\\readme.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-29T20:24:34.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "McpLog.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Library\\PackageCache\\com.coplaydev.unity-mcp@010a0b5bfc15\\Editor\\Helpers\\McpLog.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.coplaydev.unity-mcp@010a0b5bfc15\\Editor\\Helpers\\McpLog.cs",
@@ -73,20 +90,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CharacterDashAim.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\CharacterDashAim.cs",
               "RelativeDocumentMoniker": "Assets\\Character\\Player\\Scripts\\CharacterDashAim.cs",
               "ToolTip": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\CharacterDashAim.cs",
               "RelativeToolTip": "Assets\\Character\\Player\\Scripts\\CharacterDashAim.cs",
-              "ViewState": "AgIAAO4CAAAAAAAAAAAAwAUDAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T00:07:54.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T00:07:54.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CharacterAbilityInspector.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Editor\\Agents\\CharacterAbilities\\CharacterAbilityInspector.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Editor\\Agents\\CharacterAbilities\\CharacterAbilityInspector.cs",
@@ -98,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MMF_PlayerEditorUITK.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\Editor\\Core\\UIToolkit\\MMF_PlayerEditorUITK.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\Editor\\Core\\UIToolkit\\MMF_PlayerEditorUITK.cs",
@@ -110,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MMF_Player.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\MMFeedbacks\\Core\\MMF_Player\\MMF_Player.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\MMFeedbacks\\Core\\MMF_Player\\MMF_Player.cs",
@@ -122,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "CharacterGrapple.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\CharacterGrapple.cs",
               "RelativeDocumentMoniker": "Assets\\Character\\Player\\Scripts\\CharacterGrapple.cs",
@@ -134,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "GrappleHookVisual.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\GrappleHookVisual.cs",
               "RelativeDocumentMoniker": "Assets\\Character\\Player\\Scripts\\GrappleHookVisual.cs",
@@ -146,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "WeaponAim.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
@@ -158,7 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "MeleeWeapon.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
@@ -170,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "ComboWeapon.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
