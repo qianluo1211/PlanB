@@ -161,8 +161,8 @@ MonoBehaviour:
     RecoilFeedback: {fileID: 0}
   MeleeDamageAreaMode: 0
   DamageAreaShape: 0
-  AreaOffset: {x: 0.85, y: 0}
-  AreaSize: {x: 1, y: 1}
+  AreaOffset: {x: 2.16, y: 0}
+  AreaSize: {x: 2.05, y: 1.85}
   ExistingDamageArea: {fileID: 0}
   InitialDelay: 0
   ActiveDuration: 0.2
@@ -435,8 +435,8 @@ MonoBehaviour:
     RecoilFeedback: {fileID: 0}
   MeleeDamageAreaMode: 0
   DamageAreaShape: 0
-  AreaOffset: {x: 0.5, y: 0}
-  AreaSize: {x: 1.5, y: 1.5}
+  AreaOffset: {x: 1.95, y: 0}
+  AreaSize: {x: 1.98, y: 1.96}
   ExistingDamageArea: {fileID: 0}
   InitialDelay: 0
   ActiveDuration: 0.3
