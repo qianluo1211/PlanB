@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2746492010353037701}
   - component: {fileID: 2746492010353037706}
   - component: {fileID: 2746492010353037707}
+  - component: {fileID: 7907756561398576590}
   - component: {fileID: 2746492010353037704}
   - component: {fileID: 2746492010353037705}
   - component: {fileID: 2746492010353037710}
@@ -420,7 +421,7 @@ MonoBehaviour:
   ImmuneToKnockback: 0
   ImmuneToKnockbackIfZeroDamage: 0
   DeathFeedbacks: {fileID: 4636405026732330552}
-  DestroyOnDeath: 0
+  DestroyOnDeath: 1
   DelayBeforeDestruction: 0
   CollisionsOffOnDeath: 0
   GravityOffOnDeath: 0
@@ -437,6 +438,28 @@ MonoBehaviour:
   OnlyDamageMaster: 1
   KillOnMasterHealthDeath: 0
   TargetDamageResistanceProcessor: {fileID: 0}
+--- !u!114 &7907756561398576590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2746492010353037712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1508296b0904b1ba069c225eb6482a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.CorgiEngine::MoreMountains.CorgiEngine.AutoRespawn
+  RespawnOnPlayerRespawn: 1
+  RepositionToInitOnPlayerRespawn: 0
+  DisableOnKill: 1
+  DisableModelOnKill: 1
+  AutoRespawnDuration: 0
+  AutoRespawnAmount: 3
+  AutoRespawnRemainingAmount: 3
+  IgnoreCheckpointsAlwaysRespawn: 1
+  AssociatedCheckpoints: []
+  RespawnFeedback: {fileID: 0}
 --- !u!114 &2746492010353037704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +681,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  FlySpeed: 6
+  FlySpeed: 12
   AlwaysFlying: 1
   StopFlyingOnDeath: 1
   InstantAcceleration: 0
@@ -842,7 +865,8 @@ MonoBehaviour:
   CustomOriginTransform: {fileID: 0}
   ArrivalDistance: 0.5
   ReturnSpeedMultiplier: 1
-  ShowDebugGizmos: 1
+  SkipReturnIfFarFromTarget: 1
+  SkipReturnDistance: 8
 --- !u!114 &6969988134839310380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,7 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIDecisionTimeInState
   Label: 
-  RequiredTime: 1.5
+  RequiredTime: 0.5
   RandomizeTime: 0
   RandomTimeRange: {x: 1, y: 2}
 --- !u!1 &4711806114445029928
