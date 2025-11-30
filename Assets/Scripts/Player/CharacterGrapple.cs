@@ -1258,31 +1258,34 @@ protected virtual void UpdateRopeVisual()
 /// <summary>
         /// 生成手部特效
         /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
         protected virtual void SpawnHandEffect()
         {
             if (GrappleHandPrefab == null) return;
             
             // 计算旋转角度
-            // 正上方(aimAngle=90) -> rotation=0
-            // 右上角(aimAngle=45) -> rotation=-45
-            // 正右(aimAngle=0) -> rotation=-90
             float aimAngle = Mathf.Atan2(_hookDirection.y, _hookDirection.x) * Mathf.Rad2Deg;
             float rotationAngle = aimAngle - 90f;
             
-            // 生成手部特效，设为玩家子物体
+            // 根据玩家朝向调整位置和缩放
+            bool facingRight = _character.IsFacingRight;
+            Vector3 offset = HandOffset;
+            if (!facingRight) offset.x = -offset.x;
+            
+            // 生成手部特效
             _handInstance = Instantiate(GrappleHandPrefab, transform);
-            _handInstance.transform.localPosition = (Vector3)HandOffset;
+            _handInstance.transform.localPosition = offset;
             _handInstance.transform.localRotation = Quaternion.Euler(0, 0, rotationAngle);
-            _handInstance.transform.localScale = Vector3.one;
+            _handInstance.transform.localScale = new Vector3(facingRight ? 1f : -1f, 1f, 1f);
             
-            // 禁用自动销毁组件，由钩爪系统控制销毁时机
+            // 禁用自动销毁组件
             var destroyComponent = _handInstance.GetComponent<DestroyAfterAnimation>();
-            if (destroyComponent != null)
-            {
-                destroyComponent.enabled = false;
-            }
-            
-            Debug.Log($"[GrappleHand] Spawned! AimAngle={aimAngle:F1}, RotationAngle={rotationAngle:F1}");
+            if (destroyComponent != null) destroyComponent.enabled = false;
         }
         
         /// <summary>
@@ -1312,28 +1315,32 @@ protected virtual void UpdateRopeVisual()
 /// <summary>
         /// 更新手部特效旋转（跟着钩爪转）
         /// </summary>
+/// <summary>
+        /// 更新手部特效旋转（跟着钩爪转）
+        /// </summary>
+/// <summary>
+        /// 更新手部特效（跟着钩爪转，跟着玩家朝向翻转）
+        /// </summary>
         protected virtual void UpdateHandEffect()
         {
             if (_handInstance == null) return;
             
-            // 计算从玩家到钩爪的方向
-            Vector2 toHook;
-            if (_isFiring || _isRetracting)
-            {
-                // 钩爪飞行/收回中，指向钩爪当前位置
-                toHook = _hookPosition - (Vector2)transform.position;
-            }
-            else
-            {
-                // 摆荡/拉向中，指向钩爪点
-                toHook = _grapplePoint - (Vector2)transform.position;
-            }
+            // 计算指向钩爪的方向
+            Vector2 toHook = (_isFiring || _isRetracting) 
+                ? _hookPosition - (Vector2)transform.position 
+                : _grapplePoint - (Vector2)transform.position;
             
             float aimAngle = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
             float rotationAngle = aimAngle - 90f;
             
-            // 更新旋转
+            // 根据玩家朝向调整位置和缩放
+            bool facingRight = _character.IsFacingRight;
+            Vector3 offset = HandOffset;
+            if (!facingRight) offset.x = -offset.x;
+            
+            _handInstance.transform.localPosition = offset;
             _handInstance.transform.localRotation = Quaternion.Euler(0, 0, rotationAngle);
+            _handInstance.transform.localScale = new Vector3(facingRight ? 1f : -1f, 1f, 1f);
         }
 
         
