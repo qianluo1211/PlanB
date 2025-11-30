@@ -217,9 +217,11 @@ namespace MoreMountains.CorgiEngine
         protected const string _swingingParam = "Swinging";
         protected const string _firingParam = "GrappleFiring";
         protected const string _exitingParam = "GrappleExiting";
+        protected const string _swingDirectionParam = "SwingDirection"; // 新增：摆荡方向参数 (-1=左, 1=右)
         protected int _swingingHash;
         protected int _firingHash;
         protected int _exitingHash;
+        protected int _swingDirectionHash; // 新增：摆荡方向哈希
 
         #region 初始化
 
@@ -1455,11 +1457,12 @@ public virtual void ForceStop()
 
         #region 动画
 
-        protected override void InitializeAnimatorParameters()
+protected override void InitializeAnimatorParameters()
         {
             RegisterAnimatorParameter(_firingParam, AnimatorControllerParameterType.Bool, out _firingHash);
             RegisterAnimatorParameter(_swingingParam, AnimatorControllerParameterType.Bool, out _swingingHash);
             RegisterAnimatorParameter(_exitingParam, AnimatorControllerParameterType.Bool, out _exitingHash);
+            RegisterAnimatorParameter(_swingDirectionParam, AnimatorControllerParameterType.Float, out _swingDirectionHash);
         }
 
 public override void UpdateAnimator()
@@ -1475,6 +1478,26 @@ public override void UpdateAnimator()
             MMAnimatorExtensions.UpdateAnimatorBool(_animator, _swingingHash, swingingState, 
                 _character._animatorParameters, _character.PerformAnimatorSanityChecks);
             MMAnimatorExtensions.UpdateAnimatorBool(_animator, _exitingHash, _isExiting, 
+                _character._animatorParameters, _character.PerformAnimatorSanityChecks);
+            
+            // 更新摆荡方向参数：根据角速度设置方向 (-1 = 左, 1 = 右)
+            // 角速度正值表示向右摆，负值表示向左摆（世界坐标）
+            // 但是当角色面向左边时，sprite是翻转的，视觉方向也要翻转
+            float swingDirection = 0f;
+            if (_isSwinging)
+            {
+                if (Mathf.Abs(_angularVelocity) > 0.5f)
+                {
+                    // 获取世界坐标的摆荡方向
+                    float worldDirection = Mathf.Sign(_angularVelocity);
+                    
+                    // 根据角色朝向调整：角色面向左时需要翻转方向
+                    // 因为角色sprite翻转后，视觉上的左右也翻转了
+                    swingDirection = _character.IsFacingRight ? worldDirection : -worldDirection;
+                }
+            }
+            
+            MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _swingDirectionHash, swingDirection, 
                 _character._animatorParameters, _character.PerformAnimatorSanityChecks);
         }
 
