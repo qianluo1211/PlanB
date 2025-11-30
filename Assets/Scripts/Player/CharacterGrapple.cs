@@ -130,6 +130,13 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("钩爪预制体（可选）")]
         public GameObject HookPrefab;
         
+        [Tooltip("手部特效预制体（发射钩爪时显示）")]
+        public GameObject GrappleHandPrefab;
+        
+        [Tooltip("手部特效偏移")]
+        public Vector2 HandOffset = new Vector2(0f, 0.3f);
+
+        
         [Tooltip("钩爪发射偏移")]
         public Vector2 HookOffset = new Vector2(0.3f, 0.3f);
 
@@ -180,6 +187,8 @@ namespace MoreMountains.CorgiEngine
         protected Vector2 _hookDirection;  // 新增：钩爪飞行方向
         protected Vector2 _fireOrigin;     // 新增：发射原点
         protected GameObject _hookInstance;
+        protected GameObject _handInstance;  // 手部特效实例
+
         
         // 加速CD
         protected float _lastBoostTime = -999f;
@@ -336,6 +345,12 @@ public override void ProcessAbility()
             if (_isSwinging)
             {
                 ProcessSwing();
+            }
+            
+            // 更新手部特效（钩爪活动时）
+            if (_isFiring || _isSwinging || _isPulling)
+            {
+                UpdateHandEffect();
             }
             
             ProcessExitState();
@@ -545,6 +560,9 @@ protected virtual void StartFiring()
                 Vector2 dir = (_hookTarget - _hookPosition).normalized;
                 _hookInstance.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
             }
+            
+            // 生成手部特效
+            SpawnHandEffect();
             
             RopeRenderer.enabled = true;
             FireFeedback?.PlayFeedbacks(transform.position);
@@ -1198,12 +1216,86 @@ protected virtual void UpdateRopeVisual()
             }
         }
 
-        protected virtual void CleanupVisuals()
+        /// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+/// <summary>
+        /// 生成手部特效
+        /// </summary>
+        protected virtual void SpawnHandEffect()
+        {
+            if (GrappleHandPrefab == null)
+            {
+                Debug.Log("[GrappleHand] GrappleHandPrefab is NULL");
+                return;
+            }
+            
+            // 计算世界角度
+            float worldAngle = Mathf.Atan2(_hookDirection.y, _hookDirection.x) * Mathf.Rad2Deg;
+            
+            // 生成手部特效，设为玩家子物体
+            _handInstance = Instantiate(GrappleHandPrefab, transform);
+            _handInstance.transform.localPosition = (Vector3)HandOffset;
+            _handInstance.transform.localRotation = Quaternion.Euler(0, 0, worldAngle);
+            
+            Debug.Log($"[GrappleHand] Spawned! Parent={_handInstance.transform.parent.name}, LocalPos={_handInstance.transform.localPosition}, WorldPos={_handInstance.transform.position}");
+            
+            // 设置缩放（左半边时翻转Y轴）
+            Vector3 scale = _handInstance.transform.localScale;
+            bool isAimingLeft = Mathf.Abs(worldAngle) > 90f;
+            scale.y = isAimingLeft ? -Mathf.Abs(scale.y) : Mathf.Abs(scale.y);
+            _handInstance.transform.localScale = scale;
+        }
+        
+        /// <summary>
+        /// 更新手部特效位置和旋转
+        /// </summary>
+/// <summary>
+        /// 更新手部特效旋转
+        /// </summary>
+/// <summary>
+        /// 更新手部特效旋转
+        /// </summary>
+        protected virtual void UpdateHandEffect()
+        {
+            if (_handInstance == null) return;
+            
+            // 检查父物体是否还是玩家
+            if (_handInstance.transform.parent != transform)
+            {
+                Debug.LogWarning($"[GrappleHand] Parent changed! Now={_handInstance.transform.parent?.name ?? "null"}, Expected={transform.name}");
+            }
+            
+            // 位置已经自动跟随（子物体），只需要更新旋转
+            Vector2 aimDir = GetAimDirection();
+            float worldAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
+            
+            // 更新旋转（世界空间）
+            _handInstance.transform.rotation = Quaternion.Euler(0, 0, worldAngle);
+            
+            // 更新Y轴翻转
+            Vector3 scale = _handInstance.transform.localScale;
+            bool isAimingLeft = Mathf.Abs(worldAngle) > 90f;
+            scale.y = isAimingLeft ? -Mathf.Abs(scale.y) : Mathf.Abs(scale.y);
+            _handInstance.transform.localScale = scale;
+        }
+
+        
+protected virtual void CleanupVisuals()
         {
             if (_hookInstance != null)
             {
                 Destroy(_hookInstance);
                 _hookInstance = null;
+            }
+            
+            if (_handInstance != null)
+            {
+                Destroy(_handInstance);
+                _handInstance = null;
             }
             
             if (RopeRenderer != null)
@@ -1290,6 +1382,24 @@ public override void UpdateAnimator()
                 _character._animatorParameters, _character.PerformAnimatorSanityChecks);
         }
 
+        
+        #region Gizmos
+
+        protected virtual void OnDrawGizmosSelected()
+        {
+            // 绘制手部偏移位置
+            Gizmos.color = Color.cyan;
+            Vector3 handPos = transform.position + (Vector3)HandOffset;
+            Gizmos.DrawWireSphere(handPos, 0.15f);
+            
+            // 绘制连线
+            Gizmos.color = new Color(0f, 1f, 1f, 0.5f);
+            Gizmos.DrawLine(transform.position, handPos);
+        }
+
         #endregion
+
+        
+#endregion
     }
 }
