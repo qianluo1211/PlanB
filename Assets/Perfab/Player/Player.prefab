@@ -5848,7 +5848,7 @@ MonoBehaviour:
   GrappleHandPrefab: {fileID: 4231883893410429131, guid: 8a849ce32bebefb41a9cdfdb6c547d05,
     type: 3}
   HandOffset: {x: -0.25, y: 0.62}
-  HookOffset: {x: 0.3, y: 0.3}
+  HookOffset: {x: -0.25, y: 0.62}
   EnableAfterimageOnBoost: 1
   AfterimageEffectDuration: 0.3
   AfterimageEffect: {fileID: 0}

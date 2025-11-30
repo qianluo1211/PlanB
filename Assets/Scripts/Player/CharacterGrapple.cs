@@ -204,6 +204,7 @@ namespace MoreMountains.CorgiEngine
         
         // 缓存
         protected CharacterRun _runAbility;
+        protected CharacterHorizontalMovement _horizontalMovement;
         protected CharacterJump _jumpAbility;
         protected Vector2 _lastPosition;
         
@@ -227,6 +228,7 @@ protected override void Initialization()
             base.Initialization();
             _runAbility = _character?.FindAbility<CharacterRun>();
             _jumpAbility = _character?.FindAbility<CharacterJump>();
+            _horizontalMovement = _character?.FindAbility<CharacterHorizontalMovement>();
             _boxCollider = GetComponent<BoxCollider2D>();
             _mainCamera = Camera.main;
             SetupRope();
@@ -436,7 +438,7 @@ protected virtual void TryFireGrapple()
             Vector2 aimDir = GetAimDirection();
             Vector2? target = FindGrappleTarget(aimDir);
             
-            _fireOrigin = (Vector2)transform.position + HookOffset;
+            _fireOrigin = (Vector2)transform.position + GetAdjustedHookOffset();
             _hookDirection = aimDir;
             
             if (target.HasValue)
@@ -475,9 +477,9 @@ protected virtual Vector2 GetAimDirection()
             return new Vector2(facing * 0.6f, 0.8f).normalized;
         }
 
-        protected virtual Vector2? FindGrappleTarget(Vector2 aimDir)
+protected virtual Vector2? FindGrappleTarget(Vector2 aimDir)
         {
-            Vector2 origin = (Vector2)transform.position + HookOffset;
+            Vector2 origin = (Vector2)transform.position + GetAdjustedHookOffset();
             
             int rayCount = 7;
             float halfAngle = GrappleSearchAngle * 0.5f;
@@ -521,6 +523,17 @@ protected virtual Vector2 GetAimDirection()
             return new Vector2(v.x * cos - v.y * sin, v.x * sin + v.y * cos);
         }
 
+/// <summary>
+        /// 获取根据玩家朝向调整后的钩爪偏移
+        /// </summary>
+        protected virtual Vector2 GetAdjustedHookOffset()
+        {
+            Vector2 offset = HookOffset;
+            if (!_character.IsFacingRight) offset.x = -offset.x;
+            return offset;
+        }
+
+
         protected virtual void FlipTowardsTarget(Vector2 targetPosition)
         {
             float targetX = targetPosition.x;
@@ -543,12 +556,17 @@ protected virtual void StartFiring()
             _isFiring = true;
             _isRetracting = false;
             _isExiting = false;
-            _hookPosition = (Vector2)transform.position + HookOffset;
+            _hookPosition = (Vector2)transform.position + GetAdjustedHookOffset();
             
             FlipTowardsTarget(_hookTarget);
             
+            // 禁用方向键翻转
+            if (_horizontalMovement != null)
+            {
+                _horizontalMovement.FlipCharacterToFaceDirection = false;
+            }
+            
             // ★ 关键修改：在钩爪飞行期间保持角色的惯性速度
-            // 设置为摆荡状态，防止其他能力（如水平移动）干扰速度
             _movement.ChangeState(CharacterStates.MovementStates.Swinging);
             
             // 重新应用保存的速度，确保惯性不丢失
@@ -624,9 +642,9 @@ protected virtual void ProcessHookFlight()
             MissFeedback?.PlayFeedbacks(transform.position);
         }
 
-        protected virtual void ProcessHookRetract()
+protected virtual void ProcessHookRetract()
         {
-            Vector2 currentOrigin = (Vector2)transform.position + HookOffset;
+            Vector2 currentOrigin = (Vector2)transform.position + GetAdjustedHookOffset();
             Vector2 dir = (currentOrigin - _hookPosition).normalized;
             float distToOrigin = Vector2.Distance(_hookPosition, currentOrigin);
             float moveDist = HookRetractSpeed * Time.deltaTime;
@@ -1081,6 +1099,12 @@ protected virtual void Release()
                 // 脱钩时刷新跳跃次数
                 RefreshJumpsOnRelease();
                 
+                // 恢复方向键翻转
+                if (_horizontalMovement != null)
+                {
+                    _horizontalMovement.FlipCharacterToFaceDirection = true;
+                }
+                
                 if (AfterimageEffect != null)
                 {
                     AfterimageEffect.StopEffect();
@@ -1113,6 +1137,12 @@ protected virtual void Release()
             
             // 脱钩时刷新跳跃次数
             RefreshJumpsOnRelease();
+            
+            // 恢复方向键翻转
+            if (_horizontalMovement != null)
+            {
+                _horizontalMovement.FlipCharacterToFaceDirection = true;
+            }
             
             if (AfterimageEffect != null)
             {
@@ -1204,7 +1234,7 @@ protected virtual void UpdateRopeVisual()
             if (_isFiring || _isRetracting || _isPulling || _isSwinging)
             {
                 RopeRenderer.enabled = true;
-                Vector2 start = (Vector2)transform.position + HookOffset;
+                Vector2 start = (Vector2)transform.position + GetAdjustedHookOffset();
                 Vector2 end = (_isFiring || _isRetracting) ? _hookPosition : _grapplePoint;
                 
                 RopeRenderer.SetPosition(0, start);
@@ -1389,6 +1419,12 @@ public virtual void ForceStop()
             _applyingExitMomentum = false;
             _exitVelocity = Vector2.zero;
             
+            // 恢复方向键翻转
+            if (_horizontalMovement != null)
+            {
+                _horizontalMovement.FlipCharacterToFaceDirection = true;
+            }
+            
             if (AfterimageEffect != null)
             {
                 AfterimageEffect.StopEffect();
@@ -1445,16 +1481,30 @@ public override void UpdateAnimator()
         
         #region Gizmos
 
-        protected virtual void OnDrawGizmosSelected()
+protected virtual void OnDrawGizmosSelected()
         {
-            // 绘制手部偏移位置
-            Gizmos.color = Color.cyan;
-            Vector3 handPos = transform.position + (Vector3)HandOffset;
-            Gizmos.DrawWireSphere(handPos, 0.15f);
+            // 获取调整后的偏移（考虑玩家朝向）
+            bool facingRight = _character != null ? _character.IsFacingRight : true;
             
-            // 绘制连线
-            Gizmos.color = new Color(0f, 1f, 1f, 0.5f);
+            Vector2 adjustedHandOffset = HandOffset;
+            Vector2 adjustedHookOffset = HookOffset;
+            if (!facingRight)
+            {
+                adjustedHandOffset.x = -adjustedHandOffset.x;
+                adjustedHookOffset.x = -adjustedHookOffset.x;
+            }
+            
+            // 绘制手部偏移位置（青色）
+            Gizmos.color = Color.cyan;
+            Vector3 handPos = transform.position + (Vector3)adjustedHandOffset;
+            Gizmos.DrawWireSphere(handPos, 0.15f);
             Gizmos.DrawLine(transform.position, handPos);
+            
+            // 绘制钩爪线起点位置（黄色）
+            Gizmos.color = Color.yellow;
+            Vector3 hookPos = transform.position + (Vector3)adjustedHookOffset;
+            Gizmos.DrawWireSphere(hookPos, 0.1f);
+            Gizmos.DrawLine(transform.position, hookPos);
         }
 
         #endregion
