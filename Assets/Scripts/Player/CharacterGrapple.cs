@@ -661,8 +661,27 @@ protected virtual void ProcessHookRetract()
             
             if (moveDist >= distToOrigin)
             {
-                // 收回完成
+                // 收回完成 - 恢复所有状态
                 _isRetracting = false;
+                
+                // ✅ 恢复方向键翻转
+                if (_horizontalMovement != null)
+                {
+                    _horizontalMovement.FlipCharacterToFaceDirection = true;
+                }
+                
+                // ✅ 恢复武器攻击
+                if (_handleWeaponAbility != null)
+                {
+                    _handleWeaponAbility.AbilityPermitted = true;
+                }
+                
+                // ✅ 恢复移动状态
+                if (_movement.CurrentState == CharacterStates.MovementStates.Swinging)
+                {
+                    _movement.ChangeState(CharacterStates.MovementStates.Idle);
+                }
+                
                 CleanupVisuals();
                 StopStartFeedbacks();
             }
@@ -1242,10 +1261,22 @@ protected virtual void CancelFiring()
             _isFiring = false;
             _isRetracting = false;
             
+            // ✅ 恢复方向键翻转
+            if (_horizontalMovement != null)
+            {
+                _horizontalMovement.FlipCharacterToFaceDirection = true;
+            }
+            
             // 恢复武器攻击
             if (_handleWeaponAbility != null)
             {
                 _handleWeaponAbility.AbilityPermitted = true;
+            }
+            
+            // ✅ 恢复移动状态
+            if (_movement.CurrentState == CharacterStates.MovementStates.Swinging)
+            {
+                _movement.ChangeState(CharacterStates.MovementStates.Idle);
             }
             
             CleanupVisuals();

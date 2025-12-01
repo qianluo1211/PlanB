@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 114000013697282846}
   - component: {fileID: 114000012788668036}
   - component: {fileID: 114000010281602892}
+  - component: {fileID: -7410245357767063037}
   m_Layer: 16
   m_Name: SorcererAmmo
   m_TagString: Untagged
@@ -220,13 +221,24 @@ MonoBehaviour:
     m_Bits: 262912
   ApplyDamageOnTriggerEnter: 1
   ApplyDamageOnTriggerStay: 1
-  MinDamageCaused: 10
-  MaxDamageCaused: 10
-  TypedDamages: []
-  DamageCausedKnockbackType: 1
-  DamageCausedKnockbackDirection: 0
-  DamageCausedKnockbackForce: {x: 10, y: 2}
-  InvincibilityDuration: 0.5
+  MinDamageCaused: 0.02
+  MaxDamageCaused: 0.02
+  TypedDamages:
+  - AssociatedDamageType: {fileID: 0}
+    MinDamageCaused: 0
+    MaxDamageCaused: 0
+    ForceCharacterCondition: 1
+    ForcedCondition: 3
+    DisableGravity: 0
+    ResetControllerForces: 0
+    ForcedConditionDuration: 0.3
+    ApplyMovementMultiplier: 0
+    MovementMultiplier: 1
+    MovementMultiplierDuration: 0
+  DamageCausedKnockbackType: 2
+  DamageCausedKnockbackDirection: 2
+  DamageCausedKnockbackForce: {x: 0, y: 0}
+  InvincibilityDuration: 0.1
   RepeatDamageOverTime: 0
   AmountOfRepeats: 3
   DurationBetweenRepeats: 1
@@ -287,6 +299,26 @@ MonoBehaviour:
   OnlyDamageMaster: 1
   KillOnMasterHealthDeath: 0
   TargetDamageResistanceProcessor: {fileID: 0}
+--- !u!114 &-7410245357767063037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0cc5b1fa75e7c44b7d36c8daea6d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DirectionalKnockback
+  KnockbackForce: 10
+  SpeedInfluence: 0
+  ReferenceSpeed: 200
+  AdditionalUpwardForce: 0
+  ReverseDirection: 0
+  VerticalForceMultiplier: 1
+  ShowDebugLog: 0
+  ShowGizmos: 0
 --- !u!1 &7870585103470865315
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +467,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1898011577
         Label: Particles Instantiation
-        OriginalLabel: 
+        OriginalLabel: Particles Instantiation
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
