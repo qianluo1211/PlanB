@@ -4,15 +4,11 @@ using MoreMountains.Tools;
 
 namespace MoreMountains.CorgiEngine
 {
-    /// <summary>
-    /// 死亡细胞风格的敌人死亡特效
-    /// 敌人死亡时爆发出物理碎片 + 粒子效果
-    /// 挂载到任何有 Health 组件的敌人上
-    /// </summary>
     [AddComponentMenu("Corgi Engine/Character/Effects/Enemy Death Effect")]
     public class EnemyDeathEffect : MonoBehaviour
     {
-        [Header("=== 碎片设置 ===")]
+        [Header("=== 大块碎片（第一层）===")]
+        [Tooltip("大块碎片Sprite数组")]
         public Sprite[] FragmentSprites;
         public Vector2Int FragmentCountRange = new Vector2Int(5, 10);
         public float ExplosionForce = 8f;
@@ -27,17 +23,20 @@ namespace MoreMountains.CorgiEngine
         public float GroundFriction = 5f;
         public LayerMask GroundLayerMask;
 
-        [Header("=== 生命周期 ===")]
+        [Header("=== 碎片生命周期 ===")]
         public float FragmentLifetime = 2f;
         public float FadeOutDuration = 0.5f;
 
-        [Header("=== 粒子爆发 ===")]
+        [Header("=== 肉末粒子（第二层）===")]
         public bool EnableParticleBurst = true;
+        [Tooltip("肉末Sprite数组（留空则用默认像素点）")]
+        public Sprite[] ParticleSprites;
         public int ParticleCount = 20;
-        public Color ParticleColor = Color.clear;
-        public float ParticleSize = 0.1f;
+        public Vector2 ParticleSizeRange = new Vector2(0.05f, 0.15f);
         public float ParticleSpeed = 5f;
+        public float ParticleSpeedVariance = 2f;
         public float ParticleLifetime = 0.5f;
+        public float ParticleGravity = 10f;
 
         [Header("=== 击退方向 ===")]
         public bool UseLastHitDirection = true;
@@ -61,6 +60,9 @@ namespace MoreMountains.CorgiEngine
         protected static List<DeathFragment> _fragmentPool = new List<DeathFragment>();
         protected static Transform _poolParent;
         protected static bool _poolInitialized = false;
+        
+        // 缓存默认像素sprite
+        protected static Sprite _defaultPixelSprite;
 
         protected virtual void Awake()
         {
@@ -81,6 +83,10 @@ namespace MoreMountains.CorgiEngine
                 GroundLayerMask = LayerMask.GetMask("Platforms");
 
             InitializePool();
+            
+            // 创建默认像素sprite（只创建一次）
+            if (_defaultPixelSprite == null)
+                _defaultPixelSprite = CreatePixelSprite();
         }
 
         protected virtual void Start()
@@ -103,18 +109,31 @@ namespace MoreMountains.CorgiEngine
 
         protected virtual void OnHit()
         {
-            if (_health != null)
+            if (_health != null && _health.LastDamageDirection != Vector3.zero)
             {
-                Vector3 damageDirection = _health.LastDamageDirection;
-                if (damageDirection != Vector3.zero)
-                    _lastHitDirection = damageDirection.normalized;
+                _lastHitDirection = _health.LastDamageDirection.normalized;
+                return;
+            }
+            UpdateDirectionFromPlayer();
+        }
+
+        protected virtual void UpdateDirectionFromPlayer()
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                Vector2 toEnemy = (Vector2)transform.position - (Vector2)player.transform.position;
+                if (toEnemy != Vector2.zero)
+                    _lastHitDirection = -toEnemy.normalized;
             }
         }
 
         protected virtual void OnDeath()
         {
+            UpdateDirectionFromPlayer();
+            
             if (DebugMode)
-                Debug.Log($"[EnemyDeathEffect] {gameObject.name} died!");
+                Debug.Log($"[EnemyDeathEffect] {gameObject.name} died! Dir: {_lastHitDirection}");
 
             DeathFeedbacks?.PlayFeedbacks(transform.position);
             SpawnFragments();
@@ -177,24 +196,33 @@ namespace MoreMountains.CorgiEngine
         protected virtual void SpawnParticleBurst()
         {
             Vector2 spawnPos = GetSpawnPosition();
-            Color col = ParticleColor == Color.clear ? _enemyColor : ParticleColor;
 
             for (int i = 0; i < ParticleCount; i++)
             {
                 GameObject p = new GameObject("DeathParticle");
-                p.transform.position = spawnPos + Random.insideUnitCircle * 0.2f;
+                p.transform.position = spawnPos + Random.insideUnitCircle * 0.3f;
                 
                 SpriteRenderer sr = p.AddComponent<SpriteRenderer>();
-                sr.sprite = CreatePixelSprite();
-                sr.color = col;
+                
+                // 使用自定义sprite或默认像素
+                if (ParticleSprites != null && ParticleSprites.Length > 0)
+                    sr.sprite = ParticleSprites[Random.Range(0, ParticleSprites.Length)];
+                else
+                    sr.sprite = _defaultPixelSprite;
+                
+                sr.color = _enemyColor;
                 sr.sortingLayerID = _spriteRenderer != null ? _spriteRenderer.sortingLayerID : 0;
                 sr.sortingOrder = _spriteRenderer != null ? _spriteRenderer.sortingOrder + 1 : 1;
-                p.transform.localScale = Vector3.one * ParticleSize;
                 
+                // 随机大小
+                float size = Random.Range(ParticleSizeRange.x, ParticleSizeRange.y);
+                p.transform.localScale = Vector3.one * size;
+                
+                // 速度（基于击退方向）
                 SimpleParticle sp = p.AddComponent<SimpleParticle>();
-                Vector2 vel = Random.insideUnitCircle.normalized * ParticleSpeed * Random.Range(0.5f, 1f);
-                vel.y = Mathf.Abs(vel.y) * 0.5f + vel.y * 0.5f;
-                sp.Initialize(vel, ParticleLifetime, FragmentGravity * 0.5f);
+                Vector2 baseDir = CalculateExplosionDirection();
+                float speed = ParticleSpeed + Random.Range(-ParticleSpeedVariance, ParticleSpeedVariance);
+                sp.Initialize(baseDir * speed, ParticleLifetime, ParticleGravity);
             }
         }
 

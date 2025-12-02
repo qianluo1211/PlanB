@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 114724008374391464}
   - component: {fileID: 114977735660121484}
   - component: {fileID: 1827258316}
+  - component: {fileID: 3025637935369622546}
   m_Layer: 13
   m_Name: SorcererLevel1
   m_TagString: Untagged
@@ -52,7 +53,6 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2755230509271005364}
   - {fileID: 5148193690861277326}
   - {fileID: 8496620662097175196}
   m_Father: {fileID: 0}
@@ -420,7 +420,7 @@ MonoBehaviour:
   FlickerColor: {r: 1, g: 0.078431375, b: 0.078431375, a: 1}
   ImmuneToKnockback: 0
   ImmuneToKnockbackIfZeroDamage: 0
-  DeathFeedbacks: {fileID: 1800365525487359037}
+  DeathFeedbacks: {fileID: 0}
   DestroyOnDeath: 1
   DelayBeforeDestruction: 0
   CollisionsOffOnDeath: 0
@@ -977,6 +977,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
+--- !u!114 &3025637935369622546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495095744959786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0b3705c41280a4f9a9562623fa68dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.EnemyDeathEffect
+  FragmentSprites:
+  - {fileID: 873050300946462369, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: -1468852330578701336, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: -742298026274196823, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: -7542715941482532348, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: -2143256262743172569, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: -1948458960269129107, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  FragmentCountRange: {x: 20, y: 30}
+  ExplosionForce: 10
+  ExplosionForceVariance: 8
+  UpwardBias: 0.4
+  RotationSpeedRange: {x: -720, y: 720}
+  FragmentScaleRange: {x: 0.8, y: 1.2}
+  FragmentGravity: 20
+  BounceFactor: 0.3
+  GroundFriction: 5
+  GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  FragmentLifetime: 2
+  FadeOutDuration: 0.5
+  EnableParticleBurst: 1
+  ParticleSprites:
+  - {fileID: -614348173235575918, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: -4468918155684798688, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: 7022864412921893074, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: 8162110757231514620, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: -8896055926978861886, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  - {fileID: 3322838962086669009, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
+  ParticleCount: 5
+  ParticleSizeRange: {x: 0.8, y: 1}
+  ParticleSpeed: 20
+  ParticleSpeedVariance: 2
+  ParticleLifetime: 0.5
+  ParticleGravity: 8
+  UseLastHitDirection: 1
+  HitDirectionWeight: 0.5
+  DeathFeedbacks: {fileID: 0}
+  PoolSize: 30
+  DebugMode: 0
 --- !u!1 &1243371878558474059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,242 +1735,6 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
---- !u!1 &4996699077618745747
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2755230509271005364}
-  - component: {fileID: 1800365525487359037}
-  m_Layer: 0
-  m_Name: DeathFeedbacks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2755230509271005364
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4996699077618745747}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4072685400541056}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1800365525487359037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4996699077618745747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Feedbacks:
-  - {fileID: 0}
-  InitializationMode: 2
-  AutoInitialization: 1
-  SafeMode: 3
-  Direction: 0
-  AutoChangeDirectionOnEnd: 0
-  AutoPlayOnStart: 0
-  AutoPlayOnEnable: 0
-  ForceTimescaleMode: 0
-  ForcedTimescaleMode: 1
-  DurationMultiplier: 1
-  TimescaleMultiplier: 1
-  RandomizeDuration: 0
-  RandomDurationMultiplier: {x: 0.5, y: 1.5}
-  DisplayFullDurationDetails: 0
-  PlayerTimescaleMode: 1
-  OnlyPlayIfWithinRange: 0
-  RangeCenter: {fileID: 0}
-  RangeDistance: 5
-  UseRangeFalloff: 0
-  RangeFalloff:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  RemapRangeFalloff: {x: 0, y: 1}
-  IgnoreRangeEvents: 0
-  CooldownDuration: 0
-  InitialDelay: 0
-  CanPlay: 1
-  CanPlayWhileAlreadyPlaying: 1
-  ChanceToPlay: 100
-  FeedbacksIntensity: 1
-  Events:
-    TriggerMMFeedbacksEvents: 0
-    TriggerUnityEvents: 1
-    OnPlay:
-      m_PersistentCalls:
-        m_Calls: []
-    OnPause:
-      m_PersistentCalls:
-        m_Calls: []
-    OnResume:
-      m_PersistentCalls:
-        m_Calls: []
-    OnChangeDirection:
-      m_PersistentCalls:
-        m_Calls: []
-    OnComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    OnRestoreInitialValues:
-      m_PersistentCalls:
-        m_Calls: []
-    OnSkipToTheEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInitializationComplete:
-      m_PersistentCalls:
-        m_Calls: []
-    OnEnable:
-      m_PersistentCalls:
-        m_Calls: []
-    OnDisable:
-      m_PersistentCalls:
-        m_Calls: []
-  DebugActive: 0
-  InScriptDrivenPause: 0
-  FeedbacksList:
-  - rid: 0
-  KeepPlayModeChanges: 0
-  PerformanceMode: 0
-  RestoreInitialValuesOnDisable: 0
-  StopFeedbacksOnDisable: 0
-  PlayCount: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 0
-      type: {class: MMF_ParticlesInstantiation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
-      data:
-        Active: 0
-        UniqueID: -1462942153
-        Label: Particles Instantiation
-        OriginalLabel: Particles Instantiation
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 0
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: 
-        Owner: {fileID: 1800365525487359037}
-        DebugActive: 0
-        Mode: 1
-        ObjectPoolSize: 5
-        MutualizePools: 0
-        ParentTransform: {fileID: 0}
-        CachedRecycle: 0
-        ParticlesPrefab: {fileID: 56417129436140594, guid: 5145d411f6c901b4886c1eca0d48e855,
-          type: 3}
-        RandomParticlePrefabs: []
-        ForceSetActiveOnPlay: 0
-        StopOnReset: 0
-        DeclaredDuration: 0
-        PositionMode: 0
-        InstantiateParticlesPosition: {fileID: 0}
-        TargetWorldPosition: {x: 0, y: 0, z: 0}
-        Offset: {x: 0, y: 0, z: 0}
-        NestParticles: 0
-        ApplyRotation: 0
-        ApplyScale: 0
-        ForceSimulationSpeed: 0
-        ForcedSimulationSpeed: {x: 0.1, y: 1}
 --- !u!1 &8328241365916828515
 GameObject:
   m_ObjectHideFlags: 0
