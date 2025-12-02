@@ -884,16 +884,17 @@ MonoBehaviour:
   InitializationMode: 0
   Label: 
   UseAnimationEvent: 1
-  AimDuration: 1.5
+  AimDuration: 3
   FaceTarget: 1
   TrackTargetWhileAiming: 1
-  ShotsToFire: 1
-  TimeBetweenShots: 0.2
-  HideLaserAfterShoot: 1
+  ShootDuration: 1
+  EnableLoop: 1
+  LoopCount: 0
   UseLaser: 1
   LerpLaserColor: 1
   FlashBeforeShoot: 1
   FlashStartProgress: 0.8
+  HideLaserOnShoot: 1
   UseAnimations: 1
   AimingParameter: Aiming
   ShootingParameter: Shooting

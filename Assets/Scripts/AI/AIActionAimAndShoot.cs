@@ -3,16 +3,18 @@ using MoreMountains.Tools;
 using MoreMountains.CorgiEngine;
 
 /// <summary>
-/// AI动作：先瞄准一段时间，显示激光预警线，然后射击
+/// AI动作：瞄准 → 射击 → 瞄准 → 射击 的循环行为
 /// 
 /// 设计理念：
-/// - 敌人负责：瞄准时长、激光预警、决定何时开火/停火
+/// - 敌人负责：瞄准时长、射击时长、循环次数、激光预警
 /// - 武器负责：发射频率(TimeBetweenUses)、子弹类型等
 /// - 这样任意武器都可以直接拖到敌人身上使用
 /// 
-/// 支持两种瞄准完成触发方式：
-/// 1. 固定时间 (AimDuration)
-/// 2. 动画事件 (在瞄准动画最后一帧调用 OnAimingComplete)
+/// 行为流程：
+/// 1. 进入状态 → 开始瞄准（显示激光预警）
+/// 2. 瞄准完成 → 开始射击（武器自己控制发射频率）
+/// 3. 射击时间到 → 如果启用循环，回到步骤1；否则继续射击
+/// 4. 退出状态 → 停止一切
 /// </summary>
 [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Aim And Shoot")]
 public class AIActionAimAndShoot : AIAction
@@ -29,6 +31,17 @@ public class AIActionAimAndShoot : AIAction
     
     [Tooltip("瞄准时是否追踪目标（激光跟随目标移动）")]
     public bool TrackTargetWhileAiming = true;
+
+    [Header("Shooting Settings")]
+    [Tooltip("射击阶段持续时间（仅在启用循环时生效）")]
+    public float ShootDuration = 2f;
+
+    [Header("Loop Settings")]
+    [Tooltip("是否启用循环（射击后重新瞄准）")]
+    public bool EnableLoop = false;
+    
+    [Tooltip("循环次数（0 = 无限循环，直到退出状态）")]
+    public int LoopCount = 0;
 
     [Header("Laser Settings")]
     [Tooltip("是否使用激光瞄准线")]
@@ -72,8 +85,10 @@ public class AIActionAimAndShoot : AIAction
     protected ProjectileWeapon _projectileWeapon;
     
     protected float _aimStartTime;
+    protected float _shootStartTime;
     protected bool _isAiming = false;
     protected bool _isShooting = false;
+    protected int _currentLoopCount = 0;
     protected Vector3 _weaponAimDirection;
 
     // 动画参数哈希
@@ -110,9 +125,8 @@ public class AIActionAimAndShoot : AIAction
     {
         base.OnEnterState();
         
-        _isAiming = true;
-        _isShooting = false;
-        _aimStartTime = Time.time;
+        // 重置循环计数
+        _currentLoopCount = 0;
 
         // 获取武器组件
         if (TargetHandleWeapon?.CurrentWeapon != null)
@@ -122,18 +136,8 @@ public class AIActionAimAndShoot : AIAction
             _projectileWeapon = TargetHandleWeapon.CurrentWeapon.gameObject.GetComponent<ProjectileWeapon>();
         }
 
-        // 激活激光
-        if (UseLaser && _aimingLaser != null)
-        {
-            _aimingLaser.ActivateLaser();
-            if (_brain.Target != null)
-            {
-                _aimingLaser.SetTarget(_brain.Target);
-            }
-        }
-
-        // 播放瞄准动画
-        SetAnimationParameter(_aimingParameterHash, true);
+        // 开始瞄准
+        StartAiming();
     }
 
     /// <summary>
@@ -162,6 +166,33 @@ public class AIActionAimAndShoot : AIAction
         {
             HandleShootingPhase();
         }
+    }
+
+    /// <summary>
+    /// 开始瞄准 - 进入瞄准阶段
+    /// </summary>
+    protected virtual void StartAiming()
+    {
+        _isAiming = true;
+        _isShooting = false;
+        _aimStartTime = Time.time;
+
+        // 停止武器射击
+        TargetHandleWeapon?.ForceStop();
+
+        // 激活激光
+        if (UseLaser && _aimingLaser != null)
+        {
+            _aimingLaser.ActivateLaser();
+            if (_brain.Target != null)
+            {
+                _aimingLaser.SetTarget(_brain.Target);
+            }
+        }
+
+        // 切换动画：开启瞄准，关闭射击
+        SetAnimationParameter(_aimingParameterHash, true);
+        SetAnimationParameter(_shootingParameterHash, false);
     }
 
     /// <summary>
@@ -194,12 +225,28 @@ public class AIActionAimAndShoot : AIAction
     }
 
     /// <summary>
-    /// 处理射击阶段 - 持续告诉武器"开火"
+    /// 处理射击阶段
     /// </summary>
     protected virtual void HandleShootingPhase()
     {
         // 持续调用 ShootStart，武器会根据自己的 TimeBetweenUses 控制实际发射频率
         TargetHandleWeapon?.ShootStart();
+
+        // 检查是否需要循环
+        if (EnableLoop)
+        {
+            float shootElapsed = Time.time - _shootStartTime;
+            if (shootElapsed >= ShootDuration)
+            {
+                // 检查是否达到循环次数限制
+                if (LoopCount <= 0 || _currentLoopCount < LoopCount)
+                {
+                    // 重新开始瞄准
+                    StartAiming();
+                }
+                // 如果达到循环次数，继续射击直到退出状态
+            }
+        }
     }
 
     /// <summary>
@@ -240,6 +287,8 @@ public class AIActionAimAndShoot : AIAction
     {
         _isAiming = false;
         _isShooting = true;
+        _shootStartTime = Time.time;
+        _currentLoopCount++;
 
         // 切换动画：关闭瞄准，开启射击
         SetAnimationParameter(_aimingParameterHash, false);
