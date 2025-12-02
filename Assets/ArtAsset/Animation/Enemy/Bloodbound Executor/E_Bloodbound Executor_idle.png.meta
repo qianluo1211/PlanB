@@ -136,12 +136,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 285
-        width: 44
-        height: 71
+        x: 0
+        y: 256
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_1
       rect:
         serializedVersion: 2
-        x: 428
-        y: 285
-        width: 44
-        height: 71
+        x: 300
+        y: 256
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_2
       rect:
         serializedVersion: 2
-        x: 728
-        y: 285
-        width: 44
-        height: 71
+        x: 600
+        y: 256
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_3
       rect:
         serializedVersion: 2
-        x: 1029
-        y: 285
-        width: 44
-        height: 71
+        x: 900
+        y: 256
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_4
       rect:
         serializedVersion: 2
-        x: 130
-        y: 157
-        width: 43
-        height: 71
+        x: 0
+        y: 128
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_5
       rect:
         serializedVersion: 2
-        x: 430
-        y: 157
-        width: 43
-        height: 71
+        x: 300
+        y: 128
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_6
       rect:
         serializedVersion: 2
-        x: 731
-        y: 157
-        width: 42
-        height: 70
+        x: 600
+        y: 128
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -290,12 +290,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_7
       rect:
         serializedVersion: 2
-        x: 1031
-        y: 157
-        width: 42
-        height: 70
+        x: 900
+        y: 128
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -312,12 +312,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_8
       rect:
         serializedVersion: 2
-        x: 131
-        y: 29
-        width: 42
-        height: 70
+        x: 0
+        y: 0
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,12 +334,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_9
       rect:
         serializedVersion: 2
-        x: 430
-        y: 29
-        width: 42
-        height: 70
+        x: 300
+        y: 0
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -356,12 +356,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_10
       rect:
         serializedVersion: 2
-        x: 729
-        y: 29
-        width: 43
-        height: 71
+        x: 600
+        y: 0
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -378,12 +378,12 @@ TextureImporter:
       name: E_Bloodbound Executor_idle_11
       rect:
         serializedVersion: 2
-        x: 1029
-        y: 29
-        width: 43
-        height: 71
+        x: 900
+        y: 0
+        width: 300
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -400,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5bd7008c017d60248989c33213046130
     internalID: 0
     vertices: []
     indices: 
@@ -408,7 +408,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":3.0},"gridSpriteSize":{"x":300.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       E_Bloodbound Executor_idle_0: 8260297408121778765
       E_Bloodbound Executor_idle_1: -3257933347057141506

@@ -89,21 +89,23 @@ namespace MoreMountains.CorgiEngine
                 _defaultPixelSprite = CreatePixelSprite();
         }
 
-        protected virtual void Start()
+protected virtual void Start()
         {
             if (_health != null)
             {
                 _health.OnDeath += OnDeath;
                 _health.OnHit += OnHit;
+                _health.OnRevive += OnRevive;
             }
         }
 
-        protected virtual void OnDestroy()
+protected virtual void OnDestroy()
         {
             if (_health != null)
             {
                 _health.OnDeath -= OnDeath;
                 _health.OnHit -= OnHit;
+                _health.OnRevive -= OnRevive;
             }
         }
 
@@ -277,6 +279,23 @@ namespace MoreMountains.CorgiEngine
             if (_spriteRenderer != null)
                 _spriteRenderer.enabled = false;
         }
+
+
+        /// <summary>
+        /// Called when the enemy revives - restores the sprite renderer
+        /// </summary>
+        protected virtual void OnRevive()
+        {
+            if (_spriteRenderer != null)
+            {
+                _spriteRenderer.enabled = true;
+                _spriteRenderer.color = _enemyColor;
+            }
+            
+            if (DebugMode)
+                Debug.Log($"[EnemyDeathEffect] {gameObject.name} revived! SpriteRenderer restored.");
+        }
+
     }
 
     public class SimpleParticle : MonoBehaviour

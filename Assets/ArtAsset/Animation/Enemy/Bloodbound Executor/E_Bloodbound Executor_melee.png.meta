@@ -229,12 +229,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 1066
-        width: 50
-        height: 61
+        x: 0
+        y: 1000
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -251,12 +251,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_1
       rect:
         serializedVersion: 2
-        x: 243
-        y: 1066
-        width: 55
-        height: 60
+        x: 200
+        y: 1000
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_2
       rect:
         serializedVersion: 2
-        x: 455
-        y: 1066
-        width: 43
-        height: 59
+        x: 400
+        y: 1000
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -295,12 +295,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_3
       rect:
         serializedVersion: 2
-        x: 656
-        y: 1066
-        width: 42
-        height: 59
+        x: 600
+        y: 1000
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -317,12 +317,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_4
       rect:
         serializedVersion: 2
-        x: 863
-        y: 1066
-        width: 36
-        height: 61
+        x: 800
+        y: 1000
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -339,12 +339,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_5
       rect:
         serializedVersion: 2
-        x: 1062
-        y: 1066
-        width: 50
-        height: 63
+        x: 1000
+        y: 1000
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -361,12 +361,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_6
       rect:
         serializedVersion: 2
-        x: 1264
-        y: 1066
-        width: 109
-        height: 71
+        x: 1200
+        y: 1000
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -383,12 +383,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_7
       rect:
         serializedVersion: 2
-        x: 92
-        y: 903
-        width: 54
-        height: 37
+        x: 0
+        y: 800
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -405,12 +405,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_8
       rect:
         serializedVersion: 2
-        x: 297
-        y: 923
-        width: 36
-        height: 17
+        x: 200
+        y: 800
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -427,12 +427,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_9
       rect:
         serializedVersion: 2
-        x: 35
-        y: 866
-        width: 107
-        height: 38
+        x: 400
+        y: 800
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -449,12 +449,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_10
       rect:
         serializedVersion: 2
-        x: 229
-        y: 866
-        width: 75
-        height: 38
+        x: 600
+        y: 800
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -471,12 +471,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_11
       rect:
         serializedVersion: 2
-        x: 304
-        y: 872
-        width: 26
-        height: 23
+        x: 800
+        y: 800
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -493,12 +493,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_12
       rect:
         serializedVersion: 2
-        x: 424
-        y: 866
-        width: 80
-        height: 38
+        x: 1000
+        y: 800
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -515,12 +515,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_13
       rect:
         serializedVersion: 2
-        x: 628
-        y: 866
-        width: 75
-        height: 38
+        x: 1200
+        y: 800
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -537,12 +537,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_14
       rect:
         serializedVersion: 2
-        x: 828
-        y: 866
-        width: 73
-        height: 39
+        x: 0
+        y: 600
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -559,12 +559,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_15
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 866
-        width: 82
-        height: 35
+        x: 200
+        y: 600
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -581,12 +581,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_16
       rect:
         serializedVersion: 2
-        x: 1224
-        y: 866
-        width: 82
-        height: 32
+        x: 400
+        y: 600
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -603,12 +603,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_17
       rect:
         serializedVersion: 2
-        x: 24
-        y: 666
-        width: 82
-        height: 31
+        x: 600
+        y: 600
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -625,12 +625,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_18
       rect:
         serializedVersion: 2
-        x: 227
-        y: 666
-        width: 82
-        height: 38
+        x: 800
+        y: 600
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -647,12 +647,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_19
       rect:
         serializedVersion: 2
-        x: 429
-        y: 666
-        width: 79
-        height: 41
+        x: 1000
+        y: 600
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -669,12 +669,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_20
       rect:
         serializedVersion: 2
-        x: 634
-        y: 666
-        width: 74
-        height: 42
+        x: 1200
+        y: 600
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -691,12 +691,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_21
       rect:
         serializedVersion: 2
-        x: 848
-        y: 666
-        width: 60
-        height: 41
+        x: 0
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -713,12 +713,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_22
       rect:
         serializedVersion: 2
-        x: 1052
-        y: 666
-        width: 58
-        height: 41
+        x: 200
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -735,12 +735,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_23
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 666
-        width: 42
-        height: 40
+        x: 400
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -757,12 +757,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_24
       rect:
         serializedVersion: 2
-        x: 67
-        y: 466
-        width: 64
-        height: 43
+        x: 600
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -779,12 +779,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_25
       rect:
         serializedVersion: 2
-        x: 265
-        y: 466
-        width: 73
-        height: 45
+        x: 800
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -801,12 +801,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_26
       rect:
         serializedVersion: 2
-        x: 458
-        y: 466
-        width: 53
-        height: 74
+        x: 1000
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -823,12 +823,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_27
       rect:
         serializedVersion: 2
-        x: 657
-        y: 466
-        width: 50
-        height: 82
+        x: 1200
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -845,12 +845,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_28
       rect:
         serializedVersion: 2
-        x: 861
-        y: 466
-        width: 44
-        height: 79
+        x: 0
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -867,12 +867,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_29
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 466
-        width: 51
-        height: 74
+        x: 200
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -889,12 +889,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_30
       rect:
         serializedVersion: 2
-        x: 1247
-        y: 466
-        width: 68
-        height: 52
+        x: 400
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -911,12 +911,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_31
       rect:
         serializedVersion: 2
-        x: 46
-        y: 266
-        width: 67
-        height: 48
+        x: 600
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -933,12 +933,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_32
       rect:
         serializedVersion: 2
-        x: 244
-        y: 266
-        width: 69
-        height: 48
+        x: 800
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -955,12 +955,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_33
       rect:
         serializedVersion: 2
-        x: 445
-        y: 266
-        width: 64
-        height: 46
+        x: 1000
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -977,12 +977,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_34
       rect:
         serializedVersion: 2
-        x: 664
-        y: 266
-        width: 48
-        height: 57
+        x: 1200
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -999,12 +999,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_35
       rect:
         serializedVersion: 2
-        x: 873
-        y: 266
-        width: 38
-        height: 60
+        x: 0
+        y: 0
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1021,12 +1021,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_36
       rect:
         serializedVersion: 2
-        x: 1071
-        y: 266
-        width: 39
-        height: 61
+        x: 200
+        y: 0
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1043,12 +1043,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_37
       rect:
         serializedVersion: 2
-        x: 1277
-        y: 266
-        width: 33
-        height: 62
+        x: 400
+        y: 0
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1065,12 +1065,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_38
       rect:
         serializedVersion: 2
-        x: 78
-        y: 66
-        width: 32
-        height: 65
+        x: 600
+        y: 0
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1087,12 +1087,12 @@ TextureImporter:
       name: E_Bloodbound Executor_melee_39
       rect:
         serializedVersion: 2
-        x: 277
-        y: 66
-        width: 37
-        height: 70
+        x: 800
+        y: 0
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1105,77 +1105,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: E_Bloodbound Executor_melee_40
-      rect:
-        serializedVersion: 2
-        x: 471
-        y: 66
-        width: 40
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d2e12ee5e4145be10800000000000000
-      internalID: 2212746596777598509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: E_Bloodbound Executor_melee_41
-      rect:
-        serializedVersion: 2
-        x: 667
-        y: 66
-        width: 44
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0931cc7dfdf7d10b0800000000000000
-      internalID: -5756304149334715504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: E_Bloodbound Executor_melee_42
-      rect:
-        serializedVersion: 2
-        x: 867
-        y: 66
-        width: 44
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a93139e0965fb6600800000000000000
-      internalID: 462733218300498842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 417d089e83764ed4d979303991ac7659
     internalID: 0
     vertices: []
     indices: 
@@ -1183,7 +1117,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":6.0},"gridSpriteSize":{"x":200.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       E_Bloodbound Executor_melee_0: 1715120400841125313
       E_Bloodbound Executor_melee_1: 8117365225274562223
@@ -1220,9 +1156,6 @@ TextureImporter:
       E_Bloodbound Executor_melee_38: -3938822791796592293
       E_Bloodbound Executor_melee_39: 4779855707414215643
       E_Bloodbound Executor_melee_4: 846858813342287867
-      E_Bloodbound Executor_melee_40: 2212746596777598509
-      E_Bloodbound Executor_melee_41: -5756304149334715504
-      E_Bloodbound Executor_melee_42: 462733218300498842
       E_Bloodbound Executor_melee_5: -8944157548929329321
       E_Bloodbound Executor_melee_6: -6980464801336618635
       E_Bloodbound Executor_melee_7: 8156684582925807597
