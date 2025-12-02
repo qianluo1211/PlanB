@@ -990,15 +990,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.EnemyDeathEffect
   FragmentSprites:
-  - {fileID: 873050300946462369, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: -1468852330578701336, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: -742298026274196823, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: -7542715941482532348, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: -2143256262743172569, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: -1948458960269129107, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  FragmentCountRange: {x: 20, y: 30}
+  - {fileID: 5607694828513892404, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -5898614298293096393, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -364273594223691844, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 8673768896045080662, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 5895617721281131720, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 1105157549337420344, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -3763660797422652139, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 935960479361309700, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 2613118316043327777, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 456245589738474909, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -6665395862288095090, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -556530059714784637, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  FragmentCountRange: {x: 25, y: 30}
   ExplosionForce: 10
-  ExplosionForceVariance: 8
+  ExplosionForceVariance: 2
   UpwardBias: 0.4
   RotationSpeedRange: {x: -720, y: 720}
   FragmentScaleRange: {x: 0.8, y: 1.2}
@@ -1012,18 +1018,18 @@ MonoBehaviour:
   FadeOutDuration: 0.5
   EnableParticleBurst: 1
   ParticleSprites:
-  - {fileID: -614348173235575918, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: -4468918155684798688, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: 7022864412921893074, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: 8162110757231514620, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: -8896055926978861886, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  - {fileID: 3322838962086669009, guid: fe9242110b70ce948a6f14276e23058c, type: 3}
-  ParticleCount: 5
+  - {fileID: -8457823996151535985, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 3148310208033783135, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 7795891429182837505, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -1896008330849300374, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 7914627418524228633, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -1688221662244187383, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  ParticleCount: 30
   ParticleSizeRange: {x: 0.8, y: 1}
-  ParticleSpeed: 20
+  ParticleSpeed: 13
   ParticleSpeedVariance: 2
-  ParticleLifetime: 0.5
-  ParticleGravity: 8
+  ParticleLifetime: 1
+  ParticleGravity: 3
   UseLastHitDirection: 1
   HitDirectionWeight: 0.5
   DeathFeedbacks: {fileID: 0}

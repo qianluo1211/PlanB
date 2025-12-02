@@ -1,0 +1,1911 @@
+fileFormatVersion: 2
+guid: 3d90ab3ac4e92dd479f867b3863bc932
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5607694828513892404
+    second: FX_EnemyGore_Sheet 1_0
+  - first:
+      213: -5898614298293096393
+    second: FX_EnemyGore_Sheet 1_1
+  - first:
+      213: -364273594223691844
+    second: FX_EnemyGore_Sheet 1_2
+  - first:
+      213: 8673768896045080662
+    second: FX_EnemyGore_Sheet 1_3
+  - first:
+      213: -666184932313816824
+    second: FX_EnemyGore_Sheet 1_4
+  - first:
+      213: -2861913755354776643
+    second: FX_EnemyGore_Sheet 1_5
+  - first:
+      213: 3484931389302243877
+    second: FX_EnemyGore_Sheet 1_6
+  - first:
+      213: 2829614766612311994
+    second: FX_EnemyGore_Sheet 1_7
+  - first:
+      213: 5895617721281131720
+    second: FX_EnemyGore_Sheet 1_8
+  - first:
+      213: 1105157549337420344
+    second: FX_EnemyGore_Sheet 1_9
+  - first:
+      213: -3763660797422652139
+    second: FX_EnemyGore_Sheet 1_10
+  - first:
+      213: 935960479361309700
+    second: FX_EnemyGore_Sheet 1_11
+  - first:
+      213: 8362897174504418464
+    second: FX_EnemyGore_Sheet 1_12
+  - first:
+      213: -1688221662244187383
+    second: FX_EnemyGore_Sheet 1_13
+  - first:
+      213: 7914627418524228633
+    second: FX_EnemyGore_Sheet 1_14
+  - first:
+      213: 5393630486940417512
+    second: FX_EnemyGore_Sheet 1_15
+  - first:
+      213: 2613118316043327777
+    second: FX_EnemyGore_Sheet 1_16
+  - first:
+      213: 456245589738474909
+    second: FX_EnemyGore_Sheet 1_17
+  - first:
+      213: -6665395862288095090
+    second: FX_EnemyGore_Sheet 1_18
+  - first:
+      213: -556530059714784637
+    second: FX_EnemyGore_Sheet 1_19
+  - first:
+      213: 7795891429182837505
+    second: FX_EnemyGore_Sheet 1_20
+  - first:
+      213: -735900698750550826
+    second: FX_EnemyGore_Sheet 1_21
+  - first:
+      213: -1896008330849300374
+    second: FX_EnemyGore_Sheet 1_22
+  - first:
+      213: 3874229256915642602
+    second: FX_EnemyGore_Sheet 1_23
+  - first:
+      213: 7996905624924365019
+    second: FX_EnemyGore_Sheet 1_24
+  - first:
+      213: -7549457127895088568
+    second: FX_EnemyGore_Sheet 1_25
+  - first:
+      213: -8888049391827332379
+    second: FX_EnemyGore_Sheet 1_26
+  - first:
+      213: -4154183516354886936
+    second: FX_EnemyGore_Sheet 1_27
+  - first:
+      213: 6795547763543195552
+    second: FX_EnemyGore_Sheet 1_28
+  - first:
+      213: -362553245870739880
+    second: FX_EnemyGore_Sheet 1_29
+  - first:
+      213: 5691279691448616060
+    second: FX_EnemyGore_Sheet 1_30
+  - first:
+      213: 2013800044001786940
+    second: FX_EnemyGore_Sheet 1_31
+  - first:
+      213: 3117172935072008109
+    second: FX_EnemyGore_Sheet 1_32
+  - first:
+      213: -6211270793764097667
+    second: FX_EnemyGore_Sheet 1_33
+  - first:
+      213: 8028781982707997414
+    second: FX_EnemyGore_Sheet 1_34
+  - first:
+      213: -5598492704764782737
+    second: FX_EnemyGore_Sheet 1_35
+  - first:
+      213: 6195880842767688035
+    second: FX_EnemyGore_Sheet 1_36
+  - first:
+      213: 4851983610237694590
+    second: FX_EnemyGore_Sheet 1_37
+  - first:
+      213: -1527920738166933052
+    second: FX_EnemyGore_Sheet 1_38
+  - first:
+      213: 3317642331789444417
+    second: FX_EnemyGore_Sheet 1_39
+  - first:
+      213: -4430891026275285831
+    second: FX_EnemyGore_Sheet 1_40
+  - first:
+      213: -1547224015388310903
+    second: FX_EnemyGore_Sheet 1_41
+  - first:
+      213: 1944594311212948796
+    second: FX_EnemyGore_Sheet 1_42
+  - first:
+      213: -1550755679393828748
+    second: FX_EnemyGore_Sheet 1_43
+  - first:
+      213: -8457823996151535985
+    second: FX_EnemyGore_Sheet 1_44
+  - first:
+      213: 3148310208033783135
+    second: FX_EnemyGore_Sheet 1_45
+  - first:
+      213: -5565614342494571514
+    second: FX_EnemyGore_Sheet 1_46
+  - first:
+      213: 7200844944206454665
+    second: FX_EnemyGore_Sheet 1_47
+  - first:
+      213: 1976164725789669434
+    second: FX_EnemyGore_Sheet 1_48
+  - first:
+      213: 858369625462837341
+    second: FX_EnemyGore_Sheet 1_49
+  - first:
+      213: 3052228794878937645
+    second: FX_EnemyGore_Sheet 1_50
+  - first:
+      213: -7523836057423649017
+    second: FX_EnemyGore_Sheet 1_51
+  - first:
+      213: 3232331218488765861
+    second: FX_EnemyGore_Sheet 1_52
+  - first:
+      213: -9147993640574399164
+    second: FX_EnemyGore_Sheet 1_53
+  - first:
+      213: 4912549234169622490
+    second: FX_EnemyGore_Sheet 1_54
+  - first:
+      213: -3710119687109920203
+    second: FX_EnemyGore_Sheet 1_55
+  - first:
+      213: 6444547352810406906
+    second: FX_EnemyGore_Sheet 1_56
+  - first:
+      213: 3449751259757828189
+    second: FX_EnemyGore_Sheet 1_57
+  - first:
+      213: 1967623164665859860
+    second: FX_EnemyGore_Sheet 1_58
+  - first:
+      213: 3156965607926277190
+    second: FX_EnemyGore_Sheet 1_59
+  - first:
+      213: -8690905627421730356
+    second: FX_EnemyGore_Sheet 1_60
+  - first:
+      213: 1282585430015618212
+    second: FX_EnemyGore_Sheet 1_61
+  - first:
+      213: 2093480288963181764
+    second: FX_EnemyGore_Sheet 1_62
+  - first:
+      213: 393968458929128170
+    second: FX_EnemyGore_Sheet 1_63
+  - first:
+      213: 7073388544603030975
+    second: FX_EnemyGore_Sheet 1_64
+  - first:
+      213: -4395644763352322876
+    second: FX_EnemyGore_Sheet 1_65
+  - first:
+      213: 4845512840455345529
+    second: FX_EnemyGore_Sheet 1_66
+  - first:
+      213: 3395413948536525636
+    second: FX_EnemyGore_Sheet 1_67
+  - first:
+      213: 5783146187955287480
+    second: FX_EnemyGore_Sheet 1_68
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 361
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4389d565cb882dd40800000000000000
+      internalID: 5607694828513892404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 361
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73033334c89e32ea0800000000000000
+      internalID: -5898614298293096393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 361
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb7fd379817d1faf0800000000000000
+      internalID: -364273594223691844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_3
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 361
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6506998fada6f5870800000000000000
+      internalID: 8673768896045080662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 362
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801a7ba655c31c6f0800000000000000
+      internalID: -666184932313816824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_5
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 362
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb36424a907848d0800000000000000
+      internalID: -2861913755354776643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 361
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52208f572a6fc5030800000000000000
+      internalID: 3484931389302243877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_7
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 361
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf602763afc44720800000000000000
+      internalID: 2829614766612311994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_8
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 328
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c4b578c41171d150800000000000000
+      internalID: 5895617721281131720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_9
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 330
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832291d8fee465f00800000000000000
+      internalID: 1105157549337420344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_10
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 331
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5153f8a027ac4cbc0800000000000000
+      internalID: -3763660797422652139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_11
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 329
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c9228d8133dfc00800000000000000
+      internalID: 935960479361309700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_12
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 330
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac2473fbaafe0470800000000000000
+      internalID: 8362897174504418464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_13
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 330
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 903d0dfb75b3298e0800000000000000
+      internalID: -1688221662244187383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_14
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 330
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c14b224b766dd60800000000000000
+      internalID: 7914627418524228633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_15
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 330
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8edfcc7e9560ada40800000000000000
+      internalID: 5393630486940417512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_16
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 297
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12954d77349a34420800000000000000
+      internalID: 2613118316043327777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_17
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 296
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d43b252f8e45600800000000000000
+      internalID: 456245589738474909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_18
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 297
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e88a5fc27c1cf73a0800000000000000
+      internalID: -6665395862288095090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_19
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 297
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3829fdbfbdec648f0800000000000000
+      internalID: -556530059714784637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_20
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 298
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10394ff43f1903c60800000000000000
+      internalID: 7795891429182837505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_21
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 298
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dcf205a63e89c5f0800000000000000
+      internalID: -735900698750550826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_22
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 298
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60db84f77600b5e0800000000000000
+      internalID: -1896008330849300374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_23
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 298
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae8e1ec8bf604c530800000000000000
+      internalID: 3874229256915642602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 265
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0a0f3eb47bafe60800000000000000
+      internalID: 7996905624924365019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_25
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 266
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842c5ccadb0fa3790800000000000000
+      internalID: -7549457127895088568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_26
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 263
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e251064b2e47a480800000000000000
+      internalID: -8888049391827332379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_27
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 265
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e242e70a106956c0800000000000000
+      internalID: -4154183516354886936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_28
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 236
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af3134cfa2ae4e50800000000000000
+      internalID: 6795547763543195552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_29
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 234
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ea5b76eb3f7faf0800000000000000
+      internalID: -362553245870739880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_30
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 233
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c748036c9bc7bfe40800000000000000
+      internalID: 5691279691448616060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_31
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 235
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3c746f687472fb10800000000000000
+      internalID: 2013800044001786940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_32
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 202
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da7cd6ad44c624b20800000000000000
+      internalID: 3117172935072008109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_33
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 202
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d71beed2f122dc9a0800000000000000
+      internalID: -6211270793764097667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_34
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 202
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eadd5acca6fb6f60800000000000000
+      internalID: 8028781982707997414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_35
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 202
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6711ee0c882e42b0800000000000000
+      internalID: -5598492704764782737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_36
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 170
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 361e0df9cc03cf550800000000000000
+      internalID: 6195880842767688035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_37
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 170
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e723c38f265b55340800000000000000
+      internalID: 4851983610237694590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_38
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 170
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c97b941f2cbbcae0800000000000000
+      internalID: -1527920738166933052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_39
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 170
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145cb168f12aa0e20800000000000000
+      internalID: 3317642331789444417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_40
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 169
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4456466105282c0800000000000000
+      internalID: -4430891026275285831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_41
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 169
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98283de94f7278ae0800000000000000
+      internalID: -1547224015388310903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_42
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 169
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3dd71029369cfa10800000000000000
+      internalID: 1944594311212948796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_43
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 169
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 470bf440deb9a7ae0800000000000000
+      internalID: -1550755679393828748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_44
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 138
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f86ec9013e5cf9a80800000000000000
+      internalID: -8457823996151535985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_45
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 138
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5df698247b01bb20800000000000000
+      internalID: 3148310208033783135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_46
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 138
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604bace4e37f2c2b0800000000000000
+      internalID: -5565614342494571514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_47
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 138
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fd716335a8ee360800000000000000
+      internalID: 7200844944206454665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_48
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 137
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38b952195fbc6b10800000000000000
+      internalID: 1976164725789669434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_49
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 137
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5092b360aa89eb00800000000000000
+      internalID: 858369625462837341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_50
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 138
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a4af3eae1bb5a20800000000000000
+      internalID: 3052228794878937645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_51
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 141
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707ecf008f6f59790800000000000000
+      internalID: -7523836057423649017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_52
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 105
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5adad6a1e1c8bdc20800000000000000
+      internalID: 3232331218488765861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_53
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 105
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44dc706804ccb0180800000000000000
+      internalID: -9147993640574399164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_54
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 105
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf2c4c2081ec2440800000000000000
+      internalID: 4912549234169622490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_55
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 105
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a31a73dc1038cc0800000000000000
+      internalID: -3710119687109920203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_56
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 75
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af3c2763ca1af6950800000000000000
+      internalID: 6444547352810406906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_57
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 73
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5852514e7affdf20800000000000000
+      internalID: 3449751259757828189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_58
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 73
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f0db5e7d66e4b10800000000000000
+      internalID: 1967623164665859860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_59
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 73
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644229c7e7bcfcb20800000000000000
+      internalID: 3156965607926277190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_60
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 73
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc99515d063b36780800000000000000
+      internalID: -8690905627421730356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_61
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 41
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ac2c2637a8acc110800000000000000
+      internalID: 1282585430015618212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_62
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 42
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ccbee72b398d0d10800000000000000
+      internalID: 2093480288963181764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_63
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 41
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae2cd2fd938a77500800000000000000
+      internalID: 393968458929128170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_64
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 45
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb58167a769b92260800000000000000
+      internalID: 7073388544603030975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_65
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 9
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cc249970688ff2c0800000000000000
+      internalID: -4395644763352322876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_66
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 9
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9755fe97148be3340800000000000000
+      internalID: 4845512840455345529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_67
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 9
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4431deb1ffeee1f20800000000000000
+      internalID: 3395413948536525636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_EnemyGore_Sheet 1_68
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 9
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5ba3941dcd14050800000000000000
+      internalID: 5783146187955287480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FX_EnemyGore_Sheet 1_0: 5607694828513892404
+      FX_EnemyGore_Sheet 1_1: -5898614298293096393
+      FX_EnemyGore_Sheet 1_10: -3763660797422652139
+      FX_EnemyGore_Sheet 1_11: 935960479361309700
+      FX_EnemyGore_Sheet 1_12: 8362897174504418464
+      FX_EnemyGore_Sheet 1_13: -1688221662244187383
+      FX_EnemyGore_Sheet 1_14: 7914627418524228633
+      FX_EnemyGore_Sheet 1_15: 5393630486940417512
+      FX_EnemyGore_Sheet 1_16: 2613118316043327777
+      FX_EnemyGore_Sheet 1_17: 456245589738474909
+      FX_EnemyGore_Sheet 1_18: -6665395862288095090
+      FX_EnemyGore_Sheet 1_19: -556530059714784637
+      FX_EnemyGore_Sheet 1_2: -364273594223691844
+      FX_EnemyGore_Sheet 1_20: 7795891429182837505
+      FX_EnemyGore_Sheet 1_21: -735900698750550826
+      FX_EnemyGore_Sheet 1_22: -1896008330849300374
+      FX_EnemyGore_Sheet 1_23: 3874229256915642602
+      FX_EnemyGore_Sheet 1_24: 7996905624924365019
+      FX_EnemyGore_Sheet 1_25: -7549457127895088568
+      FX_EnemyGore_Sheet 1_26: -8888049391827332379
+      FX_EnemyGore_Sheet 1_27: -4154183516354886936
+      FX_EnemyGore_Sheet 1_28: 6795547763543195552
+      FX_EnemyGore_Sheet 1_29: -362553245870739880
+      FX_EnemyGore_Sheet 1_3: 8673768896045080662
+      FX_EnemyGore_Sheet 1_30: 5691279691448616060
+      FX_EnemyGore_Sheet 1_31: 2013800044001786940
+      FX_EnemyGore_Sheet 1_32: 3117172935072008109
+      FX_EnemyGore_Sheet 1_33: -6211270793764097667
+      FX_EnemyGore_Sheet 1_34: 8028781982707997414
+      FX_EnemyGore_Sheet 1_35: -5598492704764782737
+      FX_EnemyGore_Sheet 1_36: 6195880842767688035
+      FX_EnemyGore_Sheet 1_37: 4851983610237694590
+      FX_EnemyGore_Sheet 1_38: -1527920738166933052
+      FX_EnemyGore_Sheet 1_39: 3317642331789444417
+      FX_EnemyGore_Sheet 1_4: -666184932313816824
+      FX_EnemyGore_Sheet 1_40: -4430891026275285831
+      FX_EnemyGore_Sheet 1_41: -1547224015388310903
+      FX_EnemyGore_Sheet 1_42: 1944594311212948796
+      FX_EnemyGore_Sheet 1_43: -1550755679393828748
+      FX_EnemyGore_Sheet 1_44: -8457823996151535985
+      FX_EnemyGore_Sheet 1_45: 3148310208033783135
+      FX_EnemyGore_Sheet 1_46: -5565614342494571514
+      FX_EnemyGore_Sheet 1_47: 7200844944206454665
+      FX_EnemyGore_Sheet 1_48: 1976164725789669434
+      FX_EnemyGore_Sheet 1_49: 858369625462837341
+      FX_EnemyGore_Sheet 1_5: -2861913755354776643
+      FX_EnemyGore_Sheet 1_50: 3052228794878937645
+      FX_EnemyGore_Sheet 1_51: -7523836057423649017
+      FX_EnemyGore_Sheet 1_52: 3232331218488765861
+      FX_EnemyGore_Sheet 1_53: -9147993640574399164
+      FX_EnemyGore_Sheet 1_54: 4912549234169622490
+      FX_EnemyGore_Sheet 1_55: -3710119687109920203
+      FX_EnemyGore_Sheet 1_56: 6444547352810406906
+      FX_EnemyGore_Sheet 1_57: 3449751259757828189
+      FX_EnemyGore_Sheet 1_58: 1967623164665859860
+      FX_EnemyGore_Sheet 1_59: 3156965607926277190
+      FX_EnemyGore_Sheet 1_6: 3484931389302243877
+      FX_EnemyGore_Sheet 1_60: -8690905627421730356
+      FX_EnemyGore_Sheet 1_61: 1282585430015618212
+      FX_EnemyGore_Sheet 1_62: 2093480288963181764
+      FX_EnemyGore_Sheet 1_63: 393968458929128170
+      FX_EnemyGore_Sheet 1_64: 7073388544603030975
+      FX_EnemyGore_Sheet 1_65: -4395644763352322876
+      FX_EnemyGore_Sheet 1_66: 4845512840455345529
+      FX_EnemyGore_Sheet 1_67: 3395413948536525636
+      FX_EnemyGore_Sheet 1_68: 5783146187955287480
+      FX_EnemyGore_Sheet 1_7: 2829614766612311994
+      FX_EnemyGore_Sheet 1_8: 5895617721281131720
+      FX_EnemyGore_Sheet 1_9: 1105157549337420344
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
