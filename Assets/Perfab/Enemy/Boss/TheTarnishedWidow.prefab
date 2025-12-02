@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4369568058471361636}
   - component: {fileID: 639873539107567328}
   - component: {fileID: 6141703454737221391}
-  - component: {fileID: 9063939027891730282}
+  - component: {fileID: 8441962240801862868}
   - component: {fileID: 8019803681536605356}
   - component: {fileID: 1659340474522779315}
   - component: {fileID: 3936105209047608886}
@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 2800717409841447539}
   - component: {fileID: 5571468184270668027}
   - component: {fileID: 2845413260081801038}
+  - component: {fileID: 674841817868617560}
   m_Layer: 13
   m_Name: TheTarnishedWidow
   m_TagString: Untagged
@@ -492,7 +493,7 @@ MonoBehaviour:
   SafetyBoxcastSizeRatio: {x: 0.8, y: 0.8}
   ExtractionIncrement: 0.05
   MaxExtractionsIterations: 10
---- !u!114 &9063939027891730282
+--- !u!114 &8441962240801862868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -501,9 +502,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2981960404532019118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9716d97790a0a49889284ee813194576, type: 3}
+  m_Script: {fileID: 11500000, guid: 87591c556a34d704e949eec77232d8c0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: MoreMountains.CorgiEngine::MoreMountains.CorgiEngine.Health
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.DirectionalHealth
   CurrentHealth: 0
   TemporarilyInvulnerable: 0
   PostDamageInvulnerable: 0
@@ -536,6 +537,12 @@ MonoBehaviour:
   OnlyDamageMaster: 1
   KillOnMasterHealthDeath: 0
   TargetDamageResistanceProcessor: {fileID: 0}
+  DirectionalDamageEnabled: 1
+  FrontDamageMultiplier: 0
+  BackDamageMultiplier: 1
+  PlayBlockFeedbackOnFrontHit: 1
+  BlockFeedbacks: {fileID: 0}
+  DebugMode: 0
 --- !u!114 &8019803681536605356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,7 +1042,7 @@ MonoBehaviour:
   InitializationMode: 0
   Label: 
   IdealDistance: 6
-  SafeDistance: 8
+  SafeDistance: 12
   MinRetreatDistance: 2
   RetreatSpeedMultiplier: 0.8
   FaceTargetWhileRetreating: 1
@@ -1106,7 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIDecisionPlayerDistance
   Label: melee
   Mode: 0
-  Distance: 6
+  Distance: 8
   MinDistance: 2
   MaxDistance: 8
   HorizontalOnly: 0
@@ -1144,7 +1151,7 @@ MonoBehaviour:
   InitializationMode: 0
   Label: 
   Damage: 20
-  KnockbackForce: {x: 15, y: 5}
+  KnockbackForce: {x: 80, y: 40}
   AttackRange: 2.5
   AttackDuration: 0.8
   UseAnimationEvents: 1
@@ -1154,7 +1161,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   AttackOffset: {x: 2.44, y: -2.35}
-  AttackSize: {x: 6.97, y: 3.23}
+  AttackSize: {x: 8.31, y: 3.23}
   DebugMode: 0
 --- !u!114 &6556453518288175271
 MonoBehaviour:
@@ -1184,11 +1191,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionBossTakeOff
   InitializationMode: 0
   Label: 
-  TakeOffHeight: 8
+  TakeOffHeight: 15
   TakeOffSpeed: 15
   TakeOffDelay: 0.3
-  KnockbackRadius: 4
-  KnockbackForce: {x: 15, y: 8}
+  KnockbackRadius: 8
+  KnockbackForce: {x: 80, y: 40}
   KnockbackDamage: 10
   PlayerLayerMask:
     serializedVersion: 2
@@ -1227,9 +1234,9 @@ MonoBehaviour:
   DiveSpeed: 30
   DiveDelay: 0.2
   MaxDiveDuration: 5
-  ImpactRadius: 4
+  ImpactRadius: 5
   ImpactDamage: 30
-  ImpactKnockback: {x: 12, y: 8}
+  ImpactKnockback: {x: 80, y: 40}
   PlayerLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -1349,3 +1356,19 @@ MonoBehaviour:
   DetectionWindow: -1
   OnlyInSpecificPhases: 1
   TriggerPhases: 000000000100000002000000
+--- !u!114 &674841817868617560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981960404532019118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fdcac6a75d8cd40b1bf323d3aa1ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.CharacterDelayedTurn
+  TurnDelay: 1.5
+  TurnCooldown: 0.5
+  IsTargetBehind: 0
+  TimeBehind: 0
