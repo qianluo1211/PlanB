@@ -195,36 +195,20 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        protected virtual void PerformKnockback()
+protected virtual void PerformKnockback()
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, KnockbackRadius, PlayerLayerMask);
+            int hitCount = KnockbackUtility.ApplyRadialKnockback(
+                transform.position,
+                KnockbackRadius,
+                KnockbackForce,
+                PlayerLayerMask,
+                KnockbackDamage,
+                gameObject
+            );
 
-            foreach (var hit in hits)
+            if (DebugMode && hitCount > 0)
             {
-                // 造成伤害
-                Health targetHealth = hit.GetComponent<Health>();
-                if (targetHealth != null && KnockbackDamage > 0)
-                {
-                    targetHealth.Damage(KnockbackDamage, gameObject, 0f, 0.5f, Vector3.zero, null);
-                    if (DebugMode) Debug.Log($"[BossTakeOff] Damaged {hit.name} for {KnockbackDamage}");
-                }
-
-                // 击退
-                CorgiController targetController = hit.GetComponent<CorgiController>();
-                if (targetController != null)
-                {
-                    // 计算击退方向（从Boss指向玩家）
-                    Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
-                    if (float.IsNaN(knockbackDir.x) || knockbackDir.x == 0) knockbackDir.x = 1f;
-                    
-                    Vector2 force = new Vector2(
-                        KnockbackForce.x * Mathf.Sign(knockbackDir.x),
-                        KnockbackForce.y
-                    );
-                    
-                    targetController.SetForce(force);
-                    if (DebugMode) Debug.Log($"[BossTakeOff] Knocked back {hit.name} with force {force}");
-                }
+                Debug.Log($"[BossTakeOff] Knocked back {hitCount} target(s) with force {KnockbackForce}");
             }
         }
 

@@ -45,7 +45,7 @@ namespace MoreMountains.CorgiEngine
         public GameObject ImpactEffectPrefab;
 
         [Header("调试")]
-        public bool DebugMode = true;  // 默认开启调试
+        public bool DebugMode = false;  // 默认开启调试
 
         public bool DiveComplete { get; protected set; }
 
@@ -309,32 +309,20 @@ namespace MoreMountains.CorgiEngine
             if (DebugMode) Debug.Log($"[BossDive] LANDED at {transform.position}, waiting {LandingDuration}s for animation");
         }
 
-        protected virtual void PerformImpactDamage()
+protected virtual void PerformImpactDamage()
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, ImpactRadius, PlayerLayerMask);
+            int hitCount = KnockbackUtility.ApplyRadialKnockback(
+                transform.position,
+                ImpactRadius,
+                ImpactKnockback,
+                PlayerLayerMask,
+                ImpactDamage,
+                gameObject
+            );
 
-            foreach (var hit in hits)
+            if (DebugMode && hitCount > 0)
             {
-                Health targetHealth = hit.GetComponent<Health>();
-                if (targetHealth != null)
-                {
-                    targetHealth.Damage(ImpactDamage, gameObject, 0f, 0.5f, Vector3.zero, null);
-                    if (DebugMode) Debug.Log($"[BossDive] Impact hit {hit.name} for {ImpactDamage}");
-                }
-
-                CorgiController targetController = hit.GetComponent<CorgiController>();
-                if (targetController != null)
-                {
-                    Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
-                    if (float.IsNaN(knockbackDir.x) || knockbackDir.x == 0) knockbackDir.x = 1f;
-                    
-                    Vector2 force = new Vector2(
-                        ImpactKnockback.x * Mathf.Sign(knockbackDir.x),
-                        ImpactKnockback.y
-                    );
-                    
-                    targetController.SetForce(force);
-                }
+                Debug.Log($"[BossDive] Impact knocked back {hitCount} target(s) with force {ImpactKnockback}");
             }
         }
 

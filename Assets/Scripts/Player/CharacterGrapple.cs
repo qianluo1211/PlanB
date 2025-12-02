@@ -1087,6 +1087,63 @@ protected virtual void TriggerAfterimage()
             _afterimageEndTime = Time.time + AfterimageEffectDuration;
         }
 
+/// <summary>
+        /// 外部施加冲量到摆荡系统（用于子弹击退等）
+        /// 将线性冲量转换为角速度变化，符合物理规律
+        /// </summary>
+        /// <param name="impulse">冲量向量（方向和大小）</param>
+        /// <param name="impactPoint">碰撞点（可选，用于更精确的计算）</param>
+        /// <returns>是否成功应用（只有在摆荡状态才会成功）</returns>
+/// <summary>
+        /// 外部施加冲量到摆荡系统（用于子弹击退等）
+        /// 将线性冲量转换为角速度变化，符合物理规律
+        /// </summary>
+        /// <param name="impulse">冲量向量（方向和大小）</param>
+        /// <param name="impactPoint">碰撞点（可选，用于更精确的计算）</param>
+        /// <returns>是否成功应用（只有在摆荡状态才会成功）</returns>
+/// <summary>
+        /// 外部施加冲量到摆荡系统（用于子弹击退等）
+        /// 将线性冲量转换为角速度变化，符合物理规律
+        /// </summary>
+        /// <param name="impulse">冲量向量（方向和大小）</param>
+        /// <param name="impactPoint">碰撞点（可选，用于更精确的计算）</param>
+        /// <returns>是否成功应用（只有在摆荡状态才会成功）</returns>
+        public virtual bool ApplyExternalImpulse(Vector2 impulse, Vector2? impactPoint = null)
+        {
+            // 只有在摆荡状态才能应用冲量
+            if (!_isSwinging) return false;
+            
+            // 计算绳子方向（从钩爪点指向玩家）
+            Vector2 ropeDir = ((Vector2)transform.position - _grapplePoint).normalized;
+            
+            // 计算切线方向（垂直于绳子，顺时针90度）
+            // 正切线方向对应正角速度（向右摆）
+            Vector2 tangent = new Vector2(-ropeDir.y, ropeDir.x);
+            
+            // 将冲量投影到切线方向
+            // 只有切线方向的分量能影响摆荡
+            float tangentImpulse = Vector2.Dot(impulse, tangent);
+            
+            // 计算角速度变化
+            // 物理公式：Δω = 切向冲量 / 绳长
+            float angularImpulse = tangentImpulse / _ropeLength;
+            
+            // 应用角速度变化
+            _angularVelocity += angularImpulse;
+            
+            // 限制最大角速度
+            _angularVelocity = Mathf.Clamp(_angularVelocity, -MaxAngularVelocity, MaxAngularVelocity);
+            
+            return true;
+        }
+        
+        /// <summary>
+        /// 调试信息开关（Inspector中没有暴露，可以通过代码开启）
+        /// </summary>
+        [HideInInspector]
+        public bool ShowDebugInfo = false;
+
+
         #endregion
 
         #region 释放

@@ -68,7 +68,7 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        public override void OnEnterState()
+public override void OnEnterState()
         {
             base.OnEnterState();
 
@@ -76,7 +76,7 @@ namespace MoreMountains.CorgiEngine
             _hasDoneDamage = false;
             _attackStartTime = Time.time;
 
-            FaceTarget();
+            // 近战攻击时不转向，让玩家可以绕到背后进行攻击
 
             // 重置所有动画参数，然后只设置MeleeAttack
             ResetAllAnimationParameters();
@@ -143,43 +143,30 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        protected virtual void PerformDamage()
+protected virtual void PerformDamage()
         {
             float direction = _character.IsFacingRight ? 1f : -1f;
             Vector2 attackCenter = (Vector2)transform.position + new Vector2(AttackOffset.x * direction, AttackOffset.y);
 
-            Collider2D[] hits = Physics2D.OverlapBoxAll(attackCenter, AttackSize, 0f, TargetLayerMask);
+            // 使用 KnockbackUtility 进行击退（支持水平方向）
+            Vector2 knockbackDir = new Vector2(direction, 0f);
+            int hitCount = KnockbackUtility.ApplyDirectionalKnockback(
+                attackCenter,
+                AttackSize.x / 2f, // 用宽度的一半作为范围
+                KnockbackForce,
+                knockbackDir,
+                TargetLayerMask,
+                Damage,
+                gameObject
+            );
 
-            foreach (var hit in hits)
+            if (DebugMode && hitCount > 0)
             {
-                Health targetHealth = hit.GetComponent<Health>();
-                if (targetHealth != null)
-                {
-                    targetHealth.Damage(Damage, gameObject, 0f, 0.5f, Vector3.zero, null);
-                    if (DebugMode) Debug.Log($"[BossMelee] Hit {hit.name} for {Damage} damage!");
-                }
-
-                CorgiController targetController = hit.GetComponent<CorgiController>();
-                if (targetController != null)
-                {
-                    Vector2 knockback = new Vector2(KnockbackForce.x * direction, KnockbackForce.y);
-                    targetController.SetForce(knockback);
-                    if (DebugMode) Debug.Log($"[BossMelee] Knockback {hit.name}");
-                }
+                Debug.Log($"[BossMelee] Hit {hitCount} target(s) for {Damage} damage with knockback {KnockbackForce}");
             }
         }
 
-        protected virtual void FaceTarget()
-        {
-            if (_brain.Target == null || _character == null) return;
 
-            bool shouldFaceRight = _brain.Target.position.x > transform.position.x;
-
-            if (shouldFaceRight && !_character.IsFacingRight)
-                _character.Flip();
-            else if (!shouldFaceRight && _character.IsFacingRight)
-                _character.Flip();
-        }
 
         public override void OnExitState()
         {

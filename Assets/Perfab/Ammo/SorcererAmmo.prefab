@@ -231,7 +231,7 @@ MonoBehaviour:
     ForcedCondition: 3
     DisableGravity: 0
     ResetControllerForces: 0
-    ForcedConditionDuration: 0.3
+    ForcedConditionDuration: 0.2
     ApplyMovementMultiplier: 0
     MovementMultiplier: 1
     MovementMultiplierDuration: 0
@@ -311,14 +311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0cc5b1fa75e7c44b7d36c8daea6d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DirectionalKnockback
-  KnockbackForce: 10
-  SpeedInfluence: 0
-  ReferenceSpeed: 200
+  KnockbackForce: 12
   AdditionalUpwardForce: 0
   ReverseDirection: 0
-  VerticalForceMultiplier: 1
-  ShowDebugLog: 0
-  ShowGizmos: 0
+  SwingKnockbackMultiplier: 1.5
+  TriggerAfterimageOnSwingHit: 1
+  ShowDebugInfo: 0
 --- !u!1 &7870585103470865315
 GameObject:
   m_ObjectHideFlags: 0

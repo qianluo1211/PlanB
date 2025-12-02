@@ -64,7 +64,7 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        public override void OnEnterState()
+public override void OnEnterState()
         {
             base.OnEnterState();
 
@@ -80,21 +80,20 @@ namespace MoreMountains.CorgiEngine
             IsBlocked = false;
             _retreatStartPosition = transform.position;
 
+            // 计算后退方向（远离玩家）
             if (_brain.Target != null)
             {
                 _retreatDirection = transform.position.x > _brain.Target.position.x ? 1f : -1f;
             }
 
-            if (FaceTargetWhileRetreating && _characterHorizontalMovement != null)
+            // 禁用移动时自动转向
+            if (_characterHorizontalMovement != null)
             {
                 _originalFlipSetting = _characterHorizontalMovement.FlipCharacterToFaceDirection;
                 _characterHorizontalMovement.FlipCharacterToFaceDirection = false;
             }
 
-            if (FaceTargetWhileRetreating)
-            {
-                FaceTarget();
-            }
+            // 不主动转向，由 CharacterDelayedTurn 统一管理
 
             // 重置所有动画参数，然后只设置Walking
             ResetAllAnimationParameters();
@@ -127,7 +126,7 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        public override void PerformAction()
+public override void PerformAction()
         {
             if (_characterHorizontalMovement == null) return;
 
@@ -149,11 +148,7 @@ namespace MoreMountains.CorgiEngine
             }
 
             PerformRetreat();
-
-            if (FaceTargetWhileRetreating)
-            {
-                FaceTarget();
-            }
+            // 不再每帧转向，只在 OnEnterState 转向一次
         }
 
         protected virtual bool CheckRetreatComplete()
@@ -197,17 +192,7 @@ namespace MoreMountains.CorgiEngine
             _characterHorizontalMovement.SetHorizontalMove(moveValue);
         }
 
-        protected virtual void FaceTarget()
-        {
-            if (_brain.Target == null || _character == null) return;
 
-            bool shouldFaceRight = _brain.Target.position.x > transform.position.x;
-
-            if (shouldFaceRight && !_character.IsFacingRight)
-                _character.Flip();
-            else if (!shouldFaceRight && _character.IsFacingRight)
-                _character.Flip();
-        }
 
         protected virtual void StopMovement()
         {

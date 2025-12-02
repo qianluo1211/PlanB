@@ -66,7 +66,7 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        public override void OnEnterState()
+public override void OnEnterState()
         {
             base.OnEnterState();
 
@@ -75,11 +75,7 @@ namespace MoreMountains.CorgiEngine
             _hasShot = false;
             _attackStartTime = Time.time;
 
-            // 面向玩家
-            if (FaceTargetWhileAttacking)
-            {
-                FaceTarget();
-            }
+            // 不主动转向，由 CharacterDelayedTurn 统一管理
 
             // 设置动画
             ResetAllAnimationParameters();
@@ -168,17 +164,7 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        protected virtual void FaceTarget()
-        {
-            if (_brain.Target == null || _character == null) return;
 
-            bool shouldFaceRight = _brain.Target.position.x > transform.position.x;
-
-            if (shouldFaceRight && !_character.IsFacingRight)
-                _character.Flip();
-            else if (!shouldFaceRight && _character.IsFacingRight)
-                _character.Flip();
-        }
 
         public override void OnExitState()
         {
