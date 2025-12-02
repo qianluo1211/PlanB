@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: a80d1d0098613014c918cec2a76267ad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8260297408121778765
+    second: E_Bloodbound Executor_idle_0
+  - first:
+      213: -3257933347057141506
+    second: E_Bloodbound Executor_idle_1
+  - first:
+      213: 7367673485956659422
+    second: E_Bloodbound Executor_idle_2
+  - first:
+      213: -6069105913583052547
+    second: E_Bloodbound Executor_idle_3
+  - first:
+      213: 8939296231930491504
+    second: E_Bloodbound Executor_idle_4
+  - first:
+      213: 1037118798709254819
+    second: E_Bloodbound Executor_idle_5
+  - first:
+      213: -8114435332762588066
+    second: E_Bloodbound Executor_idle_6
+  - first:
+      213: -471275631228964091
+    second: E_Bloodbound Executor_idle_7
+  - first:
+      213: -3962518916891504832
+    second: E_Bloodbound Executor_idle_8
+  - first:
+      213: 5149560795732906718
+    second: E_Bloodbound Executor_idle_9
+  - first:
+      213: -5330974329983246373
+    second: E_Bloodbound Executor_idle_10
+  - first:
+      213: 4145559630411420679
+    second: E_Bloodbound Executor_idle_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 285
+        width: 44
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42bd2e4ab872a270800000000000000
+      internalID: 8260297408121778765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_1
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 285
+        width: 44
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef872c2d1ee79c2d0800000000000000
+      internalID: -3257933347057141506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_2
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 285
+        width: 44
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed8b287fffb3f3660800000000000000
+      internalID: 7367673485956659422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_3
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 285
+        width: 44
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8d8acb35436cba0800000000000000
+      internalID: -6069105913583052547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 157
+        width: 43
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 072743e7f82ce0c70800000000000000
+      internalID: 8939296231930491504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_5
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 157
+        width: 43
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aae1f27d06946e00800000000000000
+      internalID: 1037118798709254819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_6
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 157
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5caec59e0cb36f80800000000000000
+      internalID: -8114435332762588066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_7
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 157
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503bc417f41b579f0800000000000000
+      internalID: -471275631228964091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_8
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 29
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f8ae61a0e4209c0800000000000000
+      internalID: -3962518916891504832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_9
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 29
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed210fa924ae67740800000000000000
+      internalID: 5149560795732906718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_10
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 29
+        width: 43
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf5f9277139406b0800000000000000
+      internalID: -5330974329983246373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_idle_11
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 29
+        width: 43
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7045fdd058cf78930800000000000000
+      internalID: 4145559630411420679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      E_Bloodbound Executor_idle_0: 8260297408121778765
+      E_Bloodbound Executor_idle_1: -3257933347057141506
+      E_Bloodbound Executor_idle_10: -5330974329983246373
+      E_Bloodbound Executor_idle_11: 4145559630411420679
+      E_Bloodbound Executor_idle_2: 7367673485956659422
+      E_Bloodbound Executor_idle_3: -6069105913583052547
+      E_Bloodbound Executor_idle_4: 8939296231930491504
+      E_Bloodbound Executor_idle_5: 1037118798709254819
+      E_Bloodbound Executor_idle_6: -8114435332762588066
+      E_Bloodbound Executor_idle_7: -471275631228964091
+      E_Bloodbound Executor_idle_8: -3962518916891504832
+      E_Bloodbound Executor_idle_9: 5149560795732906718
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

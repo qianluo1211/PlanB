@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: 086c81f0bf684bb4e8e056d160790f27
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1715120400841125313
+    second: E_Bloodbound Executor_melee_0
+  - first:
+      213: 8117365225274562223
+    second: E_Bloodbound Executor_melee_1
+  - first:
+      213: 2407788837320859417
+    second: E_Bloodbound Executor_melee_2
+  - first:
+      213: -8932752085478042002
+    second: E_Bloodbound Executor_melee_3
+  - first:
+      213: 846858813342287867
+    second: E_Bloodbound Executor_melee_4
+  - first:
+      213: -8944157548929329321
+    second: E_Bloodbound Executor_melee_5
+  - first:
+      213: -6980464801336618635
+    second: E_Bloodbound Executor_melee_6
+  - first:
+      213: 8156684582925807597
+    second: E_Bloodbound Executor_melee_7
+  - first:
+      213: 6372671432933437390
+    second: E_Bloodbound Executor_melee_8
+  - first:
+      213: 4908451406727235619
+    second: E_Bloodbound Executor_melee_9
+  - first:
+      213: 525650368731510492
+    second: E_Bloodbound Executor_melee_10
+  - first:
+      213: -3070052218232127958
+    second: E_Bloodbound Executor_melee_11
+  - first:
+      213: -7209573253649479151
+    second: E_Bloodbound Executor_melee_12
+  - first:
+      213: -3867090574091005885
+    second: E_Bloodbound Executor_melee_13
+  - first:
+      213: -490430257576773239
+    second: E_Bloodbound Executor_melee_14
+  - first:
+      213: 2877919497190249445
+    second: E_Bloodbound Executor_melee_15
+  - first:
+      213: -585599223707706675
+    second: E_Bloodbound Executor_melee_16
+  - first:
+      213: 4360734152995731535
+    second: E_Bloodbound Executor_melee_17
+  - first:
+      213: 2978135333164029288
+    second: E_Bloodbound Executor_melee_18
+  - first:
+      213: -6248424075412664356
+    second: E_Bloodbound Executor_melee_19
+  - first:
+      213: -6706161872682987576
+    second: E_Bloodbound Executor_melee_20
+  - first:
+      213: 2447787478991707667
+    second: E_Bloodbound Executor_melee_21
+  - first:
+      213: -6255903099009993673
+    second: E_Bloodbound Executor_melee_22
+  - first:
+      213: 6106344086028627985
+    second: E_Bloodbound Executor_melee_23
+  - first:
+      213: -9172309499751133502
+    second: E_Bloodbound Executor_melee_24
+  - first:
+      213: 6925413824996551829
+    second: E_Bloodbound Executor_melee_25
+  - first:
+      213: 7571165341442152054
+    second: E_Bloodbound Executor_melee_26
+  - first:
+      213: -7419580881635272079
+    second: E_Bloodbound Executor_melee_27
+  - first:
+      213: 2154339035424820401
+    second: E_Bloodbound Executor_melee_28
+  - first:
+      213: 6458601052952594811
+    second: E_Bloodbound Executor_melee_29
+  - first:
+      213: -3727048498385285578
+    second: E_Bloodbound Executor_melee_30
+  - first:
+      213: 9021644021237712563
+    second: E_Bloodbound Executor_melee_31
+  - first:
+      213: -5677875495591158434
+    second: E_Bloodbound Executor_melee_32
+  - first:
+      213: 3970192139626196363
+    second: E_Bloodbound Executor_melee_33
+  - first:
+      213: 8695638710070267354
+    second: E_Bloodbound Executor_melee_34
+  - first:
+      213: -6266545397400178406
+    second: E_Bloodbound Executor_melee_35
+  - first:
+      213: 7096758819704750018
+    second: E_Bloodbound Executor_melee_36
+  - first:
+      213: 6278790647182553196
+    second: E_Bloodbound Executor_melee_37
+  - first:
+      213: -3938822791796592293
+    second: E_Bloodbound Executor_melee_38
+  - first:
+      213: 4779855707414215643
+    second: E_Bloodbound Executor_melee_39
+  - first:
+      213: 2212746596777598509
+    second: E_Bloodbound Executor_melee_40
+  - first:
+      213: -5756304149334715504
+    second: E_Bloodbound Executor_melee_41
+  - first:
+      213: 462733218300498842
+    second: E_Bloodbound Executor_melee_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1066
+        width: 50
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd292fdae45dc710800000000000000
+      internalID: 1715120400841125313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1066
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6599c2aaca6a070800000000000000
+      internalID: 8117365225274562223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_2
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 1066
+        width: 43
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91f19a6c03f2a6120800000000000000
+      internalID: 2407788837320859417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_3
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 1066
+        width: 42
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6693765e4d780480800000000000000
+      internalID: -8932752085478042002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_4
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1066
+        width: 36
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf70d289a95a0cb00800000000000000
+      internalID: 846858813342287867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_5
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1066
+        width: 50
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75750f0f818ffd380800000000000000
+      internalID: -8944157548929329321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_6
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1066
+        width: 109
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 571963d4f38602f90800000000000000
+      internalID: -6980464801336618635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_7
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 903
+        width: 54
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: defa236896d523170800000000000000
+      internalID: 8156684582925807597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_8
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 923
+        width: 36
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecfe64687e6407850800000000000000
+      internalID: 6372671432933437390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_9
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 866
+        width: 107
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3284e3f5c825e1440800000000000000
+      internalID: 4908451406727235619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_10
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 866
+        width: 75
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd67b40b93c7b4700800000000000000
+      internalID: 525650368731510492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_11
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 872
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ebf5af5cbf465d0800000000000000
+      internalID: -3070052218232127958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_12
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 866
+        width: 80
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ac012e25372fb90800000000000000
+      internalID: -7209573253649479151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_13
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 866
+        width: 75
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3405b019c95555ac0800000000000000
+      internalID: -3867090574091005885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_14
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 866
+        width: 73
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98978067744a139f0800000000000000
+      internalID: -490430257576773239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_15
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 866
+        width: 82
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e3123ae88c60f720800000000000000
+      internalID: 2877919497190249445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_16
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 866
+        width: 82
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca5822db988fd7f0800000000000000
+      internalID: -585599223707706675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 666
+        width: 82
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f487935ab90748c30800000000000000
+      internalID: 4360734152995731535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_18
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 666
+        width: 82
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86518428e46745920800000000000000
+      internalID: 2978135333164029288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_19
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 666
+        width: 79
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf8703b8632949a0800000000000000
+      internalID: -6248424075412664356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_20
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 666
+        width: 74
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cf467cbe4deee2a0800000000000000
+      internalID: -6706161872682987576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_21
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 666
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e13f24eb948f120800000000000000
+      internalID: 2447787478991707667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_22
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 666
+        width: 58
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7347e32d6419e29a0800000000000000
+      internalID: -6255903099009993673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_23
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 666
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1103b0ce7971eb450800000000000000
+      internalID: 6106344086028627985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_24
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 466
+        width: 64
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce84616b1965b080800000000000000
+      internalID: -9172309499751133502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_25
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 466
+        width: 73
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59caf717e230c1060800000000000000
+      internalID: 6925413824996551829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_26
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 466
+        width: 53
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6769868a3ce221960800000000000000
+      internalID: 7571165341442152054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_27
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 466
+        width: 50
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a99dfaf7a580990800000000000000
+      internalID: -7419580881635272079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_28
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 466
+        width: 44
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc014440ffb5ed10800000000000000
+      internalID: 2154339035424820401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_29
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 466
+        width: 51
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b790433407f81a950800000000000000
+      internalID: 6458601052952594811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_30
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 466
+        width: 68
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63e8711332dd64cc0800000000000000
+      internalID: -3727048498385285578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_31
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 266
+        width: 67
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b686e74071533d70800000000000000
+      internalID: 9021644021237712563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_32
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 266
+        width: 69
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5dd466c1522431b0800000000000000
+      internalID: -5677875495591158434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_33
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 266
+        width: 64
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8da77c47b4f81730800000000000000
+      internalID: 3970192139626196363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_34
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 266
+        width: 48
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: addcfd8d55d1da870800000000000000
+      internalID: 8695638710070267354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_35
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 266
+        width: 38
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a117a13a922c809a0800000000000000
+      internalID: -6266545397400178406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_36
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 266
+        width: 39
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf3f19db80cc7260800000000000000
+      internalID: 7096758819704750018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_37
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 266
+        width: 33
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c607c50c3deb22750800000000000000
+      internalID: 6278790647182553196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_38
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 66
+        width: 32
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5170c52a8d7659c0800000000000000
+      internalID: -3938822791796592293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_39
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 66
+        width: 37
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb3c0ee075755240800000000000000
+      internalID: 4779855707414215643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_40
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 66
+        width: 40
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e12ee5e4145be10800000000000000
+      internalID: 2212746596777598509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_41
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 66
+        width: 44
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0931cc7dfdf7d10b0800000000000000
+      internalID: -5756304149334715504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Bloodbound Executor_melee_42
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 66
+        width: 44
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a93139e0965fb6600800000000000000
+      internalID: 462733218300498842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      E_Bloodbound Executor_melee_0: 1715120400841125313
+      E_Bloodbound Executor_melee_1: 8117365225274562223
+      E_Bloodbound Executor_melee_10: 525650368731510492
+      E_Bloodbound Executor_melee_11: -3070052218232127958
+      E_Bloodbound Executor_melee_12: -7209573253649479151
+      E_Bloodbound Executor_melee_13: -3867090574091005885
+      E_Bloodbound Executor_melee_14: -490430257576773239
+      E_Bloodbound Executor_melee_15: 2877919497190249445
+      E_Bloodbound Executor_melee_16: -585599223707706675
+      E_Bloodbound Executor_melee_17: 4360734152995731535
+      E_Bloodbound Executor_melee_18: 2978135333164029288
+      E_Bloodbound Executor_melee_19: -6248424075412664356
+      E_Bloodbound Executor_melee_2: 2407788837320859417
+      E_Bloodbound Executor_melee_20: -6706161872682987576
+      E_Bloodbound Executor_melee_21: 2447787478991707667
+      E_Bloodbound Executor_melee_22: -6255903099009993673
+      E_Bloodbound Executor_melee_23: 6106344086028627985
+      E_Bloodbound Executor_melee_24: -9172309499751133502
+      E_Bloodbound Executor_melee_25: 6925413824996551829
+      E_Bloodbound Executor_melee_26: 7571165341442152054
+      E_Bloodbound Executor_melee_27: -7419580881635272079
+      E_Bloodbound Executor_melee_28: 2154339035424820401
+      E_Bloodbound Executor_melee_29: 6458601052952594811
+      E_Bloodbound Executor_melee_3: -8932752085478042002
+      E_Bloodbound Executor_melee_30: -3727048498385285578
+      E_Bloodbound Executor_melee_31: 9021644021237712563
+      E_Bloodbound Executor_melee_32: -5677875495591158434
+      E_Bloodbound Executor_melee_33: 3970192139626196363
+      E_Bloodbound Executor_melee_34: 8695638710070267354
+      E_Bloodbound Executor_melee_35: -6266545397400178406
+      E_Bloodbound Executor_melee_36: 7096758819704750018
+      E_Bloodbound Executor_melee_37: 6278790647182553196
+      E_Bloodbound Executor_melee_38: -3938822791796592293
+      E_Bloodbound Executor_melee_39: 4779855707414215643
+      E_Bloodbound Executor_melee_4: 846858813342287867
+      E_Bloodbound Executor_melee_40: 2212746596777598509
+      E_Bloodbound Executor_melee_41: -5756304149334715504
+      E_Bloodbound Executor_melee_42: 462733218300498842
+      E_Bloodbound Executor_melee_5: -8944157548929329321
+      E_Bloodbound Executor_melee_6: -6980464801336618635
+      E_Bloodbound Executor_melee_7: 8156684582925807597
+      E_Bloodbound Executor_melee_8: 6372671432933437390
+      E_Bloodbound Executor_melee_9: 4908451406727235619
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
