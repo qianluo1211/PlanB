@@ -4,21 +4,18 @@ using MoreMountains.Tools;
 namespace MoreMountains.CorgiEngine
 {
     /// <summary>
-    /// Boss起跳行为 - 被打中后跳起并震飞玩家
-    /// 流程: 播放Jump动画 → 震飞周围玩家 → 向上移动 → 完成
+    /// Boss起跳行为 - 被打中后跳起、震飞玩家、然后隐身
+    /// 流程: 播放Jump动画 → 震飞周围玩家 → 动画结束后隐身 → 完成
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Boss Take Off")]
     public class AIActionBossTakeOff : AIAction
     {
         [Header("起跳设置")]
-        [Tooltip("起跳高度")]
-        public float TakeOffHeight = 8f;
+        [Tooltip("Jump动画时长（动画结束后隐身）")]
+        public float JumpAnimationDuration = 0.5f;
 
-        [Tooltip("起跳速度")]
-        public float TakeOffSpeed = 15f;
-
-        [Tooltip("起跳前的延迟（播放准备动画）")]
-        public float TakeOffDelay = 0.3f;
+        [Tooltip("震飞玩家的延迟（从动画开始计算）")]
+        public float KnockbackDelay = 0.2f;
 
         [Header("震飞玩家")]
         [Tooltip("震飞范围")]
@@ -44,17 +41,16 @@ namespace MoreMountains.CorgiEngine
         public bool DebugMode = false;
 
         public bool TakeOffComplete { get; protected set; }
-        public Vector3 TargetAirPosition { get; protected set; }
 
         protected Character _character;
         protected CorgiController _controller;
         protected Animator _animator;
         protected Health _health;
+        protected SpriteRenderer _spriteRenderer;
+        protected DamageOnTouch _damageOnTouch;
         protected int _jumpAnimationHash;
         protected float _actionStartTime;
-        protected Vector3 _startPosition;
         protected bool _hasKnockedBack;
-        protected bool _isRising;
 
         protected string[] _allAnimationParameters = new string[] 
         { 
@@ -71,6 +67,14 @@ namespace MoreMountains.CorgiEngine
             _controller = GetComponentInParent<CorgiController>();
             _animator = _character?.CharacterAnimator;
             _health = GetComponentInParent<Health>();
+            _spriteRenderer = GetComponentInParent<SpriteRenderer>();
+            _damageOnTouch = GetComponentInParent<DamageOnTouch>();
+
+            // 如果有 CharacterModel，从那里获取 SpriteRenderer
+            if (_spriteRenderer == null && _character?.CharacterModel != null)
+            {
+                _spriteRenderer = _character.CharacterModel.GetComponent<SpriteRenderer>();
+            }
 
             if (!string.IsNullOrEmpty(JumpAnimationParameter))
             {
@@ -89,24 +93,19 @@ namespace MoreMountains.CorgiEngine
 
             TakeOffComplete = false;
             _hasKnockedBack = false;
-            _isRising = false;
             _actionStartTime = Time.time;
-            _startPosition = transform.position;
-
-            // 计算目标空中位置
-            TargetAirPosition = _startPosition + Vector3.up * TakeOffHeight;
-
-            // 关闭重力
-            if (_controller != null)
-            {
-                _controller.GravityActive(false);
-                _controller.SetForce(Vector2.zero);
-            }
 
             // 设置无敌（起跳期间不能被打断）
             if (InvulnerableDuringTakeOff && _health != null)
             {
                 _health.DamageDisabled();
+            }
+
+            // 关闭重力，停止移动
+            if (_controller != null)
+            {
+                _controller.GravityActive(false);
+                _controller.SetForce(Vector2.zero);
             }
 
             // 播放跳跃动画
@@ -118,7 +117,7 @@ namespace MoreMountains.CorgiEngine
 
             if (DebugMode)
             {
-                Debug.Log($"[BossTakeOff] ENTER - Starting take off from {_startPosition} to {TargetAirPosition}");
+                Debug.Log("[BossTakeOff] ENTER - Playing Jump animation");
             }
         }
 
@@ -144,58 +143,26 @@ namespace MoreMountains.CorgiEngine
         {
             float elapsed = Time.time - _actionStartTime;
 
-            // 延迟阶段 - 等待准备动画
-            if (elapsed < TakeOffDelay)
-            {
-                return;
-            }
-
-            // 震飞玩家（只执行一次）
-            if (!_hasKnockedBack)
+            // 震飞玩家（在指定延迟后执行一次）
+            if (!_hasKnockedBack && elapsed >= KnockbackDelay)
             {
                 PerformKnockback();
                 _hasKnockedBack = true;
-                _isRising = true;
-
-                if (DebugMode) Debug.Log("[BossTakeOff] Knockback performed, starting rise");
+                if (DebugMode) Debug.Log("[BossTakeOff] Knockback performed");
             }
 
-            // 上升阶段
-            if (_isRising)
+            // Jump动画结束后，隐身并完成
+            if (elapsed >= JumpAnimationDuration)
             {
-                PerformRise();
-            }
-        }
-
-        protected virtual void PerformRise()
-        {
-            Vector3 currentPos = transform.position;
-            
-            // 检查是否到达目标高度
-            float distance = Vector3.Distance(currentPos, TargetAirPosition);
-            if (distance < 0.5f)
-            {
+                // 隐身并禁用伤害
+                SetBossVisible(false);
+                
                 TakeOffComplete = true;
-                _isRising = false;
-
-                // 停止移动
-                if (_controller != null)
-                {
-                    _controller.SetForce(Vector2.zero);
-                }
-
-                if (DebugMode) Debug.Log("[BossTakeOff] COMPLETE - Reached target height");
-                return;
-            }
-
-            // 计算上升速度 - 简单直接向上
-            if (_controller != null)
-            {
-                _controller.SetForce(new Vector2(0f, TakeOffSpeed));
+                if (DebugMode) Debug.Log("[BossTakeOff] COMPLETE - Boss is now invisible");
             }
         }
 
-protected virtual void PerformKnockback()
+        protected virtual void PerformKnockback()
         {
             int hitCount = KnockbackUtility.ApplyRadialKnockback(
                 transform.position,
@@ -208,7 +175,30 @@ protected virtual void PerformKnockback()
 
             if (DebugMode && hitCount > 0)
             {
-                Debug.Log($"[BossTakeOff] Knocked back {hitCount} target(s) with force {KnockbackForce}");
+                Debug.Log($"[BossTakeOff] Knocked back {hitCount} target(s)");
+            }
+        }
+
+        /// <summary>
+        /// 设置Boss可见性，同时控制伤害能力
+        /// </summary>
+        protected virtual void SetBossVisible(bool visible)
+        {
+            // 控制渲染
+            if (_spriteRenderer != null)
+            {
+                _spriteRenderer.enabled = visible;
+            }
+
+            // 控制接触伤害
+            if (_damageOnTouch != null)
+            {
+                _damageOnTouch.enabled = visible;
+            }
+
+            if (DebugMode)
+            {
+                Debug.Log($"[BossTakeOff] Boss visibility: {visible}, DamageOnTouch: {visible}");
             }
         }
 
@@ -216,15 +206,11 @@ protected virtual void PerformKnockback()
         {
             base.OnExitState();
 
-            // 停止移动
+            // 停止移动，保持重力关闭（下一个状态需要）
             if (_controller != null)
             {
                 _controller.SetForce(Vector2.zero);
-                // 注意：保持重力关闭，因为下一个状态 (AirTarget) 需要在空中
             }
-
-            // 注意：不要在这里恢复可受伤状态，因为整个反击循环中Boss都应该无敌
-            // 由 AOE 状态结束时统一恢复
 
             if (DebugMode) Debug.Log("[BossTakeOff] EXIT");
         }
@@ -235,12 +221,6 @@ protected virtual void PerformKnockback()
             // 震飞范围
             Gizmos.color = new Color(1f, 0.5f, 0f, 0.3f);
             Gizmos.DrawWireSphere(transform.position, KnockbackRadius);
-
-            // 目标高度
-            Gizmos.color = Color.cyan;
-            Vector3 targetPos = transform.position + Vector3.up * TakeOffHeight;
-            Gizmos.DrawLine(transform.position, targetPos);
-            Gizmos.DrawWireSphere(targetPos, 0.5f);
         }
         #endif
     }

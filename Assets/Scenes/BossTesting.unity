@@ -17027,6 +17027,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7536240481620819263, guid: 3b08e1ac85b9e1447a1df2ef566ceade,
+        type: 3}
+      propertyPath: KnockbackDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536240481620819263, guid: 3b08e1ac85b9e1447a1df2ef566ceade,
+        type: 3}
+      propertyPath: JumpAnimationDuration
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019803681536605356, guid: 3b08e1ac85b9e1447a1df2ef566ceade,
+        type: 3}
+      propertyPath: States.Array.data[4].Transitions.array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019803681536605356, guid: 3b08e1ac85b9e1447a1df2ef566ceade,
+        type: 3}
+      propertyPath: States.Array.data[4].Transitions.array.Array.data[1].Decision
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019803681536605356, guid: 3b08e1ac85b9e1447a1df2ef566ceade,
+        type: 3}
+      propertyPath: States.Array.data[4].Transitions.array.Array.data[1].TrueState
+      value: AirTarget
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

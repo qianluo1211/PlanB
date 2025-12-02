@@ -4,40 +4,40 @@ using MoreMountains.Tools;
 namespace MoreMountains.CorgiEngine
 {
     /// <summary>
-    /// Boss空中瞄准行为 - 悬停在空中，地面显示红线追踪玩家
-    /// 流程: 悬停 → 红线追踪玩家 → 锁定位置 → 完成
+    /// Boss空中瞄准行为 - Boss隐身，垂直光柱从天而降追踪玩家
+    /// 流程: Boss保持隐身 → 垂直光柱追踪玩家 → 锁定位置 → 完成
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Boss Air Target")]
     public class AIActionBossAirTarget : AIAction
     {
-        [Header("悬停设置")]
-        [Tooltip("悬停总时间")]
-        public float HoverDuration = 2f;
+        [Header("瞄准设置")]
+        [Tooltip("瞄准总时间")]
+        public float TargetingDuration = 2f;
 
         [Tooltip("追踪玩家的时间（之后锁定位置）")]
         public float TrackingDuration = 1.5f;
 
-        [Tooltip("悬停时的轻微上下浮动幅度")]
-        public float HoverAmplitude = 0.3f;
+        [Header("光柱设置")]
+        [Tooltip("光柱高度（从落点向上延伸）")]
+        public float BeamHeight = 15f;
 
-        [Tooltip("浮动速度")]
-        public float HoverFrequency = 2f;
+        [Tooltip("光柱宽度")]
+        public float BeamWidth = 1f;
 
-        [Header("瞄准线设置")]
-        [Tooltip("瞄准线预制体（LineRenderer或SpriteRenderer）")]
-        public GameObject TargetLinePrefab;
+        [Tooltip("光柱预制体（可选，留空则自动创建）")]
+        public GameObject BeamPrefab;
 
-        [Tooltip("瞄准线颜色 - 追踪中")]
+        [Tooltip("光柱颜色 - 追踪中")]
         public Color TrackingColor = new Color(1f, 1f, 0f, 0.5f);
 
-        [Tooltip("瞄准线颜色 - 已锁定")]
+        [Tooltip("光柱颜色 - 已锁定")]
         public Color LockedColor = new Color(1f, 0f, 0f, 0.8f);
 
-        [Tooltip("落点标记预制体")]
+        [Tooltip("落点标记预制体（可选）")]
         public GameObject LandingMarkerPrefab;
 
-        [Header("动画")]
-        public string FallAnimationParameter = "Fall";
+        [Tooltip("落点标记大小")]
+        public float MarkerSize = 2f;
 
         [Header("调试")]
         public bool DebugMode = false;
@@ -48,20 +48,11 @@ namespace MoreMountains.CorgiEngine
 
         protected Character _character;
         protected CorgiController _controller;
-        protected Animator _animator;
-        protected int _fallAnimationHash;
         protected float _actionStartTime;
-        protected Vector3 _hoverBasePosition;
-        protected GameObject _targetLineInstance;
-        protected GameObject _landingMarkerInstance;
-        protected LineRenderer _lineRenderer;
+        protected GameObject _beamInstance;
+        protected GameObject _markerInstance;
+        protected SpriteRenderer _beamRenderer;
         protected SpriteRenderer _markerRenderer;
-
-        protected string[] _allAnimationParameters = new string[] 
-        { 
-            "Idle", "Walking", "RangeAttack", "MeleeAttack", 
-            "AOE", "Jump", "Fall", "Land", "Dead" 
-        };
 
         public override void Initialization()
         {
@@ -70,12 +61,6 @@ namespace MoreMountains.CorgiEngine
 
             _character = GetComponentInParent<Character>();
             _controller = GetComponentInParent<CorgiController>();
-            _animator = _character?.CharacterAnimator;
-
-            if (!string.IsNullOrEmpty(FallAnimationParameter))
-            {
-                _fallAnimationHash = Animator.StringToHash(FallAnimationParameter);
-            }
         }
 
         public override void OnEnterState()
@@ -85,8 +70,8 @@ namespace MoreMountains.CorgiEngine
             TargetingComplete = false;
             IsLocked = false;
             _actionStartTime = Time.time;
-            _hoverBasePosition = transform.position;
 
+            // Boss保持隐身（由TakeOff状态设置）
             // 确保重力关闭
             if (_controller != null)
             {
@@ -94,116 +79,117 @@ namespace MoreMountains.CorgiEngine
                 _controller.SetForce(Vector2.zero);
             }
 
-            // 初始化瞄准目标为玩家位置
+            // 初始化目标位置
             if (_brain.Target != null)
             {
                 LockedTargetPosition = GetGroundPosition(_brain.Target.position);
             }
             else
             {
-                LockedTargetPosition = GetGroundPosition(transform.position + Vector3.down * 10f);
+                LockedTargetPosition = GetGroundPosition(transform.position);
             }
 
-            // 确保目标位置有效
-            ValidateTargetPosition();
-
-            // 创建瞄准线
+            // 创建光柱和落点标记
             CreateTargetingVisuals();
-
-            // 播放Fall动画（空中悬停姿态）
-            ResetAllAnimationParameters();
-            if (_animator != null && _fallAnimationHash != 0)
-            {
-                _animator.SetBool(_fallAnimationHash, true);
-            }
 
             if (DebugMode)
             {
-                Debug.Log($"[BossAirTarget] ENTER - Hovering at {_hoverBasePosition}, tracking player");
-            }
-        }
-
-        protected virtual void ValidateTargetPosition()
-        {
-            if (float.IsNaN(LockedTargetPosition.x) || float.IsNaN(LockedTargetPosition.y))
-            {
-                LockedTargetPosition = new Vector3(transform.position.x, transform.position.y - 10f, 0f);
-            }
-        }
-
-        protected virtual void ResetAllAnimationParameters()
-        {
-            if (_animator == null) return;
-
-            foreach (string param in _allAnimationParameters)
-            {
-                int hash = Animator.StringToHash(param);
-                foreach (var p in _animator.parameters)
-                {
-                    if (p.nameHash == hash && p.type == AnimatorControllerParameterType.Bool)
-                    {
-                        _animator.SetBool(hash, false);
-                        break;
-                    }
-                }
+                Debug.Log($"[BossAirTarget] ENTER - Starting vertical beam targeting");
             }
         }
 
         protected virtual void CreateTargetingVisuals()
         {
-            // 创建瞄准线
-            if (TargetLinePrefab != null)
+            // 创建垂直光柱
+            if (BeamPrefab != null)
             {
-                _targetLineInstance = Instantiate(TargetLinePrefab);
-                _lineRenderer = _targetLineInstance.GetComponent<LineRenderer>();
+                _beamInstance = Instantiate(BeamPrefab);
+                _beamRenderer = _beamInstance.GetComponent<SpriteRenderer>();
             }
             else
             {
-                // 动态创建简单的LineRenderer
-                _targetLineInstance = new GameObject("BossTargetLine");
-                _lineRenderer = _targetLineInstance.AddComponent<LineRenderer>();
-                _lineRenderer.startWidth = 0.2f;
-                _lineRenderer.endWidth = 0.2f;
-                _lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-                _lineRenderer.positionCount = 2;
+                _beamInstance = new GameObject("BossTargetBeam");
+                _beamRenderer = _beamInstance.AddComponent<SpriteRenderer>();
+                _beamRenderer.sprite = CreateBeamSprite();
+                _beamRenderer.sortingOrder = 100;
             }
 
             // 创建落点标记
             if (LandingMarkerPrefab != null)
             {
-                _landingMarkerInstance = Instantiate(LandingMarkerPrefab);
-                _markerRenderer = _landingMarkerInstance.GetComponent<SpriteRenderer>();
+                _markerInstance = Instantiate(LandingMarkerPrefab);
+                _markerRenderer = _markerInstance.GetComponent<SpriteRenderer>();
             }
             else
             {
-                // 动态创建简单的落点标记
-                _landingMarkerInstance = new GameObject("BossLandingMarker");
-                _markerRenderer = _landingMarkerInstance.AddComponent<SpriteRenderer>();
+                _markerInstance = new GameObject("BossLandingMarker");
+                _markerRenderer = _markerInstance.AddComponent<SpriteRenderer>();
                 _markerRenderer.sprite = CreateCircleSprite();
-                _landingMarkerInstance.transform.localScale = Vector3.one * 3f;
+                _markerRenderer.sortingOrder = 99;
+                _markerInstance.transform.localScale = Vector3.one * MarkerSize;
             }
 
             UpdateTargetingColor(TrackingColor);
         }
 
+        /// <summary>
+        /// 创建光柱精灵（垂直矩形）
+        /// </summary>
+        protected virtual Sprite CreateBeamSprite()
+        {
+            int width = 32;
+            int height = 256;
+            Texture2D tex = new Texture2D(width, height);
+            Color[] colors = new Color[width * height];
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    // 中心渐变，边缘透明
+                    float centerDist = Mathf.Abs(x - width / 2f) / (width / 2f);
+                    float alpha = 1f - centerDist;
+                    
+                    // 顶部渐隐
+                    float topFade = (float)y / height;
+                    alpha *= topFade;
+
+                    colors[y * width + x] = new Color(1f, 1f, 1f, alpha * 0.8f);
+                }
+            }
+
+            tex.SetPixels(colors);
+            tex.Apply();
+
+            return Sprite.Create(tex, new Rect(0, 0, width, height), new Vector2(0.5f, 0f), 32f);
+        }
+
+        /// <summary>
+        /// 创建圆形落点标记
+        /// </summary>
         protected virtual Sprite CreateCircleSprite()
         {
-            // 创建一个简单的圆形纹理
             int size = 64;
             Texture2D tex = new Texture2D(size, size);
             Color[] colors = new Color[size * size];
-            
+
             Vector2 center = new Vector2(size / 2f, size / 2f);
-            float radius = size / 2f - 2f;
-            
+            float outerRadius = size / 2f - 2f;
+            float innerRadius = outerRadius - 6f;
+
             for (int y = 0; y < size; y++)
             {
                 for (int x = 0; x < size; x++)
                 {
                     float dist = Vector2.Distance(new Vector2(x, y), center);
-                    if (dist < radius && dist > radius - 4)
+                    if (dist < outerRadius && dist > innerRadius)
                     {
                         colors[y * size + x] = Color.white;
+                    }
+                    else if (dist <= innerRadius)
+                    {
+                        // 内部半透明填充
+                        colors[y * size + x] = new Color(1f, 1f, 1f, 0.3f);
                     }
                     else
                     {
@@ -211,19 +197,18 @@ namespace MoreMountains.CorgiEngine
                     }
                 }
             }
-            
+
             tex.SetPixels(colors);
             tex.Apply();
-            
+
             return Sprite.Create(tex, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), size);
         }
 
         protected virtual void UpdateTargetingColor(Color color)
         {
-            if (_lineRenderer != null)
+            if (_beamRenderer != null)
             {
-                _lineRenderer.startColor = color;
-                _lineRenderer.endColor = color;
+                _beamRenderer.color = color;
             }
             if (_markerRenderer != null)
             {
@@ -235,26 +220,12 @@ namespace MoreMountains.CorgiEngine
         {
             float elapsed = Time.time - _actionStartTime;
 
-            // 悬停浮动效果 - 使用简单的力而不是除法
-            float hoverOffset = Mathf.Sin(elapsed * HoverFrequency * Mathf.PI * 2f) * HoverAmplitude;
-            float targetY = _hoverBasePosition.y + hoverOffset;
-            float currentY = transform.position.y;
-            float yDiff = targetY - currentY;
-            
-            if (_controller != null)
-            {
-                // 简单的悬停力，避免除法
-                _controller.SetForce(new Vector2(0f, yDiff * 5f));
-            }
-
-            // 追踪阶段
+            // 追踪阶段 - 光柱跟随玩家
             if (elapsed < TrackingDuration)
             {
-                // 追踪玩家
                 if (_brain.Target != null)
                 {
                     LockedTargetPosition = GetGroundPosition(_brain.Target.position);
-                    ValidateTargetPosition();
                 }
             }
             // 锁定阶段
@@ -262,7 +233,6 @@ namespace MoreMountains.CorgiEngine
             {
                 IsLocked = true;
                 UpdateTargetingColor(LockedColor);
-                
                 if (DebugMode) Debug.Log($"[BossAirTarget] LOCKED at {LockedTargetPosition}");
             }
 
@@ -270,7 +240,7 @@ namespace MoreMountains.CorgiEngine
             UpdateTargetingVisuals();
 
             // 检查是否完成
-            if (elapsed >= HoverDuration)
+            if (elapsed >= TargetingDuration)
             {
                 TargetingComplete = true;
                 if (DebugMode) Debug.Log("[BossAirTarget] COMPLETE");
@@ -279,23 +249,23 @@ namespace MoreMountains.CorgiEngine
 
         protected virtual void UpdateTargetingVisuals()
         {
-            // 更新瞄准线（从Boss到落点）
-            if (_lineRenderer != null)
+            // 更新光柱位置和大小
+            if (_beamInstance != null)
             {
-                _lineRenderer.SetPosition(0, transform.position);
-                _lineRenderer.SetPosition(1, LockedTargetPosition);
+                // 光柱底部在落点，向上延伸
+                _beamInstance.transform.position = LockedTargetPosition;
+                _beamInstance.transform.localScale = new Vector3(BeamWidth, BeamHeight, 1f);
             }
 
             // 更新落点标记
-            if (_landingMarkerInstance != null)
+            if (_markerInstance != null)
             {
-                _landingMarkerInstance.transform.position = LockedTargetPosition;
+                _markerInstance.transform.position = LockedTargetPosition;
             }
         }
 
         protected virtual Vector3 GetGroundPosition(Vector3 position)
         {
-            // 向下射线检测地面
             RaycastHit2D hit = Physics2D.Raycast(
                 new Vector2(position.x, position.y + 1f),
                 Vector2.down,
@@ -311,17 +281,17 @@ namespace MoreMountains.CorgiEngine
             return new Vector3(position.x, position.y, 0f);
         }
 
-        protected virtual void CleanupVisuals()
+        public virtual void CleanupVisuals()
         {
-            if (_targetLineInstance != null)
+            if (_beamInstance != null)
             {
-                Destroy(_targetLineInstance);
-                _targetLineInstance = null;
+                Destroy(_beamInstance);
+                _beamInstance = null;
             }
-            if (_landingMarkerInstance != null)
+            if (_markerInstance != null)
             {
-                Destroy(_landingMarkerInstance);
-                _landingMarkerInstance = null;
+                Destroy(_markerInstance);
+                _markerInstance = null;
             }
         }
 
@@ -329,14 +299,8 @@ namespace MoreMountains.CorgiEngine
         {
             base.OnExitState();
 
-            // 停止移动
-            if (_controller != null)
-            {
-                _controller.SetForce(Vector2.zero);
-            }
-
-            // 不要在这里清理视觉效果，让Dive状态继续使用
-            // CleanupVisuals(); // 由Dive状态或Landing清理
+            // 不在这里清理视觉效果，让Dive状态继续使用
+            // Dive落地后再清理
 
             if (DebugMode) Debug.Log("[BossAirTarget] EXIT");
         }
