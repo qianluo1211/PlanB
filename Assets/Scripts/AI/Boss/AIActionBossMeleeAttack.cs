@@ -4,8 +4,7 @@ using MoreMountains.Tools;
 namespace MoreMountains.CorgiEngine
 {
     /// <summary>
-    /// Boss近战攻击行为 - 使用Animation Event触发伤害
-    /// 需要在动画中添加事件调用 OnMeleeAnimationEvent()
+    /// Boss近战攻击行为 - 修复：添加状态检查防止退出后继续造成伤害
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Boss Melee Attack")]
     public class AIActionBossMeleeAttack : AIAction
@@ -14,14 +13,8 @@ namespace MoreMountains.CorgiEngine
         public float Damage = 20f;
         public Vector2 KnockbackForce = new Vector2(15f, 5f);
         public float AttackRange = 2.5f;
-
-        [Tooltip("攻击动画总时长")]
         public float AttackDuration = 0.8f;
-
-        [Tooltip("是否使用Animation Event触发伤害（推荐）")]
         public bool UseAnimationEvents = true;
-
-        [Tooltip("如果不用Animation Event，延迟多久后造成伤害")]
         public float DamageDelay = 0.3f;
 
         [Header("动画")]
@@ -40,6 +33,7 @@ namespace MoreMountains.CorgiEngine
         protected int _meleeAnimationParameterHash;
         protected float _attackStartTime;
         protected bool _hasDoneDamage;
+        protected bool _isStateActive; // 关键：状态是否激活
 
         protected string[] _allAnimationParameters = new string[] 
         { 
@@ -68,27 +62,22 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-public override void OnEnterState()
+        public override void OnEnterState()
         {
             base.OnEnterState();
 
             AttackComplete = false;
             _hasDoneDamage = false;
+            _isStateActive = true; // 标记状态激活
             _attackStartTime = Time.time;
 
-            // 近战攻击时不转向，让玩家可以绕到背后进行攻击
-
-            // 重置所有动画参数，然后只设置MeleeAttack
             ResetAllAnimationParameters();
             if (_animator != null && _meleeAnimationParameterHash != 0)
             {
                 _animator.SetBool(_meleeAnimationParameterHash, true);
             }
 
-            if (DebugMode)
-            {
-                Debug.Log("[BossMelee] ENTER - Melee attack animation ON");
-            }
+            Debug.Log($"[BossMelee] ===== ENTER at {Time.time:F3} =====");
         }
 
         protected virtual void ResetAllAnimationParameters()
@@ -111,6 +100,12 @@ public override void OnEnterState()
 
         public override void PerformAction()
         {
+            // 关键检查
+            if (!_isStateActive)
+            {
+                return;
+            }
+
             float elapsed = Time.time - _attackStartTime;
 
             // 如果不用Animation Event，用定时器造成伤害
@@ -123,36 +118,47 @@ public override void OnEnterState()
             if (elapsed >= AttackDuration)
             {
                 AttackComplete = true;
-                if (DebugMode) Debug.Log("[BossMelee] COMPLETE");
+                Debug.Log($"[BossMelee] COMPLETE at {Time.time:F3}");
             }
         }
 
         /// <summary>
-        /// 由Animation Event调用 - 在动画中添加事件调用此方法
+        /// 由Animation Event调用
         /// </summary>
         public void OnMeleeAnimationEvent()
         {
+            // 关键检查：如果状态已退出，不执行
+            if (!_isStateActive)
+            {
+                Debug.LogWarning($"[BossMelee] AnimationEvent BLOCKED - state not active!");
+                return;
+            }
+
             if (_hasDoneDamage) return;
 
+            Debug.Log($"[BossMelee] AnimationEvent triggered at {Time.time:F3}");
             PerformDamage();
             _hasDoneDamage = true;
-
-            if (DebugMode)
-            {
-                Debug.Log("[BossMelee] Animation Event triggered - DAMAGE!");
-            }
         }
 
-protected virtual void PerformDamage()
+        protected virtual void PerformDamage()
         {
+            // 双重检查
+            if (!_isStateActive)
+            {
+                Debug.LogError($"[BossMelee] PerformDamage BLOCKED - state not active!");
+                return;
+            }
+
             float direction = _character.IsFacingRight ? 1f : -1f;
             Vector2 attackCenter = (Vector2)transform.position + new Vector2(AttackOffset.x * direction, AttackOffset.y);
 
-            // 使用 KnockbackUtility 进行击退（支持水平方向）
+            Debug.Log($"[BossMelee] PerformDamage at {Time.time:F3}, center={attackCenter}");
+
             Vector2 knockbackDir = new Vector2(direction, 0f);
             int hitCount = KnockbackUtility.ApplyDirectionalKnockback(
                 attackCenter,
-                AttackSize.x / 2f, // 用宽度的一半作为范围
+                AttackSize.x / 2f,
                 KnockbackForce,
                 knockbackDir,
                 TargetLayerMask,
@@ -160,20 +166,21 @@ protected virtual void PerformDamage()
                 gameObject
             );
 
-            if (DebugMode && hitCount > 0)
+            if (hitCount > 0)
             {
-                Debug.Log($"[BossMelee] Hit {hitCount} target(s) for {Damage} damage with knockback {KnockbackForce}");
+                Debug.Log($"[BossMelee] HIT {hitCount} target(s)!");
             }
         }
-
-
 
         public override void OnExitState()
         {
             base.OnExitState();
-            // 不要在这里重置动画参数，让下一个状态来处理
 
-            if (DebugMode) Debug.Log("[BossMelee] EXIT");
+            // 关键：立即标记状态为非激活
+            _isStateActive = false;
+            _hasDoneDamage = true; // 双重保险
+
+            Debug.Log($"[BossMelee] ===== EXIT at {Time.time:F3} - STATE DEACTIVATED =====");
         }
 
         #if UNITY_EDITOR

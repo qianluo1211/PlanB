@@ -5,56 +5,33 @@ using System.Collections.Generic;
 namespace MoreMountains.CorgiEngine
 {
     /// <summary>
-    /// Boss AOE行为 - 蓄力后从四周发射一圈子弹
-    /// Boss在AOE期间完全无敌
+    /// Boss AOE行为 - 修复：进入时确保Boss可见和可碰撞
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Boss AOE")]
     public class AIActionBossAOE : AIAction
     {
         [Header("AOE设置")]
-        [Tooltip("蓄力时间（播放AOE动画准备）")]
         public float ChargeUpDuration = 0.8f;
-
-        [Tooltip("发射子弹后的结束延迟")]
         public float EndDelay = 0.5f;
 
         [Header("子弹设置")]
-        [Tooltip("子弹预制体")]
         public GameObject ProjectilePrefab;
-
-        [Tooltip("子弹数量")]
         public int ProjectileCount = 12;
-
-        [Tooltip("子弹速度")]
         public float ProjectileSpeed = 10f;
-
-        [Tooltip("子弹伤害")]
         public float ProjectileDamage = 15f;
-
-        [Tooltip("发射高度偏移")]
         public float SpawnHeightOffset = 1f;
-
-        [Tooltip("发射半径")]
         public float SpawnRadius = 1f;
 
         [Header("多波次设置")]
-        [Tooltip("是否发射多波")]
         public bool MultipleWaves = false;
-
-        [Tooltip("波次数量")]
         public int WaveCount = 2;
-
-        [Tooltip("波次间隔")]
         public float WaveInterval = 0.3f;
-
-        [Tooltip("第二波角度偏移（度）")]
         public float WaveAngleOffset = 15f;
 
         [Header("动画")]
         public string AOEAnimationParameter = "AOE";
 
         [Header("无敌设置")]
-        [Tooltip("AOE期间是否无敌")]
         public bool InvulnerableDuringAOE = true;
 
         [Header("调试")]
@@ -65,11 +42,16 @@ namespace MoreMountains.CorgiEngine
         protected Character _character;
         protected Animator _animator;
         protected Health _health;
+        protected SpriteRenderer _spriteRenderer;
+        protected DamageOnTouch _damageOnTouch;
+        protected BoxCollider2D _boxCollider;
+        protected CorgiController _controller;
         protected int _aoeAnimationHash;
         protected float _actionStartTime;
         protected bool _hasFired;
         protected int _currentWave;
         protected float _lastWaveTime;
+        protected bool _isStateActive;
 
         protected string[] _allAnimationParameters = new string[] 
         { 
@@ -85,6 +67,15 @@ namespace MoreMountains.CorgiEngine
             _character = GetComponentInParent<Character>();
             _animator = _character?.CharacterAnimator;
             _health = GetComponentInParent<Health>();
+            _spriteRenderer = GetComponentInParent<SpriteRenderer>();
+            _damageOnTouch = GetComponentInParent<DamageOnTouch>();
+            _boxCollider = GetComponentInParent<BoxCollider2D>();
+            _controller = GetComponentInParent<CorgiController>();
+
+            if (_spriteRenderer == null && _character?.CharacterModel != null)
+            {
+                _spriteRenderer = _character.CharacterModel.GetComponent<SpriteRenderer>();
+            }
 
             if (!string.IsNullOrEmpty(AOEAnimationParameter))
             {
@@ -100,12 +91,24 @@ namespace MoreMountains.CorgiEngine
             _hasFired = false;
             _currentWave = 0;
             _lastWaveTime = 0f;
+            _isStateActive = true;
             _actionStartTime = Time.time;
+
+            Debug.Log($"[BossAOE] ===== ENTER at {Time.time:F3} =====");
+
+            // ★ 关键：确保Boss可见和可碰撞（因为可能跳过了Dive状态）
+            EnsureBossVisible();
 
             // 设置无敌
             if (InvulnerableDuringAOE && _health != null)
             {
                 _health.DamageDisabled();
+            }
+
+            // 启用重力
+            if (_controller != null)
+            {
+                _controller.GravityActive(true);
             }
 
             // 播放AOE动画
@@ -114,10 +117,29 @@ namespace MoreMountains.CorgiEngine
             {
                 _animator.SetBool(_aoeAnimationHash, true);
             }
+        }
 
-            if (DebugMode)
+        /// <summary>
+        /// 确保Boss可见和可碰撞
+        /// </summary>
+        protected virtual void EnsureBossVisible()
+        {
+            if (_spriteRenderer != null && !_spriteRenderer.enabled)
             {
-                Debug.Log("[BossAOE] ENTER - Starting AOE charge up");
+                _spriteRenderer.enabled = true;
+                Debug.Log("[BossAOE] Enabled SpriteRenderer");
+            }
+
+            if (_boxCollider != null && !_boxCollider.enabled)
+            {
+                _boxCollider.enabled = true;
+                Debug.Log("[BossAOE] Enabled BoxCollider2D");
+            }
+
+            if (_damageOnTouch != null && !_damageOnTouch.enabled)
+            {
+                _damageOnTouch.enabled = true;
+                Debug.Log("[BossAOE] Enabled DamageOnTouch");
             }
         }
 
@@ -141,6 +163,8 @@ namespace MoreMountains.CorgiEngine
 
         public override void PerformAction()
         {
+            if (!_isStateActive) return;
+
             float elapsed = Time.time - _actionStartTime;
 
             // 蓄力阶段
@@ -152,17 +176,15 @@ namespace MoreMountains.CorgiEngine
             // 发射子弹
             if (!MultipleWaves)
             {
-                // 单波模式
                 if (!_hasFired)
                 {
                     FireProjectiles(0f);
                     _hasFired = true;
-                    if (DebugMode) Debug.Log("[BossAOE] Fired projectiles!");
+                    Debug.Log("[BossAOE] Fired projectiles!");
                 }
             }
             else
             {
-                // 多波模式
                 if (_currentWave < WaveCount)
                 {
                     if (_currentWave == 0 || (Time.time - _lastWaveTime >= WaveInterval))
@@ -171,8 +193,7 @@ namespace MoreMountains.CorgiEngine
                         FireProjectiles(angleOffset);
                         _currentWave++;
                         _lastWaveTime = Time.time;
-                        
-                        if (DebugMode) Debug.Log($"[BossAOE] Fired wave {_currentWave}/{WaveCount}");
+                        Debug.Log($"[BossAOE] Fired wave {_currentWave}/{WaveCount}");
                     }
                 }
                 else
@@ -191,15 +212,17 @@ namespace MoreMountains.CorgiEngine
             if (elapsed >= totalDuration && _hasFired)
             {
                 AOEComplete = true;
-                if (DebugMode) Debug.Log("[BossAOE] COMPLETE");
+                Debug.Log("[BossAOE] COMPLETE");
             }
         }
 
         protected virtual void FireProjectiles(float angleOffset)
         {
+            if (!_isStateActive) return;
+
             if (ProjectilePrefab == null)
             {
-                if (DebugMode) Debug.LogWarning("[BossAOE] No projectile prefab assigned!");
+                Debug.LogWarning("[BossAOE] No projectile prefab!");
                 return;
             }
 
@@ -210,25 +233,17 @@ namespace MoreMountains.CorgiEngine
             {
                 float angle = (i * angleStep + angleOffset) * Mathf.Deg2Rad;
                 Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-
-                // 计算生成位置
                 Vector3 spawnPos = spawnCenter + (Vector3)(direction * SpawnRadius);
-
-                // 设置旋转（让子弹朝向飞行方向）
                 float rotAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 Quaternion rotation = Quaternion.Euler(0f, 0f, rotAngle);
 
-                // 创建子弹
                 GameObject projectile = Instantiate(ProjectilePrefab, spawnPos, rotation);
-
-                // 设置子弹方向和速度
                 SetupProjectile(projectile, direction);
             }
         }
 
         protected virtual void SetupProjectile(GameObject projectile, Vector2 direction)
         {
-            // 尝试获取Projectile组件（Corgi Engine的）
             Projectile proj = projectile.GetComponent<Projectile>();
             if (proj != null)
             {
@@ -237,14 +252,12 @@ namespace MoreMountains.CorgiEngine
                 return;
             }
 
-            // 如果没有Projectile组件，尝试用Rigidbody2D
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 rb.linearVelocity = direction * ProjectileSpeed;
             }
 
-            // 尝试设置伤害
             DamageOnTouch dot = projectile.GetComponent<DamageOnTouch>();
             if (dot != null)
             {
@@ -253,17 +266,15 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        /// <summary>
-        /// 由Animation Event调用（可选）
-        /// </summary>
         public void OnAOEAnimationEvent()
         {
+            if (!_isStateActive) return;
+
             if (!_hasFired)
             {
                 FireProjectiles(0f);
                 _hasFired = true;
-                
-                if (DebugMode) Debug.Log("[BossAOE] Animation Event triggered - Fired!");
+                Debug.Log("[BossAOE] AnimationEvent triggered!");
             }
         }
 
@@ -271,25 +282,25 @@ namespace MoreMountains.CorgiEngine
         {
             base.OnExitState();
 
+            _isStateActive = false;
+
             // 取消无敌
             if (InvulnerableDuringAOE && _health != null)
             {
                 _health.DamageEnabled();
             }
 
-            if (DebugMode) Debug.Log("[BossAOE] EXIT - Invulnerability ended");
+            Debug.Log($"[BossAOE] ===== EXIT at {Time.time:F3} =====");
         }
 
         #if UNITY_EDITOR
         protected virtual void OnDrawGizmosSelected()
         {
-            // 显示子弹发射范围
             Vector3 center = transform.position + Vector3.up * SpawnHeightOffset;
             
             Gizmos.color = new Color(1f, 0.5f, 0f, 0.5f);
             Gizmos.DrawWireSphere(center, SpawnRadius);
 
-            // 显示子弹方向
             if (ProjectileCount > 0)
             {
                 Gizmos.color = Color.red;
