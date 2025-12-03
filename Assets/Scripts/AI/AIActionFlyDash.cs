@@ -25,8 +25,8 @@ namespace MoreMountains.CorgiEngine
         public bool RecordOriginOnDash = true;
 
         [Header("Feedbacks")]
-        [Tooltip("冲刺开始时的反馈（音效、特效等）")]
-        public MMFeedbacks DashFeedback;
+        [Tooltip("冲刺开始时的反馈（音效、特效等）- 支持MMF_Player")]
+        public MMF_Player DashFeedback;
         
         [Header("Afterimage Effect")]
         [Tooltip("残影效果组件（留空则自动查找）")]
