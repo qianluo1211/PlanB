@@ -8108,7 +8108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.001038, y: 6}
+  m_AnchoredPosition: {x: -8.000977, y: 6}
   m_SizeDelta: {x: 0, y: 99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222520545806633872
@@ -8434,7 +8434,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 23.24, y: 3.3}
-  m_SizeDelta: {x: 36.6, y: 19.1}
+  m_SizeDelta: {x: 37.8, y: 19.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1770107945925350
 GameObject:
@@ -11945,6 +11945,17 @@ MonoBehaviour:
   SkillIcon: {fileID: 5553089426198271892}
   DimIconWhenInsufficient: 1
   DimmedIconAlpha: 0.4
+  EnableFullChargeEffect: 1
+  FullChargeIconColor: {r: 1, g: 0.85, b: 0.3, a: 1}
+  FullChargeSegmentColor: {r: 0.2295596, g: 0.801887, b: 1, a: 1}
+  EnablePulseScale: 1
+  PulseScaleMin: 1
+  PulseScaleMax: 1.15
+  PulseSpeed: 3
+  EnableAlphaFlicker: 1
+  FlickerAlphaMin: 0.7
+  FlickerAlphaMax: 1
+  FlickerSpeed: 5
   IconContainer: {fileID: 0}
   ChargeIconPrefab: {fileID: 0}
   ChargedColor: {r: 0, g: 1, b: 1, a: 1}
@@ -11963,6 +11974,7 @@ MonoBehaviour:
   DebugMode: 0
   CurrentDisplayCharges: 0
   CurrentActiveSegments: 0
+  IsFullyCharged: 0
 --- !u!1 &3545054037730728738
 GameObject:
   m_ObjectHideFlags: 0
@@ -12069,7 +12081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000006198883, y: 2.5}
+  m_AnchoredPosition: {x: -0.000005722046, y: 2.5}
   m_SizeDelta: {x: 4.09, y: 3.8488}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7553308585899607974
@@ -12433,7 +12445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.24000001, y: 2.58}
+  m_AnchoredPosition: {x: -0.23999977, y: 2.58}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &787923031624131938

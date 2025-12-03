@@ -8,7 +8,7 @@ namespace MoreMountains.CorgiEngine
     /// <summary>
     /// 闪现充能UI显示
     /// 支持多段独立Image模式：每个充能对应一个独立的Image
-    /// 监听DashChargeChangedEvent自动更新显示
+    /// 充能满时有发光特效（颜色变化、脉冲缩放、透明度闪烁）
     /// </summary>
     [AddComponentMenu("Corgi Engine/GUI/Dash Charge UI")]
     public class DashChargeUI : MonoBehaviour, MMEventListener<DashChargeChangedEvent>
@@ -57,6 +57,42 @@ namespace MoreMountains.CorgiEngine
         [Range(0.2f, 1f)]
         public float DimmedIconAlpha = 0.4f;
 
+        [Header("=== 充能满特效设置 ===")]
+        [Tooltip("启用充能满特效")]
+        public bool EnableFullChargeEffect = true;
+        
+        [Tooltip("充能满时图标颜色")]
+        public Color FullChargeIconColor = new Color(1f, 0.85f, 0.3f, 1f); // 金色
+        
+        [Tooltip("充能满时充能条颜色")]
+        public Color FullChargeSegmentColor = new Color(1f, 0.9f, 0.5f, 1f); // 金色
+        
+        [Header("--- 脉冲缩放效果 ---")]
+        [Tooltip("启用脉冲缩放")]
+        public bool EnablePulseScale = true;
+        
+        [Tooltip("脉冲最小缩放")]
+        public float PulseScaleMin = 1.0f;
+        
+        [Tooltip("脉冲最大缩放")]
+        public float PulseScaleMax = 1.15f;
+        
+        [Tooltip("脉冲速度")]
+        public float PulseSpeed = 3f;
+        
+        [Header("--- 透明度闪烁效果 ---")]
+        [Tooltip("启用透明度闪烁")]
+        public bool EnableAlphaFlicker = true;
+        
+        [Tooltip("闪烁最小透明度")]
+        public float FlickerAlphaMin = 0.7f;
+        
+        [Tooltip("闪烁最大透明度")]
+        public float FlickerAlphaMax = 1.0f;
+        
+        [Tooltip("闪烁速度")]
+        public float FlickerSpeed = 5f;
+
         [Header("=== 图标模式设置 ===")]
         [Tooltip("充能图标容器")]
         public Transform IconContainer;
@@ -81,7 +117,7 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("填充条的最小高度（像素）")]
         public float FillMinHeight = 0f;
 
-        [Header("=== 动画设置 ===")]
+        [Header("=== Animator动画设置 ===")]
         [Tooltip("充能变化时播放动画")]
         public Animator UIAnimator;
         
@@ -116,18 +152,35 @@ namespace MoreMountains.CorgiEngine
         
         [MMReadOnly]
         public int CurrentActiveSegments = 0;
+        
+        [MMReadOnly]
+        public bool IsFullyCharged = false;
 
         // 内部变量
         protected Image[] _chargeIcons;
         protected int _cachedMaxCharges = 0;
         protected RectTransform _fillRectTransform;
         protected int _calculatedChargesPerSegment = 1;
+        
+        // 特效相关
+        protected RectTransform _skillIconRect;
+        protected Vector3 _skillIconOriginalScale;
+        protected Color _skillIconOriginalColor;
+        protected float _effectTime = 0f;
 
         protected virtual void Awake()
         {
             if (ChargeFillImage != null)
             {
                 _fillRectTransform = ChargeFillImage.GetComponent<RectTransform>();
+            }
+            
+            // 缓存图标原始状态
+            if (SkillIcon != null)
+            {
+                _skillIconRect = SkillIcon.GetComponent<RectTransform>();
+                _skillIconOriginalScale = _skillIconRect != null ? _skillIconRect.localScale : Vector3.one;
+                _skillIconOriginalColor = SkillIcon.color;
             }
         }
 
@@ -153,6 +206,83 @@ namespace MoreMountains.CorgiEngine
             {
                 InitializeDisplay(3);
                 UpdateDisplay(0, 3, true);
+            }
+        }
+
+        protected virtual void Update()
+        {
+            // 更新充能满特效
+            if (EnableFullChargeEffect && IsFullyCharged)
+            {
+                UpdateFullChargeEffect();
+            }
+        }
+
+        protected virtual void UpdateFullChargeEffect()
+        {
+            _effectTime += Time.deltaTime;
+            
+            if (SkillIcon == null) return;
+            
+            // 脉冲缩放效果
+            if (EnablePulseScale && _skillIconRect != null)
+            {
+                float pulseValue = Mathf.Sin(_effectTime * PulseSpeed) * 0.5f + 0.5f; // 0-1
+                float scale = Mathf.Lerp(PulseScaleMin, PulseScaleMax, pulseValue);
+                _skillIconRect.localScale = _skillIconOriginalScale * scale;
+            }
+            
+            // 透明度闪烁 + 颜色变化
+            if (EnableAlphaFlicker)
+            {
+                float flickerValue = Mathf.Sin(_effectTime * FlickerSpeed) * 0.5f + 0.5f; // 0-1
+                float alpha = Mathf.Lerp(FlickerAlphaMin, FlickerAlphaMax, flickerValue);
+                
+                Color glowColor = FullChargeIconColor;
+                glowColor.a = alpha;
+                SkillIcon.color = glowColor;
+            }
+            else
+            {
+                // 只变颜色，不闪烁
+                SkillIcon.color = FullChargeIconColor;
+            }
+            
+            // 充能条也变色
+            if (ChargeSegmentImages != null)
+            {
+                for (int i = 0; i < ChargeSegmentImages.Length; i++)
+                {
+                    if (ChargeSegmentImages[i] != null && i < CurrentActiveSegments)
+                    {
+                        if (EnableAlphaFlicker)
+                        {
+                            float flickerValue = Mathf.Sin(_effectTime * FlickerSpeed) * 0.5f + 0.5f;
+                            float alpha = Mathf.Lerp(FlickerAlphaMin, FlickerAlphaMax, flickerValue);
+                            Color segmentColor = FullChargeSegmentColor;
+                            segmentColor.a = alpha;
+                            ChargeSegmentImages[i].color = segmentColor;
+                        }
+                        else
+                        {
+                            ChargeSegmentImages[i].color = FullChargeSegmentColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        protected virtual void ResetFullChargeEffect()
+        {
+            _effectTime = 0f;
+            
+            // 重置图标
+            if (SkillIcon != null)
+            {
+                if (_skillIconRect != null)
+                {
+                    _skillIconRect.localScale = _skillIconOriginalScale;
+                }
             }
         }
 
@@ -184,7 +314,16 @@ namespace MoreMountains.CorgiEngine
                 InitializeDisplay(chargeEvent.MaxCharges);
             }
             
+            // 检查是否从满变为不满
+            bool wasFullyCharged = IsFullyCharged;
+            
             UpdateDisplay(chargeEvent.CurrentCharges, chargeEvent.MaxCharges, false);
+            
+            // 如果刚从满变为不满，重置特效
+            if (wasFullyCharged && !IsFullyCharged)
+            {
+                ResetFullChargeEffect();
+            }
             
             // 播放动画
             if (UIAnimator != null)
@@ -208,6 +347,7 @@ namespace MoreMountains.CorgiEngine
             {
                 Debug.Log("[DashChargeUI] 充能更新: " + chargeEvent.CurrentCharges + "/" + chargeEvent.MaxCharges + 
                     " 激活段数: " + CurrentActiveSegments + "/" + GetSegmentCount() +
+                    " 充满: " + IsFullyCharged +
                     " (" + chargeEvent.ChangeType + ")");
             }
         }
@@ -267,6 +407,10 @@ namespace MoreMountains.CorgiEngine
         {
             CurrentDisplayCharges = current;
             
+            // 更新充满状态
+            bool canUseDash = TargetChargeManager != null ? TargetChargeManager.HasSufficientCharge : current > 0;
+            IsFullyCharged = canUseDash;
+            
             switch (Mode)
             {
                 case DisplayMode.MultipleImages:
@@ -286,9 +430,11 @@ namespace MoreMountains.CorgiEngine
                     break;
             }
             
-            // 检查是否有足够充能使用Dash
-            bool canUseDash = TargetChargeManager != null ? TargetChargeManager.HasSufficientCharge : current > 0;
-            UpdateSkillIconState(canUseDash);
+            // 更新图标状态（如果没有启用特效或者未充满）
+            if (!EnableFullChargeEffect || !IsFullyCharged)
+            {
+                UpdateSkillIconState(canUseDash);
+            }
         }
 
         /// <summary>
@@ -307,22 +453,23 @@ namespace MoreMountains.CorgiEngine
             activeSegments = Mathf.Clamp(activeSegments, 0, ChargeSegmentImages.Length);
             CurrentActiveSegments = activeSegments;
             
-            // 更新每段的显示状态
-            for (int i = 0; i < ChargeSegmentImages.Length; i++)
+            // 更新每段的显示状态（如果不是充满状态或没启用特效）
+            if (!EnableFullChargeEffect || !IsFullyCharged)
             {
-                if (ChargeSegmentImages[i] == null) continue;
-                
-                bool isActive = i < activeSegments;
-                
-                if (UseAlphaTransition)
+                for (int i = 0; i < ChargeSegmentImages.Length; i++)
                 {
-                    // 使用颜色/透明度切换
-                    ChargeSegmentImages[i].color = isActive ? SegmentActiveColor : SegmentInactiveColor;
-                }
-                else
-                {
-                    // 使用显示/隐藏
-                    ChargeSegmentImages[i].gameObject.SetActive(isActive);
+                    if (ChargeSegmentImages[i] == null) continue;
+                    
+                    bool isActive = i < activeSegments;
+                    
+                    if (UseAlphaTransition)
+                    {
+                        ChargeSegmentImages[i].color = isActive ? SegmentActiveColor : SegmentInactiveColor;
+                    }
+                    else
+                    {
+                        ChargeSegmentImages[i].gameObject.SetActive(isActive);
+                    }
                 }
             }
             
@@ -372,9 +519,15 @@ namespace MoreMountains.CorgiEngine
         {
             if (!DimIconWhenInsufficient || SkillIcon == null) return;
             
-            Color iconColor = SkillIcon.color;
+            Color iconColor = _skillIconOriginalColor;
             iconColor.a = canUseDash ? 1f : DimmedIconAlpha;
             SkillIcon.color = iconColor;
+            
+            // 重置缩放
+            if (_skillIconRect != null)
+            {
+                _skillIconRect.localScale = _skillIconOriginalScale;
+            }
         }
 
         protected virtual void UpdateTextDisplay(int current, int max)
@@ -393,28 +546,21 @@ namespace MoreMountains.CorgiEngine
             }
         }
 
-        [ContextMenu("Test: Show 1 Segment")]
-        public virtual void TestOneSegment()
-        {
-            UpdateMultipleImagesDisplay(1, 3);
-        }
-
-        [ContextMenu("Test: Show 2 Segments")]
-        public virtual void TestTwoSegments()
-        {
-            UpdateMultipleImagesDisplay(2, 3);
-        }
-
-        [ContextMenu("Test: Show Full")]
+        [ContextMenu("Test: Show Full (With Effect)")]
         public virtual void TestFullCharge()
         {
+            IsFullyCharged = true;
+            CurrentActiveSegments = GetSegmentCount();
             UpdateMultipleImagesDisplay(3, 3);
         }
 
         [ContextMenu("Test: Show Empty")]
         public virtual void TestEmpty()
         {
+            IsFullyCharged = false;
+            ResetFullChargeEffect();
             UpdateMultipleImagesDisplay(0, 3);
+            UpdateSkillIconState(false);
         }
     }
 }
