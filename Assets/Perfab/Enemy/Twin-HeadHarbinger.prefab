@@ -850,7 +850,7 @@ MonoBehaviour:
   ArrivalDistance: 0.5
   MaxDashDuration: 2
   RecordOriginOnDash: 1
-  DashFeedback: {fileID: 1987562747175839614}
+  DashFeedback: {fileID: 659084295796590755}
   AfterimageEffectComponent: {fileID: 9119118528443513882}
 --- !u!114 &5157106121785240816
 MonoBehaviour:
