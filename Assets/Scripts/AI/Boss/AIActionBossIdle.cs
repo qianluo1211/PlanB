@@ -7,39 +7,20 @@ namespace MoreMountains.CorgiEngine
     /// Boss待机行为 - 站在原地，面向玩家
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Boss Idle")]
-    public class AIActionBossIdle : AIAction
+    public class AIActionBossIdle : AIActionBossBase
     {
         [Header("设置")]
         public bool FaceTarget = true;
         public string IdleAnimationParameter = "Idle";
 
-        [Header("调试")]
-        public bool DebugMode = false;
+        protected override string ActionTag => "BossIdle";
 
-        protected Character _character;
-        protected Animator _animator;
         protected CharacterHorizontalMovement _horizontalMovement;
-        protected int _idleAnimationParameterHash;
 
-        protected string[] _allAnimationParameters = new string[] 
-        { 
-            "Idle", "Walking", "RangeAttack", "MeleeAttack", 
-            "AOE", "Jump", "Fall", "Land", "Dead" 
-        };
-
-        public override void Initialization()
+        protected override void CacheComponents()
         {
-            if (!ShouldInitialize) return;
-            base.Initialization();
-
-            _character = GetComponentInParent<Character>();
-            _animator = _character?.CharacterAnimator;
+            base.CacheComponents();
             _horizontalMovement = _character?.FindAbility<CharacterHorizontalMovement>();
-
-            if (!string.IsNullOrEmpty(IdleAnimationParameter))
-            {
-                _idleAnimationParameterHash = Animator.StringToHash(IdleAnimationParameter);
-            }
         }
 
         public override void OnEnterState()
@@ -47,36 +28,9 @@ namespace MoreMountains.CorgiEngine
             base.OnEnterState();
 
             _horizontalMovement?.SetHorizontalMove(0f);
+            SetAnimationParameter(IdleAnimationParameter);
 
-            // 重置所有动画参数，然后只设置Idle
-            ResetAllAnimationParameters();
-            if (_animator != null && _idleAnimationParameterHash != 0)
-            {
-                _animator.SetBool(_idleAnimationParameterHash, true);
-            }
-
-            if (DebugMode)
-            {
-                Debug.Log("[BossIdle] ENTER - Idle animation ON");
-            }
-        }
-
-        protected virtual void ResetAllAnimationParameters()
-        {
-            if (_animator == null) return;
-
-            foreach (string param in _allAnimationParameters)
-            {
-                int hash = Animator.StringToHash(param);
-                foreach (var p in _animator.parameters)
-                {
-                    if (p.nameHash == hash && p.type == AnimatorControllerParameterType.Bool)
-                    {
-                        _animator.SetBool(hash, false);
-                        break;
-                    }
-                }
-            }
+            LogEnter();
         }
 
         public override void PerformAction()
@@ -104,12 +58,7 @@ namespace MoreMountains.CorgiEngine
         public override void OnExitState()
         {
             base.OnExitState();
-            // 不要在这里重置动画参数，让下一个状态来处理
-
-            if (DebugMode)
-            {
-                Debug.Log("[BossIdle] EXIT");
-            }
+            LogExit();
         }
     }
 }

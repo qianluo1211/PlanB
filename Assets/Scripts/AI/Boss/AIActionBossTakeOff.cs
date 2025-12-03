@@ -4,10 +4,10 @@ using MoreMountains.Tools;
 namespace MoreMountains.CorgiEngine
 {
     /// <summary>
-    /// Boss起跳行为 - 修复：添加状态检查防止退出后继续执行
+    /// Boss起跳行为 - 被打中后跳起、震飞玩家、然后隐身
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Boss Take Off")]
-    public class AIActionBossTakeOff : AIAction
+    public class AIActionBossTakeOff : AIActionBossBase
     {
         [Header("起跳设置")]
         public float JumpAnimationDuration = 0.5f;
@@ -25,51 +25,15 @@ namespace MoreMountains.CorgiEngine
         [Header("无敌设置")]
         public bool InvulnerableDuringTakeOff = true;
 
-        [Header("调试")]
-        public bool DebugMode = false;
+        protected override string ActionTag => "BossTakeOff";
 
         public bool TakeOffComplete { get; protected set; }
 
-        protected Character _character;
-        protected CorgiController _controller;
-        protected Animator _animator;
-        protected Health _health;
-        protected SpriteRenderer _spriteRenderer;
-        protected DamageOnTouch _damageOnTouch;
-        protected BoxCollider2D _boxCollider;
-        protected int _jumpAnimationHash;
-        protected float _actionStartTime;
         protected bool _hasKnockedBack;
-        protected bool _isStateActive; // 关键：状态是否激活
 
-        protected string[] _allAnimationParameters = new string[] 
-        { 
-            "Idle", "Walking", "RangeAttack", "MeleeAttack", 
-            "AOE", "Jump", "Fall", "Land", "Dead" 
-        };
-
-        public override void Initialization()
+        protected override void CacheComponents()
         {
-            if (!ShouldInitialize) return;
-            base.Initialization();
-
-            _character = GetComponentInParent<Character>();
-            _controller = GetComponentInParent<CorgiController>();
-            _animator = _character?.CharacterAnimator;
-            _health = GetComponentInParent<Health>();
-            _spriteRenderer = GetComponentInParent<SpriteRenderer>();
-            _damageOnTouch = GetComponentInParent<DamageOnTouch>();
-            _boxCollider = GetComponentInParent<BoxCollider2D>();
-
-            if (_spriteRenderer == null && _character?.CharacterModel != null)
-            {
-                _spriteRenderer = _character.CharacterModel.GetComponent<SpriteRenderer>();
-            }
-
-            if (!string.IsNullOrEmpty(JumpAnimationParameter))
-            {
-                _jumpAnimationHash = Animator.StringToHash(JumpAnimationParameter);
-            }
+            base.CacheComponents();
 
             if (PlayerLayerMask == 0)
             {
@@ -83,15 +47,13 @@ namespace MoreMountains.CorgiEngine
 
             TakeOffComplete = false;
             _hasKnockedBack = false;
-            _isStateActive = true; // 标记状态激活
-            _actionStartTime = Time.time;
 
-            Debug.Log($"[BossTakeOff] ===== ENTER at {Time.time:F3} =====");
+            LogEnter();
 
             // 设置无敌
-            if (InvulnerableDuringTakeOff && _health != null)
+            if (InvulnerableDuringTakeOff)
             {
-                _health.DamageDisabled();
+                SetInvulnerable(true);
             }
 
             // 关闭重力
@@ -102,39 +64,12 @@ namespace MoreMountains.CorgiEngine
             }
 
             // 播放跳跃动画
-            ResetAllAnimationParameters();
-            if (_animator != null && _jumpAnimationHash != 0)
-            {
-                _animator.SetBool(_jumpAnimationHash, true);
-            }
-        }
-
-        protected virtual void ResetAllAnimationParameters()
-        {
-            if (_animator == null) return;
-
-            foreach (string param in _allAnimationParameters)
-            {
-                int hash = Animator.StringToHash(param);
-                foreach (var p in _animator.parameters)
-                {
-                    if (p.nameHash == hash && p.type == AnimatorControllerParameterType.Bool)
-                    {
-                        _animator.SetBool(hash, false);
-                        break;
-                    }
-                }
-            }
+            SetAnimationParameter(JumpAnimationParameter);
         }
 
         public override void PerformAction()
         {
-            // 关键检查：如果状态已退出，不执行任何操作
-            if (!_isStateActive)
-            {
-                Debug.LogWarning($"[BossTakeOff] PerformAction called but state not active! BLOCKING.");
-                return;
-            }
+            if (!CheckStateActive("PerformAction")) return;
 
             float elapsed = Time.time - _actionStartTime;
 
@@ -150,20 +85,16 @@ namespace MoreMountains.CorgiEngine
             {
                 SetBossVisible(false);
                 TakeOffComplete = true;
-                Debug.Log($"[BossTakeOff] ===== COMPLETE at {Time.time:F3} - NOW INVISIBLE =====");
+                LogDebug("NOW INVISIBLE");
+                LogComplete();
             }
         }
 
-protected virtual void PerformKnockback()
+        protected virtual void PerformKnockback()
         {
-            // 双重检查
-            if (!_isStateActive)
-            {
-                if (DebugMode) Debug.LogWarning($"[BossTakeOff] PerformKnockback blocked - state not active");
-                return;
-            }
+            if (!CheckStateActive("PerformKnockback")) return;
 
-            if (DebugMode) Debug.Log($"[BossTakeOff] Knockback at {Time.time:F3}");
+            LogDebug($"Knockback at {Time.time:F3}");
 
             int hitCount = KnockbackUtility.ApplyRadialKnockback(
                 transform.position,
@@ -174,35 +105,11 @@ protected virtual void PerformKnockback()
                 gameObject
             );
 
-            if (DebugMode) Debug.Log($"[BossTakeOff] Knockback hit {hitCount} targets");
-        }
-
-        protected virtual void SetBossVisible(bool visible)
-        {
-            if (_spriteRenderer != null)
-            {
-                _spriteRenderer.enabled = visible;
-            }
-
-            if (_damageOnTouch != null)
-            {
-                _damageOnTouch.enabled = visible;
-            }
-
-            if (_boxCollider != null)
-            {
-                _boxCollider.enabled = visible;
-            }
-
-            Debug.Log($"[BossTakeOff] SetBossVisible({visible})");
+            LogDebug($"Knockback hit {hitCount} targets");
         }
 
         public override void OnExitState()
         {
-            base.OnExitState();
-
-            // 关键：立即标记状态为非激活，阻止任何后续操作
-            _isStateActive = false;
             _hasKnockedBack = true; // 双重保险
 
             if (_controller != null)
@@ -210,7 +117,8 @@ protected virtual void PerformKnockback()
                 _controller.SetForce(Vector2.zero);
             }
 
-            Debug.Log($"[BossTakeOff] ===== EXIT at {Time.time:F3} - STATE DEACTIVATED =====");
+            base.OnExitState();
+            LogExit();
         }
 
         #if UNITY_EDITOR

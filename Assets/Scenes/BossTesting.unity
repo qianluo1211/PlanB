@@ -17037,6 +17037,16 @@ PrefabInstance:
       propertyPath: JumpAnimationDuration
       value: 1.02
       objectReference: {fileID: 0}
+    - target: {fileID: 7847356809782172046, guid: 3b08e1ac85b9e1447a1df2ef566ceade,
+        type: 3}
+      propertyPath: DamageDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847356809782172046, guid: 3b08e1ac85b9e1447a1df2ef566ceade,
+        type: 3}
+      propertyPath: UseAnimationEvents
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8019803681536605356, guid: 3b08e1ac85b9e1447a1df2ef566ceade,
         type: 3}
       propertyPath: States.Array.data[4].Transitions.array.Array.size

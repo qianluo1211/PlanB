@@ -4,10 +4,10 @@ using MoreMountains.Tools;
 namespace MoreMountains.CorgiEngine
 {
     /// <summary>
-    /// Boss近战攻击行为 - 修复：添加状态检查防止退出后继续造成伤害
+    /// Boss近战攻击行为
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Boss Melee Attack")]
-    public class AIActionBossMeleeAttack : AIAction
+    public class AIActionBossMeleeAttack : AIActionBossBase
     {
         [Header("攻击设置")]
         public float Damage = 20f;
@@ -25,36 +25,15 @@ namespace MoreMountains.CorgiEngine
         public Vector2 AttackOffset = new Vector2(1f, 0f);
         public Vector2 AttackSize = new Vector2(2f, 2f);
 
-        [Header("调试")]
-        public bool DebugMode = false;
-
-        protected Character _character;
-        protected Animator _animator;
-        protected int _meleeAnimationParameterHash;
-        protected float _attackStartTime;
-        protected bool _hasDoneDamage;
-        protected bool _isStateActive; // 关键：状态是否激活
-
-        protected string[] _allAnimationParameters = new string[] 
-        { 
-            "Idle", "Walking", "RangeAttack", "MeleeAttack", 
-            "AOE", "Jump", "Fall", "Land", "Dead" 
-        };
+        protected override string ActionTag => "BossMelee";
 
         public bool AttackComplete { get; protected set; }
 
-        public override void Initialization()
+        protected bool _hasDoneDamage;
+
+        protected override void CacheComponents()
         {
-            if (!ShouldInitialize) return;
-            base.Initialization();
-
-            _character = GetComponentInParent<Character>();
-            _animator = _character?.CharacterAnimator;
-
-            if (!string.IsNullOrEmpty(MeleeAnimationParameter))
-            {
-                _meleeAnimationParameterHash = Animator.StringToHash(MeleeAnimationParameter);
-            }
+            base.CacheComponents();
 
             if (TargetLayerMask == 0)
             {
@@ -68,45 +47,16 @@ namespace MoreMountains.CorgiEngine
 
             AttackComplete = false;
             _hasDoneDamage = false;
-            _isStateActive = true; // 标记状态激活
-            _attackStartTime = Time.time;
 
-            ResetAllAnimationParameters();
-            if (_animator != null && _meleeAnimationParameterHash != 0)
-            {
-                _animator.SetBool(_meleeAnimationParameterHash, true);
-            }
-
-            Debug.Log($"[BossMelee] ===== ENTER at {Time.time:F3} =====");
-        }
-
-        protected virtual void ResetAllAnimationParameters()
-        {
-            if (_animator == null) return;
-
-            foreach (string param in _allAnimationParameters)
-            {
-                int hash = Animator.StringToHash(param);
-                foreach (var p in _animator.parameters)
-                {
-                    if (p.nameHash == hash && p.type == AnimatorControllerParameterType.Bool)
-                    {
-                        _animator.SetBool(hash, false);
-                        break;
-                    }
-                }
-            }
+            SetAnimationParameter(MeleeAnimationParameter);
+            LogEnter();
         }
 
         public override void PerformAction()
         {
-            // 关键检查
-            if (!_isStateActive)
-            {
-                return;
-            }
+            if (!CheckStateActive()) return;
 
-            float elapsed = Time.time - _attackStartTime;
+            float elapsed = Time.time - _actionStartTime;
 
             // 如果不用Animation Event，用定时器造成伤害
             if (!UseAnimationEvents && !_hasDoneDamage && elapsed >= DamageDelay)
@@ -118,7 +68,7 @@ namespace MoreMountains.CorgiEngine
             if (elapsed >= AttackDuration)
             {
                 AttackComplete = true;
-                Debug.Log($"[BossMelee] COMPLETE at {Time.time:F3}");
+                LogComplete();
             }
         }
 
@@ -127,33 +77,22 @@ namespace MoreMountains.CorgiEngine
         /// </summary>
         public void OnMeleeAnimationEvent()
         {
-            // 关键检查：如果状态已退出，不执行
-            if (!_isStateActive)
-            {
-                Debug.LogWarning($"[BossMelee] AnimationEvent BLOCKED - state not active!");
-                return;
-            }
-
+            if (!CheckStateActive("AnimationEvent")) return;
             if (_hasDoneDamage) return;
 
-            Debug.Log($"[BossMelee] AnimationEvent triggered at {Time.time:F3}");
+            LogDebug("AnimationEvent triggered");
             PerformDamage();
             _hasDoneDamage = true;
         }
 
         protected virtual void PerformDamage()
         {
-            // 双重检查
-            if (!_isStateActive)
-            {
-                Debug.LogError($"[BossMelee] PerformDamage BLOCKED - state not active!");
-                return;
-            }
+            if (!CheckStateActive("PerformDamage")) return;
 
             float direction = _character.IsFacingRight ? 1f : -1f;
             Vector2 attackCenter = (Vector2)transform.position + new Vector2(AttackOffset.x * direction, AttackOffset.y);
 
-            Debug.Log($"[BossMelee] PerformDamage at {Time.time:F3}, center={attackCenter}");
+            LogDebug($"PerformDamage at center={attackCenter}");
 
             Vector2 knockbackDir = new Vector2(direction, 0f);
             int hitCount = KnockbackUtility.ApplyDirectionalKnockback(
@@ -168,27 +107,23 @@ namespace MoreMountains.CorgiEngine
 
             if (hitCount > 0)
             {
-                Debug.Log($"[BossMelee] HIT {hitCount} target(s)!");
+                LogDebug($"HIT {hitCount} target(s)!");
             }
         }
 
         public override void OnExitState()
         {
-            base.OnExitState();
-
-            // 关键：立即标记状态为非激活
-            _isStateActive = false;
             _hasDoneDamage = true; // 双重保险
-
-            Debug.Log($"[BossMelee] ===== EXIT at {Time.time:F3} - STATE DEACTIVATED =====");
+            base.OnExitState();
+            LogExit();
         }
 
         #if UNITY_EDITOR
         protected virtual void OnDrawGizmosSelected()
         {
-            float direction = Application.isPlaying && _character != null ? 
+            float direction = Application.isPlaying && _character != null ?
                 (_character.IsFacingRight ? 1f : -1f) : 1f;
-            
+
             Vector2 attackCenter = (Vector2)transform.position + new Vector2(AttackOffset.x * direction, AttackOffset.y);
 
             Gizmos.color = new Color(1f, 0f, 0f, 0.5f);

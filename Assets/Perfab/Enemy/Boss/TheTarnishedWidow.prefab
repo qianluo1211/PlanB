@@ -1003,9 +1003,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionBossIdle
   InitializationMode: 0
   Label: 
+  DebugMode: 0
   FaceTarget: 1
   IdleAnimationParameter: Idle
-  DebugMode: 0
 --- !u!114 &6664717798763588613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,13 +1020,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionBossRangedAttack
   InitializationMode: 0
   Label: 
+  DebugMode: 0
   TargetHandleWeaponAbility: {fileID: 0}
   AttackDuration: 1.5
   UseAnimationEvents: 1
   ShootDelay: 0.5
   AttackAnimationParameter: RangeAttack
   FaceTargetWhileAttacking: 1
-  DebugMode: 0
 --- !u!114 &8205585463152471899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1150,19 +1150,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionBossMeleeAttack
   InitializationMode: 0
   Label: 
+  DebugMode: 0
   Damage: 20
   KnockbackForce: {x: 80, y: 40}
   AttackRange: 2.5
   AttackDuration: 0.8
-  UseAnimationEvents: 1
-  DamageDelay: 0.3
+  UseAnimationEvents: 0
+  DamageDelay: 0.5
   MeleeAnimationParameter: MeleeAttack
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 512
   AttackOffset: {x: 2.44, y: -2.35}
   AttackSize: {x: 8.31, y: 3.23}
-  DebugMode: 0
 --- !u!114 &6556453518288175271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,9 +1191,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionBossTakeOff
   InitializationMode: 0
   Label: 
-  TakeOffHeight: 15
-  TakeOffSpeed: 15
-  TakeOffDelay: 0.3
+  DebugMode: 1
+  JumpAnimationDuration: 1.02
+  KnockbackDelay: 0.1
   KnockbackRadius: 8
   KnockbackForce: {x: 80, y: 40}
   KnockbackDamage: 10
@@ -1202,7 +1202,6 @@ MonoBehaviour:
     m_Bits: 512
   JumpAnimationParameter: Jump
   InvulnerableDuringTakeOff: 1
-  DebugMode: 1
 --- !u!114 &2539691872948013301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,9 +1230,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionBossDive
   InitializationMode: 0
   Label: 
+  DebugMode: 0
+  DiveHeight: 15
   DiveSpeed: 30
   DiveDelay: 0.2
-  MaxDiveDuration: 5
   ImpactRadius: 5
   ImpactDamage: 30
   ImpactKnockback: {x: 80, y: 40}
@@ -1244,7 +1244,6 @@ MonoBehaviour:
   LandAnimationParameter: Land
   LandingDuration: 0.5
   ImpactEffectPrefab: {fileID: 0}
-  DebugMode: 0
 --- !u!114 &66773933537726081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,16 +1286,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionBossAirTarget
   InitializationMode: 0
   Label: 
-  HoverDuration: 2
+  DebugMode: 1
+  TargetingDuration: 2
   TrackingDuration: 1.5
-  HoverAmplitude: 0.3
-  HoverFrequency: 2
-  TargetLinePrefab: {fileID: 0}
+  BeamHeight: 15
+  BeamWidth: 1
+  BeamPrefab: {fileID: 0}
   TrackingColor: {r: 1, g: 1, b: 0, a: 0.5}
   LockedColor: {r: 1, g: 0, b: 0, a: 0.8}
   LandingMarkerPrefab: {fileID: 0}
-  FallAnimationParameter: Fall
-  DebugMode: 1
+  MarkerSize: 2
 --- !u!114 &2800717409841447539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,6 +1310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionBossAOE
   InitializationMode: 0
   Label: 
+  DebugMode: 1
   ChargeUpDuration: 0.8
   EndDelay: 0.5
   ProjectilePrefab: {fileID: 100002, guid: c258010f6086ee84f947866c6818993c, type: 3}
@@ -1325,7 +1325,6 @@ MonoBehaviour:
   WaveAngleOffset: 15
   AOEAnimationParameter: AOE
   InvulnerableDuringAOE: 1
-  DebugMode: 1
 --- !u!114 &5571468184270668027
 MonoBehaviour:
   m_ObjectHideFlags: 0
