@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0cc5b1fa75e7c44b7d36c8daea6d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DirectionalKnockback
-  KnockbackForce: 12
+  KnockbackForce: 5
   AdditionalUpwardForce: 0
   ReverseDirection: 0
   SwingKnockbackMultiplier: 1.5

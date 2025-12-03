@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 114699836559751750}
   - component: {fileID: 114428571578131372}
   - component: {fileID: 114272055539470398}
+  - component: {fileID: 7006614492647502871}
   - component: {fileID: 114951390983676746}
   - component: {fileID: 114507468984271598}
   - component: {fileID: 114120594168282056}
@@ -350,6 +351,28 @@ MonoBehaviour:
   OnlyDamageMaster: 1
   KillOnMasterHealthDeath: 0
   TargetDamageResistanceProcessor: {fileID: 0}
+--- !u!114 &7006614492647502871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675362664273752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1508296b0904b1ba069c225eb6482a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.CorgiEngine::MoreMountains.CorgiEngine.AutoRespawn
+  RespawnOnPlayerRespawn: 1
+  RepositionToInitOnPlayerRespawn: 0
+  DisableOnKill: 1
+  DisableModelOnKill: 1
+  AutoRespawnDuration: 0
+  AutoRespawnAmount: 3
+  AutoRespawnRemainingAmount: 3
+  IgnoreCheckpointsAlwaysRespawn: 1
+  AssociatedCheckpoints: []
+  RespawnFeedback: {fileID: 0}
 --- !u!114 &114951390983676746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1622,7 +1645,7 @@ MonoBehaviour:
     - rid: 2
       type: {class: MMF_CorgiEngineFloatingText, ns: MoreMountains.CorgiEngine, asm: MoreMountains.CorgiEngine}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -854619406
         Label: Corgi Engine Floating Text
         OriginalLabel: Corgi Engine Floating Text
