@@ -1,10 +1,12 @@
 using UnityEngine;
 using MoreMountains.Tools;
+using MoreMountains.Feedbacks;
 
 namespace MoreMountains.CorgiEngine
 {
     /// <summary>
     /// 飞行冲刺攻击 - 进入状态时锁定目标位置，高速冲向该位置
+    /// 支持冲刺音效和残影效果
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Actions/AI Action Fly Dash")]
     public class AIActionFlyDash : AIAction
@@ -22,11 +24,20 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("记录起始位置用于返回")]
         public bool RecordOriginOnDash = true;
 
+        [Header("Feedbacks")]
+        [Tooltip("冲刺开始时的反馈（音效、特效等）")]
+        public MMFeedbacks DashFeedback;
+        
+        [Header("Afterimage Effect")]
+        [Tooltip("残影效果组件（留空则自动查找）")]
+        public AfterimageEffect AfterimageEffectComponent;
+
         protected CharacterFly _characterFly;
         protected Vector3 _dashTargetPosition;
         protected Vector3 _dashOriginPosition;
         protected float _dashStartTime;
         protected bool _dashComplete;
+        protected AfterimageEffect _afterimageEffect;
         
         public bool DashComplete => _dashComplete;
         public Vector3 DashOriginPosition => _dashOriginPosition;
@@ -36,6 +47,11 @@ namespace MoreMountains.CorgiEngine
             if (!ShouldInitialize) return;
             base.Initialization();
             _characterFly = this.gameObject.GetComponentInParent<Character>()?.FindAbility<CharacterFly>();
+            
+            // 初始化残影效果引用
+            _afterimageEffect = AfterimageEffectComponent;
+            if (_afterimageEffect == null)
+                _afterimageEffect = this.gameObject.GetComponentInParent<AfterimageEffect>();
         }
 
         public override void OnEnterState()
@@ -55,6 +71,12 @@ namespace MoreMountains.CorgiEngine
                 _dashTargetPosition = _brain.Target.position;
             else
                 _dashComplete = true;
+            
+            // 播放冲刺音效反馈
+            DashFeedback?.PlayFeedbacks(this.transform.position);
+            
+            // 开始残影效果
+            _afterimageEffect?.StartEffect();
         }
 
         public override void PerformAction()
@@ -94,6 +116,9 @@ namespace MoreMountains.CorgiEngine
         {
             base.OnExitState();
             StopMovement();
+            
+            // 停止残影效果
+            _afterimageEffect?.StopEffect();
         }
     }
 }
