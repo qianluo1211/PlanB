@@ -153,13 +153,8 @@ public class DirectionalKnockback : MonoBehaviour
         // 应用到摆荡系统
         bool applied = grapple.ApplyExternalImpulse(impulse, transform.position);
         
-        // 触发残影效果
-        if (applied && TriggerAfterimageOnSwingHit)
-        {
-            // 通过反射或直接调用触发残影（如果有暴露的方法）
-            // 这里我们设置一个标志让 CharacterGrapple 自己处理
-            grapple.ShowDebugInfo = true; // 临时开启调试
-        }
+        // 注：残影效果由 CharacterGrapple 内部处理
+            // 如果需要在击退时触发残影，可以在 CharacterGrapple 中添加相关逻辑
         
         if (ShowDebugInfo)
         {

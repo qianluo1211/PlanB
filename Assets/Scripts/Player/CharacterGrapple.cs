@@ -69,8 +69,7 @@ namespace MoreMountains.CorgiEngine
         [Tooltip("钩爪距离加速系数（根据与钩爪点的角度偏移增加初始摆荡速度）")]
         public float DistanceBoostFactor = 8f;
         
-        [Tooltip("地面检测距离")]
-        public float GroundCheckDistance = 0.3f;
+        
 
         [Header("=== 快速收缩（按住空格） ===")]
         
@@ -215,7 +214,7 @@ namespace MoreMountains.CorgiEngine
         protected bool _applyingExitMomentum;  // 是否正在应用飞出惯性
         
         // 缓存
-        protected CharacterRun _runAbility;
+        
         protected CharacterHorizontalMovement _horizontalMovement;
         protected CharacterJump _jumpAbility;
         protected CharacterHandleWeapon _handleWeaponAbility; // 缓存武器能力，用于在钩爪时禁用攻击
@@ -241,7 +240,7 @@ namespace MoreMountains.CorgiEngine
 protected override void Initialization()
         {
             base.Initialization();
-            _runAbility = _character?.FindAbility<CharacterRun>();
+            
             _jumpAbility = _character?.FindAbility<CharacterJump>();
             _horizontalMovement = _character?.FindAbility<CharacterHorizontalMovement>();
             _handleWeaponAbility = _character?.FindAbility<CharacterHandleWeapon>();
@@ -1120,20 +1119,6 @@ protected virtual void TriggerAfterimage()
         /// <param name="impulse">冲量向量（方向和大小）</param>
         /// <param name="impactPoint">碰撞点（可选，用于更精确的计算）</param>
         /// <returns>是否成功应用（只有在摆荡状态才会成功）</returns>
-/// <summary>
-        /// 外部施加冲量到摆荡系统（用于子弹击退等）
-        /// 将线性冲量转换为角速度变化，符合物理规律
-        /// </summary>
-        /// <param name="impulse">冲量向量（方向和大小）</param>
-        /// <param name="impactPoint">碰撞点（可选，用于更精确的计算）</param>
-        /// <returns>是否成功应用（只有在摆荡状态才会成功）</returns>
-/// <summary>
-        /// 外部施加冲量到摆荡系统（用于子弹击退等）
-        /// 将线性冲量转换为角速度变化，符合物理规律
-        /// </summary>
-        /// <param name="impulse">冲量向量（方向和大小）</param>
-        /// <param name="impactPoint">碰撞点（可选，用于更精确的计算）</param>
-        /// <returns>是否成功应用（只有在摆荡状态才会成功）</returns>
         public virtual bool ApplyExternalImpulse(Vector2 impulse, Vector2? impactPoint = null)
         {
             // 只有在摆荡状态才能应用冲量
@@ -1163,11 +1148,7 @@ protected virtual void TriggerAfterimage()
             return true;
         }
         
-        /// <summary>
-        /// 调试信息开关（Inspector中没有暴露，可以通过代码开启）
-        /// </summary>
-        [HideInInspector]
-        public bool ShowDebugInfo = false;
+        
 
 
         #endregion
@@ -1185,99 +1166,41 @@ protected virtual void Release()
             // 如果在拉向状态，计算向钩爪点的速度作为飞出速度
             if (_isPulling)
             {
-                // 重新启用碰撞
                 _controller.CollisionsOn();
                 
                 Vector2 toGrapple = (_grapplePoint - (Vector2)transform.position).normalized;
                 _exitVelocity = toGrapple * PullSpeed * ExitVelocityMultiplier;
                 
-                // 确保有一些向上的速度
                 if (_exitVelocity.y < MinUpwardBoost)
                 {
                     _exitVelocity.y = MinUpwardBoost;
                 }
                 
                 _isPulling = false;
-                
-                _isExiting = true;
-                _applyingExitMomentum = true;
-                _exitStartTime = Time.time;
-                
-                _controller.GravityActive(true);
-                _controller.SetForce(_exitVelocity);
-                
-                _movement.ChangeState(CharacterStates.MovementStates.Falling);
-                
-                // 脱钩时刷新跳跃次数
-                RefreshJumpsOnRelease();
-                
-                // 恢复方向键翻转
-                if (_horizontalMovement != null)
-                {
-                    _horizontalMovement.FlipCharacterToFaceDirection = true;
-                }
-                
-                // 恢复武器攻击
-                if (_handleWeaponAbility != null)
-                {
-                    _handleWeaponAbility.AbilityPermitted = true;
-                }
-                
-                if (AfterimageEffect != null)
-                {
-                    AfterimageEffect.StopEffect();
-                }
-                
-                CleanupVisuals();
-                ReleaseFeedback?.PlayFeedbacks(transform.position);
-                StopStartFeedbacks();
-                PlayAbilityStopFeedbacks();
-                return;
+            }
+            else if (_isSwinging)
+            {
+                _exitVelocity = CalculateExitVelocity();
+                _isSwinging = false;
+                _isQuickRetracting = false;
+                _angularVelocity = 0f;
+            }
+            else
+            {
+                return; // 不在任何钩爪状态
             }
             
-            if (!_isSwinging) return;
-            
-            // 计算并存储飞出速度
-            _exitVelocity = CalculateExitVelocity();
-            
-            _isSwinging = false;
-            _isQuickRetracting = false;
-            _angularVelocity = 0f;
-            
+            // 公共的飞出逻辑
             _isExiting = true;
             _applyingExitMomentum = true;
             _exitStartTime = Time.time;
             
             _controller.GravityActive(true);
             _controller.SetForce(_exitVelocity);
-            
             _movement.ChangeState(CharacterStates.MovementStates.Falling);
             
-            // 脱钩时刷新跳跃次数
             RefreshJumpsOnRelease();
-            
-            // 恢复方向键翻转
-            if (_horizontalMovement != null)
-            {
-                _horizontalMovement.FlipCharacterToFaceDirection = true;
-            }
-            
-            // 恢复武器攻击
-            if (_handleWeaponAbility != null)
-            {
-                _handleWeaponAbility.AbilityPermitted = true;
-            }
-            
-            if (AfterimageEffect != null)
-            {
-                AfterimageEffect.StopEffect();
-            }
-            
-            CleanupVisuals();
-            
-            ReleaseFeedback?.PlayFeedbacks(transform.position);
-            StopStartFeedbacks();
-            PlayAbilityStopFeedbacks();
+            RestoreNormalState();
         }
 
 protected virtual Vector2 CalculateExitVelocity()
@@ -1392,51 +1315,6 @@ protected virtual void UpdateRopeVisual()
         /// <summary>
         /// 生成手部特效
         /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
-/// <summary>
-        /// 生成手部特效
-        /// </summary>
         protected virtual void SpawnHandEffect()
         {
             if (GrappleHandPrefab == null) return;
@@ -1462,36 +1340,6 @@ protected virtual void UpdateRopeVisual()
         }
         
         /// <summary>
-        /// 更新手部特效位置和旋转
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转（跟着钩爪转）
-        /// </summary>
-/// <summary>
-        /// 更新手部特效旋转（跟着钩爪转）
-        /// </summary>
-/// <summary>
         /// 更新手部特效（跟着钩爪转，跟着玩家朝向翻转）
         /// </summary>
         protected virtual void UpdateHandEffect()
@@ -1552,7 +1400,6 @@ public virtual void ForceStop()
                 _isQuickRetracting = false;
                 _retractAccumulatedSpeed = 0f;
                 
-                // 确保碰撞被重新启用
                 _controller.CollisionsOn();
                 _controller.GravityActive(true);
                 _movement.ChangeState(CharacterStates.MovementStates.Falling);
@@ -1574,6 +1421,7 @@ public virtual void ForceStop()
                 _handleWeaponAbility.AbilityPermitted = true;
             }
             
+            // 停止残影
             if (AfterimageEffect != null)
             {
                 AfterimageEffect.StopEffect();
@@ -1681,5 +1529,35 @@ protected virtual void OnDrawGizmosSelected()
 
         
 #endregion
-    }
+    
+
+/// <summary>
+        /// 恢复正常状态（方向键翻转、武器攻击、残影等）
+        /// </summary>
+        protected virtual void RestoreNormalState()
+        {
+            // 恢复方向键翻转
+            if (_horizontalMovement != null)
+            {
+                _horizontalMovement.FlipCharacterToFaceDirection = true;
+            }
+            
+            // 恢复武器攻击
+            if (_handleWeaponAbility != null)
+            {
+                _handleWeaponAbility.AbilityPermitted = true;
+            }
+            
+            // 停止残影
+            if (AfterimageEffect != null)
+            {
+                AfterimageEffect.StopEffect();
+            }
+            
+            CleanupVisuals();
+            ReleaseFeedback?.PlayFeedbacks(transform.position);
+            StopStartFeedbacks();
+            PlayAbilityStopFeedbacks();
+        }
+}
 }
