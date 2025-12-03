@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114889255539485478}
   - component: {fileID: 4088905663826635403}
   - component: {fileID: 2634055439859951978}
+  - component: {fileID: 5697466235895522785}
   m_Layer: 13
   m_Name: Bloodbound Executor
   m_TagString: Untagged
@@ -571,7 +572,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  WalkSpeed: 6
+  WalkSpeed: 2
   ResetHorizontalSpeedBtn: 0
   MovementSpeedMultiplier: 1
   AbilityMovementSpeedMultiplier: 1
@@ -739,7 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  Radius: 4
+  Radius: 2.5
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayer:
     serializedVersion: 2
@@ -758,12 +759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionChargedMeleeAttack
   InitializationMode: 0
   Label: 
-  UseAnimationStateDetection: 0
-  AnimatorLayerIndex: 0
   UseWindupPhase: 1
   UseChargePhase: 1
-  UseChargeAnimationEvent: 0
-  ChargeDuration: 2
+  ChargeDuration: 1
   Damage: 15
   KnockbackForce: {x: 12, y: 4}
   AttackRadius: 1.5
@@ -771,20 +769,22 @@ MonoBehaviour:
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  DamageProgressPoint: 0.4
+  LungeOnCharge: 0
+  LungeOnAttack: 1
+  LungeSpeed: 15
+  LungeDuration: 0.2
+  LungeVerticalForce: 0
   WindupParameter: Windup
-  ChargingParameter: Charging
-  AttackParameter: MeleeAttack
-  WindupStateName: Bloodbound Executor_windup
-  ChargingStateName: Bloodbound Executor_charge
-  AttackStateName: Bloodbound Executor_melee
+  ChargingTrigger: ChargingTrigger
+  AttackTrigger: MeleeAttackTrigger
   FaceTargetOnEnter: 1
   RecoveryDuration: 0.2
   WindupFeedback: {fileID: 0}
   ChargeFeedback: {fileID: 0}
   AttackFeedback: {fileID: 0}
   HitFeedback: {fileID: 0}
-  DebugMode: 1
+  LungeFeedback: {fileID: 0}
+  DebugMode: 0
 --- !u!114 &2634055439859951978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,6 +799,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIDecisionChargedAttackComplete
   Label: 
   TargetAction: {fileID: 0}
+--- !u!114 &5697466235895522785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675362664273752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0b3705c41280a4f9a9562623fa68dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.EnemyDeathEffect
+  FragmentSprites:
+  - {fileID: 7795891429182837505, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -735900698750550826, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -1896008330849300374, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 3874229256915642602, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -666184932313816824, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -2861913755354776643, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 3484931389302243877, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -1688221662244187383, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 7914627418524228633, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 5393630486940417512, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -5598492704764782737, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 4851983610237694590, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  FragmentCountRange: {x: 25, y: 30}
+  ExplosionForce: 10
+  ExplosionForceVariance: 2
+  UpwardBias: 0.4
+  RotationSpeedRange: {x: -720, y: 720}
+  FragmentScaleRange: {x: 0.8, y: 1.2}
+  FragmentGravity: 20
+  BounceFactor: 0.3
+  GroundFriction: 5
+  GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  FragmentLifetime: 2
+  FadeOutDuration: 0.5
+  EnableParticleBurst: 1
+  ParticleSprites:
+  - {fileID: 1976164725789669434, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 3052228794878937645, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 858369625462837341, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -7523836057423649017, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 4912549234169622490, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -9147993640574399164, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  ParticleCount: 30
+  ParticleSizeRange: {x: 0.8, y: 1}
+  ParticleSpeed: 13
+  ParticleSpeedVariance: 2
+  ParticleLifetime: 1
+  ParticleGravity: 3
+  UseLastHitDirection: 1
+  HitDirectionWeight: 0.5
+  DeathFeedbacks: {fileID: 0}
+  PoolSize: 30
+  DebugMode: 0
 --- !u!1 &1731962913224454
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,8 +935,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1628607475
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 8260297408121778765, guid: a80d1d0098613014c918cec2a76267ad,
     type: 3}
@@ -927,7 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AnimationEventRelay
   TargetAction: {fileID: 0}
-  DebugMode: 1
+  DebugMode: 0
 --- !u!1 &1770607872053695735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1122,7 @@ MonoBehaviour:
   InScriptDrivenPause: 0
   FeedbacksList:
   - rid: 0
+  - rid: 4974008163702145025
   - rid: 1
   - rid: 2
   KeepPlayModeChanges: 0
@@ -1148,7 +1207,7 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 2259935668079098484}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: ba53f3bb21288c741bb5c20bc87fdf0c, type: 3}
+        Sfx: {fileID: 0}
         RandomSfx:
         - {fileID: 8300000, guid: ba53f3bb21288c741bb5c20bc87fdf0c, type: 3}
         - {fileID: 8300000, guid: ed59b411a3f348b44ad5a945b6ae0374, type: 3}
@@ -1413,6 +1472,135 @@ MonoBehaviour:
         Formatting: 
         DamageDirectionImpactsTextDirection: 1
         DamageDirectionMultiplier: 0.2
+    - rid: 4974008163702145025
+      type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: 945095562
+        Label: Sound
+        OriginalLabel: Sound
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 0
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: Automatic Shaker Setup
+        Owner: {fileID: 2259935668079098484}
+        DebugActive: 0
+        Sfx: {fileID: 0}
+        RandomSfx:
+        - {fileID: 8300000, guid: 98561d6f96f378844bb89448f63b1347, type: 3}
+        - {fileID: 8300000, guid: aba09b6b70ae72a42bbf47c01bc01d2d, type: 3}
+        - {fileID: 8300000, guid: f8fdd116952b00744bf1321ea3b5afaa, type: 3}
+        - {fileID: 8300000, guid: c43a48c628de7854a8867c384b6d2ddd, type: 3}
+        TestPlayButton:
+          ButtonText: Debug Play Sound
+        TestStopButton:
+          ButtonText: Debug Stop Sound
+        PlayMethod: 0
+        PoolSize: 10
+        UseLegacyEventsMode: 0
+        StopSoundOnFeedbackStop: 1
+        MinVolume: 1
+        MaxVolume: 1
+        MinPitch: 1
+        MaxPitch: 1
+        SfxAudioMixerGroup: {fileID: 0}
+        Priority: 128
+        PanStereo: 0
+        SpatialBlend: 0
+        DopplerLevel: 1
+        Spread: 0
+        RolloffMode: 0
+        MinDistance: 1
+        MaxDistance: 500
+        UseCustomRolloffCurve: 0
+        CustomRolloffCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        UseSpatialBlendCurve: 0
+        SpatialBlendCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        UseReverbZoneMixCurve: 0
+        ReverbZoneMixCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        UseSpreadCurve: 0
+        SpreadCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
 --- !u!1 &3562161712252043268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6535213554701265719
 Transform:
   m_ObjectHideFlags: 0

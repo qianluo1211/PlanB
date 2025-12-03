@@ -5,11 +5,6 @@ namespace MoreMountains.CorgiEngine
     /// <summary>
     /// Animation Event转发器 - 放在Animator所在的子物体上
     /// 将Animation Events转发给父物体上的AIActionChargedMeleeAttack组件
-    /// 
-    /// 使用方法：
-    /// 1. 把这个脚本挂到有Animator的子物体上
-    /// 2. 在动画中添加Animation Events，调用这个脚本的方法
-    /// 3. 事件会自动转发到父物体的AIActionChargedMeleeAttack
     /// </summary>
     [AddComponentMenu("Corgi Engine/Character/AI/Helpers/Animation Event Relay")]
     public class AnimationEventRelay : MonoBehaviour
@@ -34,7 +29,7 @@ namespace MoreMountains.CorgiEngine
                 
                 if (TargetAction == null && DebugMode)
                 {
-                    Debug.LogWarning($"[AnimationEventRelay] 未找到AIActionChargedMeleeAttack组件在 {gameObject.name} 的父物体上");
+                    Debug.LogWarning($"[AnimationEventRelay] 未找到AIActionChargedMeleeAttack组件");
                 }
             }
         }
@@ -42,7 +37,7 @@ namespace MoreMountains.CorgiEngine
         #region Animation Event Methods
 
         /// <summary>
-        /// Windup动画完成 - 在windup动画最后一帧添加此事件
+        /// Windup动画完成
         /// </summary>
         public virtual void OnWindupComplete()
         {
@@ -52,7 +47,7 @@ namespace MoreMountains.CorgiEngine
         }
 
         /// <summary>
-        /// Charge动画完成 - 在charge动画最后一帧添加此事件（可选）
+        /// Charge动画完成
         /// </summary>
         public virtual void OnChargeComplete()
         {
@@ -62,7 +57,7 @@ namespace MoreMountains.CorgiEngine
         }
 
         /// <summary>
-        /// 攻击命中 - 在攻击动画的命中帧添加此事件
+        /// 攻击命中
         /// </summary>
         public virtual void OnMeleeHit()
         {
@@ -72,13 +67,33 @@ namespace MoreMountains.CorgiEngine
         }
 
         /// <summary>
-        /// 攻击动画完成 - 在攻击动画最后一帧添加此事件
+        /// 攻击动画完成
         /// </summary>
         public virtual void OnAttackComplete()
         {
             EnsureTargetAction();
             if (DebugMode) Debug.Log("[AnimationEventRelay] → OnAttackComplete");
             TargetAction?.OnAttackComplete();
+        }
+
+        /// <summary>
+        /// 开始突进 - 用于精确控制突进时机
+        /// </summary>
+        public virtual void OnLungeStart()
+        {
+            EnsureTargetAction();
+            if (DebugMode) Debug.Log("[AnimationEventRelay] → OnLungeStart");
+            TargetAction?.OnLungeStart();
+        }
+
+        /// <summary>
+        /// 停止突进
+        /// </summary>
+        public virtual void OnLungeEnd()
+        {
+            EnsureTargetAction();
+            if (DebugMode) Debug.Log("[AnimationEventRelay] → OnLungeEnd");
+            TargetAction?.OnLungeEnd();
         }
 
         #endregion

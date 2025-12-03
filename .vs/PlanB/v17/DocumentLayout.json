@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Unity\\Project\\Plan B\\PlanB\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|d:\\unity\\project\\plan b\\planb\\assets\\scripts\\ai\\animationeventrelay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\animationeventrelay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|d:\\unity\\project\\plan b\\planb\\assets\\scripts\\combat\\directionalknockback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B64ED39B-77B2-704B-8EF8-858749E35B43}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\directionalknockback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -79,6 +83,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AnimationEventRelay.cs",
+              "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Scripts\\AI\\AnimationEventRelay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\AnimationEventRelay.cs",
+              "ToolTip": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Scripts\\AI\\AnimationEventRelay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AI\\AnimationEventRelay.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAADwv0AAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T00:48:39.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "DirectionalKnockback.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Scripts\\Combat\\DirectionalKnockback.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\DirectionalKnockback.cs",
@@ -91,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "VisualStudioIntegration.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Library\\PackageCache\\com.unity.ide.visualstudio@74aa435fc4bb\\Editor\\VisualStudioIntegration.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ide.visualstudio@74aa435fc4bb\\Editor\\VisualStudioIntegration.cs",
@@ -99,12 +116,11 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.ide.visualstudio@74aa435fc4bb\\Editor\\VisualStudioIntegration.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T22:44:46.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T22:44:46.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ManageGameObject.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Library\\PackageCache\\com.coplaydev.unity-mcp@e4356eb8a5b5\\Editor\\Tools\\ManageGameObject.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.coplaydev.unity-mcp@e4356eb8a5b5\\Editor\\Tools\\ManageGameObject.cs",
@@ -112,12 +128,11 @@
               "RelativeToolTip": "Library\\PackageCache\\com.coplaydev.unity-mcp@e4356eb8a5b5\\Editor\\Tools\\ManageGameObject.cs",
               "ViewState": "AgIAALoAAAAAAAAAAAAEwMYAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T00:26:00.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T00:26:00.448Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "readme.txt",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\readme.txt",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\readme.txt",
@@ -129,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "McpLog.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Library\\PackageCache\\com.coplaydev.unity-mcp@010a0b5bfc15\\Editor\\Helpers\\McpLog.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.coplaydev.unity-mcp@010a0b5bfc15\\Editor\\Helpers\\McpLog.cs",
@@ -140,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CharacterDashAim.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\CharacterDashAim.cs",
               "RelativeDocumentMoniker": "Assets\\Character\\Player\\Scripts\\CharacterDashAim.cs",
@@ -151,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CharacterAbilityInspector.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Editor\\Agents\\CharacterAbilities\\CharacterAbilityInspector.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Editor\\Agents\\CharacterAbilities\\CharacterAbilityInspector.cs",
@@ -163,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "MMF_PlayerEditorUITK.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\Editor\\Core\\UIToolkit\\MMF_PlayerEditorUITK.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\Editor\\Core\\UIToolkit\\MMF_PlayerEditorUITK.cs",
@@ -175,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MMF_Player.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\MMFeedbacks\\Core\\MMF_Player\\MMF_Player.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\ThirdParty\\MoreMountains\\MMFeedbacks\\MMFeedbacks\\Core\\MMF_Player\\MMF_Player.cs",
@@ -187,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "CharacterGrapple.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\CharacterGrapple.cs",
               "RelativeDocumentMoniker": "Assets\\Character\\Player\\Scripts\\CharacterGrapple.cs",
@@ -199,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "GrappleHookVisual.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\Character\\Player\\Scripts\\GrappleHookVisual.cs",
               "RelativeDocumentMoniker": "Assets\\Character\\Player\\Scripts\\GrappleHookVisual.cs",
@@ -211,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "WeaponAim.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\WeaponAim.cs",
@@ -223,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "MeleeWeapon.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\MeleeWeapon.cs",
@@ -235,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ComboWeapon.cs",
               "DocumentMoniker": "D:\\Unity\\Project\\Plan B\\PlanB\\Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\CorgiEngine\\Common\\Scripts\\Agents\\Weapons\\ComboWeapon.cs",
