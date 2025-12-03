@@ -261,6 +261,15 @@ namespace MoreMountains.CorgiEngine
         protected virtual bool IsPlayerInstigator(GameObject instigator)
         {
             if (instigator == null) return false;
+            
+            // 如果是Dash伤害，不计入充能
+            if (instigator.GetComponent<DashDamageMarker>() != null)
+            {
+                if (DebugMode)
+                    Debug.Log("[DashChargeManager] Dash击杀，不计入充能");
+                return false;
+            }
+            
             if (instigator == _playerGameObject) return true;
 
             DamageOnTouch damageOnTouch = instigator.GetComponent<DamageOnTouch>();
@@ -313,8 +322,6 @@ namespace MoreMountains.CorgiEngine
             if (_bossLayerMask == 0) return false;
             return ((1 << target.layer) & _bossLayerMask) != 0;
         }
-
-
 
         public override void ResetAbility()
         {

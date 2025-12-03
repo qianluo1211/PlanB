@@ -203,6 +203,9 @@ protected override void Initialization()
             _damageZone.transform.SetParent(transform);
             _damageZone.transform.localPosition = Vector3.zero;
             _damageZone.layer = gameObject.layer;
+            
+            // 添加标记，让DashChargeManager忽略Dash击杀
+            _damageZone.AddComponent<DashDamageMarker>();
 
             _damageCollider = _damageZone.AddComponent<BoxCollider2D>();
             _damageCollider.size = DamageBoxSize;
@@ -804,9 +807,6 @@ protected virtual void ExecuteDash()
             }
         }
 
-/// <summary>
-        /// 强制停止，但延迟恢复钩爪能力（防止取消时误触发钩爪）
-        /// </summary>
 /// <summary>
         /// 强制停止，但延迟恢复钩爪能力（防止取消时误触发钩爪）
         /// </summary>

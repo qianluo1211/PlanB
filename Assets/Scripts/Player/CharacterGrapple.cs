@@ -12,7 +12,7 @@ namespace MoreMountains.CorgiEngine
     [AddComponentMenu("Corgi Engine/Character/Abilities/Character Grapple")]
     public class CharacterGrapple : CharacterAbility
     {
-        public override string HelpBoxText() { return "钩爪摆荡能力。按住右键发射钩爪，命中后开始摆荡，Shift+方向键加速（有CD），松开飞出。"; }
+        public override string HelpBoxText() { return "钗爪摆荡能力。按住右键发射钩爪，命中后开始摆荡，方向键微调速度，Shift+方向键加速（有CD），松开飞出。"; }
 
         [Header("=== 钩爪设置 ===")]
         
@@ -47,6 +47,18 @@ namespace MoreMountains.CorgiEngine
         
         [Tooltip("加速冷却时间（秒）")]
         public float BoostCooldown = 0.4f;
+        
+        [Header("=== 方向微调 ===")]
+        
+        [Tooltip("启用单独按方向键微调摆荡")]
+        public bool EnableNudge = true;
+        
+        [Tooltip("微调力度（比加速小很多，用于精细控制）")]
+        public float NudgeForce = 2f;
+        
+        [Tooltip("微调最大角速度加成（每秒）")]
+        public float NudgeMaxAngularBoost = 1.5f;
+
         
         [Tooltip("最大角速度（弧度/秒）")]
         public float MaxAngularVelocity = 12f;
@@ -519,6 +531,7 @@ protected virtual Vector2? FindGrappleTarget(Vector2 aimDir)
             return bestHit.collider != null ? (Vector2?)bestHit.point : null;
         }
 
+
         protected Vector2 RotateVector(Vector2 v, float degrees)
         {
             float rad = degrees * Mathf.Deg2Rad;
@@ -862,7 +875,7 @@ protected virtual void ProcessSwing()
             // === 1. 重力 ===
             float gravityAccel = -(SwingGravity / _ropeLength) * Mathf.Sin(_currentAngle);
             
-            // === 2. 加速输入 ===
+            // === 2. 加速输入（Shift+方向键，有CD，力度大） ===
             bool shiftDown = _inputManager.RunButton.State.CurrentState == MMInput.ButtonStates.ButtonDown;
             bool canBoost = (Time.time - _lastBoostTime) >= BoostCooldown;
             
@@ -881,6 +894,19 @@ protected virtual void ProcessSwing()
                 _lastBoostTime = Time.time;
                 BoostFeedback?.PlayFeedbacks(transform.position);
                 TriggerAfterimage();
+            }
+            // === 2.1 方向键微调（不需要Shift，无CD，力度小） ===
+            else if (EnableNudge && Mathf.Abs(_horizontalInput) > 0.1f)
+            {
+                float nudgeDirection = Mathf.Sign(_horizontalInput);
+                float nudgeAccel = (NudgeForce / _ropeLength) * Time.deltaTime;
+                
+                // 限制微调带来的角速度增量
+                float maxNudgeThisFrame = NudgeMaxAngularBoost * Time.deltaTime;
+                nudgeAccel = Mathf.Min(nudgeAccel, maxNudgeThisFrame);
+                
+                // 应用微调（不会触发角色翻转，因为StartFiring已禁用FlipCharacterToFaceDirection）
+                _angularVelocity += nudgeDirection * nudgeAccel;
             }
             
             // === 2.5 快速收缩（按住空格） ===

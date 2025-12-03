@@ -5800,6 +5800,9 @@ MonoBehaviour:
   SwingGravity: 25
   BoostImpulse: 25
   BoostCooldown: 0.4
+  EnableNudge: 1
+  NudgeForce: 8
+  NudgeMaxAngularBoost: 2
   MaxAngularVelocity: 12
   SwingDamping: 0.3
   DistanceBoostFactor: 1.5
