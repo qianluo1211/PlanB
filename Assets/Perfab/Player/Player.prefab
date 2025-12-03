@@ -4919,6 +4919,7 @@ GameObject:
   - component: {fileID: 1206889361104690723}
   - component: {fileID: 3013575511643470395}
   - component: {fileID: 3985076755810905031}
+  - component: {fileID: 1588421788900998990}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -5835,6 +5836,7 @@ MonoBehaviour:
   MissFeedback: {fileID: 0}
   ReleaseFeedback: {fileID: 6281412472146612936}
   BoostFeedback: {fileID: 7750229657770069955}
+  ShowDebugInfo: 0
 --- !u!114 &1206889361104690723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5945,6 +5947,39 @@ MonoBehaviour:
   EffectOffset: {x: 0.82, y: 0, z: 0}
   EffectScale: 1.6
   WeaponNameFilter: ComboSword
+--- !u!114 &1588421788900998990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383539409296422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e254a15b0942fd439b96b4bfc57c2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.DashChargeManager
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  MaxCharges: 3
+  ChargesPerKill: 1
+  ChargesPerBossKill: 3
+  ChargesConsumedPerDash: 3
+  InitialCharges: 0
+  RequireChargeToUseDash: 1
+  KillCooldownPerEnemy: 2
+  BossLayerName: Boss
+  ChargeGainedFeedback: {fileID: 0}
+  ChargeFullFeedback: {fileID: 0}
+  ChargeConsumedFeedback: {fileID: 0}
+  ChargeInsufficientFeedback: {fileID: 0}
+  DebugMode: 0
+  CurrentCharges: 0
+  TotalKills: 0
 --- !u!1 &1693914667617252
 GameObject:
   m_ObjectHideFlags: 0

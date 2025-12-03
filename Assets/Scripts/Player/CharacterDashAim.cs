@@ -122,6 +122,23 @@ namespace MoreMountains.CorgiEngine
         public bool IsDashing => _currentPhase != DashPhaseEnum.None;
         public DashPhaseEnum CurrentPhase => _currentPhase;
 
+        // === 充能系统便利属性（供UI使用） ===
+        /// <summary>获取充能管理器引用</summary>
+        public DashChargeManager ChargeManager => _chargeManager;
+        
+        /// <summary>当前充能数量</summary>
+        public int CurrentCharges => _chargeManager != null ? _chargeManager.Charges : 0;
+        
+        /// <summary>最大充能数量</summary>
+        public int MaxCharges => _chargeManager != null ? _chargeManager.MaxCharges : 0;
+        
+        /// <summary>是否有足够充能使用Dash</summary>
+        public bool HasSufficientCharge => _chargeManager == null || _chargeManager.HasSufficientCharge;
+        
+        /// <summary>充能百分比 (0-1)</summary>
+        public float ChargePercentage => _chargeManager != null ? _chargeManager.ChargePercentage : 1f;
+
+
         protected bool _isAiming;
         protected DashPhaseEnum _currentPhase = DashPhaseEnum.None;
         protected float _savedTimeScale = 1f;
@@ -161,8 +178,10 @@ namespace MoreMountains.CorgiEngine
         protected CharacterJump _jump;
         protected CharacterHorizontalMovement _horizontalMovement;
         protected CharacterGrapple _grapple;
+        protected DashChargeManager _chargeManager;
 
-        protected override void Initialization()
+
+protected override void Initialization()
         {
             base.Initialization();
             CreateLineMaterial();
@@ -175,6 +194,7 @@ namespace MoreMountains.CorgiEngine
             _jump = _character?.FindAbility<CharacterJump>();
             _horizontalMovement = _character?.FindAbility<CharacterHorizontalMovement>();
             _grapple = _character?.FindAbility<CharacterGrapple>();
+            _chargeManager = _character?.FindAbility<DashChargeManager>();
         }
 
         protected virtual void CreateDamageZone()
@@ -389,12 +409,19 @@ protected virtual void HandleAimingInput()
             AimStartFeedback?.PlayFeedbacks(transform.position);
         }
 
-        protected virtual bool CanStartDash()
+protected virtual bool CanStartDash()
         {
             if (!AbilityAuthorized) return false;
             if (_condition.CurrentState != CharacterStates.CharacterConditions.Normal) return false;
             if (_movement.CurrentState == CharacterStates.MovementStates.Dashing) return false;
             if (Time.unscaledTime < _cooldownTimeStampUnscaled) return false;
+            
+            // 检查充能系统
+            if (_chargeManager != null && !_chargeManager.CanUseDash())
+            {
+                return false;
+            }
+            
             return true;
         }
 
@@ -467,13 +494,21 @@ protected virtual void HandleAimingInput()
             if (_endPointRenderer != null) _endPointRenderer.enabled = false;
         }
 
-        protected virtual void ExecuteDash()
+protected virtual void ExecuteDash()
         {
             if (!_isAiming) return;
 
             _isAiming = false;
             Time.timeScale = _savedTimeScale;
             HideAimVisuals();
+
+            // 消耗充能
+            if (_chargeManager != null && !_chargeManager.TryConsumeCharges())
+            {
+                // 充能不足，取消Dash
+                EnableOtherAbilities();
+                return;
+            }
 
             _dashDirection = GetAimDirection();
             StartFirstDash();
