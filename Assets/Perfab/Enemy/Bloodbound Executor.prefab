@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 114845530194186574}
   - component: {fileID: 114731370652115202}
   - component: {fileID: 114205077369460010}
-  - component: {fileID: 114505998259787332}
   - component: {fileID: 114889255539485478}
-  - component: {fileID: 114568025754017870}
+  - component: {fileID: 4088905663826635403}
+  - component: {fileID: 2634055439859951978}
   m_Layer: 13
   m_Name: Bloodbound Executor
   m_TagString: Untagged
@@ -679,15 +679,15 @@ MonoBehaviour:
     Transitions:
       array:
       - Decision: {fileID: 114889255539485478}
-        TrueState: Shooting
+        TrueState: Attack
         FalseState: 
-  - StateName: Shooting
+  - StateName: Attack
     Actions:
       array:
-      - {fileID: 114505998259787332}
+      - {fileID: 4088905663826635403}
     Transitions:
       array:
-      - Decision: {fileID: 114568025754017870}
+      - Decision: {fileID: 2634055439859951978}
         TrueState: Patrol
         FalseState: 
   TimeInThisState: 0
@@ -726,24 +726,6 @@ MonoBehaviour:
   ObstaclesDetectionRaycastLength: 0.5
   ObstaclesDetectionRaycastOrigin: {x: 0.5, y: 0}
   ResetPositionOnDeath: 1
---- !u!114 &114505998259787332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675362664273752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0a72b251368a642af6e8b62c666ba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationMode: 0
-  Label: 
-  FaceTarget: 1
-  AimAtTarget: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
-  TargetHandleWeapon: {fileID: 0}
 --- !u!114 &114889255539485478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,7 +744,7 @@ MonoBehaviour:
   TargetLayer:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &114568025754017870
+--- !u!114 &4088905663826635403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -771,12 +753,52 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675362664273752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b7939ffd2f5df4e8efb5fa83e99637, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b10f422e1b46814c9dcdc1f03dbf486, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionChargedMeleeAttack
+  InitializationMode: 0
   Label: 
-  AfterTimeMin: 2
-  AfterTimeMax: 2
+  UseAnimationStateDetection: 0
+  AnimatorLayerIndex: 0
+  UseWindupPhase: 1
+  UseChargePhase: 1
+  UseChargeAnimationEvent: 0
+  ChargeDuration: 2
+  Damage: 15
+  KnockbackForce: {x: 12, y: 4}
+  AttackRadius: 1.5
+  AttackOffset: {x: 1, y: 0.5}
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  DamageProgressPoint: 0.4
+  WindupParameter: Windup
+  ChargingParameter: Charging
+  AttackParameter: MeleeAttack
+  WindupStateName: Bloodbound Executor_windup
+  ChargingStateName: Bloodbound Executor_charge
+  AttackStateName: Bloodbound Executor_melee
+  FaceTargetOnEnter: 1
+  RecoveryDuration: 0.2
+  WindupFeedback: {fileID: 0}
+  ChargeFeedback: {fileID: 0}
+  AttackFeedback: {fileID: 0}
+  HitFeedback: {fileID: 0}
+  DebugMode: 1
+--- !u!114 &2634055439859951978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675362664273752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95aea31ab3ee02458596ea9d82acbfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIDecisionChargedAttackComplete
+  Label: 
+  TargetAction: {fileID: 0}
 --- !u!1 &1731962913224454
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,8 +810,9 @@ GameObject:
   - component: {fileID: 4067910599448210}
   - component: {fileID: 212323502971736662}
   - component: {fileID: 95535927665812756}
+  - component: {fileID: 3948063597030739660}
   m_Layer: 0
-  m_Name: RetroSwordsmanModel
+  m_Name: Bloodbound ExecutorModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -804,7 +827,7 @@ Transform:
   m_GameObject: {fileID: 1731962913224454}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.22, z: 0}
+  m_LocalPosition: {x: 0, y: 0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -879,7 +902,7 @@ Animator:
   m_GameObject: {fileID: 1731962913224454}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b3eaff97eeb2602419b80562340b341a, type: 2}
+  m_Controller: {fileID: 9100000, guid: d06cd5da179418e4688fb3115bb05169, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -891,6 +914,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3948063597030739660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731962913224454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a3474a93340714e891b5860364e5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AnimationEventRelay
+  TargetAction: {fileID: 0}
+  DebugMode: 1
 --- !u!1 &1770607872053695735
 GameObject:
   m_ObjectHideFlags: 0
