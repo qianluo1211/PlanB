@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a0367b2701688b14ba1a79497b82207c
+guid: 98abd73090af14b448887ec79cfc488a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4865998376008122167
-    second: 20251203-113645_0
+      213: 5733749520164775359
+    second: 20251203-113711_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 20251203-113645_0
+      name: UI_Skill_ChargeFill3_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 97
-        height: 99
+        y: 63
+        width: 46
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 73f7797edbf778340800000000000000
-      internalID: 4865998376008122167
+      spriteID: 44ed1a99c56720d4c94de89aa9af75e3
+      internalID: -766350818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_ChargeFill3_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a5e090fd99fcd45a4a0b4797b6b4f9
+      internalID: -1698452200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_ChargeFill3_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82552c126aaf31645b5630d08e6ac68e
+      internalID: 1391615599
       vertices: []
       indices: 
       edges: []
@@ -125,7 +169,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8f268dec8041ea842bfa01d5c77e60cb
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +177,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":3.0},"gridSpriteSize":{"x":46.0,"y":31.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      20251203-113645_0: 4865998376008122167
+      UI_Skill_ChargeFill3_0: -766350818
+      UI_Skill_ChargeFill3_1: -1698452200
+      UI_Skill_ChargeFill3_2: 1391615599
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114314473485409824}
   - component: {fileID: 114381623677494288}
   - component: {fileID: 114199774843684276}
-  - component: {fileID: 114997824388176826}
   - component: {fileID: 574628908368857059}
   - component: {fileID: 114439143061775920}
   - component: {fileID: 114598756119060254}
@@ -851,24 +850,6 @@ MonoBehaviour:
   ObstaclesDetectionRaycastLength: 0.5
   ObstaclesDetectionRaycastOrigin: {x: 0.5, y: 0}
   ResetPositionOnDeath: 1
---- !u!114 &114997824388176826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495095744959786}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0a72b251368a642af6e8b62c666ba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationMode: 0
-  Label: 
-  FaceTarget: 1
-  AimAtTarget: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
-  TargetHandleWeapon: {fileID: 0}
 --- !u!114 &574628908368857059
 MonoBehaviour:
   m_ObjectHideFlags: 0
