@@ -135,22 +135,25 @@ MonoBehaviour:
   OnStay:
     m_PersistentCalls:
       m_Calls: []
-  KeyDisplayText: E
-  PromptSize: {x: 48, y: 48}
-  PromptOffset: {x: 0, y: 1.5, z: 0}
-  PromptBackgroundColor: {r: 0.12, g: 0.12, b: 0.18, a: 0.95}
-  PromptBorderColor: {r: 0.85, g: 0.85, b: 0.95, a: 1}
-  PromptTextColor: {r: 1, g: 1, b: 1, a: 1}
-  BorderWidth: 3
-  FontSize: 28
-  CustomPixelFont: {fileID: 0}
+  PromptPrefab: {fileID: 0}
+  PromptPosition: {x: 0, y: 1.5, z: 0}
+  KeyDisplayText: ' Space'
+  DisplayOnly: 1
+  AutoSizeWidth: 1
+  PromptHeight: 0.4
+  PromptWidth: 0.5
+  HorizontalPadding: 20
+  BackgroundColor: {r: 0.12, g: 0.12, b: 0.18, a: 0.95}
+  BorderColor: {r: 0.85, g: 0.85, b: 0.95, a: 1}
+  TextColor: {r: 1, g: 1, b: 1, a: 1}
+  BorderWidth: 6
+  FontSize: 128
+  CustomFont: {fileID: 0}
+  FadeInTime: 0.15
+  FadeOutTime: 0.1
   EnableBounce: 1
   BounceAmplitude: 0.08
   BounceSpeed: 3
   EnablePulse: 1
-  FadeInDuration: 0.15
-  FadeOutDuration: 0.1
   PulseSpeed: 2.5
-  OnInteracted:
-    m_PersistentCalls:
-      m_Calls: []
+  EnablePressEffect: 1
