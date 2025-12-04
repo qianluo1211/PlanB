@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{91324F3D-926D-A5D8-6208-B8E0987777A2}</ProjectGuid>
+    <ProjectGuid>{B25F2C9B-B1F7-CEE1-CFAC-C95702262A64}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>MoreMountains.CorgiEngine</AssemblyName>
@@ -1393,15 +1393,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{B295A408-2080-CB13-9818-CFFA08264676}</Project>
+      <Project>{847B4038-5D09-B917-A280-7BE62CF4E8E7}</Project>
       <Name>MoreMountains.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.InventoryEngine.csproj">
-      <Project>{FD847125-8FC2-5FE0-CC0C-467F5988F447}</Project>
+      <Project>{E4551EC4-3D11-A352-3A5C-36E01FC71EC4}</Project>
       <Name>MoreMountains.InventoryEngine</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Interface.csproj">
-      <Project>{AC02D201-9540-11A0-8053-C4D714AE27F5}</Project>
+      <Project>{C8C779CA-7429-EFC2-3012-9EDBA56864AB}</Project>
       <Name>MoreMountains.Interface</Name>
     </ProjectReference>
   </ItemGroup>

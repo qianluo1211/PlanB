@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B295A408-2080-CB13-9818-CFFA08264676}</ProjectGuid>
+    <ProjectGuid>{847B4038-5D09-B917-A280-7BE62CF4E8E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>MoreMountains.Tools</AssemblyName>
