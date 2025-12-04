@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{45D2CB30-20B9-2EB2-5FAB-D2D984280990}</ProjectGuid>
+    <ProjectGuid>{CCB73008-CC0E-D8DD-F8C2-460340196D09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>MoreMountains.CorgiEngine.Editor</AssemblyName>
@@ -1162,15 +1162,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MoreMountains.CorgiEngine.csproj">
-      <Project>{B25F2C9B-B1F7-CEE1-CFAC-C95702262A64}</Project>
+      <Project>{91324F3D-926D-A5D8-6208-B8E0987777A2}</Project>
       <Name>MoreMountains.CorgiEngine</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{847B4038-5D09-B917-A280-7BE62CF4E8E7}</Project>
+      <Project>{B295A408-2080-CB13-9818-CFFA08264676}</Project>
       <Name>MoreMountains.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
-      <Project>{024B18B7-BB9C-0150-6A29-D279D0FFF6BA}</Project>
+      <Project>{25FF7025-25F5-F5BA-6628-300765E833E6}</Project>
       <Name>MoreMountains.Tools.Editor</Name>
     </ProjectReference>
   </ItemGroup>

@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9CCE48FC-4546-4456-0C9B-28DAF002449C}</ProjectGuid>
+    <ProjectGuid>{E266D893-859B-54FE-E739-1B27A7F6964E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>MoreMountains.CorgiEngine.InputSystem</AssemblyName>
@@ -1088,11 +1088,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{847B4038-5D09-B917-A280-7BE62CF4E8E7}</Project>
+      <Project>{B295A408-2080-CB13-9818-CFFA08264676}</Project>
       <Name>MoreMountains.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.CorgiEngine.csproj">
-      <Project>{B25F2C9B-B1F7-CEE1-CFAC-C95702262A64}</Project>
+      <Project>{91324F3D-926D-A5D8-6208-B8E0987777A2}</Project>
       <Name>MoreMountains.CorgiEngine</Name>
     </ProjectReference>
   </ItemGroup>

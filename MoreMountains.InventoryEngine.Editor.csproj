@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7EC341F0-51F1-5187-3124-B0651413C4E7}</ProjectGuid>
+    <ProjectGuid>{E908DF80-FC1F-EBEA-B475-36E2126E9EF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>MoreMountains.InventoryEngine.Editor</AssemblyName>
@@ -1152,11 +1152,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MoreMountains.InventoryEngine.csproj">
-      <Project>{E4551EC4-3D11-A352-3A5C-36E01FC71EC4}</Project>
+      <Project>{FD847125-8FC2-5FE0-CC0C-467F5988F447}</Project>
       <Name>MoreMountains.InventoryEngine</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{847B4038-5D09-B917-A280-7BE62CF4E8E7}</Project>
+      <Project>{B295A408-2080-CB13-9818-CFFA08264676}</Project>
       <Name>MoreMountains.Tools</Name>
     </ProjectReference>
   </ItemGroup>
