@@ -1,0 +1,827 @@
+fileFormatVersion: 2
+guid: 0bab85c3d00ee144ebb2bc5c45072356
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3229046302207909450
+    second: E_Gluttonroot_RangeAttack_0
+  - first:
+      213: 5550857947996236976
+    second: E_Gluttonroot_RangeAttack_1
+  - first:
+      213: -2381296959075383020
+    second: E_Gluttonroot_RangeAttack_2
+  - first:
+      213: -7927965741051981177
+    second: E_Gluttonroot_RangeAttack_3
+  - first:
+      213: 832275843875994137
+    second: E_Gluttonroot_RangeAttack_4
+  - first:
+      213: -3071708514761679187
+    second: E_Gluttonroot_RangeAttack_5
+  - first:
+      213: 4461299673422932809
+    second: E_Gluttonroot_RangeAttack_6
+  - first:
+      213: -7656210728879117053
+    second: E_Gluttonroot_RangeAttack_7
+  - first:
+      213: -3588111655937983083
+    second: E_Gluttonroot_RangeAttack_8
+  - first:
+      213: 2777048281554301589
+    second: E_Gluttonroot_RangeAttack_9
+  - first:
+      213: 2294428253268207042
+    second: E_Gluttonroot_RangeAttack_10
+  - first:
+      213: -7673269225589954857
+    second: E_Gluttonroot_RangeAttack_11
+  - first:
+      213: -3834040824364745717
+    second: E_Gluttonroot_RangeAttack_12
+  - first:
+      213: 425090590007751218
+    second: E_Gluttonroot_RangeAttack_13
+  - first:
+      213: 4672648200158858323
+    second: E_Gluttonroot_RangeAttack_14
+  - first:
+      213: 5670844553323078973
+    second: E_Gluttonroot_RangeAttack_15
+  - first:
+      213: -3414212546281472154
+    second: E_Gluttonroot_RangeAttack_16
+  - first:
+      213: -2544384375824894732
+    second: E_Gluttonroot_RangeAttack_17
+  - first:
+      213: 2434524743512900686
+    second: E_Gluttonroot_RangeAttack_18
+  - first:
+      213: -7265617252507490986
+    second: E_Gluttonroot_RangeAttack_19
+  - first:
+      213: 2859482744679422356
+    second: E_Gluttonroot_RangeAttack_20
+  - first:
+      213: 2299866091289366639
+    second: E_Gluttonroot_RangeAttack_21
+  - first:
+      213: 1321514093805212215
+    second: E_Gluttonroot_RangeAttack_22
+  - first:
+      213: -3709583280887652986
+    second: E_Gluttonroot_RangeAttack_23
+  - first:
+      213: 7166212662971114999
+    second: E_Gluttonroot_RangeAttack_24
+  - first:
+      213: 603239847351875228
+    second: E_Gluttonroot_RangeAttack_25
+  - first:
+      213: -3392931457080361804
+    second: E_Gluttonroot_RangeAttack_26
+  - first:
+      213: 6972840828063003635
+    second: E_Gluttonroot_RangeAttack_27
+  - first:
+      213: 8382212533022638069
+    second: E_Gluttonroot_RangeAttack_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1eb911f7f1033d0800000000000000
+      internalID: -3229046302207909450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 512
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bc28fcd4eb980d40800000000000000
+      internalID: 5550857947996236976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 512
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4190899480fe3fed0800000000000000
+      internalID: -2381296959075383020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 512
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7825125a9253af190800000000000000
+      internalID: -7927965741051981177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 512
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91afd5d6876dc8b00800000000000000
+      internalID: 832275843875994137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 512
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae561461691f55d0800000000000000
+      internalID: -3071708514761679187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ba0fe7a68b9ed30800000000000000
+      internalID: 4461299673422932809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 384
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d20ab08ecafb590800000000000000
+      internalID: -7656210728879117053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_8
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 384
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59db065a577743ec0800000000000000
+      internalID: -3588111655937983083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_9
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 384
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 592372ad2be0a8620800000000000000
+      internalID: 2777048281554301589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_10
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 384
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c5eba6075277df10800000000000000
+      internalID: 2294428253268207042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_11
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 384
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d626c64b42138590800000000000000
+      internalID: -7673269225589954857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0cb4611f20cacac0800000000000000
+      internalID: -3834040824364745717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_13
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 256
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 232f5cea3a936e500800000000000000
+      internalID: 425090590007751218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_14
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 256
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35c46d208c498d040800000000000000
+      internalID: 4672648200158858323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_15
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 256
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35e7496313e2be40800000000000000
+      internalID: 5670844553323078973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_16
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 256
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66ff53747c74e90d0800000000000000
+      internalID: -3414212546281472154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_17
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 256
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f437e214e780bcd0800000000000000
+      internalID: -2544384375824894732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e444cf50b5b29c120800000000000000
+      internalID: 2434524743512900686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_19
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 128
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655675e8a975b2b90800000000000000
+      internalID: -7265617252507490986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_20
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 128
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499d9f5f76ceea720800000000000000
+      internalID: 2859482744679422356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_21
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 128
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f60d44a5604caef10800000000000000
+      internalID: 2299866091289366639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_22
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 128
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7329eee0116f65210800000000000000
+      internalID: 1321514093805212215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_23
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 128
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68d96f509a9e48cc0800000000000000
+      internalID: -3709583280887652986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f5ac41e270837360800000000000000
+      internalID: 7166212662971114999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_25
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96f4cfe1732f5800800000000000000
+      internalID: 603239847351875228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E_Gluttonroot_RangeAttack_26
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bcf979f0d2e9e0d0800000000000000
+      internalID: -3392931457080361804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 06ac2357ebe96f942bade442116bff57
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":5.0},"gridSpriteSize":{"x":300.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      E_Gluttonroot_RangeAttack_0: -3229046302207909450
+      E_Gluttonroot_RangeAttack_1: 5550857947996236976
+      E_Gluttonroot_RangeAttack_10: 2294428253268207042
+      E_Gluttonroot_RangeAttack_11: -7673269225589954857
+      E_Gluttonroot_RangeAttack_12: -3834040824364745717
+      E_Gluttonroot_RangeAttack_13: 425090590007751218
+      E_Gluttonroot_RangeAttack_14: 4672648200158858323
+      E_Gluttonroot_RangeAttack_15: 5670844553323078973
+      E_Gluttonroot_RangeAttack_16: -3414212546281472154
+      E_Gluttonroot_RangeAttack_17: -2544384375824894732
+      E_Gluttonroot_RangeAttack_18: 2434524743512900686
+      E_Gluttonroot_RangeAttack_19: -7265617252507490986
+      E_Gluttonroot_RangeAttack_2: -2381296959075383020
+      E_Gluttonroot_RangeAttack_20: 2859482744679422356
+      E_Gluttonroot_RangeAttack_21: 2299866091289366639
+      E_Gluttonroot_RangeAttack_22: 1321514093805212215
+      E_Gluttonroot_RangeAttack_23: -3709583280887652986
+      E_Gluttonroot_RangeAttack_24: 7166212662971114999
+      E_Gluttonroot_RangeAttack_25: 603239847351875228
+      E_Gluttonroot_RangeAttack_26: -3392931457080361804
+      E_Gluttonroot_RangeAttack_3: -7927965741051981177
+      E_Gluttonroot_RangeAttack_4: 832275843875994137
+      E_Gluttonroot_RangeAttack_5: -3071708514761679187
+      E_Gluttonroot_RangeAttack_6: 4461299673422932809
+      E_Gluttonroot_RangeAttack_7: -7656210728879117053
+      E_Gluttonroot_RangeAttack_8: -3588111655937983083
+      E_Gluttonroot_RangeAttack_9: 2777048281554301589
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
