@@ -5,7 +5,7 @@ namespace MoreMountains.CorgiEngine
 {
     /// <summary>
     /// 简单可靠的无限循环视差背景
-    /// 使用3个背景块：左、中、右，根据相机位置循环移动
+    /// 支持镜像翻转模式，让非循环贴图也能无缝衔接
     /// </summary>
     [AddComponentMenu("Corgi Engine/Camera/Infinite Parallax Element")]
     public class InfiniteParallaxElement : MonoBehaviour
@@ -19,8 +19,17 @@ namespace MoreMountains.CorgiEngine
         public bool MoveInOppositeDirection = true;
 
         [Header("Loop Settings")]
-        [Tooltip("背景宽度 - 必须手动设置！设为你的 Transform Scale X 值")]
+        [Tooltip("自动计算背景宽度（从 Renderer.bounds 获取）")]
+        public bool AutoCalculateWidth = true;
+        
+        [Tooltip("背景宽度 - 如果不自动计算，则手动设置")]
         public float BackgroundWidth = 200f;
+
+        [Tooltip("启用镜像模式 - 相邻背景块会X轴翻转，适用于非循环贴图")]
+        public bool UseMirrorMode = false;
+        
+        [Tooltip("微调间距 - 正数增加间距，负数减少间距（用于修复重叠或缝隙）")]
+        public float SpacingAdjustment = 0f;
 
         [Header("Debug")]
         public bool DebugMode = false;
@@ -30,12 +39,20 @@ namespace MoreMountains.CorgiEngine
         protected Transform _cameraTransform;
         protected Vector3 _previousCameraPosition;
         
-        // 3个背景块：左、中、右
-        protected Transform _leftSegment;
-        protected Transform _middleSegment;
-        protected Transform _rightSegment;
+        // 背景块数据
+        protected class SegmentData
+        {
+            public Transform transform;
+            public int index;
+            public bool isFlipped;
+        }
+        
+        protected SegmentData _leftSegment;
+        protected SegmentData _middleSegment;
+        protected SegmentData _rightSegment;
         
         protected bool _initialized = false;
+        protected float _actualWidth;
 
         protected virtual void Start()
         {
@@ -54,22 +71,76 @@ namespace MoreMountains.CorgiEngine
             _cameraTransform = _camera.transform;
             _previousCameraPosition = _cameraTransform.position;
 
-            // 自己是中间的
-            _middleSegment = transform;
+            // 计算实际宽度
+            _actualWidth = CalculateActualWidth() + SpacingAdjustment;
+
+            // 自己是中间的（索引0，不翻转）
+            _middleSegment = new SegmentData
+            {
+                transform = transform,
+                index = 0,
+                isFlipped = false
+            };
 
             // 创建左边和右边的克隆
-            _leftSegment = CreateClone("_Left", -BackgroundWidth);
-            _rightSegment = CreateClone("_Right", BackgroundWidth);
+            _leftSegment = CreateClone("_Left", -_actualWidth, -1);
+            _rightSegment = CreateClone("_Right", _actualWidth, 1);
+
+            // 应用初始翻转状态
+            if (UseMirrorMode)
+            {
+                ApplyFlip(_leftSegment);
+                ApplyFlip(_rightSegment);
+            }
 
             _initialized = true;
 
             if (DebugMode)
             {
-                Debug.Log($"[InfiniteParallax] Initialized with width={BackgroundWidth}");
+                Debug.Log($"[InfiniteParallax] Initialized: actualWidth={_actualWidth}, mirror={UseMirrorMode}");
             }
         }
 
-        protected virtual Transform CreateClone(string suffix, float offsetX)
+        protected virtual float CalculateActualWidth()
+        {
+            if (!AutoCalculateWidth)
+            {
+                return BackgroundWidth;
+            }
+
+            // 尝试从 MeshRenderer 获取精确宽度
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            if (meshRenderer != null)
+            {
+                float width = meshRenderer.bounds.size.x;
+                if (DebugMode)
+                {
+                    Debug.Log($"[InfiniteParallax] Got width from MeshRenderer.bounds: {width}");
+                }
+                return width;
+            }
+
+            // 尝试从 SpriteRenderer 获取
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                float width = spriteRenderer.bounds.size.x;
+                if (DebugMode)
+                {
+                    Debug.Log($"[InfiniteParallax] Got width from SpriteRenderer.bounds: {width}");
+                }
+                return width;
+            }
+
+            // 最后使用手动设置的值
+            if (DebugMode)
+            {
+                Debug.Log($"[InfiniteParallax] Using manual BackgroundWidth: {BackgroundWidth}");
+            }
+            return BackgroundWidth;
+        }
+
+        protected virtual SegmentData CreateClone(string suffix, float offsetX, int index)
         {
             GameObject clone = Instantiate(gameObject, transform.parent);
             clone.name = gameObject.name + suffix;
@@ -81,12 +152,38 @@ namespace MoreMountains.CorgiEngine
                 Destroy(cloneScript);
             }
 
-            // 设置位置
+            // 设置位置 - 精确对齐
             Vector3 pos = transform.position;
             pos.x += offsetX;
             clone.transform.position = pos;
 
-            return clone.transform;
+            if (DebugMode)
+            {
+                Debug.Log($"[InfiniteParallax] Created {suffix} at X={pos.x}");
+            }
+
+            return new SegmentData
+            {
+                transform = clone.transform,
+                index = index,
+                isFlipped = (index % 2 != 0)
+            };
+        }
+
+        protected virtual void ApplyFlip(SegmentData segment)
+        {
+            if (!UseMirrorMode) return;
+            
+            Vector3 scale = segment.transform.localScale;
+            if (segment.isFlipped)
+            {
+                scale.x = -Mathf.Abs(scale.x);
+            }
+            else
+            {
+                scale.x = Mathf.Abs(scale.x);
+            }
+            segment.transform.localScale = scale;
         }
 
         protected virtual void LateUpdate()
@@ -111,9 +208,9 @@ namespace MoreMountains.CorgiEngine
             
             Vector3 move = new Vector3(moveX, 0, 0);
             
-            _leftSegment.position += move;
-            _middleSegment.position += move;
-            _rightSegment.position += move;
+            _leftSegment.transform.position += move;
+            _middleSegment.transform.position += move;
+            _rightSegment.transform.position += move;
         }
 
         protected virtual void CheckLoop()
@@ -121,67 +218,70 @@ namespace MoreMountains.CorgiEngine
             float cameraX = _cameraTransform.position.x;
             
             // 获取三个背景块的X位置
-            float leftX = _leftSegment.position.x;
-            float middleX = _middleSegment.position.x;
-            float rightX = _rightSegment.position.x;
+            float leftX = _leftSegment.transform.position.x;
+            float middleX = _middleSegment.transform.position.x;
+            float rightX = _rightSegment.transform.position.x;
 
             // 找出最左和最右的
             float minX = Mathf.Min(leftX, middleX, rightX);
             float maxX = Mathf.Max(leftX, middleX, rightX);
 
-            Transform leftmost = GetSegmentAtX(minX);
-            Transform rightmost = GetSegmentAtX(maxX);
+            SegmentData leftmost = GetSegmentAtX(minX);
+            SegmentData rightmost = GetSegmentAtX(maxX);
 
-            // 如果相机超过了中间背景块太多，需要移动
-            // 当最左边的背景块右边缘离开相机视野时，移到最右边
+            // 相机边界
             float cameraHalfWidth = _camera.orthographicSize * _camera.aspect;
-            
-            // 相机左边界
-            float cameraLeft = cameraX - cameraHalfWidth - 50f; // 50是缓冲
-            // 相机右边界  
+            float cameraLeft = cameraX - cameraHalfWidth - 50f;
             float cameraRight = cameraX + cameraHalfWidth + 50f;
 
             // 最左背景块的右边缘
-            float leftmostRight = minX + BackgroundWidth / 2f;
+            float leftmostRight = minX + _actualWidth / 2f;
             // 最右背景块的左边缘
-            float rightmostLeft = maxX - BackgroundWidth / 2f;
+            float rightmostLeft = maxX - _actualWidth / 2f;
 
             // 如果最左边的完全出了左边界，移到最右边
             if (leftmostRight < cameraLeft)
             {
-                Vector3 newPos = leftmost.position;
-                newPos.x = maxX + BackgroundWidth;
-                leftmost.position = newPos;
+                Vector3 newPos = leftmost.transform.position;
+                newPos.x = maxX + _actualWidth;
+                leftmost.transform.position = newPos;
+                
+                // 更新索引和翻转状态
+                SegmentData rightmostCurrent = GetSegmentAtX(maxX);
+                leftmost.index = rightmostCurrent.index + 1;
+                leftmost.isFlipped = (leftmost.index % 2 != 0);
+                ApplyFlip(leftmost);
                 
                 if (DebugMode)
                 {
-                    Debug.Log($"[InfiniteParallax] Moved {leftmost.name} to right: X={newPos.x}");
+                    Debug.Log($"[InfiniteParallax] Moved to right: X={newPos.x}");
                 }
             }
             // 如果最右边的完全出了右边界，移到最左边
             else if (rightmostLeft > cameraRight)
             {
-                Vector3 newPos = rightmost.position;
-                newPos.x = minX - BackgroundWidth;
-                rightmost.position = newPos;
+                Vector3 newPos = rightmost.transform.position;
+                newPos.x = minX - _actualWidth;
+                rightmost.transform.position = newPos;
+                
+                // 更新索引和翻转状态
+                SegmentData leftmostCurrent = GetSegmentAtX(minX);
+                rightmost.index = leftmostCurrent.index - 1;
+                rightmost.isFlipped = (rightmost.index % 2 != 0);
+                ApplyFlip(rightmost);
                 
                 if (DebugMode)
                 {
-                    Debug.Log($"[InfiniteParallax] Moved {rightmost.name} to left: X={newPos.x}");
+                    Debug.Log($"[InfiniteParallax] Moved to left: X={newPos.x}");
                 }
             }
         }
 
-        protected Transform GetSegmentAtX(float x)
+        protected SegmentData GetSegmentAtX(float x)
         {
-            if (Mathf.Approximately(_leftSegment.position.x, x)) return _leftSegment;
-            if (Mathf.Approximately(_middleSegment.position.x, x)) return _middleSegment;
-            if (Mathf.Approximately(_rightSegment.position.x, x)) return _rightSegment;
-            
-            // 如果没有精确匹配，找最接近的
-            float distLeft = Mathf.Abs(_leftSegment.position.x - x);
-            float distMiddle = Mathf.Abs(_middleSegment.position.x - x);
-            float distRight = Mathf.Abs(_rightSegment.position.x - x);
+            float distLeft = Mathf.Abs(_leftSegment.transform.position.x - x);
+            float distMiddle = Mathf.Abs(_middleSegment.transform.position.x - x);
+            float distRight = Mathf.Abs(_rightSegment.transform.position.x - x);
             
             if (distLeft <= distMiddle && distLeft <= distRight) return _leftSegment;
             if (distMiddle <= distLeft && distMiddle <= distRight) return _middleSegment;
@@ -190,28 +290,40 @@ namespace MoreMountains.CorgiEngine
 
         protected virtual void OnDestroy()
         {
-            // 清理克隆体
-            if (_leftSegment != null && _leftSegment != transform)
+            if (_leftSegment != null && _leftSegment.transform != null && _leftSegment.transform != transform)
             {
-                Destroy(_leftSegment.gameObject);
+                Destroy(_leftSegment.transform.gameObject);
             }
-            if (_rightSegment != null && _rightSegment != transform)
+            if (_rightSegment != null && _rightSegment.transform != null && _rightSegment.transform != transform)
             {
-                Destroy(_rightSegment.gameObject);
+                Destroy(_rightSegment.transform.gameObject);
             }
         }
 
         protected virtual void OnDrawGizmosSelected()
         {
-            // 显示背景宽度
+            float width = BackgroundWidth;
+            
+            // 尝试获取实际宽度
+            if (AutoCalculateWidth)
+            {
+                MeshRenderer mr = GetComponent<MeshRenderer>();
+                if (mr != null)
+                {
+                    width = mr.bounds.size.x;
+                }
+            }
+            
+            // 显示当前背景块
             Gizmos.color = Color.green;
             Vector3 center = transform.position;
-            Gizmos.DrawWireCube(center, new Vector3(BackgroundWidth, 20f, 0.1f));
+            Gizmos.DrawWireCube(center, new Vector3(width, 20f, 0.1f));
             
             // 显示左右位置
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(center + Vector3.left * BackgroundWidth, new Vector3(BackgroundWidth, 20f, 0.1f));
-            Gizmos.DrawWireCube(center + Vector3.right * BackgroundWidth, new Vector3(BackgroundWidth, 20f, 0.1f));
+            Gizmos.DrawWireCube(center + Vector3.left * width, new Vector3(width, 20f, 0.1f));
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireCube(center + Vector3.right * width, new Vector3(width, 20f, 0.1f));
         }
     }
 }
