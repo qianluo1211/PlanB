@@ -65,8 +65,8 @@ Transform:
   m_GameObject: {fileID: 1583261349588306}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.6, z: 6}
-  m_LocalScale: {x: 96, y: 36, z: 1}
+  m_LocalPosition: {x: 0, y: 3.6, z: 6}
+  m_LocalScale: {x: 50.4, y: 30.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4050414308169072}
@@ -126,7 +126,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a35f97f97465b544b68ffae8e845c6d, type: 2}
+  - {fileID: 2100000, guid: f835b2e0975951348b9739feded1bbb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -265,7 +265,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8d40ccbe046b844093f9cea865f03ec, type: 2}
+  - {fileID: 2100000, guid: 5dfedc61fbd40ec48b600adc7abc1a95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -333,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4416848761969824
 Transform:
   m_ObjectHideFlags: 0
@@ -472,7 +472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4506637055287238
 Transform:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ Transform:
   m_GameObject: {fileID: 4157613798693340477}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.6000023, z: 7}
+  m_LocalPosition: {x: 0, y: 6.9, z: 7}
   m_LocalScale: {x: 96, y: 36, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -682,7 +682,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 38f3de2023036c041ba4f7fdae4a1379, type: 2}
+  - {fileID: 2100000, guid: fce2c1f7715e078418cbef97df7906f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
