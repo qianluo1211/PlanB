@@ -32,6 +32,8 @@ GameObject:
   - component: {fileID: 114977735660121484}
   - component: {fileID: 1827258316}
   - component: {fileID: 3025637935369622546}
+  - component: {fileID: 7092393775966867103}
+  - component: {fileID: 5897034459101686329}
   m_Layer: 13
   m_Name: Gluttonroot
   m_TagString: Untagged
@@ -680,7 +682,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  WalkSpeed: 6
+  WalkSpeed: 0
   ResetHorizontalSpeedBtn: 0
   MovementSpeedMultiplier: 1
   AbilityMovementSpeedMultiplier: 1
@@ -781,39 +783,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   States:
-  - StateName: Patrol
-    Actions:
-      array:
-      - {fileID: 114199774843684276}
-    Transitions:
-      array:
-      - Decision: {fileID: 114439143061775920}
-        TrueState: Aim
-        FalseState: 
-  - StateName: Aim
+  - StateName: Idle
     Actions:
       array:
       - {fileID: 114977735660121484}
     Transitions:
       array:
-      - Decision: {fileID: 114724008374391464}
-        TrueState: Shooting
+      - Decision: {fileID: 114439143061775920}
+        TrueState: RangedAttack
         FalseState: 
-  - StateName: Shooting
+  - StateName: RangedAttack
     Actions:
       array:
       - {fileID: 574628908368857059}
     Transitions:
       array:
       - Decision: {fileID: 114598756119060254}
-        TrueState: Patrol
+        TrueState: MeleeAttack
         FalseState: 
-      - Decision: {fileID: 1827258316}
-        TrueState: 
-        FalseState: Patrol
       - Decision: {fileID: 114439143061775920}
         TrueState: 
-        FalseState: Patrol
+        FalseState: Idle
+  - StateName: MeleeAttack
+    Actions:
+      array:
+      - {fileID: 7092393775966867103}
+    Transitions:
+      array:
+      - Decision: {fileID: 5897034459101686329}
+        TrueState: Idle
+        FalseState: 
   TimeInThisState: 0
   Target: {fileID: 0}
   _lastKnownTargetPosition: {x: 0, y: 0, z: 0}
@@ -864,14 +863,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIActionAimAndShoot
   InitializationMode: 0
   Label: 
-  UseAnimationEvent: 1
-  AimDuration: 3
+  UseAnimationEvent: 0
+  AimDuration: 1.5
   FaceTarget: 1
   TrackTargetWhileAiming: 1
   ShootDuration: 1
   EnableLoop: 1
   LoopCount: 0
-  UseLaser: 1
+  UseLaser: 0
   LerpLaserColor: 1
   FlashBeforeShoot: 1
   FlashStartProgress: 0.8
@@ -879,6 +878,8 @@ MonoBehaviour:
   UseAnimations: 1
   AimingParameter: Aiming
   ShootingParameter: Shooting
+  UseStopAimingAnimation: 1
+  StopAimingParameter: StopAiming
   TargetOffset: {x: 0, y: 0, z: 0}
   TargetHandleWeapon: {fileID: 0}
 --- !u!114 &114439143061775920
@@ -912,8 +913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  ComparisonMode: 4
-  Distance: 13
+  ComparisonMode: 1
+  Distance: 3.5
 --- !u!114 &114724008374391464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,18 +972,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.EnemyDeathEffect
   FragmentSprites:
-  - {fileID: 5607694828513892404, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: -5898614298293096393, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: -364273594223691844, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: 8673768896045080662, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: 5895617721281131720, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: 1105157549337420344, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: -3763660797422652139, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: 935960479361309700, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: 2613118316043327777, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: 456245589738474909, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: -6665395862288095090, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
-  - {fileID: -556530059714784637, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 6444547352810406906, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 3449751259757828189, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 1967623164665859860, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 3156965607926277190, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -8690905627421730356, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 1282585430015618212, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 2093480288963181764, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 393968458929128170, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 7073388544603030975, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: -4395644763352322876, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 4845512840455345529, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 3395413948536525636, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
   FragmentCountRange: {x: 25, y: 30}
   ExplosionForce: 10
   ExplosionForceVariance: 2
@@ -999,7 +1000,7 @@ MonoBehaviour:
   FadeOutDuration: 0.5
   EnableParticleBurst: 1
   ParticleSprites:
-  - {fileID: -8457823996151535985, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
+  - {fileID: 3148310208033783135, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
   - {fileID: 3148310208033783135, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
   - {fileID: 7795891429182837505, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
   - {fileID: -1896008330849300374, guid: 3d90ab3ac4e92dd479f867b3863bc932, type: 3}
@@ -1016,6 +1017,60 @@ MonoBehaviour:
   DeathFeedbacks: {fileID: 0}
   PoolSize: 30
   DebugMode: 0
+--- !u!114 &7092393775966867103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495095744959786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b10f422e1b46814c9dcdc1f03dbf486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIActionChargedMeleeAttack
+  InitializationMode: 0
+  Label: 
+  UseWindupPhase: 0
+  UseChargePhase: 0
+  ChargeDuration: 0.5
+  Damage: 15
+  KnockbackForce: {x: 10, y: 3}
+  AttackRadius: 2
+  AttackOffset: {x: 1.5, y: 0}
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  LungeOnCharge: 0
+  LungeOnAttack: 0
+  LungeSpeed: 15
+  LungeDuration: 0.2
+  LungeVerticalForce: 0
+  WindupParameter: Windup
+  ChargingTrigger: ChargingTrigger
+  AttackTrigger: MeleeAttackTrigger
+  FaceTargetOnEnter: 1
+  RecoveryDuration: 0.3
+  WindupFeedback: {fileID: 0}
+  ChargeFeedback: {fileID: 0}
+  AttackFeedback: {fileID: 0}
+  HitFeedback: {fileID: 0}
+  LungeFeedback: {fileID: 0}
+  DebugMode: 1
+--- !u!114 &5897034459101686329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495095744959786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95aea31ab3ee02458596ea9d82acbfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIDecisionChargedAttackComplete
+  Label: 
+  TargetAction: {fileID: 0}
 --- !u!1 &1243371878558474059
 GameObject:
   m_ObjectHideFlags: 0

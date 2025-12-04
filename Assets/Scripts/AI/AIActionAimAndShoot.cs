@@ -68,6 +68,12 @@ public class AIActionAimAndShoot : AIAction
     
     [Tooltip("射击动画参数名（Bool）")]
     public string ShootingParameter = "Shooting";
+    
+    [Tooltip("是否使用停止瞄准动画")]
+    public bool UseStopAimingAnimation = false;
+    
+    [Tooltip("停止瞄准动画参数名（Trigger）")]
+    public string StopAimingParameter = "StopAiming";
 
     [Header("Target Offset")]
     [Tooltip("瞄准目标的偏移量")]
@@ -94,6 +100,7 @@ public class AIActionAimAndShoot : AIAction
     // 动画参数哈希
     protected int _aimingParameterHash;
     protected int _shootingParameterHash;
+    protected int _stopAimingParameterHash;
 
     /// <summary>
     /// 初始化
@@ -115,6 +122,11 @@ public class AIActionAimAndShoot : AIAction
         {
             _aimingParameterHash = Animator.StringToHash(AimingParameter);
             _shootingParameterHash = Animator.StringToHash(ShootingParameter);
+            
+            if (UseStopAimingAnimation)
+            {
+                _stopAimingParameterHash = Animator.StringToHash(StopAimingParameter);
+            }
         }
     }
 
@@ -396,6 +408,12 @@ public class AIActionAimAndShoot : AIAction
         {
             _aimingLaser.DeactivateLaser();
             _aimingLaser.ClearTarget();
+        }
+
+        // 触发停止瞄准动画（Trigger）
+        if (UseAnimations && UseStopAimingAnimation && _animator != null)
+        {
+            _animator.SetTrigger(_stopAimingParameterHash);
         }
 
         // 关闭所有动画参数
