@@ -29,6 +29,11 @@ namespace MoreMountains.CorgiEngine
         [MMReadOnly] public int TotalKills = 0;
         [MMReadOnly] public float TotalHealthRecovered = 0f;
 
+        [Header("安全区")]
+        [MMReadOnly] public int SafeZoneCount = 0;
+        public bool IsInSafeZone => SafeZoneCount > 0;
+
+
         protected Health _health;
         protected Character _character;
         protected bool _initialized = false;
@@ -70,6 +75,8 @@ namespace MoreMountains.CorgiEngine
         protected virtual void Update()
         {
             if (!_initialized || !EnableHealthDrain) return;
+            if (IsInSafeZone) return;
+
             if (!IsAlive()) return;
             
             TimeSinceLastDrain += Time.deltaTime;
@@ -229,5 +236,34 @@ namespace MoreMountains.CorgiEngine
         public virtual void SetKillRecoveryEnabled(bool value) { EnableKillRecovery = value; }
         public virtual void SetDrainRate(float value) { HealthDrainPerSecond = value; RecalculateCachedValues(); }
         public virtual void SetKillRecoveryAmount(float value) { HealthRecoverOnKill = value; }
+
+        /// <summary>
+        /// 进入安全区时调用
+        /// </summary>
+        public virtual void EnterSafeZone()
+        {
+            SafeZoneCount++;
+            if (EnableDebugLog)
+                Debug.Log($"[SafeZone] 进入安全区, count={SafeZoneCount}");
+        }
+
+        /// <summary>
+        /// 离开安全区时调用
+        /// </summary>
+        public virtual void ExitSafeZone()
+        {
+            SafeZoneCount = Mathf.Max(0, SafeZoneCount - 1);
+            if (EnableDebugLog)
+                Debug.Log($"[SafeZone] 离开安全区, count={SafeZoneCount}");
+        }
+
+        /// <summary>
+        /// 重置安全区计数（用于重生等场景）
+        /// </summary>
+        public virtual void ResetSafeZoneCount()
+        {
+            SafeZoneCount = 0;
+        }
+
     }
 }

@@ -5728,7 +5728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.HealthDrainAndKillRecover
   EnableHealthDrain: 1
-  HealthDrainPerSecond: 2
+  HealthDrainPerSecond: 10
   DrainInterval: 1
   MinHealthPercentageToStopDrain: 0
   EnableKillRecovery: 1
@@ -5741,6 +5741,7 @@ MonoBehaviour:
   TimeSinceLastDrain: 0
   TotalKills: 0
   TotalHealthRecovered: 0
+  SafeZoneCount: 0
 --- !u!114 &3013575511643470395
 MonoBehaviour:
   m_ObjectHideFlags: 0

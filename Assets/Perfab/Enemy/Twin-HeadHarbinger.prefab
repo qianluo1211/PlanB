@@ -35,6 +35,7 @@ GameObject:
   - component: {fileID: 6908573622146857883}
   - component: {fileID: 5976069815459478418}
   - component: {fileID: 9119118528443513882}
+  - component: {fileID: 3949585135006476921}
   m_Layer: 13
   m_Name: Twin-HeadHarbinger
   m_TagString: Untagged
@@ -231,10 +232,10 @@ MonoBehaviour:
     m_Bits: 512
   ApplyDamageOnTriggerEnter: 1
   ApplyDamageOnTriggerStay: 1
-  MinDamageCaused: 10
-  MaxDamageCaused: 10
+  MinDamageCaused: 0.01
+  MaxDamageCaused: 0.01
   TypedDamages: []
-  DamageCausedKnockbackType: 1
+  DamageCausedKnockbackType: 0
   DamageCausedKnockbackDirection: 0
   DamageCausedKnockbackForce: {x: 10, y: 2}
   InvincibilityDuration: 0.5
@@ -1019,6 +1020,29 @@ MonoBehaviour:
   TintColor: {r: 0.8, g: 0.2, b: 0.2, a: 1}
   PoolSize: 15
   TargetRenderer: {fileID: 2746492010353037696}
+--- !u!114 &3949585135006476921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2746492010353037712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59acddc39a9241b48b081785a5bbed72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.TouchKnockback
+  KnockbackForceX: 14
+  KnockbackForceY: 6
+  KnockbackCooldown: 0.5
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  TriggerOnEnter: 1
+  TriggerOnStay: 1
+  SwingKnockbackMultiplier: 1.5
+  KnockbackFeedback: {fileID: 0}
+  DebugMode: 0
 --- !u!1 &4711806114445029928
 GameObject:
   m_ObjectHideFlags: 0

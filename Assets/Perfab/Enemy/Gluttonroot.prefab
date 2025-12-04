@@ -34,6 +34,7 @@ GameObject:
   - component: {fileID: 3025637935369622546}
   - component: {fileID: 7092393775966867103}
   - component: {fileID: 5897034459101686329}
+  - component: {fileID: 1708588884469251986}
   m_Layer: 13
   m_Name: Gluttonroot
   m_TagString: Untagged
@@ -229,10 +230,10 @@ MonoBehaviour:
     m_Bits: 512
   ApplyDamageOnTriggerEnter: 1
   ApplyDamageOnTriggerStay: 1
-  MinDamageCaused: 10
-  MaxDamageCaused: 10
+  MinDamageCaused: 0.01
+  MaxDamageCaused: 0.01
   TypedDamages: []
-  DamageCausedKnockbackType: 1
+  DamageCausedKnockbackType: 0
   DamageCausedKnockbackDirection: 0
   DamageCausedKnockbackForce: {x: 10, y: 2}
   InvincibilityDuration: 0.5
@@ -1034,7 +1035,7 @@ MonoBehaviour:
   UseWindupPhase: 0
   UseChargePhase: 0
   ChargeDuration: 0.5
-  Damage: 15
+  Damage: 0.01
   KnockbackForce: {x: 10, y: 3}
   AttackRadius: 2
   AttackOffset: {x: 1.5, y: 0}
@@ -1071,6 +1072,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.AIDecisionChargedAttackComplete
   Label: 
   TargetAction: {fileID: 0}
+--- !u!114 &1708588884469251986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495095744959786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59acddc39a9241b48b081785a5bbed72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoreMountains.CorgiEngine.TouchKnockback
+  KnockbackForceX: 10
+  KnockbackForceY: 4
+  KnockbackCooldown: 0.5
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  TriggerOnEnter: 1
+  TriggerOnStay: 1
+  SwingKnockbackMultiplier: 1.5
+  KnockbackFeedback: {fileID: 0}
+  DebugMode: 0
 --- !u!1 &1243371878558474059
 GameObject:
   m_ObjectHideFlags: 0
